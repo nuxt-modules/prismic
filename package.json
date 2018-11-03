@@ -22,5 +22,9 @@
     "eslint-plugin-import": "^2.14.0",
     "jasmine": "^3.3.0",
     "nyc": "^13.1.0"
+  },
+  "engines": {
+    "node": ">= 9.0.0",
+    "npm": ">= 6.0.0"
   }
 }
