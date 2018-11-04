@@ -1,7 +1,7 @@
 {
   "name": "prismic-nuxt",
   "version": "0.1.1",
-  "description": "",
+  "description": "Easily add Prismic to your next Nuxt project",
   "main": "src/index.js",
   "scripts": {
     "test": "npm run lint && npm run coverage",
@@ -9,9 +9,22 @@
     "unit": "jasmine",
     "lint": "eslint src"
   },
-  "keywords": [],
-  "author": "James Pegg",
+  "keywords": [
+    "prismic",
+    "nuxt",
+    "vue",
+    "cms"
+  ],
+  "author": "James Pegg <jamescpegg@gmail.com>",
   "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jamespegg/prismic-nuxt.git"
+  },
+  "bugs": {
+    "url": "https://github.com/jamespegg/prismic-nuxt/issues"
+  },
+  "homepage": "https://github.com/jamespegg/prismic-nuxt#readme",
   "dependencies": {
     "prismic-dom": "^2.1.0",
     "prismic-javascript": "^1.5.0"
