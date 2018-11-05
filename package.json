@@ -1,22 +1,43 @@
 {
   "name": "prismic-nuxt",
-  "version": "0.0.1",
-  "description": "",
+  "version": "0.1.2",
+  "description": "Easily add Prismic to your next Nuxt project",
   "main": "src/index.js",
-  "scripts": {},
-  "keywords": [],
-  "author": "James Pegg",
+  "scripts": {
+    "test": "npm run lint && npm run coverage",
+    "coverage": "nyc npm run unit",
+    "unit": "jasmine",
+    "lint": "eslint src"
+  },
+  "keywords": [
+    "prismic",
+    "nuxt",
+    "vue",
+    "cms"
+  ],
+  "author": "James Pegg <jamescpegg@gmail.com>",
   "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jamespegg/prismic-nuxt.git"
+  },
+  "bugs": {
+    "url": "https://github.com/jamespegg/prismic-nuxt/issues"
+  },
+  "homepage": "https://github.com/jamespegg/prismic-nuxt#readme",
   "dependencies": {
     "prismic-dom": "^2.1.0",
     "prismic-javascript": "^1.5.0"
   },
   "devDependencies": {
-    "babel-eslint": "^10.0.1",
     "eslint": "^5.8.0",
-    "eslint-config-prettier": "^3.1.0",
-    "eslint-plugin-lodash-template": "^0.11.0",
-    "eslint-plugin-prettier": "3.0.0",
-    "prettier": "^1.14.3"
+    "eslint-config-airbnb-base": "^13.1.0",
+    "eslint-plugin-import": "^2.14.0",
+    "jasmine": "^3.3.0",
+    "nyc": "^13.1.0"
+  },
+  "engines": {
+    "node": ">= 9.0.0",
+    "npm": ">= 6.0.0"
   }
 }

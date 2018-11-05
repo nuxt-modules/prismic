@@ -1,4 +1,4 @@
-# prismic-nuxt
+# prismic-nuxt [![Build Status](https://travis-ci.com/jamespegg/prismic-nuxt.svg?branch=master)](https://travis-ci.com/jamespegg/prismic-nuxt) [![Coverage Status](https://coveralls.io/repos/github/jamespegg/prismic-nuxt/badge.svg?branch=master)](https://coveralls.io/github/jamespegg/prismic-nuxt?branch=master) [![npm version](https://badge.fury.io/js/prismic-nuxt.svg)](https://badge.fury.io/js/prismic-nuxt)
 Easily add Prismic to your next Nuxt project with `prismic-nuxt`
 
 # Installation
