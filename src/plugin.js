@@ -5,14 +5,14 @@ import PrismicDOM from 'prismic-dom'
 const moduleOptions = <%= serialize(options) %>
 
 export default async ({ app, req, route, res, query, redirect }, inject) => {
-  let options = {}
+  let options = {};
 
   // Pass through server requests, primarily for preview
   if (process.server) {
     options.req = req
   }
 
-  let api = await Prismic.api(moduleOptions.endpoint, options)
+  let api = await Prismic.api(moduleOptions.endpoint, options);
 
   let prismic = new Vue({
     computed: {
@@ -52,21 +52,21 @@ export default async ({ app, req, route, res, query, redirect }, inject) => {
       },
       linkResolver: moduleOptions.linkResolver
     }
-  })
+  });
 
-  inject('prismic', prismic)
+  inject('prismic', prismic);
 
   // Preview support
   if (route.path === '/preview') {
-    const { token } = query
+    const { token } = query;
 
     if (token) {
-      let url = await api.previewSession(token, moduleOptions.linkResolver, '/')
+      let url = await api.previewSession(token, moduleOptions.linkResolver, '/');
 
-      let c_token = `${Prismic.previewCookie}=${token};`
-      let c_max_age = `max-age=${30 * 60 * 1000};`
-      let c_path = 'path=/'
-      let cookie = `${c_token} ${c_max_age} ${c_path}`
+      let c_token = `${Prismic.previewCookie}=${token};`;
+      let c_max_age = `max-age=${30 * 60 * 1000};`;
+      let c_path = 'path=/';
+      let cookie = `${c_token} ${c_max_age} ${c_path}`;
 
       if (process.server) {
         // Server-side
