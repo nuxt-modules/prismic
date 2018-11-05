@@ -32,16 +32,25 @@ export default async ({ app, req, route, res, query, redirect }, inject) => {
   inject('prismic', prismic)
 
   // Preview support
-  if (route.path == "/preview") {
-    const { token } = query;
+  if (route.path === '/preview') {
+    const { token } = query
 
     if (token) {
-      let url = await api.previewSession(token, moduleOptions.linkResolver, '/');
+      let url = await api.previewSession(token, moduleOptions.linkResolver, '/')
 
       if (process.server) {
-        res.setHeader('Set-Cookie', [Prismic.previewCookie + `=`+ token + `; max-age=${30 * 60 * 1000}; path=/`]); // Server-side
+        res.setHeader('Set-Cookie', [
+          Prismic.previewCookie +
+            `=` +
+            token +
+            `; max-age=${30 * 60 * 1000}; path=/`
+        ]) // Server-side
       } else {
-        document.cookie = Prismic.previewCookie + `=`+ token + `; max-age=${30 * 60 * 1000}; path=/` // Client-side
+        document.cookie =
+          Prismic.previewCookie +
+          `=` +
+          token +
+          `; max-age=${30 * 60 * 1000}; path=/` // Client-side
       }
 
       redirect(url)

@@ -8,14 +8,11 @@ module.exports = {
     parser: 'babel-eslint'
   },
   extends: [
-    'plugin:vue/recommended',
-    'plugin:prettier/recommended'
+    'plugin:prettier/recommended',
+    'plugin:lodash-template/recommended'
   ],
   // required to lint *.vue files
-  plugins: [
-    'vue',
-    'prettier'
-  ],
+  plugins: ['prettier', 'lodash-template'],
   // add your custom rules here
   rules: {
     'no-console': process.env.NODE_ENV === 'production' ? 'error' : 'off',
