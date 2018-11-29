@@ -63,9 +63,6 @@ export default async ({ app, req, route, res, query, redirect }, inject) => {
     if (token) {
       let url = await api.previewSession(token, moduleOptions.linkResolver, '/');
 
-      let c_token = `${Prismic.previewCookie}=${token};`;
-      let c_max_age = `max-age=${30 * 60 * 1000};`;
-      let c_path = 'path=/';
       let cookie = [
           `${Prismic.previewCookie}=${token}`,
           `max-age=${30 * 60 * 1000}`,
