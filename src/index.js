@@ -25,6 +25,7 @@ function install(moduleOptions) {
     options: {
       endpoint: moduleOptions.endpoint,
       linkResolver: moduleOptions.linkResolver,
+      htmlSerializer: moduleOptions.htmlSerializer,
     },
   });
 }

@@ -18,6 +18,9 @@ modules: [
     endpoint: 'https://<REPOSITORY>.cdn.prismic.io/api/v2',
     linkResolver: function(doc, ctx) {
       return '/'
+    },
+    htmlSerializer: function(type, element, content, children) {
+      // Optional HTML Serializer
     }
   }]
 ]

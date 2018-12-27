@@ -31,7 +31,8 @@ export default async ({ app, req, route, res, query, redirect }, inject) => {
         if (richText) {
           return PrismicDOM.RichText.asHtml(
             richText,
-            moduleOptions.linkResolver
+            moduleOptions.linkResolver,
+            moduleOptions.htmlSerializer
           )
         }
       },
@@ -42,7 +43,10 @@ export default async ({ app, req, route, res, query, redirect }, inject) => {
       },
       asLink(link) {
         if (link) {
-          return PrismicDOM.Link.url(link, moduleOptions.linkResolver)
+          return PrismicDOM.Link.url(
+            link,
+            moduleOptions.linkResolver
+          )
         }
       },
       asDate(date) {
@@ -50,7 +54,8 @@ export default async ({ app, req, route, res, query, redirect }, inject) => {
           return PrismicDOM.Date(date)
         }
       },
-      linkResolver: moduleOptions.linkResolver
+      ...(moduleOptions.linkResolver && { linkResolver: moduleOptions.linkResolver }),
+      ...(moduleOptions.htmlSerializer && { htmlSerializer: moduleOptions.htmlSerializer })
     }
   });
 
