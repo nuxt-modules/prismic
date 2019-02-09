@@ -59,3 +59,35 @@ export default {
 </style>
 
 ```
+
+# Using previews on statically generated content
+If you're statically generating your website, you have to slightly tweak how you fetch content. Nuxt won't run the `asyncData` function again to get fresh data. The easiest thing is to the use the `created` lifecycle hook to force the page to get the most up to date content from Prismic;
+
+```vue
+...
+<script>
+
+function getPage(prismic) {
+  return prismic.api.getByUID('page', 'my-page')
+}
+
+export default {
+  async asyncData({ app, error }) {
+    let document = await getPage(app.$prismic)
+
+    if (document) {
+      return { document }
+    } else {
+      error({ statusCode: 404, message: 'Page not found' })
+    }
+  },
+  
+  created() {
+    getPage(this.$prismic).then(document => {
+      this.document = document
+    })
+  }
+}
+</script>
+...
+```
