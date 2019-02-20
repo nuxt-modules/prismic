@@ -1,6 +1,11 @@
 const path = require('path');
 
 function install(moduleOptions) {
+  const options = {
+    deferLoad: false,
+    ...moduleOptions,
+  };
+
   // Add in Prismic libraries to enable preview
   if (typeof (this.options.head.__dangerouslyDisableSanitizersByTagID) === 'undefined') {
     this.options.head.__dangerouslyDisableSanitizersByTagID = {};
@@ -13,19 +18,22 @@ function install(moduleOptions) {
   this.options.head.__dangerouslyDisableSanitizersByTagID['prismic-nuxt'] = ['innerHTML'];
   this.options.head.script.push({
     hid: 'prismic-nuxt',
-    innerHTML: `window.prismic = {endpoint: '${moduleOptions.endpoint}'};`,
+    innerHTML: `window.prismic = {endpoint: '${options.endpoint}'};`,
     type: 'text/javascript',
   });
 
-  this.options.head.script.push({ src: '//static.cdn.prismic.io/prismic.min.js' });
+  this.options.head.script.push({
+    src: '//static.cdn.prismic.io/prismic.min.js',
+    ...(options.deferLoad && { defer: true }),
+  });
 
   // Add the plugin
   this.addPlugin({
     src: path.resolve(__dirname, 'plugin.js'),
     options: {
-      endpoint: moduleOptions.endpoint,
-      linkResolver: moduleOptions.linkResolver,
-      htmlSerializer: moduleOptions.htmlSerializer,
+      endpoint: options.endpoint,
+      linkResolver: options.linkResolver,
+      htmlSerializer: options.htmlSerializer,
     },
   });
 }
