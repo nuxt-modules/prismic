@@ -1,6 +1,6 @@
 {
   "name": "prismic-nuxt",
-  "version": "0.4.0-0",
+  "version": "0.4.0",
   "description": "Easily add Prismic to your next Nuxt project",
   "main": "src/index.js",
   "scripts": {
