@@ -16,6 +16,7 @@ To get started, you need to add `prismic-nuxt` to your `nuxt.config.js` file;
 modules: [
   ['prismic-nuxt', {
     endpoint: 'https://<REPOSITORY>.cdn.prismic.io/api/v2',
+    deferLoad: true, //Optionally defer loading the prismic preview script
     linkResolver: function(doc, ctx) {
       return '/'
     },
@@ -81,7 +82,7 @@ export default {
       error({ statusCode: 404, message: 'Page not found' })
     }
   },
-  
+
   created() {
     getPage(this.$prismic).then(document => {
       this.document = document
