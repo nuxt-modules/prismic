@@ -92,3 +92,6 @@ export default {
 </script>
 ...
 ```
+
+# Node v8 Support
+Since v0.5.0, `prismic-nuxt` should now work with Node v8 and above. We don't manually test on Node v8, however unit tests will now be tested on both Node v8 and V10 on Travis. There's no guarantees that it'll work as expected, especially after Node v8 drops out of support in January 2020.
