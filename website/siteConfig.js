@@ -101,6 +101,8 @@ const siteConfig = {
   // You may provide arbitrary config keys to be used as needed by your
   // template. For example, if you need your repo's URL...
   repoUrl: 'https://github.com/jamespegg/prismic-nuxt',
+
+  cname: 'prismic-nuxt.js.org'
 };
 
 module.exports = siteConfig;
