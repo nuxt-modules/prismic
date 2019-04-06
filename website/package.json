@@ -7,7 +7,7 @@
     "write-translations": "docusaurus-write-translations",
     "version": "docusaurus-version",
     "rename-version": "docusaurus-rename-version",
-    "publish": "npm run build && push-dir --dir build/prismic-nuxt --branch-gh-pages --cleanup"
+    "publish": "npm run build && push-dir --dir build/prismic-nuxt --branch=gh-pages --cleanup"
   },
   "devDependencies": {
     "docusaurus": "^1.7.2",
