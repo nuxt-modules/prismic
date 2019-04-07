@@ -102,7 +102,10 @@ const siteConfig = {
   // template. For example, if you need your repo's URL...
   repoUrl: 'https://github.com/jamespegg/prismic-nuxt',
 
-  cname: 'prismic-nuxt.js.org'
+  cname: 'prismic-nuxt.js.org',
+
+  gaTrackingId: 'UA-27914050-11',
+  gaGtag: true
 };
 
 module.exports = siteConfig;
