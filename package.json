@@ -24,7 +24,7 @@
   "bugs": {
     "url": "https://github.com/jamespegg/prismic-nuxt/issues"
   },
-  "homepage": "https://github.com/jamespegg/prismic-nuxt#readme",
+  "homepage": "https://prismic-nuxt.js.org",
   "dependencies": {
     "prismic-dom": "^2.1.0",
     "prismic-javascript": "^1.5.0"
