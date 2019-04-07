@@ -129,7 +129,7 @@ class Index extends React.Component {
         {[
           {
             title: 'Batteries Included',
-            content: `Easily access offical Prismic JavaScript & Prismic DOM libraries in your Nuxt.js app. \n\n <a class="button" href="${docUrl('getting-started')}">Read More...</a>`
+            content: `Easily access official Prismic JavaScript & Prismic DOM libraries in your Nuxt.js app. \n\n <a class="button" href="${docUrl('getting-started')}">Read More...</a>`
           },
           {
             title: 'Preview Mode',
