@@ -23,8 +23,8 @@ const users = [
 const siteConfig = {
   title: 'prismic-nuxt', // Title for your website.
   tagline: 'Headless CMS meets Universal Apps',
-  url: 'https://jamespegg.github.io', // Your website URL
-  baseUrl: '/prismic-nuxt/', // Base URL for your project */
+  url: 'https://prismic-nuxt.js.org/', // Your website URL
+  baseUrl: '/', // Base URL for your project */
   // For github.io type URLs, you would set the url and baseUrl like:
   //   url: 'https://facebook.github.io',
   //   baseUrl: '/test-site/',
