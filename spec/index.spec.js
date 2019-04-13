@@ -7,7 +7,7 @@ describe("prismic-nuxt module", function() {
 
   beforeEach(function() {
     context = {
-      addPlugin: jasmine.createSpy('addPlugin'),
+      addPlugin: jest.fn(),
       options: {
         head: {}
       }

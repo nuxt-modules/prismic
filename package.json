@@ -4,9 +4,8 @@
   "description": "Easily add Prismic to your next Nuxt project",
   "main": "src/index.js",
   "scripts": {
-    "test": "npm run lint && npm run coverage",
-    "coverage": "nyc npm run unit",
-    "unit": "jasmine",
+    "test": "npm run lint && npm run unit",
+    "unit": "jest",
     "lint": "eslint src"
   },
   "keywords": [
@@ -33,8 +32,7 @@
     "eslint": "^5.8.0",
     "eslint-config-airbnb-base": "^13.1.0",
     "eslint-plugin-import": "^2.14.0",
-    "jasmine": "^3.3.0",
-    "nyc": "^13.1.0"
+    "jest": "^24.7.1"
   },
   "engines": {
     "node": ">= 8.0.0",
