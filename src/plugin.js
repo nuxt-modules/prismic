@@ -4,15 +4,16 @@ import PrismicDOM from 'prismic-dom'
 
 const moduleOptions = <%= serialize(options) %>
 
-export default async ({ app, req, route, res, query, redirect }, inject) => {
-  let options = {};
+export default async (context, inject) => {
+  const { app, req, route, res, query, redirect } = context
+  let options = {}
 
   // Pass through server requests, primarily for preview
   if (process.server) {
     options.req = req
   }
 
-  let api = await Prismic.api(moduleOptions.endpoint, options);
+  let api = await Prismic.api(moduleOptions.endpoint, options)
 
   let prismic = new Vue({
     computed: {
@@ -57,22 +58,23 @@ export default async ({ app, req, route, res, query, redirect }, inject) => {
       ...(moduleOptions.linkResolver && { linkResolver: moduleOptions.linkResolver }),
       ...(moduleOptions.htmlSerializer && { htmlSerializer: moduleOptions.htmlSerializer })
     }
-  });
+  })
 
-  inject('prismic', prismic);
+  inject('prismic', prismic)
+  context.$prismic = prismic
 
+  <% if (options.preview) { %>
   // Preview support
   if (route.path === '/preview') {
-    const { token } = query;
+    const { token } = query
 
     if (token) {
-      let url = await api.previewSession(token, moduleOptions.linkResolver, '/');
-
+      let url = await api.previewSession(token, moduleOptions.linkResolver, '/')
       let cookie = [
           `${Prismic.previewCookie}=${token}`,
           `max-age=${30 * 60 * 1000}`,
           'path=/'
-      ].join("; ");
+      ].join('; ')
 
       if (process.server) {
         // Server-side
@@ -87,4 +89,5 @@ export default async ({ app, req, route, res, query, redirect }, inject) => {
       redirect(302, '/')
     }
   }
+  <% } %>
 }
