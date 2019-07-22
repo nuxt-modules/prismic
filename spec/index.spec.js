@@ -14,7 +14,7 @@ describe("prismic-nuxt module", function() {
     }
 
     moduleOptions = {
-      endpoint: "http://test"
+      endpoint: "https://test.cdn.prismic.io/api/v2"
     };
   });
 
@@ -22,51 +22,26 @@ describe("prismic-nuxt module", function() {
     expect(prismicNuxt).toBeDefined();
   });
 
-  it("should set __dangerouslyDisableSanitizersByTagID to an object", function() {
+  it("should add the prismic preview library", function() {
     prismicNuxt.call(context, moduleOptions);
-    expect(context.options.head.__dangerouslyDisableSanitizersByTagID).toEqual(jasmine.any(Object));
+    expect(context.options.head.script[0].src).toEqual('//static.cdn.prismic.io/prismic.min.js?repo=test&new=true');
+    expect(context.options.head.script[0].defer).toBeDefined();
+    expect(context.options.head.script[0].async).toBeDefined();
   });
 
-  it("should not set __dangerouslyDisableSanitizersByTagID to an object if already set", function() {
-    context.options.head.__dangerouslyDisableSanitizersByTagID = {};
-    prismicNuxt.call(context, moduleOptions);
-    expect(context.options.head.__dangerouslyDisableSanitizersByTagID).toEqual(jasmine.any(Object));
+  it("should not add the prismic preview library if preview=false", function() {
+    prismicNuxt.call(context, { ...moduleOptions, preview: false });
+    expect(context.options.head.script).not.toBeDefined();
   });
 
-  it("should disable sanitizer for prismic-nuxt", function() {
+  it("should add the components", function() {
     prismicNuxt.call(context, moduleOptions);
-    expect(context.options.head.__dangerouslyDisableSanitizersByTagID['prismic-nuxt']).toEqual(['innerHTML']);
+    expect(context.addPlugin.mock.calls).toHaveLength(3)
   });
 
-  it("should add the prismic endpoint script", function() {
-    prismicNuxt.call(context, moduleOptions);
-    expect(context.options.head.script[0]).toEqual({
-      hid: 'prismic-nuxt',
-      innerHTML: `window.prismic = {endpoint: '${moduleOptions.endpoint}'};`,
-      type: 'text/javascript',
-    });
-  });
-
-  it("should add the prismic library", function() {
-    prismicNuxt.call(context, moduleOptions);
-    expect(context.options.head.script[1].src).toEqual('//static.cdn.prismic.io/prismic.min.js');
-  });
-
-  it("should not defer loading the prismic library by default", function() {
-    prismicNuxt.call(context, moduleOptions);
-    expect(context.options.head.script[1].defer).not.toBeDefined();
-  });
-
-  it("should defer loading the prismic library when defer is set to true", function() {
-    moduleOptions.deferLoad = true
-    prismicNuxt.call(context, moduleOptions);
-    expect(context.options.head.script[1].defer).toEqual(true);
-  });
-
-  it("should not defer loading the prismic library when defer is set to false", function() {
-    moduleOptions.deferLoad = false
-    prismicNuxt.call(context, moduleOptions);
-    expect(context.options.head.script[1].defer).not.toBeDefined();
+  it("should not add the components if components=false", function() {
+    prismicNuxt.call(context, { ...moduleOptions, components: false });
+    expect(context.addPlugin.mock.calls).toHaveLength(1)
   });
 
   it("should set options.head.script to an array", function() {
