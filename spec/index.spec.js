@@ -8,8 +8,12 @@ describe("prismic-nuxt module", function() {
   beforeEach(function() {
     context = {
       addPlugin: jest.fn(),
+      addTemplate: jest.fn(),
+      extendRoutes: jest.fn(),
       options: {
-        head: {}
+        srcDir: '/var/nuxt',
+        head: {},
+        dir: {}
       }
     }
 
