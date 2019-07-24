@@ -94,9 +94,22 @@ export default async (context, inject) => {
     await prismic.preview()
   }
   if (process.client && process.static && route.path !== '<%= options.preview %>') {
-    const hasPreviewCookie = (document.cookie || '').indexOf(`${Prismic.previewCookie}=`) !== -1
+    const getPreviewCookie = function () {
+      var value = `; ${document.cookie}`
+      var parts = value.split(`; ${Prismic.previewCookie}=`)
+      if (parts.length !== 2) return null
+      let cookie = parts.pop().split(';').shift()
+      try {
+        cookie = JSON.parse(decodeURIComponent(cookie))
+        delete cookie._tracker
+      } catch (e) {
+        cookie = null
+      }
+      return cookie
+    }
+    const previewCookie = getPreviewCookie()
     // Refresh data from Prismic preview
-    hasPreviewCookie && window.onNuxtReady(async (app) => {
+    previewCookie && Object.keys(previewCookie).length && window.onNuxtReady(async (app) => {
       console.info('[prismic-nuxt] Reload page data for preview')
       app.$loading && app.$loading.start()
       const context = app.$options.context
