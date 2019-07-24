@@ -17,10 +17,15 @@ modules: [
   'prismic-nuxt'
 ],
 prismic: {
-  endpoint: 'https://<REPOSITORY>.cdn.prismic.io/api/v2',
-  linkResolver: function(doc, ctx) {
-    return '/'
-  }
+  endpoint: 'https://<REPOSITORY>.cdn.prismic.io/api/v2'
+}
+```
+
+Secondly, Prismic requires a [link resolver function](https://prismic.io/docs/javascript/beyond-the-api/link-resolving) to know how to generate the link, let's create `app/prismic/link-resolver.js` file:
+
+```js
+export default function (doc) {
+  return '/'
 }
 ```
 
