@@ -19,7 +19,7 @@ Props:
 
 ## &lt;prismic-image&gt;
 
-This component will render an `<img>`, also completing `alt` and `copyright` attributes if provided from Prismic API.
+This component will render an `<img>`, also completing `alt` and `copyright` attributes if provided by the Prismic API.
 
 Props:
 - `field`: `Object`
