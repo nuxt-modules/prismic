@@ -8,7 +8,7 @@ sidebar_label: Components
 
 ## &lt;prismic-link&gt;
 
-This component will depending of your prismic link use `<nuxt-link>` or `<a>`.
+This component will, depending on your prismic link, use `<nuxt-link>` or `<a>`.
 
 Props:
 
@@ -21,7 +21,7 @@ Props:
 
 ## &lt;prismic-image&gt;
 
-This component will render an `<img>`, also completing `alt` and `copyright` attributes if provided from Prismic API.
+This component will render an `<img>`, also completing `alt` and `copyright` attributes if provided by the Prismic API.
 
 Props:
 - `field`:
