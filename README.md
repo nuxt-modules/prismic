@@ -28,10 +28,15 @@ modules: [
   'prismic-nuxt'
 ],
 prismic: {
-  endpoint: 'https://<REPOSITORY>.cdn.prismic.io/api/v2',
-  linkResolver (doc) {
-    return '/'
-  }
+  endpoint: 'https://<REPOSITORY>.cdn.prismic.io/api/v2'
+}
+```
+
+Then create `~/app/prismic/link-resolver.js`:
+
+```js
+export default function (doc) {
+  return '/'
 }
 ```
 
