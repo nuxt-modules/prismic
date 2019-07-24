@@ -8,7 +8,7 @@ sidebar_label: Components
 
 ## &lt;prismic-link&gt;
 
-This component will depending of your prismic link use `<nuxt-link>` or `<a>`.
+This component will, depending on your prismic link, use `<nuxt-link>` or `<a>`.
 
 Props:
 - `field`: `Object`
