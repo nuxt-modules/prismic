@@ -1,4 +1,6 @@
 const path = require('path');
+const fs = require('fs');
+const logger = require('consola').withScope('prismic-nuxt');
 
 function install(moduleOptions) {
   const options = {
@@ -7,6 +9,9 @@ function install(moduleOptions) {
     ...moduleOptions,
     ...(this.options.prismic || {}),
   };
+  if (options.preview === true) {
+    options.preview = '/preview';
+  }
 
   // Add in Prismic libraries to enable preview
   if (options.preview) {
@@ -14,27 +19,61 @@ function install(moduleOptions) {
 
     this.options.head.script = this.options.head.script || [];
     this.options.head.script.push({
+      hid: 'prismic',
       src: `//static.cdn.prismic.io/prismic.min.js?repo=${repo}&new=true`,
       body: true,
       defer: true,
       async: true,
     });
+    // Add /preview
+    this.addTemplate({
+      fileName: 'prismic/pages/preview.vue',
+      src: path.join(__dirname, 'templates/pages/preview.vue'),
+    });
+    this.extendRoutes((routes, resolve) => {
+      routes.push({
+        name: 'prismic-preview',
+        path: options.preview,
+        component: resolve(this.options.buildDir, 'prismic/pages/preview.vue'),
+      });
+    });
   }
 
   // Add components
   if (options.components) {
-    this.addPlugin(path.resolve(__dirname, 'components/PrismicImage.js'));
-    this.addPlugin(path.resolve(__dirname, 'components/PrismicLink.js'));
+    this.addPlugin({
+      fileName: 'prismic/components/PrismicImage.js',
+      src: path.resolve(__dirname, 'templates/components/PrismicImage.js'),
+    });
+    this.addPlugin({
+      fileName: 'prismic/components/PrismicLink.js',
+      src: path.resolve(__dirname, 'templates/components/PrismicLink.js'),
+    });
   }
 
+  // Add templates & prismic plugin
+  const app = this.options.dir.app || 'app';
+  const userLinkResolver = path.join(this.options.srcDir, app, 'prismic', 'link-resolver.js');
+  const userLinkResolverExists = fs.existsSync(userLinkResolver);
+  const userHtmlSerializer = path.join(this.options.srcDir, app, 'prismic', 'html-serializer.js');
+
+  if (!userLinkResolverExists) {
+    logger.warn('Please create ~/app/prismic/link-resolver.js');
+  }
+  this.addTemplate({
+    fileName: 'prismic/link-resolver.js',
+    src: userLinkResolverExists ? userLinkResolver : path.join(__dirname, 'templates/link-resolver.js'),
+  });
+  this.addTemplate({
+    fileName: 'prismic/html-serializer.js',
+    src: fs.existsSync(userHtmlSerializer) ? userHtmlSerializer : path.join(__dirname, 'templates/html-serializer.js'),
+  });
   this.addPlugin({
-    fileName: 'prismic-nuxt.js',
-    src: path.resolve(__dirname, 'plugin.js'),
+    fileName: 'prismic/plugins/prismic.js',
+    src: path.resolve(__dirname, 'templates/plugins/prismic.js'),
     options: {
       preview: options.preview,
       endpoint: options.endpoint,
-      linkResolver: options.linkResolver,
-      htmlSerializer: options.htmlSerializer,
     },
   });
 }
