@@ -11,7 +11,9 @@ sidebar_label: Components
 This component will depending of your prismic link use `<nuxt-link>` or `<a>`.
 
 Props:
-- `field`: `Object`
+
+- `field`:
+  - type: `Object`
 
 ```html
 <prismic-link :field="item.link_to_product">My link</prismic-link>
@@ -22,7 +24,8 @@ Props:
 This component will render an `<img>`, also completing `alt` and `copyright` attributes if provided from Prismic API.
 
 Props:
-- `field`: `Object`
+- `field`:
+  - type: `Object`
 
 ```html
 <prismic-image :field="item.product_image" />
