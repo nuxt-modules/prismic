@@ -48,11 +48,6 @@ describe("prismic-nuxt module", function() {
     expect(context.addPlugin.mock.calls).toHaveLength(1)
   });
 
-  it("should set options.head.script to an array", function() {
-    prismicNuxt.call(context, moduleOptions);
-    expect(context.options.head.script).toEqual(jasmine.any(Array));
-  });
-
   it("should not set options.head.script to an array if already set", function() {
     context.options.head.script = []
     prismicNuxt.call(context, moduleOptions);
