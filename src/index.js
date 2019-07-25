@@ -65,7 +65,7 @@ function install(moduleOptions) {
     options: {
       preview: options.preview,
       endpoint: options.endpoint,
-      script: `//static.cdn.prismic.io/prismic.min.js?repo=${repo}&new=true`
+      script: `//static.cdn.prismic.io/prismic.min.js?repo=${repo}&new=true`,
     },
   });
 }
