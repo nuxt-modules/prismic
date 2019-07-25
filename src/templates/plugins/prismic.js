@@ -63,21 +63,9 @@ export default async (context, inject) => {
 
         if (token) {
           url = await this.api.previewSession(token, this.linkResolver, '/')
-          let cookie = [
-            `${Prismic.previewCookie}=${token}`,
-            `max-age=${30 * 60 * 1000}`,
-            'path=/'
-          ].join('; ')
-
-          if (process.server) {
-            res.setHeader('Set-Cookie', [cookie])
-          } else {
-            document.cookie = cookie
-          }
         }
-
         if (process.server) {
-          returnredirect(302, url)
+          redirect(302, url)
         } else {
           window.location.replace(url)
         }
@@ -112,15 +100,18 @@ export default async (context, inject) => {
       let cookie = parts.pop().split(';').shift()
       try {
         cookie = JSON.parse(decodeURIComponent(cookie))
-        delete cookie._tracker
       } catch (e) {
         cookie = null
       }
       return cookie
     }
+    const repo = '<%= options.repo %>'
     const previewCookie = getPreviewCookie()
+    // Used in prismic_preview middleware
+    prismic.isPreview = previewCookie && previewCookie[`${repo}.prismic.io`] && previewCookie[`${repo}.prismic.io`].preview
+
     // Refresh data from Prismic preview
-    previewCookie && Object.keys(previewCookie).length && window.onNuxtReady(async (app) => {
+    prismic.isPreview && window.onNuxtReady(async (app) => {
       console.info('[prismic-nuxt] Reload page data for preview')
       app.$loading && app.$loading.start()
       const context = app.$options.context

@@ -28,6 +28,14 @@ function install(moduleOptions) {
         component: resolve(this.options.buildDir, 'prismic/pages/preview.vue'),
       });
     });
+    // Add prismic-preview middleware
+    this.addPlugin({
+      fileName: 'prismic/middleware/prismic_preview.js',
+      src: path.join(__dirname, 'templates/middleware/prismic_preview.js'),
+    });
+    this.options.router = this.options.router || {}
+    this.options.router.middleware = this.options.router.middleware || []
+    this.options.router.middleware.unshift('prismic_preview')
   }
 
   // Add components
@@ -65,6 +73,7 @@ function install(moduleOptions) {
     options: {
       preview: options.preview,
       endpoint: options.endpoint,
+      repo,
       script: `//static.cdn.prismic.io/prismic.min.js?repo=${repo}&new=true`,
     },
   });
