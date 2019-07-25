@@ -12,19 +12,10 @@ function install(moduleOptions) {
   if (options.preview === true) {
     options.preview = '/preview';
   }
+  const repo = options.endpoint.replace(/^https?:\/\//, '').replace(/(\.cdn)?\.prismic.+/, '');
 
   // Add in Prismic libraries to enable preview
   if (options.preview) {
-    const repo = options.endpoint.replace(/^https?:\/\//, '').replace(/(\.cdn)?\.prismic.+/, '');
-
-    this.options.head.script = this.options.head.script || [];
-    this.options.head.script.push({
-      hid: 'prismic',
-      src: `//static.cdn.prismic.io/prismic.min.js?repo=${repo}&new=true`,
-      body: true,
-      defer: true,
-      async: true,
-    });
     // Add /preview
     this.addTemplate({
       fileName: 'prismic/pages/preview.vue',
@@ -74,6 +65,7 @@ function install(moduleOptions) {
     options: {
       preview: options.preview,
       endpoint: options.endpoint,
+      script: `//static.cdn.prismic.io/prismic.min.js?repo=${repo}&new=true`
     },
   });
 }
