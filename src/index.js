@@ -33,9 +33,9 @@ function install(moduleOptions) {
       fileName: 'prismic/middleware/prismic_preview.js',
       src: path.join(__dirname, 'templates/middleware/prismic_preview.js'),
     });
-    this.options.router = this.options.router || {}
-    this.options.router.middleware = this.options.router.middleware || []
-    this.options.router.middleware.unshift('prismic_preview')
+    this.options.router = this.options.router || {};
+    this.options.router.middleware = this.options.router.middleware || [];
+    this.options.router.middleware.unshift('prismic_preview');
   }
 
   // Add components
