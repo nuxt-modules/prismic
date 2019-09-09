@@ -1,1 +1,1 @@
-export default null
+export default <%= options.htmlSerializer ? serialize(options.htmlSerializer) : 'null' %>

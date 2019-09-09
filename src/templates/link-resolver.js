@@ -1,3 +1,1 @@
-export default function (doc) {
-  return '/'
-}
+export default <%= options.linkResolver ? serialize(options.linkResolver) : "function (doc) { return '/' }" %>
