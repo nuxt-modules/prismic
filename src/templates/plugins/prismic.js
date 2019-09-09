@@ -113,23 +113,8 @@ export default async (context, inject) => {
     // Refresh data from Prismic preview
     prismic.isPreview && window.onNuxtReady(async (app) => {
       console.info('[prismic-nuxt] Reload page data for preview')
-      app.$loading && app.$loading.start()
-      const context = app.$options.context
-      await app.$store.dispatch('nuxtServerInit', context)
-      const pages = $nuxt.$route.matched.map((match) => match.instances.default)
-      const promises = pages.map(async (page) => {
-        if (page.$options.fetch) {
-          await page.$options.fetch(context)
-        }
-        if (page.$options.asyncData) {
-          const newData = await page.$options.asyncData(context)
-          for (const key in newData) {
-            Vue.set(page.$data, key, newData[key])
-          }
-        }
-      })
-      await Promise.all(promises)
-      app.$loading && app.$loading.finish()
+      await app.$store.dispatch('nuxtServerInit', app.$options.context)
+      await app.refresh()
     })
   }<% } %>
 }
