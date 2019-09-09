@@ -1,6 +1,6 @@
 const path = require('path');
 const fs = require('fs');
-const logger = require('consola').withScope('prismic-nuxt');
+const logger = require('./logger');
 
 function install(moduleOptions) {
   const options = {
@@ -56,16 +56,18 @@ function install(moduleOptions) {
   const userLinkResolverExists = fs.existsSync(userLinkResolver);
   const userHtmlSerializer = path.join(this.options.srcDir, app, 'prismic', 'html-serializer.js');
 
-  if (!userLinkResolverExists) {
+  if (!userLinkResolverExists && !options.linkResolver) {
     logger.warn('Please create ~/app/prismic/link-resolver.js');
   }
   this.addTemplate({
     fileName: 'prismic/link-resolver.js',
     src: userLinkResolverExists ? userLinkResolver : path.join(__dirname, 'templates/link-resolver.js'),
+    options,
   });
   this.addTemplate({
     fileName: 'prismic/html-serializer.js',
     src: fs.existsSync(userHtmlSerializer) ? userHtmlSerializer : path.join(__dirname, 'templates/html-serializer.js'),
+    options,
   });
   this.addPlugin({
     fileName: 'prismic/plugins/prismic.js',
