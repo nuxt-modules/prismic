@@ -26,8 +26,7 @@
   "homepage": "https://prismic-nuxt.js.org",
   "dependencies": {
     "prismic-dom": "^2.1.0",
-    "prismic-javascript": "^2.1.1",
-    "prismic-nuxt": "^0.5.3"
+    "prismic-javascript": "^2.1.1"
   },
   "devDependencies": {
     "eslint": "^5.8.0",
