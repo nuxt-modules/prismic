@@ -43,8 +43,15 @@ function install(moduleOptions) {
       const maybeF = this.options.generate.routes || [];
       this.options.generate.routes = async () => {
         const client = await Prismic.client(options.endpoint);
-        const response = await client.query('');
-        const prismicRoutes = response.results.map(options.linkResolver);
+        async function fetchRoutes(page = 1, routes = []) {
+          const response = await client.query('', { pageSize: 100, lang: '*', page });
+          const allRoutes = routes.concat(response.results.map(moduleOptions.linkResolver));
+          if (response.results_size + routes.length < response.total_results_size) {
+            return fetchRoutes(client, page + 1, allRoutes);
+          }
+          return [...new Set(allRoutes)];
+        }
+        const prismicRoutes = fetchRoutes();
         const userRoutes = typeof maybeF === 'function' ? await maybeF() : maybeF;
         return [...new Set(prismicRoutes.concat(userRoutes))];
       };
