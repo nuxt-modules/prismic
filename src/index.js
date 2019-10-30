@@ -51,7 +51,7 @@ function install(moduleOptions) {
           }
           return [...new Set(allRoutes)];
         }
-        const prismicRoutes = fetchRoutes();
+        const prismicRoutes = await fetchRoutes();
         const userRoutes = typeof maybeF === 'function' ? await maybeF() : maybeF;
         return [...new Set(prismicRoutes.concat(userRoutes))];
       };
