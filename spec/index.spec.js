@@ -1,5 +1,6 @@
 const path = require('path');
 const prismicNuxt = require("../src");
+const prismic = require('prismic-javascript');
 
 describe("prismic-nuxt module", function() {
   let context;
@@ -9,9 +10,22 @@ describe("prismic-nuxt module", function() {
     context = {
       addPlugin: jest.fn(),
       options: {
-        head: {}
+        head: {},
+        generate: {},
+      },
+      nuxt: {
+        hook: jest.fn(() => context.options.generate.routes = jest.fn(()=>{
+          
+        }))
       }
     }
+
+     // const maybeF = context.options.generate.routes || [];
+          // const prismicRoutes = ['/pages/a', '/pages/b'];
+          // const userRoutes = typeof maybeF === 'function' ? await maybeF() : maybeF;
+          // console.log('HERE', prismicRoutes.concat(userRoutes));
+          // this.prismicRoutes.concat(userRoutes);
+          // context.options.generate.routes = prismicRoutes.concat(userRoutes);
 
     moduleOptions = {
       endpoint: "http://test"
@@ -79,6 +93,28 @@ describe("prismic-nuxt module", function() {
     prismicNuxt.call(context, moduleOptions);
     expect(context.options.head.script).toEqual(jasmine.any(Array));
   });
+
+  it("should call hook on generate:before", function() {    
+
+    prismicNuxt.call(context, moduleOptions);
+    // xpect(context.nuxt.hook).toBeCalled()
+
+    // expect(context.nuxt.hook).toBeCalledWith('generate:before', expect.any(Function))
+
+    // expect(context.options.generate.routes).toBeCalled(1)
+    expect(context.nuxt.hook).toBeCalledWith('generate:before', jasmine.any(Function))
+    console.log(context.options.generate);
+  });
+
+  it("should add route function to generate option", function() {
+    prismicNuxt.call(context, moduleOptions);
+    context.options.linkResolver = () => {
+      
+    }
+    expect(context.options.generate.routes).toEqual(jasmine.any(Function));
+  });
+
+
 
   it("should load the plugin", function() {
     prismicNuxt.call(context, moduleOptions);

@@ -39,18 +39,19 @@ function install(moduleOptions) {
     },
   });
 
-
-  // Use link resolver to generate Prismic based routes
-  this.nuxt.hook('generate:before', async () => {
-    const maybeF = this.options.generate.routes || [];
-    this.options.generate.routes = async () => {
-      const client = await Prismic.client(options.endpoint);
-      const response = await client.query('');
-      const prismicRoutes = (response.results || []).map(options.linkResolver);
-      const userRoutes = typeof maybeF === 'function' ? await maybeF() : maybeF;
-      return prismicRoutes.concat(userRoutes);
-    };
-  });
+  // Using an option to disable the default Prismic generator if the user wants his own
+  if (!options.disableDefaultGenerator) {
+    this.nuxt.hook('generate:before', async () => {
+      const maybeF = this.options.generate.routes || [];
+      this.options.generate.routes = async () => {
+        const client = await Prismic.client(options.endpoint);
+        const response = await client.query('');
+        const prismicRoutes = (response.results || []).map(options.linkResolver);
+        const userRoutes = typeof maybeF === 'function' ? await maybeF() : maybeF;
+        return prismicRoutes.concat(userRoutes);
+      };
+    });
+  }
 }
 
 module.exports = install;
