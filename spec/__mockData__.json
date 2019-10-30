@@ -1,303 +1,49 @@
 {
-    "page": 1,
-    "results_per_page": 20,
-    "results_size": 2,
-    "total_results_size": 2,
-    "total_pages": 1,
-    "next_page": null,
-    "prev_page": null,
-    "results": [
-        {
-            "id": "XbMQAhAAACMAzm0N",
-            "uid": "my-page",
-            "type": "page",
-            "href": "https://sarah-soueidan.cdn.prismic.io/api/v2/documents/search?ref=Xbb7sRAAACIA38nS&q=%5B%5B%3Ad+%3D+at%28document.id%2C+%22XbMQAhAAACMAzm0N%22%29+%5D%5D",
-            "tags": [],
-            "first_publication_date": "2019-10-25T15:08:53+0000",
-            "last_publication_date": "2019-10-28T14:31:05+0000",
-            "slugs": [
-                "my-awesome-page",
-                "care-for-your-seo"
-            ],
-            "linked_documents": [],
-            "lang": "en-us",
-            "alternate_languages": [],
-            "data": {
-                "title": [
-                    {
-                        "type": "heading1",
-                        "text": "My awesome page",
-                        "spans": []
-                    }
-                ],
-                "body": [
-                    {
-                        "slice_type": "hero_section",
-                        "slice_label": null,
-                        "items": [
-                            {
-                                "button_link": {
-                                    "link_type": "Web",
-                                    "url": "https://prismic.io"
-                                },
-                                "button_label": "Visit us",
-                                "variant": "primary"
-                            }
-                        ],
-                        "primary": {
-                            "title": [
-                                {
-                                    "type": "heading1",
-                                    "text": "Welcome.",
-                                    "spans": []
-                                }
-                            ],
-                            "paragraph": [
-                                {
-                                    "type": "paragraph",
-                                    "text": "All this content has been entered on Prismic. How cool is that?",
-                                    "spans": []
-                                }
-                            ]
-                        }
-                    },
-                    {
-                        "slice_type": "features_section",
-                        "slice_label": null,
-                        "items": [
-                            {
-                                "icon_image": {
-                                    "dimensions": {
-                                        "width": 2048,
-                                        "height": 1536
-                                    },
-                                    "alt": null,
-                                    "copyright": null,
-                                    "url": "https://images.prismic.io/sarah-soueidan/18bd8e30-8eac-4abc-ac3a-415febb778cf_swinging.png?auto=compress,format"
-                                },
-                                "head": [
-                                    {
-                                        "type": "heading1",
-                                        "text": "Feature One",
-                                        "spans": []
-                                    }
-                                ],
-                                "desc": [
-                                    {
-                                        "type": "paragraph",
-                                        "text": "An exemplary text describing the benefits or services of your site or project",
-                                        "spans": []
-                                    }
-                                ],
-                                "button_link": {
-                                    "link_type": "Web",
-                                    "url": "https://prismic.io"
-                                },
-                                "button_label": "Go to Prismic"
-                            },
-                            {
-                                "icon_image": {
-                                    "dimensions": {
-                                        "width": 2048,
-                                        "height": 1536
-                                    },
-                                    "alt": null,
-                                    "copyright": null,
-                                    "url": "https://images.prismic.io/sarah-soueidan/4fa65ea8-3430-4f3b-addd-38a76457a544_sprinting.png?auto=compress,format"
-                                },
-                                "head": [
-                                    {
-                                        "type": "heading1",
-                                        "text": "Feature Two",
-                                        "spans": []
-                                    }
-                                ],
-                                "desc": [
-                                    {
-                                        "type": "paragraph",
-                                        "text": "An exemplary text describing the benefits or services of your site or project",
-                                        "spans": []
-                                    }
-                                ],
-                                "button_link": {
-                                    "link_type": "Web",
-                                    "url": "https://prismic.io"
-                                },
-                                "button_label": "from here"
-                            },
-                            {
-                                "icon_image": {
-                                    "dimensions": {
-                                        "width": 2048,
-                                        "height": 1536
-                                    },
-                                    "alt": null,
-                                    "copyright": null,
-                                    "url": "https://images.prismic.io/sarah-soueidan/a8db4c5f-b38b-4aac-a975-0d488b090bbe_coffee.png?auto=compress,format"
-                                },
-                                "head": [
-                                    {
-                                        "type": "heading1",
-                                        "text": "Feature Three I guess",
-                                        "spans": []
-                                    }
-                                ],
-                                "desc": [
-                                    {
-                                        "type": "paragraph",
-                                        "text": "An exemplary text describing the benefits or services of your site or project",
-                                        "spans": []
-                                    }
-                                ],
-                                "button_link": {
-                                    "link_type": "Web",
-                                    "url": "https://non-existing-prismic.io"
-                                },
-                                "button_label": "but not from here"
-                            }
-                        ],
-                        "primary": {
-                            "title": [
-                                {
-                                    "type": "heading1",
-                                    "text": "Features.",
-                                    "spans": []
-                                }
-                            ],
-                            "paragraph": [
-                                {
-                                    "type": "paragraph",
-                                    "text": "An exemplary text describing the benefits or services of your site or project",
-                                    "spans": []
-                                }
-                            ]
-                        }
-                    },
-                    {
-                        "slice_type": "graphic_section",
-                        "slice_label": null,
-                        "items": [
-                            {}
-                        ],
-                        "primary": {
-                            "title": [
-                                {
-                                    "type": "heading1",
-                                    "text": "Graphic Section",
-                                    "spans": []
-                                }
-                            ],
-                            "paragraph": [
-                                {
-                                    "type": "paragraph",
-                                    "text": "An exemplary text describing the benefits or services of your site or project. An exemplary text describing the benefits or services of your site or project",
-                                    "spans": []
-                                }
-                            ],
-                            "cta_link": {
-                                "link_type": "Web",
-                                "url": "https://prismic.io"
-                            },
-                            "cta_label": "call to action",
-                            "image_side": "Right",
-                            "graphic_image": {
-                                "dimensions": {
-                                    "width": 2048,
-                                    "height": 1536
-                                },
-                                "alt": null,
-                                "copyright": null,
-                                "url": "https://images.prismic.io/sarah-soueidan/1fee099e-6da3-4f2f-90bc-f571a16c1f5a_Doggie.png?auto=compress,format"
-                            }
-                        }
-                    },
-                    {
-                        "slice_type": "call_to_action",
-                        "slice_label": null,
-                        "items": [
-                            {}
-                        ],
-                        "primary": {
-                            "icon_image": {
-                                "dimensions": {
-                                    "width": 2048,
-                                    "height": 1536
-                                },
-                                "alt": null,
-                                "copyright": null,
-                                "url": "https://images.prismic.io/sarah-soueidan/18bd8e30-8eac-4abc-ac3a-415febb778cf_swinging.png?auto=compress,format"
-                            },
-                            "title": [
-                                {
-                                    "type": "heading1",
-                                    "text": "Call to Action",
-                                    "spans": []
-                                }
-                            ],
-                            "paragraph": [
-                                {
-                                    "type": "paragraph",
-                                    "text": "Trade some information in exchange of a click",
-                                    "spans": []
-                                }
-                            ],
-                            "button_link": {
-                                "id": "XbMLnhAAACMAzlps",
-                                "type": "homepage",
-                                "tags": [],
-                                "slug": "welcome-to-my-universe",
-                                "lang": "en-us",
-                                "link_type": "Document",
-                                "isBroken": false
-                            },
-                            "button_label": "This is linked to a document"
-                        }
-                    }
-                ]
-            }
-        },
-        {
-            "id": "XbMLnhAAACMAzlps",
-            "uid": null,
-            "type": "homepage",
-            "href": "https://sarah-soueidan.cdn.prismic.io/api/v2/documents/search?ref=Xbb7sRAAACIA38nS&q=%5B%5B%3Ad+%3D+at%28document.id%2C+%22XbMLnhAAACMAzlps%22%29+%5D%5D",
-            "tags": [],
-            "first_publication_date": "2019-10-25T14:50:08+0000",
-            "last_publication_date": "2019-10-25T15:59:45+0000",
-            "slugs": [
-                "welcome-to-my-universe",
-                "welcome-to-my-nuiverse"
-            ],
-            "linked_documents": [],
-            "lang": "en-us",
-            "alternate_languages": [],
-            "data": {
-                "headline": [
-                    {
-                        "type": "heading1",
-                        "text": "Welcome to my universe",
-                        "spans": []
-                    }
-                ],
-                "description": [
-                    {
-                        "type": "heading2",
-                        "text": "My landing page is not Figma's yet, but who knows?",
-                        "spans": []
-                    }
-                ],
-                "image": {
-                    "dimensions": {
-                        "width": 600,
-                        "height": 400
-                    },
-                    "alt": null,
-                    "copyright": null,
-                    "url": "https://images.prismic.io/sarah-soueidan/1fee099e-6da3-4f2f-90bc-f571a16c1f5a_Doggie.png?auto=compress,format&rect=0,85,2048,1365&w=600&h=400"
-                }
-            }
-        }
-    ],
-    "version": "0da69dc",
-    "license": "All Rights Reserved"
+  "page": 1,
+  "results_per_page": 20,
+  "results_size": 3,
+  "total_results_size": 3,
+  "total_pages": 1,
+  "next_page": null,
+  "prev_page": null,
+  "results": [
+    {
+      "id": "XbMQAhAAACMAzm0N",
+      "uid": "my-page",
+      "type": "page",
+      "tags": [],
+      "first_publication_date": "2019-10-25T15:08:53+0000",
+      "last_publication_date": "2019-10-28T14:31:05+0000",
+      "linked_documents": [],
+      "lang": "en-us",
+      "alternate_languages": [],
+      "data": {}
+    },
+    {
+      "id": "XbMQAhAAACMAzm0N",
+      "uid": "another-page",
+      "type": "page",
+      "tags": [],
+      "first_publication_date": "2019-10-25T15:08:53+0000",
+      "last_publication_date": "2019-10-28T14:31:05+0000",
+      "linked_documents": [],
+      "lang": "en-us",
+      "alternate_languages": [],
+      "data": {}
+    },
+    {
+      "id": "XbMLnhAAACMAzlps",
+      "uid": null,
+      "type": "homepage",
+      "tags": [],
+      "first_publication_date": "2019-10-25T14:50:08+0000",
+      "last_publication_date": "2019-10-25T15:59:45+0000",
+      "linked_documents": [],
+      "lang": "en-us",
+      "alternate_languages": [],
+      "data": {}
+    }
+  ],
+  "version": "0da69dc",
+  "license": "All Rights Reserved"
 }

@@ -1,12 +1,21 @@
-const path = require('path');
-const prismicNuxt = require("../src");
-const prismic = require('prismic-javascript');
+/* eslint-disable no-undef */
+const Prismic = require('prismic-javascript');
+const prismicNuxt = require('../src');
 
-describe("prismic-nuxt module", function() {
+jest.mock('prismic-javascript');
+
+Prismic.client = jest.fn(async () => ({
+  async query() {
+    const data = require('./__mockData__') // eslint-disable-line
+    return data;
+  },
+}));
+
+describe('prismic-nuxt module', () => {
   let context;
   let moduleOptions;
 
-  beforeEach(function() {
+  beforeEach(() => {
     context = {
       addPlugin: jest.fn(),
       options: {
@@ -14,45 +23,46 @@ describe("prismic-nuxt module", function() {
         generate: {},
       },
       nuxt: {
-        hook: jest.fn(() => context.options.generate.routes = jest.fn(()=>{
-          
-        }))
-      }
-    }
-
-     // const maybeF = context.options.generate.routes || [];
-          // const prismicRoutes = ['/pages/a', '/pages/b'];
-          // const userRoutes = typeof maybeF === 'function' ? await maybeF() : maybeF;
-          // console.log('HERE', prismicRoutes.concat(userRoutes));
-          // this.prismicRoutes.concat(userRoutes);
-          // context.options.generate.routes = prismicRoutes.concat(userRoutes);
+        hook: jest.fn(async (_, fn) => {
+          await fn();
+        }),
+      },
+    };
 
     moduleOptions = {
-      endpoint: "http://test"
+      endpoint: 'http://test',
+      linkResolver: (doc) => {
+        if (doc.type === 'page') {
+          return `/pages/${doc.uid}`;
+        }
+        return '/';
+      },
     };
   });
 
-  it("should be defined", function() {
+  it('should be defined', () => {
     expect(prismicNuxt).toBeDefined();
   });
 
-  it("should set __dangerouslyDisableSanitizersByTagID to an object", function() {
+  it('should set __dangerouslyDisableSanitizersByTagID to an object', () => {
     prismicNuxt.call(context, moduleOptions);
     expect(context.options.head.__dangerouslyDisableSanitizersByTagID).toEqual(jasmine.any(Object));
   });
 
-  it("should not set __dangerouslyDisableSanitizersByTagID to an object if already set", function() {
+  it('should not set __dangerouslyDisableSanitizersByTagID to an object if already set', () => {
     context.options.head.__dangerouslyDisableSanitizersByTagID = {};
     prismicNuxt.call(context, moduleOptions);
     expect(context.options.head.__dangerouslyDisableSanitizersByTagID).toEqual(jasmine.any(Object));
   });
 
-  it("should disable sanitizer for prismic-nuxt", function() {
+  it('should disable sanitizer for prismic-nuxt', () => {
     prismicNuxt.call(context, moduleOptions);
-    expect(context.options.head.__dangerouslyDisableSanitizersByTagID['prismic-nuxt']).toEqual(['innerHTML']);
+    expect(context.options.head.__dangerouslyDisableSanitizersByTagID['prismic-nuxt']).toEqual([
+      'innerHTML',
+    ]);
   });
 
-  it("should add the prismic endpoint script", function() {
+  it('should add the prismic endpoint script', () => {
     prismicNuxt.call(context, moduleOptions);
     expect(context.options.head.script[0]).toEqual({
       hid: 'prismic-nuxt',
@@ -61,62 +71,83 @@ describe("prismic-nuxt module", function() {
     });
   });
 
-  it("should add the prismic library", function() {
+  it('should add the prismic library', () => {
     prismicNuxt.call(context, moduleOptions);
     expect(context.options.head.script[1].src).toEqual('//static.cdn.prismic.io/prismic.min.js');
   });
 
-  it("should not defer loading the prismic library by default", function() {
+  it('should not defer loading the prismic library by default', () => {
     prismicNuxt.call(context, moduleOptions);
     expect(context.options.head.script[1].defer).not.toBeDefined();
   });
 
-  it("should defer loading the prismic library when defer is set to true", function() {
-    moduleOptions.deferLoad = true
+  it('should defer loading the prismic library when defer is set to true', () => {
+    moduleOptions.deferLoad = true;
     prismicNuxt.call(context, moduleOptions);
     expect(context.options.head.script[1].defer).toEqual(true);
   });
 
-  it("should not defer loading the prismic library when defer is set to false", function() {
-    moduleOptions.deferLoad = false
+  it('should not defer loading the prismic library when defer is set to false', () => {
+    moduleOptions.deferLoad = false;
     prismicNuxt.call(context, moduleOptions);
     expect(context.options.head.script[1].defer).not.toBeDefined();
   });
 
-  it("should set options.head.script to an array", function() {
+  it('should set options.head.script to an array', () => {
     prismicNuxt.call(context, moduleOptions);
     expect(context.options.head.script).toEqual(jasmine.any(Array));
   });
 
-  it("should not set options.head.script to an array if already set", function() {
-    context.options.head.script = []
+  it('should not set options.head.script to an array if already set', () => {
+    context.options.head.script = [];
     prismicNuxt.call(context, moduleOptions);
     expect(context.options.head.script).toEqual(jasmine.any(Array));
   });
 
-  it("should call hook on generate:before", function() {    
-
+  it('should call hook on generate:before', async () => {
     prismicNuxt.call(context, moduleOptions);
-    // xpect(context.nuxt.hook).toBeCalled()
-
-    // expect(context.nuxt.hook).toBeCalledWith('generate:before', expect.any(Function))
-
-    // expect(context.options.generate.routes).toBeCalled(1)
-    expect(context.nuxt.hook).toBeCalledWith('generate:before', jasmine.any(Function))
-    console.log(context.options.generate);
+    expect(context.nuxt.hook).toBeCalledWith('generate:before', jasmine.any(Function));
   });
 
-  it("should add route function to generate option", function() {
+  it('should return routes on generate', async () => {
     prismicNuxt.call(context, moduleOptions);
-    context.options.linkResolver = () => {
-      
-    }
     expect(context.options.generate.routes).toEqual(jasmine.any(Function));
+    const routes = await context.options.generate.routes();
+    const expectedRoutes = ['/pages/my-page', '/pages/another-page', '/'];
+    expect(routes.sort()).toEqual(expectedRoutes.sort());
   });
 
+  it('should preserve user defined routes on generate', async () => {
+    context.options.generate.routes = ['/user-route'];
+    prismicNuxt.call(context, moduleOptions);
+    expect(context.options.generate.routes).toEqual(jasmine.any(Function));
+    const routes = await context.options.generate.routes();
+    const expectedRoutes = ['/pages/my-page', '/pages/another-page', '/', '/user-route'];
+    expect(routes.sort()).toEqual(expectedRoutes.sort());
+  });
 
+  it('should preserve user routes function if it is defined', async () => {
+    context.options.generate.routes = () => ['/user-route'];
+    prismicNuxt.call(context, moduleOptions);
+    expect(context.options.generate.routes).toEqual(jasmine.any(Function));
+    const routes = await context.options.generate.routes();
+    const expectedRoutes = ['/pages/my-page', '/pages/another-page', '/', '/user-route'];
+    expect(routes.sort()).toEqual(expectedRoutes.sort());
+  });
 
-  it("should load the plugin", function() {
+  it('should not run generate if disabled', async () => {
+    moduleOptions.disableDefaultGenerator = true;
+    prismicNuxt.call(context, moduleOptions);
+    expect(context.nuxt.hook).not.toBeCalledWith('generate:before');
+  });
+
+  // it('should add route function to generate option', () => {
+  //   prismicNuxt.call(context, moduleOptions);
+  //   context.options.linkResolver = () => {};
+  //   expect(context.options.generate.routes).toEqual(jasmine.any(Function));
+  // });
+
+  it('should load the plugin', () => {
     prismicNuxt.call(context, moduleOptions);
     expect(context.addPlugin).toHaveBeenCalled();
   });

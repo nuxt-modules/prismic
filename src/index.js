@@ -7,13 +7,12 @@ function install(moduleOptions) {
     ...moduleOptions,
   };
 
-
   // Add in Prismic libraries to enable preview
-  if (typeof (this.options.head.__dangerouslyDisableSanitizersByTagID) === 'undefined') {
+  if (typeof this.options.head.__dangerouslyDisableSanitizersByTagID === 'undefined') {
     this.options.head.__dangerouslyDisableSanitizersByTagID = {};
   }
 
-  if (typeof (this.options.head.script) === 'undefined') {
+  if (typeof this.options.head.script === 'undefined') {
     this.options.head.script = [];
   }
 
@@ -39,16 +38,15 @@ function install(moduleOptions) {
     },
   });
 
-  // Using an option to disable the default Prismic generator if the user wants his own
   if (!options.disableDefaultGenerator) {
     this.nuxt.hook('generate:before', async () => {
       const maybeF = this.options.generate.routes || [];
       this.options.generate.routes = async () => {
         const client = await Prismic.client(options.endpoint);
         const response = await client.query('');
-        const prismicRoutes = (response.results || []).map(options.linkResolver);
+        const prismicRoutes = response.results.map(options.linkResolver);
         const userRoutes = typeof maybeF === 'function' ? await maybeF() : maybeF;
-        return prismicRoutes.concat(userRoutes);
+        return [...new Set(prismicRoutes.concat(userRoutes))];
       };
     });
   }
