@@ -46,6 +46,7 @@ function install(moduleOptions) {
         async function fetchRoutes(page = 1, routes = []) {
           const response = await client.query('', { pageSize: 100, lang: '*', page });
           const allRoutes = routes.concat(response.results.map(moduleOptions.linkResolver));
+          /* istanbul ignore next */
           if (response.results_size + routes.length < response.total_results_size) {
             return fetchRoutes(client, page + 1, allRoutes);
           }
