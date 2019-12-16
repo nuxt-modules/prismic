@@ -6,33 +6,31 @@ sidebar_label: Preview
 
 One of the most powerful features of Prismic is the ability to preview content before it goes live. Setting up the preview functionality can be a little tricky, which is `prismic-nuxt` does it out of the box.
 
-You don't have to change any configuration for the preview mode to be available. `prismic-nuxt` automatically adds the Prismic preview scripts in the `HEAD` of the page. It also registers a new `/preview` route in the Nuxt.js app which deals with session cookies and redirects.
+You don't have to change any configuration for the preview mode to be available. `prismic-nuxt` automatically adds the Prismic preview scripts at the end of the `<body>` of the page. It also registers a new `/preview` route in the Nuxt.js app which deals with session cookies and redirects.
 
-## Using previews on a statically generated website
-If you're statically generating your website, you have to slightly tweak how you fetch content. Nuxt.js won't automatically run the `asyncData` function again to get fresh data. The easiest thing is to the use the `created` lifecycle hook to force the page to get the most up to date content from Prismic;
+You can configure the preview route by giving a path to the `preview` key:
+
+`nuxt.config.js`:
+```js
+prismic: {
+  endpoint: '...',
+  preview: '/_my-preview'
+}
+```
+
+## Customizing the preview page
+
+By default, `prismic-nuxt` will create a preview page in `.nuxt/prismic/pages/preview.vue`, you can overwrite if by creating it in `app/prismic/pages/preview.vue`:
 
 ```vue
+<template>
+  <p>Loading Prismic preview...</p>
+</template>
+
 <script>
-
-function getPage(prismic) {
-  return prismic.api.getByUID('page', 'my-page')
-}
-
 export default {
-  async asyncData({ app, error }) {
-    let document = await getPage(app.$prismic)
-
-    if (document) {
-      return { document }
-    } else {
-      error({ statusCode: 404, message: 'Page not found' })
-    }
-  },
-
-  created() {
-    getPage(this.$prismic).then(document => {
-      this.document = document
-    })
+  mounted() {
+    this.$prismic.preview()
   }
 }
 </script>

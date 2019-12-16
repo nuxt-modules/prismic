@@ -13,15 +13,20 @@ $ yarn add prismic-nuxt
 Now open up your `nuxt-config.js` and add the following minimal configuration inside the `modules` section;
 
 ```javascript
-...
 modules: [
-  ['prismic-nuxt', {
-    endpoint: 'https://<REPOSITORY>.cdn.prismic.io/api/v2',
-    linkResolver: function(doc, ctx) {
-      return '/'
-    }
-  }]
-]
+  'prismic-nuxt'
+],
+prismic: {
+  endpoint: 'https://<REPOSITORY>.cdn.prismic.io/api/v2'
+}
+```
+
+Secondly, Prismic requires a [link resolver function](https://prismic.io/docs/javascript/beyond-the-api/link-resolving) to know how to generate the link, let's create `app/prismic/link-resolver.js` file:
+
+```js
+export default function (doc) {
+  return '/'
+}
 ```
 
 This will be enough to get `prismic-nuxt` up and running, but it's worth checking out the full [configuration documentation](configuration.md) to see what other features you can configure.
@@ -29,6 +34,7 @@ This will be enough to get `prismic-nuxt` up and running, but it's worth checkin
 From here you can use Prismic inside your Nuxt.js app through the `$prismic` variable. Some common tasks include;
 
 ## Fetching a document
+
 Typically you would fetch documents from Prismic inside the `asyncData` function;
 ```vue
 <template>
@@ -39,8 +45,8 @@ Typically you would fetch documents from Prismic inside the `asyncData` function
 
 <script>
 export default {
-  async asyncData({ app, error }) {
-    let document = await app.$prismic.api.getByUID('page', 'my-page')
+  async asyncData({ $prismic, error }) {
+    let document = await $prismic.api.getByUID('page', 'my-page')
 
     if (document) {
       return { document }
@@ -53,6 +59,7 @@ export default {
 ```
 
 ## Setting page metadata
+
 More often than not, you'll want to set some metadata, like the page title and description. You can do this directly inside the `head()` function of your pages, but you have to access `prismic-nuxt` slightly differently;
 
 ```javascript

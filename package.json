@@ -25,6 +25,7 @@
   },
   "homepage": "https://prismic-nuxt.js.org",
   "dependencies": {
+    "consola": "^2.9.0",
     "prismic-dom": "^2.1.0",
     "prismic-javascript": "^2.1.1"
   },
