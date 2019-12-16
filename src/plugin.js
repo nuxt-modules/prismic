@@ -12,7 +12,7 @@ export default async ({ app, req, route, res, query, redirect }, inject) => {
     options.req = req
   }
 
-  let api = await Prismic.api(moduleOptions.endpoint, options);
+  let api = await Prismic.api(moduleOptions.endpoint, moduleOptions.apiOptions);
 
   let prismic = new Vue({
     computed: {
@@ -43,7 +43,7 @@ export default async ({ app, req, route, res, query, redirect }, inject) => {
       },
       asLink(link) {
         if (link) {
-          return PrismicDOM.Link.url(
+          return link.url || PrismicDOM.Link.url(
             link,
             moduleOptions.linkResolver
           )

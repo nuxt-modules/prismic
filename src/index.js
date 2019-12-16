@@ -16,14 +16,14 @@ function install(moduleOptions) {
   }
 
   this.options.head.__dangerouslyDisableSanitizersByTagID['prismic-nuxt'] = ['innerHTML'];
-  this.options.head.script.push({
-    hid: 'prismic-nuxt',
-    innerHTML: `window.prismic = {endpoint: '${options.endpoint}'};`,
-    type: 'text/javascript',
-  });
+  // this.options.head.script.push({
+  //   hid: 'prismic-nuxt',
+  //   innerHTML: `window.prismic = {endpoint: '${options.endpoint}'};`,
+  //   type: 'text/javascript',
+  // });
 
   this.options.head.script.push({
-    src: '//static.cdn.prismic.io/prismic.min.js',
+    src: `//static.cdn.prismic.io/prismic.min.js?new=true&repo=${moduleOptions.endpoint}`,
     ...(options.deferLoad && { defer: true }),
   });
 
@@ -31,8 +31,12 @@ function install(moduleOptions) {
   this.addPlugin({
     src: path.resolve(__dirname, 'plugin.js'),
     options: {
-      endpoint: options.endpoint,
-      linkResolver: options.linkResolver,
+      endpoint: moduleOptions.endpoint,
+      apiOptions: {
+        accessToken: moduleOptions.accessToken,
+        routes: moduleOptions.routes,
+      },
+      linkResolver: moduleOptions.linkResolver,
       htmlSerializer: options.htmlSerializer,
     },
   });
