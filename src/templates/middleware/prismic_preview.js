@@ -7,7 +7,7 @@ Middleware.prismic_preview = async ({ route, $prismic }) => {
   if (process.server) return
   // Ignore if not generated
   if (!process.static) return
-  // Ignore if preview mode
+  // Ignore if no preview mode
   if (!$prismic.isPreview) return
 
   const Components = getMatchedComponents(route)

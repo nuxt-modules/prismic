@@ -25,15 +25,16 @@
   },
   "homepage": "https://prismic-nuxt.js.org",
   "dependencies": {
-    "consola": "^2.9.0",
+    "consola": "^2.11.1",
     "prismic-dom": "^2.1.0",
-    "prismic-javascript": "^2.1.1"
+    "prismic-javascript": "^2.1.5",
+    "prismic-vue": "^2.0.0"
   },
   "devDependencies": {
-    "eslint": "^5.8.0",
-    "eslint-config-airbnb-base": "^13.1.0",
-    "eslint-plugin-import": "^2.14.0",
-    "jest": "^24.7.1"
+    "eslint": "^6.7.2",
+    "eslint-config-airbnb-base": "^14.0.0",
+    "eslint-plugin-import": "^2.19.1",
+    "jest": "^24.9.0"
   },
   "engines": {
     "node": ">= 8.0.0",
