@@ -108,7 +108,7 @@ class Index extends React.Component {
       <Block layout="twoColumn">
         {[
           {
-            content: `If you want to skip our [getting started guide](${docUrl('getting-started')}), just install \`prismic-nuxt\` with your favourite package manager. \n\n\`\`\`bash\n$ yarn add prismic-nuxt\n\`\`\``,
+            content: `If you want to skip our [getting started guide](${docUrl('getting-started')}), just install \`prismic-nuxt\` with your favourite package manager. \n\n\`\`\`bash\n$ yarn add @nuxtjs/prismic\n\`\`\``,
             title: 'Quick Start',
           },
           {
@@ -120,7 +120,7 @@ class Index extends React.Component {
       // <Container className="container--narrow" padding={['bottom']}>
       //   <h2>Quick Start</h2>
       //   <p>If you want to skip our <a href={docUrl('getting-started.html')}>getting started guide</a>, just install <code>prismic-nuxt</code> with your favourite package manager.</p>
-      //   <code className="hljs css language-bash">$ yarn add prismic-nuxt</code>
+      //   <code className="hljs css language-bash">$ yarn add @nuxtjs/prismic</code>
       // </Container>
     );
 

@@ -4,17 +4,17 @@ title: Getting Started
 sidebar_label: Getting Started
 ---
 
-Get started by adding `prismic-nuxt` to an existing Nuxt.js project;
+Get started by adding `@nuxtjs/prismic` to an existing Nuxt.js project;
 
 ```bash
-$ yarn add prismic-nuxt
+$ yarn add @nuxtjs/prismic
 ```
 
 Now open up your `nuxt-config.js` and add the following minimal configuration inside the `modules` section;
 
 ```javascript
 modules: [
-  'prismic-nuxt'
+  '@nuxtjs/prismic'
 ],
 prismic: {
   endpoint: 'https://<REPOSITORY>.cdn.prismic.io/api/v2'
@@ -29,7 +29,7 @@ export default function (doc) {
 }
 ```
 
-This will be enough to get `prismic-nuxt` up and running, but it's worth checking out the full [configuration documentation](configuration.md) to see what other features you can configure.
+This will be enough to get `@nuxtjs/prismic` up and running, but it's worth checking out the full [configuration documentation](configuration.md) to see what other features you can configure.
 
 From here you can use Prismic inside your Nuxt.js app through the `$prismic` variable. Some common tasks include;
 
@@ -60,7 +60,7 @@ export default {
 
 ## Setting page metadata
 
-More often than not, you'll want to set some metadata, like the page title and description. You can do this directly inside the `head()` function of your pages, but you have to access `prismic-nuxt` slightly differently;
+More often than not, you'll want to set some metadata, like the page title and description. You can do this directly inside the `head()` function of your pages, but you have to access `@nuxtjs/prismic` slightly differently;
 
 ```javascript
 ...

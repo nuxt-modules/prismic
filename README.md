@@ -1,11 +1,11 @@
-# prismic-nuxt [![Build Status](https://travis-ci.com/jamespegg/prismic-nuxt.svg?branch=master)](https://travis-ci.com/jamespegg/prismic-nuxt) [![Coverage Status](https://coveralls.io/repos/github/jamespegg/prismic-nuxt/badge.svg?branch=master)](https://coveralls.io/github/jamespegg/prismic-nuxt?branch=master) [![npm version](https://badge.fury.io/js/prismic-nuxt.svg)](https://badge.fury.io/js/prismic-nuxt)
+# @nuxtjs/prismic [![Build Status](https://travis-ci.com/nuxt-community/prismic-nuxt.svg?branch=master)](https://travis-ci.com/nuxt-community/prismic-nuxt) [![Coverage Status](https://coveralls.io/repos/github/nuxt-community/prismic-nuxt/badge.svg?branch=master)](https://coveralls.io/github/nuxt-community/prismic-nuxt?branch=master) [![npm version](https://badge.fury.io/js/prismic-nuxt.svg)](https://badge.fury.io/js/prismic-nuxt)
 
-Headless CMS meets Universal Apps - [Nuxt.js](https://nuxtjs.org) plugin for [Prismic](https://prismic.io).
+Headless CMS meets Universal Apps - [Nuxt.js](https://nuxtjs.org) module for [Prismic](https://prismic.io).
 
 # Installation
 
 ```
-$ yarn add prismic-nuxt
+$ yarn add @nuxtjs/prismic
 ```
 
 * [Getting Started](https://prismic-nuxt.js.org/docs/getting-started) - Get up and running in a few minutes.
@@ -20,12 +20,12 @@ $ yarn add prismic-nuxt
 
 # Quick Start
 
-Install `prismic-nuxt` and add the following minimal configuration to `nuxt-config.js`;
+Install `@nuxtjs/prismic` and add the following minimal configuration to `nuxt.config.js`;
 
 ```javascript
 ...
 modules: [
-  'prismic-nuxt'
+  '@nuxtjs/prismic'
 ],
 prismic: {
   endpoint: 'https://<REPOSITORY>.cdn.prismic.io/api/v2'
@@ -44,4 +44,4 @@ You can now access Prismic inside your Nuxt.js app through the `$prismic` variab
 
 # Node v8 Support
 
-Since v0.5.0, `prismic-nuxt` should now work with Node v8 and above. We don't manually test on Node v8, however unit tests will now be tested on both Node v8 and V10 on Travis. There's no guarantees that it'll work as expected, especially after Node v8 drops out of support in January 2020.
+Since v0.5.0, `@nuxtjs/prismic` should now work with Node v8 and above. We don't manually test on Node v8, however unit tests will now be tested on both Node v8 and V10 on Travis. There's no guarantees that it'll work as expected, especially after Node v8 drops out of support in January 2020.

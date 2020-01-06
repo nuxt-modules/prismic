@@ -112,7 +112,7 @@ export default async (context, inject) => {
 
     // Refresh data from Prismic preview
     prismic.isPreview && window.onNuxtReady(async (app) => {
-      console.info('[prismic-nuxt] Reload page data for preview')
+      console.info('[@nuxtjs/prismic] Reload page data for preview')
       if (app.$store._actions.nuxtServerInit) {
         await app.$store.dispatch('nuxtServerInit', app.$options.context)
       }

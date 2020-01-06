@@ -4,7 +4,7 @@ title: Helper Functions
 sidebar_label: Helper Functions
 ---
 
-Out of the box, `prismic-nuxt` comes with a few helper functions that sit on top of `prismic-dom`;
+Out of the box, `@nuxtjs/prismic` comes with a few helper functions that sit on top of `prismic-dom`;
 
 ## `asHtml`
 

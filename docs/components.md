@@ -4,7 +4,7 @@ title: Components
 sidebar_label: Components
 ---
 
-`prismic-nuxt` ships with built-in components to get you started quickly. These components are imported from [prismic-vue/components](https://github.com/prismicio/prismic-vue#list-of-components).
+`@nuxtjs/prismic` ships with built-in components to get you started quickly. These components are imported from [prismic-vue/components](https://github.com/prismicio/prismic-vue#list-of-components).
 
 ## &lt;prismic-rich-text&gt;
 

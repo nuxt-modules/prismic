@@ -45,7 +45,7 @@ class Footer extends React.Component {
             <h5>Community</h5>
             <a href="https://github.com/">GitHub</a>
             <a
-              href="https://github.com/jamespegg/prismic-nuxt/issues"
+              href="https://github.com/nuxt-community/prismic-nuxt/issues"
               target="_blank"
               rel="noreferrer noopener">
               GitHub Issues

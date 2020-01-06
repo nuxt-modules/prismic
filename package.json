@@ -1,7 +1,7 @@
 {
-  "name": "prismic-nuxt",
+  "name": "@nuxtjs/prismic",
   "version": "0.5.3",
-  "description": "Easily add Prismic to your next Nuxt project",
+  "description": "Add Prismic to your NuxtJS project",
   "main": "src/index.js",
   "scripts": {
     "test": "npm run lint && npm run unit",
@@ -18,10 +18,10 @@
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/jamespegg/prismic-nuxt.git"
+    "url": "git+https://github.com/nuxt-community/prismic-nuxt.git"
   },
   "bugs": {
-    "url": "https://github.com/jamespegg/prismic-nuxt/issues"
+    "url": "https://github.com/nuxt-community/prismic-nuxt/issues"
   },
   "homepage": "https://prismic-nuxt.js.org",
   "dependencies": {

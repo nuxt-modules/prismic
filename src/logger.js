@@ -1,1 +1,1 @@
-module.exports = require('consola').withScope('prismic-nuxt');
+module.exports = require('consola').withScope('@nuxtjs/prismic');

@@ -38,7 +38,7 @@ By default, the [prismic components](/docs/components) are imported, to disable 
 ```javascript
 export default {
   modules: [
-    'prismic-nuxt'
+    '@nuxtjs/prismic'
   ],
   prismic: {
     endpoint: 'https://<REPOSITORY>.cdn.prismic.io/api/v2',
