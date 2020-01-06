@@ -16,7 +16,7 @@ $ yarn add prismic-nuxt
 * __Batteries Included__: Easily access official Prismic JavaScript & Prismic DOM libraries in your Nuxt.js app.
 * __Preview Mode__: Automatically add Prismic Previews to your site without additional configuration.
 * __Compact Configuration__: Just add your Prismic repository endpoint and a link resolver and you're good to go.
-* __Prismic Components__: Accelerate your workflow with ready-to-use `<prismic-link>` and `<prismic-image>` components
+* __Prismic Components__: Accelerate your workflow with ready-to-use Prismic components
 
 # Quick Start
 

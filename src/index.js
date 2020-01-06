@@ -41,12 +41,8 @@ function install(moduleOptions) {
   // Add components
   if (options.components) {
     this.addPlugin({
-      fileName: 'prismic/components/PrismicImage.js',
-      src: path.resolve(__dirname, 'templates/components/PrismicImage.js'),
-    });
-    this.addPlugin({
-      fileName: 'prismic/components/PrismicLink.js',
-      src: path.resolve(__dirname, 'templates/components/PrismicLink.js'),
+      fileName: 'prismic/plugins/prismic-components.js',
+      src: path.resolve(__dirname, 'templates/plugins/prismic-components.js'),
     });
   }
 
