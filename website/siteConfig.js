@@ -40,8 +40,9 @@ const siteConfig = {
   headerLinks: [
     {doc: 'getting-started', label: 'Getting Started'},
     // {doc: 'doc4', label: 'API'},
-    { href: "https://github.com/nuxt-community/prismic-nuxt", label: "GitHub" },
     {blog: true, label: 'Blog'},
+    { href: 'https://github.com/Atinux/nuxt-prismic-showcase', label: 'Demo' },
+    { href: "https://github.com/nuxt-community/prismic-nuxt", label: "GitHub" },
   ],
 
   // If you have users set above, you add it here:

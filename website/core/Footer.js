@@ -64,6 +64,7 @@ class Footer extends React.Component {
           <div>
             <h5>More</h5>
             <a href={`${this.props.config.baseUrl}blog`}>Blog</a>
+            <a href="https://github.com/Atinux/nuxt-prismic-showcase">Demo</a>
           </div>
         </section>
       </footer>
