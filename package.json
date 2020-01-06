@@ -1,7 +1,7 @@
 {
-  "name": "prismic-nuxt",
+  "name": "@nuxtjs/prismic",
   "version": "0.5.3",
-  "description": "Easily add Prismic to your next Nuxt project",
+  "description": "Add Prismic to your NuxtJS project",
   "main": "src/index.js",
   "scripts": {
     "test": "npm run lint && npm run unit",
@@ -18,21 +18,23 @@
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/jamespegg/prismic-nuxt.git"
+    "url": "git+https://github.com/nuxt-community/prismic-nuxt.git"
   },
   "bugs": {
-    "url": "https://github.com/jamespegg/prismic-nuxt/issues"
+    "url": "https://github.com/nuxt-community/prismic-nuxt/issues"
   },
   "homepage": "https://prismic-nuxt.js.org",
   "dependencies": {
+    "consola": "^2.11.3",
     "prismic-dom": "^2.1.0",
-    "prismic-javascript": "^2.1.1"
+    "prismic-javascript": "^2.1.5",
+    "prismic-vue": "^2.0.0"
   },
   "devDependencies": {
-    "eslint": "^5.8.0",
-    "eslint-config-airbnb-base": "^13.1.0",
-    "eslint-plugin-import": "^2.14.0",
-    "jest": "^24.7.1"
+    "eslint": "^6.8.0",
+    "eslint-config-airbnb-base": "^14.0.0",
+    "eslint-plugin-import": "^2.19.1",
+    "jest": "^24.9.0"
   },
   "engines": {
     "node": ">= 8.0.0",

@@ -5,6 +5,10 @@
     "previous": "Previous",
     "tagline": "Headless CMS meets Universal Apps",
     "docs": {
+      "components": {
+        "title": "Components",
+        "sidebar_label": "Components"
+      },
       "configuration": {
         "title": "Configuration",
         "sidebar_label": "Configuration"

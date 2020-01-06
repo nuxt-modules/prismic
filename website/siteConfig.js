@@ -21,7 +21,7 @@ const users = [
 ];
 
 const siteConfig = {
-  title: 'prismic-nuxt', // Title for your website.
+  title: '@nuxtjs/prismic', // Title for your website.
   tagline: 'Headless CMS meets Universal Apps',
   url: 'https://prismic-nuxt.js.org/', // Your website URL
   baseUrl: '/', // Base URL for your project */
@@ -31,7 +31,7 @@ const siteConfig = {
 
   // Used for publishing and more
   projectName: 'prismic-nuxt',
-  organizationName: 'jamespegg',
+  organizationName: 'nuxt-community',
   // For top-level user or org sites, the organization is still the same.
   // e.g., for the https://JoelMarcey.github.io site, it would be set like...
   //   organizationName: 'JoelMarcey'
@@ -40,7 +40,7 @@ const siteConfig = {
   headerLinks: [
     {doc: 'getting-started', label: 'Getting Started'},
     // {doc: 'doc4', label: 'API'},
-    { href: "https://github.com/jamespegg/prismic-nuxt", label: "GitHub" },
+    { href: "https://github.com/nuxt-community/prismic-nuxt", label: "GitHub" },
     {blog: true, label: 'Blog'},
   ],
 
@@ -100,7 +100,7 @@ const siteConfig = {
 
   // You may provide arbitrary config keys to be used as needed by your
   // template. For example, if you need your repo's URL...
-  repoUrl: 'https://github.com/jamespegg/prismic-nuxt',
+  repoUrl: 'https://github.com/nuxt-community/prismic-nuxt',
 
   cname: 'prismic-nuxt.js.org',
 

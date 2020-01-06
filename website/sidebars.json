@@ -1,7 +1,7 @@
 {
   "docs": {
     "Getting Started": ["getting-started", "configuration", "helper-functions"],
-    "Built-in Features": ["preview"],
+    "Built-in Features": ["preview", "components"],
     "API": ["methods", "variables"]
   }
 }
