@@ -1,4 +1,4 @@
-# @nuxtjs/prismic [![Build Status](https://travis-ci.com/nuxt-community/prismic-nuxt.svg?branch=master)](https://travis-ci.com/nuxt-community/prismic-nuxt) [![Coverage Status](https://coveralls.io/repos/github/nuxt-community/prismic-nuxt/badge.svg?branch=master)](https://coveralls.io/github/nuxt-community/prismic-nuxt?branch=master) [![npm version](https://badge.fury.io/js/prismic-nuxt.svg)](https://badge.fury.io/js/prismic-nuxt)
+# @nuxtjs/prismic [![Build Status](https://travis-ci.com/nuxt-community/prismic-nuxt.svg?branch=master)](https://travis-ci.com/nuxt-community/prismic-nuxt) [![Coverage Status](https://coveralls.io/repos/github/nuxt-community/prismic-nuxt/badge.svg?branch=master)](https://coveralls.io/github/nuxt-community/prismic-nuxt?branch=master) [![npm version](https://badge.fury.io/js/@nuxtjs/prismic.svg)](https://badge.fury.io/js/@nuxtjs/prismic)
 
 Headless CMS meets Universal Apps - [Nuxt.js](https://nuxtjs.org) module for [Prismic](https://prismic.io).
 
