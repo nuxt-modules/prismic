@@ -112,8 +112,9 @@ class Index extends React.Component {
             title: 'Quick Start',
           },
           {
-            image: `${baseUrl}img/install.gif`,
+            image: 'https://img.youtube.com/vi/2DtDsnWe2MU/hqdefault.jpg',
             imageAlign: 'right',
+            imageLink: 'https://www.youtube.com/watch?v=2DtDsnWe2MU'
           }
         ]}
       </Block>
