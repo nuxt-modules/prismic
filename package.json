@@ -18,10 +18,10 @@
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/nuxt-community/prismic-nuxt.git"
+    "url": "git+https://github.com/nuxt-community/prismic-module.git"
   },
   "bugs": {
-    "url": "https://github.com/nuxt-community/prismic-nuxt/issues"
+    "url": "https://github.com/nuxt-community/prismic-module/issues"
   },
   "homepage": "https://prismic-nuxt.js.org",
   "dependencies": {
