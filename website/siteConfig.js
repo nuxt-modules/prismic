@@ -42,7 +42,7 @@ const siteConfig = {
     // {doc: 'doc4', label: 'API'},
     {blog: true, label: 'Blog'},
     { href: 'https://github.com/Atinux/nuxt-prismic-showcase', label: 'Demo' },
-    { href: "https://github.com/nuxt-community/prismic-nuxt", label: "GitHub" },
+    { href: "https://github.com/nuxt-community/prismic-module", label: "GitHub" },
   ],
 
   // If you have users set above, you add it here:
@@ -101,7 +101,7 @@ const siteConfig = {
 
   // You may provide arbitrary config keys to be used as needed by your
   // template. For example, if you need your repo's URL...
-  repoUrl: 'https://github.com/nuxt-community/prismic-nuxt',
+  repoUrl: 'https://github.com/nuxt-community/prismic-module',
 
   cname: 'prismic-nuxt.js.org',
 
