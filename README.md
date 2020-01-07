@@ -2,6 +2,8 @@
 
 Headless CMS meets Universal Apps - [Nuxt.js](https://nuxtjs.org) module for [Prismic](https://prismic.io).
 
+See [live demo](https://nuxt-prismic.surge.sh) with the [demo source code](https://github.com/Atinux/nuxt-prismic-showcase).
+
 # Installation
 
 ```
