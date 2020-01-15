@@ -1,6 +1,7 @@
 const path = require('path');
 const fs = require('fs');
 const logger = require('./logger');
+const generate = require('./generator');
 
 function install(moduleOptions) {
   const options = {
@@ -75,6 +76,9 @@ function install(moduleOptions) {
       script: `//static.cdn.prismic.io/prismic.min.js?repo=${repo}&new=true`,
     },
   });
+  if (!options.disableDefaultGenerator) {
+    generate.call(this, options)
+  }
 }
 
 module.exports = install;
