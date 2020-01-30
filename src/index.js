@@ -23,7 +23,7 @@ function install(moduleOptions) {
       src: path.join(__dirname, 'templates/pages/preview.vue'),
     });
     this.extendRoutes((routes, resolve) => {
-      routes.push({
+      routes.unshift({
         name: 'prismic-preview',
         path: options.preview,
         component: resolve(this.options.buildDir, 'prismic/pages/preview.vue'),

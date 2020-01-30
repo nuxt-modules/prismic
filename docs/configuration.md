@@ -32,6 +32,20 @@ To define a custom path for it, use a string, ex: `preview: '/my-preview'`.
 
 By default, the [prismic components](/docs/components) are imported, to disable it, set `components` to `false`.
 
+### `linkResolver`
+
+- Type: `String | Function`
+- Default: `~/app/prismic/link-resolver.js`
+
+By default, it will load the link resolver from `~/app/prismic/link-resolver.js`, you can customize this path directly or give a function.
+
+### `htmlSerializer`
+
+- Type: `String | Function`
+- Default: `~/app/prismic/html-serializer.js`
+
+By default, it will load the link resolver from `~/app/prismic/html-serializer.js`, you can customize this path directly or give a function.
+
 ## Kitchen Sink
 
 `nuxt.config.js`:
