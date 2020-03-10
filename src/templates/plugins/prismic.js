@@ -81,7 +81,7 @@ export default async (context, inject) => {
   <% if (options.preview) { %>
   // Load prismic script after Nuxt app is mounted
   if (process.client) {
-    window.onNuxtReady(() => {
+    window.onNuxtReady && window.onNuxtReady(() => {
       const script = document.createElement('script')
 
       script.src = '<%= options.script %>'
