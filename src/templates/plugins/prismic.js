@@ -78,6 +78,7 @@ export default async (context, inject) => {
   inject('prismic', prismic)
   context.$prismic = prismic
 
+  <% if (options.preview) { %>
   // Load prismic script after Nuxt app is mounted
   if (process.client) {
     window.onNuxtReady(() => {
@@ -87,7 +88,6 @@ export default async (context, inject) => {
       document.body.appendChild(script)
     })
   }
-  <% if (options.preview) { %>
   // Preview mode
   if (process.server && !process.static && route.path === '<%= options.preview %>') {
     await prismic.preview()
