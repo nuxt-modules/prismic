@@ -10,7 +10,7 @@
     "publish": "npm run build && push-dir --dir build/prismic-nuxt --branch=gh-pages --cleanup"
   },
   "devDependencies": {
-    "docusaurus": "^1.14.3",
+    "docusaurus": "^1.14.4",
     "push-dir": "^0.4.1"
   }
 }
