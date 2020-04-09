@@ -71,6 +71,7 @@ function install(moduleOptions) {
     options: {
       preview: options.preview,
       endpoint: options.endpoint,
+      apiOptions: options.apiOptions || {},
       repo,
       script: `//static.cdn.prismic.io/prismic.min.js?repo=${repo}&new=true`,
     },

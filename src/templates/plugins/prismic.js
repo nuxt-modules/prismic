@@ -14,7 +14,7 @@ export default async (context, inject) => {
     options.req = req
   }
 
-  let api = await Prismic.api('<%= options.endpoint %>', options)
+  let api = await Prismic.api('<%= options.endpoint %>', Object.assign({}, options,  <%= JSON.stringify(options.apiOptions) %>))
 
   let prismic = new Vue({
     computed: {
