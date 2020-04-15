@@ -26,7 +26,7 @@
   "homepage": "https://prismic-nuxt.js.org",
   "dependencies": {
     "consola": "^2.11.3",
-    "prismic-dom": "^2.2.0",
+    "prismic-dom": "^2.2.1",
     "prismic-javascript": "^2.7.1",
     "@prismicio/vue": "^2.0.2"
   },
