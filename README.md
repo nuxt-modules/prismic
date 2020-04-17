@@ -33,7 +33,16 @@ modules: [
   '@nuxtjs/prismic'
 ],
 prismic: {
-  endpoint: 'https://<REPOSITORY>.cdn.prismic.io/api/v2'
+  endpoint: 'https://<REPOSITORY>.cdn.prismic.io/api/v2',
+  apiOptions: { // optional
+    accessToken: '<private_access_token>',
+    routes: [
+      {
+        "type": "page",
+        "path": "/:uid"
+      }
+    ]
+  }
 }
 ```
 
