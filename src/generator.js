@@ -4,8 +4,6 @@ const logger = require('./logger');
 
 function generate(options) {
   this.nuxt.hook('generate:before', async () => {
-    console.log('GENERATE CALLED')
-    console.log(options, options.apiOptions)
     const maybeF = this.options.generate.routes || [];
     this.options.generate.routes = async () => {
       try {
