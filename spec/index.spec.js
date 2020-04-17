@@ -1,7 +1,17 @@
 const fs = require('fs')
 const logger = require('@/logger');
+const Prismic = require('prismic-javascript');
+
 logger.mockTypes(() => jest.fn());
 const prismicNuxt = require("../src");
+jest.mock('prismic-javascript');
+
+Prismic.client = jest.fn(() => ({
+  async query() {
+    const data = require('./__mockData__') // eslint-disable-line
+    return data;
+  },
+}));
 
 describe("prismic-nuxt module", function() {
   let context;
@@ -21,12 +31,24 @@ describe("prismic-nuxt module", function() {
         srcDir: '/var/nuxt',
         buildDir: '/var/nuxt/.nuxt/',
         head: {},
-        dir: {}
-      }
+        dir: {},
+        generate: {},
+      },
+      nuxt: {
+        hook: jest.fn(async (_, fn) => {
+          await fn();
+        }),
+      },
     }
 
     moduleOptions = {
-      endpoint: "https://test.cdn.prismic.io/api/v2"
+      endpoint: "https://repoz.prismic.io/api/v2",
+      apiOptions: {
+       routes: [{
+         "type": "page",
+         "path": "/pages/:uid"
+       }]
+      }
     };
   });
 
@@ -92,6 +114,47 @@ describe("prismic-nuxt module", function() {
     await prismicNuxt.call(context, { ...moduleOptions });
     expect(logger.warn.mock.calls.length).toEqual(0)
     expect(context.addTemplate.mock.calls[2][0].src).toEqual('/var/nuxt/app/prismic/html-serializer.js')
+  });
+
+  it('should call hook on generate:before', async () => {
+    prismicNuxt.call(context, moduleOptions);
+    expect(context.nuxt.hook).toBeCalledWith('generate:before', jasmine.any(Function));
+  });
+
+  it('should return routes on generate', async () => {
+    prismicNuxt.call(context, moduleOptions);
+    expect(context.options.generate.routes).toEqual(jasmine.any(Function));
+    try {
+      const routes = await context.options.generate.routes();
+      const expectedRoutes = ['/pages/my-page', '/pages/another-page', '/'];
+      expect(routes.sort()).toEqual(expectedRoutes.sort());
+    } catch (e) {
+      expect(e).toMatch([]);
+    }
+  });
+
+  it('should preserve user defined routes on generate', async () => {
+    context.options.generate.routes = ['/user-route'];
+    prismicNuxt.call(context, moduleOptions);
+    expect(context.options.generate.routes).toEqual(jasmine.any(Function));
+    const routes = await context.options.generate.routes();
+    const expectedRoutes = ['/pages/my-page', '/pages/another-page', '/', '/user-route'];
+    expect(routes.sort()).toEqual(expectedRoutes.sort());
+  });
+
+  it('should preserve user routes function if it is defined', async () => {
+    context.options.generate.routes = () => ['/user-route'];
+    prismicNuxt.call(context, moduleOptions);
+    expect(context.options.generate.routes).toEqual(jasmine.any(Function));
+    const routes = await context.options.generate.routes();
+    const expectedRoutes = ['/pages/my-page', '/pages/another-page', '/', '/user-route'];
+    expect(routes.sort()).toEqual(expectedRoutes.sort());
+  });
+
+  it('should not run generate if disabled', async () => {
+    moduleOptions.disableGenerator = true;
+    prismicNuxt.call(context, moduleOptions);
+    expect(context.nuxt.hook).not.toBeCalledWith('generate:before');
   });
 
 });

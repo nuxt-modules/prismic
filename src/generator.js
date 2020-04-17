@@ -1,7 +1,6 @@
 const Prismic = require('prismic-javascript');
 const logger = require('./logger');
 
-/* istanbul ignore next */
 function generate(options) {
   this.nuxt.hook('generate:before', async () => {
     const client = Prismic.client(options.endpoint, options.apiOptions);
@@ -10,6 +9,7 @@ function generate(options) {
       const response = await client.query('', { pageSize: 100, lang: '*', page });
       const allRoutes = routes.concat(response.results.map((e) => e.url));
       if (response.results_size + routes.length < response.total_results_size) {
+        /* istanbul ignore next */
         return fetchRoutes(page + 1, allRoutes);
       }
       return [...new Set(allRoutes)];
