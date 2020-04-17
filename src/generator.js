@@ -1,7 +1,7 @@
 const Prismic = require('prismic-javascript');
 const logger = require('./logger');
 
-
+/* istanbul ignore next */
 function generate(options) {
   this.nuxt.hook('generate:before', async () => {
     const client = Prismic.client(options.endpoint, options.apiOptions);

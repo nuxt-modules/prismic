@@ -78,6 +78,7 @@ function install(moduleOptions) {
     },
   });
 
+  /* istanbul ignore next */
   if (
     options.apiOptions
     && options.apiOptions.routes
