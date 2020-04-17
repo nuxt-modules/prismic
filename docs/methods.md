@@ -58,4 +58,4 @@ This is the same as `PrismicDOM.Date`.
 $prismic.preview()
 ```
 
-This method is used internally in the `mounted` hook of thew preview page.
+This method is used internally in the `mounted` hook of the preview page.
