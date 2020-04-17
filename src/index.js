@@ -79,11 +79,11 @@ function install(moduleOptions) {
   });
 
   if (
-    options.apiOptions &&
-    options.apiOptions.routes &&
-    !options.disableGenerator
+    options.apiOptions
+    && options.apiOptions.routes
+    && !options.disableGenerator
   ) {
-    generate.call(this, options)
+    generate.call(this, options);
   }
 }
 
