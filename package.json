@@ -14,7 +14,10 @@
     "vue",
     "cms"
   ],
-  "author": "James Pegg <jamescpegg@gmail.com>",
+  "contributors": [
+    "James Pegg <jamescpegg@gmail.com>",
+    "Sebastien Chopin (@Atinux)"
+  ],
   "license": "MIT",
   "repository": {
     "type": "git",
