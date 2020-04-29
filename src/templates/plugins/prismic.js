@@ -21,6 +21,9 @@ export default async (context, inject) => {
       api() {
         return api
       },
+      apiEndpoint() {
+        return '<%= options.endpoint %>'
+      },
       predicates() {
         return Prismic.Predicates
       },
