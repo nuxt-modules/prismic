@@ -92,6 +92,11 @@ describe("prismic-nuxt module", function() {
     expect(context.addPlugin.mock.calls[2][0].options.repo).toEqual('test2')
   });
 
+  it("should parse repo from resolveEndpoint", function() {
+    prismicNuxt.call(context, { resolveEndpoint: () => 'https://test2.prismic.io/api/v2' });
+    expect(context.addPlugin.mock.calls[2][0].options.repo).toEqual('test2')
+  });
+
   it("should warn to create ~/app/prismic/link-resolver.js", async function() {
     await prismicNuxt.call(context, { ...moduleOptions });
     expect(logger.warn).toHaveBeenNthCalledWith(1, 'Please create ~/app/prismic/link-resolver.js')

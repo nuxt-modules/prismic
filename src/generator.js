@@ -3,7 +3,8 @@ const logger = require('./logger');
 
 function generate(options) {
   this.nuxt.hook('generate:before', async () => {
-    const client = Prismic.client(options.endpoint, options.apiOptions);
+    const endpoint = options.resolveEndpoint ? options.resolveEndpoint() : options.endpoint;
+    const client = Prismic.client(endpoint, options.apiOptions);
     const maybeF = this.options.generate.routes || [];
     const fetchRoutes = async (page = 1, routes = []) => {
       const response = await client.query('', { pageSize: 100, lang: '*', page });

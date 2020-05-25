@@ -13,7 +13,8 @@ function install(moduleOptions) {
   if (options.preview === true) {
     options.preview = '/preview';
   }
-  const repo = options.endpoint.replace(/^https?:\/\//, '').replace(/(\.cdn)?\.prismic.+/, '');
+  const endpoint = options.resolveEndpoint ? options.resolveEndpoint() : options.endpoint;
+  const repo = endpoint.replace(/^https?:\/\//, '').replace(/(\.cdn)?\.prismic.+/, '');
 
   // Add in Prismic libraries to enable preview
   if (options.preview) {
@@ -71,7 +72,7 @@ function install(moduleOptions) {
     src: path.resolve(__dirname, 'templates/plugins/prismic.js'),
     options: {
       preview: options.preview,
-      endpoint: options.endpoint,
+      endpoint,
       apiOptions: options.apiOptions || {},
       repo,
       script: `//static.cdn.prismic.io/prismic.min.js?repo=${repo}&new=true`,
