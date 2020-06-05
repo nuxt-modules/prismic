@@ -93,12 +93,17 @@ describe("prismic-nuxt module", function() {
   });
 
   it("should warn to create ~/app/prismic/link-resolver.js", async function() {
-    await prismicNuxt.call(context, { ...moduleOptions });
+    await prismicNuxt.call(context, { ...moduleOptions, apiOptions: null });
     expect(logger.warn).toHaveBeenNthCalledWith(1, 'Please create ~/app/prismic/link-resolver.js')
   });
 
+  it("should not warn to create ~/app/prismic/link-resolver.js if routes is given", async function() {
+    await prismicNuxt.call(context, { ...moduleOptions });
+    expect(logger.warn.mock.calls.length).toEqual(0)
+  });
+
   it("should not warn to create ~/app/prismic/link-resolver.js if option given", async function() {
-    await prismicNuxt.call(context, { ...moduleOptions, linkResolver: () => '/' });
+    await prismicNuxt.call(context, { ...moduleOptions, linkResolver: () => '/', apiOptions: null });
     expect(logger.warn.mock.calls.length).toEqual(0)
   });
 
@@ -149,12 +154,13 @@ describe("prismic-nuxt module", function() {
     const routes = await context.options.generate.routes();
     const expectedRoutes = ['/pages/my-page', '/pages/another-page', '/', '/user-route'];
     expect(routes.sort()).toEqual(expectedRoutes.sort());
+    expect(context.nuxt.hook).toBeCalledWith('generate:before', expect.anything());
   });
 
   it('should not run generate if disabled', async () => {
     moduleOptions.disableGenerator = true;
     prismicNuxt.call(context, moduleOptions);
-    expect(context.nuxt.hook).not.toBeCalledWith('generate:before');
+    expect(context.nuxt.hook).not.toBeCalledWith('generate:before', expect.anything());
   });
 
 });

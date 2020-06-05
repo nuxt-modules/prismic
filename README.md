@@ -53,8 +53,58 @@ export default function (doc) {
   return '/'
 }
 ```
-
 You can now access Prismic inside your Nuxt.js app through the `$prismic` variable. Follow our [Getting Started](https://prismic-nuxt.js.org/docs/getting-started) guide for further documentation and examples.
+
+# Generate
+
+The big innovation of Nuxt comes with its `nuxt generate` command. When building your application, its purpose is to generate the HTML for every one of your routes and store it in a file. These 'statically generated' files can then safely be served via a CDN like [Vercel](vercel.com) or [Netlify](netlify.com).
+
+### With link resolver
+
+To correctly generate your dynamic content, Nuxt needs to know which paths need to be rendered. The preferred way to handle this is to use the `generate.routes` property of your Nuxt config object, and adding [a function which returns a promise](https://nuxtjs.org/api/configuration-generate/#function-which-returns-a-promise). In our case, this function would fetch all Prismic documents and call your `linkResolver` for each of them:
+
+```javascript
+// nuxt.config.js
+generate: {
+    routes: async function() {
+      const client = PrismicJs.client("https://my-endpoint.prismic.io/api/v2")
+      async function fetchDocs(page = 1, routes = []) {
+        const response = await client.query('', {
+          pageSize: 100,
+          lang: '*',
+          page
+        });
+        const allRoutes = routes.concat(response.results);
+        if (response.results_size + routes.length < response.total_results_size) {
+          return fetchDocs(page + 1, allRoutes);
+        }
+        return [...new Set(allRoutes)];
+      };
+      const allRoutes = await fetchDocs()
+      return allRoutes.map(linkResolver)
+    }
+  }
+````
+Although this is quite nice, it still requires you to write and maintain the resolver.
+
+### With new routes resolver
+
+⚠️ this feature has not been propagated on all clusters, contact us [on the forum](http://community.prismic.io/) if you want to try it out!
+
+We're working on a new, improved link resolver called [routes resolver](https://www.slicemachine.dev/documentation/link-resolver/), which replaces the custom function with a single JSON declaration. To enable this, simply pass `apiOptions.routes` to your Prismic module:
+
+```javascrript
+modules: [["@nuxtjs/prismic", {
+    endpoint: "https://your-endpoint.prismic.io/api/v2",
+    apiOptions: {
+      routes: [{
+        type: "page",
+        path: "/:uid"
+      }]
+    }
+  }]],
+````
+which then adds a `url` property to each of your documents. When calling `nuxt generate`, the module fetches all documents and appends their own urls to this list of routes to be generated. Without you to write a single line of code! In a same manner, all [@prismicio/vue components](https://github.com/prismicio/prismic-vue/) use the document url, if available. If this works for you, feel free to delete your linkResolver ✌️
 
 # Node v8 Support
 

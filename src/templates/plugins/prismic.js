@@ -62,10 +62,14 @@ export default async (context, inject) => {
       <% if (options.preview) { %>
       async preview() {
         let url = '/'
-        const { token } = query
+        const { token, documentId } = query
 
         if (token) {
-          url = await this.api.previewSession(token, this.linkResolver, '/')
+          const previewResolver = await this.api.getPreviewResolver(token, documentId)
+          const maybeUrl = await previewResolver.resolve(this.linkResolver, '/')
+          if (maybeUrl) {
+            url = maybeUrl
+          }
         }
         if (process.server) {
           redirect(302, url)

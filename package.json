@@ -28,10 +28,10 @@
   },
   "homepage": "https://prismic-nuxt.js.org",
   "dependencies": {
+    "@prismicio/vue": "^2.0.5",
     "consola": "^2.11.3",
     "prismic-dom": "^2.2.3",
-    "prismic-javascript": "^2.7.1",
-    "@prismicio/vue": "^2.0.2"
+    "prismic-javascript": "3.0.0"
   },
   "devDependencies": {
     "eslint": "^6.8.0",
