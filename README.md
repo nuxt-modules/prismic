@@ -35,7 +35,7 @@ modules: [
 prismic: {
   endpoint: 'https://<REPOSITORY>.cdn.prismic.io/api/v2',
   apiOptions: { // optional
-    accessToken: '<private_access_token>',
+    accessToken: '<private_access_token>', // not recommended as the token will bleed in the build of Nuxt.
     routes: [
       {
         "type": "page",
