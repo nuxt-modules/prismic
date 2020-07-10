@@ -30,7 +30,7 @@
   "dependencies": {
     "consola": "^2.11.3",
     "prismic-dom": "^2.2.3",
-    "prismic-javascript": "^2.7.1",
+    "prismic-javascript": "^3.0.1",
     "@prismicio/vue": "^2.0.2"
   },
   "devDependencies": {
