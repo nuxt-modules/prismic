@@ -53,7 +53,8 @@ function install(moduleOptions) {
   const userLinkResolverExists = fs.existsSync(userLinkResolver);
   const userHtmlSerializer = path.join(this.options.srcDir, app, 'prismic', 'html-serializer.js');
 
-  if (!userLinkResolverExists && !options.linkResolver) {
+  const apiOptions = options.apiOptions || {};
+  if (!userLinkResolverExists && !options.linkResolver && !apiOptions.routes) {
     logger.warn('Please create ~/app/prismic/link-resolver.js');
   }
   this.addTemplate({
@@ -72,7 +73,7 @@ function install(moduleOptions) {
     options: {
       preview: options.preview,
       endpoint: options.endpoint,
-      apiOptions: options.apiOptions || {},
+      apiOptions,
       repo,
       script: `//static.cdn.prismic.io/prismic.min.js?repo=${repo}&new=true`,
     },
