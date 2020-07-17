@@ -5,6 +5,7 @@
   "main": "src/index.js",
   "scripts": {
     "test": "npm run lint && npm run unit",
+    "release": "yarn test && standard-version && git push --follow-tags && npm publish",
     "unit": "jest",
     "lint": "eslint src"
   },
@@ -28,16 +29,17 @@
   },
   "homepage": "https://prismic-nuxt.js.org",
   "dependencies": {
+    "@prismicio/vue": "^2.0.7",
     "consola": "^2.14.0",
     "prismic-dom": "^2.2.3",
-    "prismic-javascript": "^3.0.1",
-    "@prismicio/vue": "^2.0.7"
+    "prismic-javascript": "^3.0.1"
   },
   "devDependencies": {
     "eslint": "^7.4.0",
     "eslint-config-airbnb-base": "^14.2.0",
     "eslint-plugin-import": "^2.22.0",
-    "jest": "^26.1.0"
+    "jest": "^26.1.0",
+    "standard-version": "^8.0.2"
   },
   "engines": {
     "node": ">= 8.0.0"
