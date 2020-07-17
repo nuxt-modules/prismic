@@ -14,7 +14,13 @@ export default async (context, inject) => {
     options.req = req
   }
 
-  let api = await Prismic.api('<%= options.endpoint %>', Object.assign({}, options,  <%= JSON.stringify(options.apiOptions) %>))
+  let api = {}
+  try {
+    api = await Prismic.api('<%= options.endpoint %>', Object.assign({}, options,  <%= JSON.stringify(options.apiOptions) %>))
+  } catch (error) {
+    console.error(error)
+    console.error("Failed to init Prismic API, preventing app fatal error.")
+  }
 
   let prismic = new Vue({
     computed: {
@@ -88,7 +94,7 @@ export default async (context, inject) => {
   <% if (options.preview) { %>
   // Load prismic script after Nuxt app is mounted
   if (process.client) {
-    window.onNuxtReady && window.onNuxtReady(() => {
+    window.<%= globals.readyCallback %> && window.<%= globals.readyCallback %>(() => {
       const script = document.createElement('script')
 
       script.src = '<%= options.script %>'
@@ -118,7 +124,7 @@ export default async (context, inject) => {
     prismic.isPreview = previewCookie && previewCookie[`${repo}.prismic.io`] && previewCookie[`${repo}.prismic.io`].preview
 
     // Refresh data from Prismic preview
-    prismic.isPreview && window.onNuxtReady(async (app) => {
+    prismic.isPreview && window.<%= globals.readyCallback %>(async (app) => {
       console.info('[@nuxtjs/prismic] Reload page data for preview')
       if (app.$store && app.$store._actions.nuxtServerInit) {
         await app.$store.dispatch('nuxtServerInit', app.$options.context)
