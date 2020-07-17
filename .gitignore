@@ -65,3 +65,4 @@ typings/
 
 .DS_Store
 website/build
+package-lock.json
