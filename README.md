@@ -13,7 +13,7 @@ See [live demo](https://nuxt-prismic.surge.sh) with the [demo source code](https
 $ yarn add @nuxtjs/prismic
 ```
 
-* [Getting Started](https://prismic-nuxt.js.org/docs/getting-started) - Get up and running in a few minutes.
+* [Getting Started](https://prismic-nuxt.js.org/getting-started) - Get up and running in a few minutes.
 * [Full documentation](https://prismic-nuxt.js.org/) - Full API documentation and examples.
 
 # Features
@@ -53,7 +53,7 @@ export default function (doc) {
   return '/'
 }
 ```
-You can now access Prismic inside your Nuxt.js app through the `$prismic` variable. Follow our [Getting Started](https://prismic-nuxt.js.org/docs/getting-started) guide for further documentation and examples.
+You can now access Prismic inside your Nuxt.js app through the `$prismic` variable. Follow our [Getting Started](https://prismic-nuxt.js.org/getting-started) guide for further documentation and examples.
 
 # Generate
 

@@ -24,7 +24,7 @@ This is the endpoint of your Prismic repository. Currently only public repositor
 - Type: `Boolean | String`
 - Default: `true`
 
-Activate the [preview mode](/docs/preview), default path is `/preview`.
+Activate the [preview mode](/preview), default path is `/preview`.
 
 To define a custom path for it, use a string, ex: `preview: '/my-preview'`.
 
@@ -33,7 +33,7 @@ To define a custom path for it, use a string, ex: `preview: '/my-preview'`.
 - Type: `Boolean`
 - Default: `true`
 
-By default, the [prismic components](/docs/components) are imported, to disable it, set `components` to `false`.
+By default, the [prismic components](/components) are imported, to disable it, set `components` to `false`.
 
 ### `linkResolver`
 
