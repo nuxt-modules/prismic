@@ -1,7 +1,10 @@
 ---
-id: variables
 title: Variables
-sidebar_label: Variables
+description: 'Some variables provided by Prismic API'
+position: 320
+category: API
+version: 1.0.0
+fullscreen: false
 ---
 
 ## `api`
@@ -9,6 +12,7 @@ sidebar_label: Variables
 ```javascript
 $prismic.api
 ```
+
 Returns the current instance of the Prismic API. Use this to interact with your Prismic repository.
 
 ## `predicates`
@@ -16,6 +20,7 @@ Returns the current instance of the Prismic API. Use this to interact with your 
 ```javascript
 $prismic.predicates
 ```
+
 Returns `Prismic.Predicates`, allowing you to create complex queries to fetch content from Prismic.
 
 ## `dom`

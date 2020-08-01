@@ -1,0 +1,10 @@
+{
+  "title": "@nuxtjs/prismic",
+  "url": "https://prismic-nuxt.js.org",
+  "logo": {
+    "light": "/logo-light.svg",
+    "dark": "/logo-dark.svg"
+  },
+  "github": "nuxt-community/prismic-module",
+  "twitter": "prismicio"
+}

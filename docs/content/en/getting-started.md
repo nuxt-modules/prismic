@@ -1,14 +1,30 @@
 ---
-id: getting-started
 title: Getting Started
-sidebar_label: Getting Started
+description: 'Get started by adding `@nuxtjs/prismic` to an existing Nuxt.js project.'
+position: 110
+category: Getting Started
+version: 1.0.0
+fullscreen: false
 ---
 
 Get started by adding `@nuxtjs/prismic` to an existing Nuxt.js project;
 
+<code-group>
+  <code-block label="Yarn" active>
+
 ```bash
-$ yarn add @nuxtjs/prismic
+yarn add @nuxtjs/prismic
 ```
+
+  </code-block>
+  <code-block label="NPM">
+
+```bash
+npm install @nuxtjs/prismic
+```
+
+  </code-block>
+</code-group>
 
 Now open up your `nuxt-config.js` and add the following minimal configuration inside the `modules` section;
 
@@ -24,7 +40,7 @@ prismic: {
 Secondly, Prismic requires a [link resolver function](https://prismic.io/docs/javascript/beyond-the-api/link-resolving) to know how to generate the link, let's create `app/prismic/link-resolver.js` file:
 
 ```js
-export default function (doc) {
+export default function(doc) {
   return '/'
 }
 ```
@@ -36,6 +52,7 @@ From here you can use Prismic inside your Nuxt.js app through the `$prismic` var
 ## Fetching a document
 
 Typically you would fetch documents from Prismic inside the `asyncData` function;
+
 ```vue
 <template>
   <section>

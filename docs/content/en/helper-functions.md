@@ -1,7 +1,10 @@
 ---
-id: helper-functions
 title: Helper Functions
-sidebar_label: Helper Functions
+description: 'Out of the box, `@nuxtjs/prismic` comes with a few helper functions that sit on top of `prismic-dom`.'
+position: 130
+category: Getting Started
+version: 1.0.0
+fullscreen: false
 ---
 
 Out of the box, `@nuxtjs/prismic` comes with a few helper functions that sit on top of `prismic-dom`;
@@ -11,6 +14,7 @@ Out of the box, `@nuxtjs/prismic` comes with a few helper functions that sit on 
 ```javascript
 $prismic.asHtml(richText)
 ```
+
 This is the same as `PrismicDOM.asHtml`, except you don't have to pass through the `linkResolver` or `htmlSerializer`.
 
 ## `asText`
@@ -18,6 +22,7 @@ This is the same as `PrismicDOM.asHtml`, except you don't have to pass through t
 ```javascript
 $prismic.asText(richText)
 ```
+
 This is the same as `PrismicDOM.RichText.asText`.
 
 ## `asLink`
@@ -25,6 +30,7 @@ This is the same as `PrismicDOM.RichText.asText`.
 ```javascript
 $prismic.asLink(link)
 ```
+
 This is the same as `PrismicDOM.Link.url`, except you don't have to pass through the `linkResolver`.
 
 ## `asDate`
@@ -32,4 +38,5 @@ This is the same as `PrismicDOM.Link.url`, except you don't have to pass through
 ```javascript
 $prismic.asDate(date)
 ```
+
 This is the same as `PrismicDOM.Date`.

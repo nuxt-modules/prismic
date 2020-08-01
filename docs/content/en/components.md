@@ -1,7 +1,10 @@
 ---
-id: components
 title: Components
-sidebar_label: Components
+description: '`@nuxtjs/prismic` ships with built-in components to get you started quickly.'
+position: 220
+category: Built-in Features
+version: 1.0.0
+fullscreen: false
 ---
 
 `@nuxtjs/prismic` ships with built-in components to get you started quickly. These components are imported from [prismic-vue/components](https://github.com/prismicio/prismic-vue#list-of-components).
@@ -44,6 +47,7 @@ Props:
 This component will render an `<img>`, also completing `alt` and `copyright` attributes if provided by the Prismic API.
 
 Props:
+
 - `field`:
   - type: `Object`
 
@@ -56,6 +60,7 @@ Props:
 This component will render a `<div>`, also completing `alt` and `copyright` attributes if provided by the Prismic API.
 
 Props:
+
 - `field`:
   - type: `Object`
   - required: `true`

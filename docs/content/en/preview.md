@@ -1,8 +1,13 @@
 ---
-id: preview
 title: Preview
-sidebar_label: Preview
+description: 'One of the most powerful features of Prismic is the ability to preview content before it goes live.'
+position: 210
+category: Built-in Features
+version: 1.0.0
+fullscreen: false
 ---
+
+[![Prismic + NuxtJS : Preview mode](https://img.youtube.com/vi/2DtDsnWe2MU/hqdefault.jpg)](https://www.youtube.com/watch?v=2DtDsnWe2MU)
 
 One of the most powerful features of Prismic is the ability to preview content before it goes live. Setting up the preview functionality can be a little tricky, which is `@nuxtjs/prismic` does it out of the box.
 
@@ -11,6 +16,7 @@ You don't have to change any configuration for the preview mode to be available.
 You can configure the preview route by giving a path to the `preview` key:
 
 `nuxt.config.js`:
+
 ```js
 prismic: {
   endpoint: '...',

@@ -1,0 +1,17 @@
+{
+  "name": "docs",
+  "version": "1.0.0",
+  "license": "MIT",
+  "scripts": {
+    "dev": "nuxt",
+    "build": "nuxt build",
+    "start": "nuxt start",
+    "generate": "nuxt generate"
+  },
+  "dependencies": {
+    "@nuxt/content-theme-docs": "^0.1.3",
+    "defu": "3.0.1",
+    "nuxt": "^2.14.0",
+    "tailwindcss": "1.6.0"
+  }
+}

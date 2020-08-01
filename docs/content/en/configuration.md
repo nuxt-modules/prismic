@@ -1,7 +1,10 @@
 ---
-id: configuration
 title: Configuration
-sidebar_label: Configuration
+description: 'In the getting started guide you worked with a simple configuration example.'
+position: 120
+category: Getting Started
+version: 1.0.0
+fullscreen: false
 ---
 
 In the [getting started](getting-started.md) guide you worked with a simple configuration example.
@@ -49,11 +52,10 @@ By default, it will load the link resolver from `~/app/prismic/html-serializer.j
 ## Kitchen Sink
 
 `nuxt.config.js`:
+
 ```javascript
 export default {
-  modules: [
-    '@nuxtjs/prismic'
-  ],
+  modules: ['@nuxtjs/prismic'],
   prismic: {
     endpoint: 'https://<REPOSITORY>.cdn.prismic.io/api/v2',
     preview: true, // default value
@@ -71,7 +73,7 @@ This is the function used by `PrismicDOM` to generate links for your documents. 
 Example:
 
 ```js
-export default function (doc) {
+export default function(doc) {
   if (doc.type === 'products') {
     return '/products'
   }
@@ -87,29 +89,38 @@ You can pass through a `htmlSerializer` function if you want to change how `pris
 Example:
 
 ```js
-var PrismicDOM = require('prismic-dom');
-var Elements = PrismicDOM.RichText.Elements;
- 
-export default function (type, element, content, children) {
-  switch(type) {
- 
+var PrismicDOM = require('prismic-dom')
+var Elements = PrismicDOM.RichText.Elements
+
+export default function(type, element, content, children) {
+  switch (type) {
     // Add a class to paragraph elements
     case Elements.paragraph:
-      return '<p class="paragraph-class">' + children.join('') + '</p>';
- 
+      return '<p class="paragraph-class">' + children.join('') + '</p>'
+
     // Don't wrap images in a <p> tag
     case Elements.image:
-      return '<img src="' + element.url + '" alt="' + element.alt + '">';
- 
+      return '<img src="' + element.url + '" alt="' + element.alt + '">'
+
     // Add a class to hyperlinks
     case Elements.hyperlink:
-      var target = element.data.target ? 'target="' + element.data.target + '" rel="noopener"' : '';
-      var linkUrl = PrismicDOM.Link.url(element.data, linkResolver);
-      return '<a class="some-link"' + target + ' href="' + linkUrl + '">' + content + '</a>';
- 
+      var target = element.data.target
+        ? 'target="' + element.data.target + '" rel="noopener"'
+        : ''
+      var linkUrl = PrismicDOM.Link.url(element.data, linkResolver)
+      return (
+        '<a class="some-link"' +
+        target +
+        ' href="' +
+        linkUrl +
+        '">' +
+        content +
+        '</a>'
+      )
+
     // Return null to stick with the default behavior for all other elements
     default:
-      return null;
+      return null
   }
-};
-``` 
+}
+```
