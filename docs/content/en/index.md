@@ -3,7 +3,7 @@ title: Welcome
 description: 'Methods provided by Prismic helpers.'
 position: 0
 category: ''
-version: 1.0.0
+version: 1.2
 fullscreen: false
 ---
 

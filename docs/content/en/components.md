@@ -3,7 +3,7 @@ title: Components
 description: '`@nuxtjs/prismic` ships with built-in components to get you started quickly.'
 position: 220
 category: Built-in Features
-version: 1.0.0
+version: 1.2
 fullscreen: false
 ---
 

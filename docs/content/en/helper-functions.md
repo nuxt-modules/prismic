@@ -3,7 +3,7 @@ title: Helper Functions
 description: 'Out of the box, `@nuxtjs/prismic` comes with a few helper functions that sit on top of `prismic-dom`.'
 position: 130
 category: Getting Started
-version: 1.0.0
+version: 1.2
 fullscreen: false
 ---
 

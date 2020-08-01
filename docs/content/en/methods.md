@@ -3,7 +3,7 @@ title: Methods
 description: 'Methods provided by Prismic helpers.'
 position: 310
 category: API
-version: 1.0.0
+version: 1.2
 fullscreen: false
 ---
 

@@ -3,7 +3,7 @@ title: Preview
 description: 'One of the most powerful features of Prismic is the ability to preview content before it goes live.'
 position: 210
 category: Built-in Features
-version: 1.0.0
+version: 1.2
 fullscreen: false
 ---
 

@@ -3,7 +3,7 @@ title: Configuration
 description: 'In the getting started guide you worked with a simple configuration example.'
 position: 120
 category: Getting Started
-version: 1.0.0
+version: 1.2
 fullscreen: false
 ---
 

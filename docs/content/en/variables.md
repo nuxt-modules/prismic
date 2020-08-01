@@ -3,7 +3,7 @@ title: Variables
 description: 'Some variables provided by Prismic API'
 position: 320
 category: API
-version: 1.0.0
+version: 1.2
 fullscreen: false
 ---
 

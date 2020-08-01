@@ -3,7 +3,7 @@ title: Getting Started
 description: 'Get started by adding `@nuxtjs/prismic` to an existing Nuxt.js project.'
 position: 110
 category: Getting Started
-version: 1.0.0
+version: 1.2
 fullscreen: false
 ---
 
