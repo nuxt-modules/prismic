@@ -13,5 +13,8 @@
     "defu": "3.0.1",
     "nuxt": "^2.14.0",
     "tailwindcss": "1.6.0"
+  },
+  "devDependencies": {
+    "@nuxtjs/google-analytics": "2.4.0"
   }
 }
