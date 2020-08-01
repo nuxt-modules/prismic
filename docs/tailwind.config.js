@@ -1,5 +1,5 @@
 const defu = require('defu');
-const contentTaiwind = require('@nuxt/content-theme-docs/src/tailwind.config.js');
+const contentTailwind = require('@nuxt/content-theme-docs/src/tailwind.config.js');
 const defaultTheme = require('tailwindcss/defaultTheme');
 
 module.exports = defu({
@@ -21,6 +21,6 @@ module.exports = defu({
           },
         },
       },
-    }, contentTaiwind.theme.typography(theme)),
+    }, contentTailwind.theme.typography(theme)),
   },
-}, contentTaiwind);
+}, contentTailwind);
