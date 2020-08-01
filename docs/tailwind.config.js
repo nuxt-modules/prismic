@@ -9,6 +9,7 @@ module.exports = defu({
         primary: {
           ...defaultTheme.colors.blue,
           500: '#7F8CCC',
+          900: '#243956'
         },
       },
     },
