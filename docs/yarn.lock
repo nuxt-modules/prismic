@@ -1299,7 +1299,7 @@
     defu "^2.0.4"
     lodash.template "^4.5.0"
 
-"@nuxtjs/google-analytics@2.4.0":
+"@nuxtjs/google-analytics@^2.4.0":
   version "2.4.0"
   resolved "https://registry.yarnpkg.com/@nuxtjs/google-analytics/-/google-analytics-2.4.0.tgz#3bb9f398a05cc23340d1f423f8d8653dc4114f46"
   integrity sha512-rDQTwHIjyjVrx8GywHPuWykJ3jRFGaHl5Iqji/y8tQWUc0yGEeHxOoR0yimzxnTS1Ph2/PubQYpgnVeEPEdL/A==
@@ -3254,11 +3254,6 @@ defined@^1.0.0:
   resolved "https://registry.yarnpkg.com/defined/-/defined-1.0.0.tgz#c98d9bcef75674188e110969151199e39b1fa693"
   integrity sha1-yY2bzvdWdBiOEQlpFRGZ45sfppM=
 
-defu@3.0.1, defu@^3.0.1:
-  version "3.0.1"
-  resolved "https://registry.yarnpkg.com/defu/-/defu-3.0.1.tgz#d563eefe433f37c02a73c4dd197cf443c125a9c7"
-  integrity sha512-z5ngYyhj1L8lMjlTK0x2MOCKdURJ8HrnXz75kD46G2mAKmmoufLFZ/qPbYQA4zJiZe4JJ7OkfGcelcJwRyLHkw==
-
 defu@^1.0.0:
   version "1.0.0"
   resolved "https://registry.yarnpkg.com/defu/-/defu-1.0.0.tgz#43acb09dfcf81866fa3b0fc047ece18e5c30df71"
@@ -3268,6 +3263,11 @@ defu@^2.0.4:
   version "2.0.4"
   resolved "https://registry.yarnpkg.com/defu/-/defu-2.0.4.tgz#09659a6e87a8fd7178be13bd43e9357ebf6d1c46"
   integrity sha512-G9pEH1UUMxShy6syWk01VQSRVs3CDWtlxtZu7A+NyqjxaCA4gSlWAKDBx6QiUEKezqS8+DUlXLI14Fp05Hmpwg==
+
+defu@^3.0.1:
+  version "3.0.1"
+  resolved "https://registry.yarnpkg.com/defu/-/defu-3.0.1.tgz#d563eefe433f37c02a73c4dd197cf443c125a9c7"
+  integrity sha512-z5ngYyhj1L8lMjlTK0x2MOCKdURJ8HrnXz75kD46G2mAKmmoufLFZ/qPbYQA4zJiZe4JJ7OkfGcelcJwRyLHkw==
 
 delegate@^3.1.2:
   version "3.2.0"
@@ -7182,6 +7182,13 @@ purgecss@^2.3.0:
     postcss "7.0.32"
     postcss-selector-parser "^6.0.2"
 
+push-dir@0.4.1:
+  version "0.4.1"
+  resolved "https://registry.yarnpkg.com/push-dir/-/push-dir-0.4.1.tgz#29481eacd9c2106bbb7941db6d37d122a071ecb4"
+  integrity sha1-KUgerNnCEGu7eUHbbTfRIqBx7LQ=
+  dependencies:
+    minimist "^1.2.0"
+
 q@^1.1.2:
   version "1.5.1"
   resolved "https://registry.yarnpkg.com/q/-/q-1.5.1.tgz#7e32f75b41381291d04611f1bf14109ac00651d7"
@@ -8215,7 +8222,7 @@ svgo@^1.0.0:
     unquote "~1.1.1"
     util.promisify "~1.0.0"
 
-tailwindcss@1.6.0, tailwindcss@^1.6.0:
+tailwindcss@^1.6.0:
   version "1.6.0"
   resolved "https://registry.yarnpkg.com/tailwindcss/-/tailwindcss-1.6.0.tgz#cdad8cdd225129ad41bff6aa607aa39ad6524593"
   integrity sha512-UZEex5ebsQlCTIBjI0oZITL67HBjOrzMgA4ceLOf8mrBGquLSn7LsO92do1nBSBZBV2Qqpivz9QUwT3zMSQkMA==
