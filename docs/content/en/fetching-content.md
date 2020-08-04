@@ -1,8 +1,8 @@
 ---
-title: Configuration
+title: Fetching content
 description: 'Easily connect your Nuxt.js application to your content hosted on Prismic'
-position: 310
-category: 'Module API Reference'
+position: 210
+category: 'Examples'
 version: 1.2
 fullscreen: false
 ---

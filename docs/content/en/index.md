@@ -1,51 +1,28 @@
 ---
-title: Welcome
-description: 'Methods provided by Prismic helpers.'
-position: 0
-category: ''
+title: Introduction
+description: 'Easily connect your Nuxt.js application to your content hosted on Prismic'
+position: 110
+category: 'Getting Started'
 version: 1.2
 fullscreen: false
+features:
+  - Injects and configures Prismic SDK
+  - Sets up Prismic previews
+  - Compact configuration
 ---
 
-[Prismic.io](https://prismic.io) Headless CMS meets Universal Apps
-
-## Quick Start
-
-If you want to skip our [getting started guide](/getting-started), just install the module with your favorite package manager:
-
-<code-group>
-  <code-block label="Yarn" active>
-
-```bash
-yarn add @nuxtjs/prismic
-```
-
-  </code-block>
-  <code-block label="NPM">
-
-```bash
-npm install @nuxtjs/prismic
-```
-
-  </code-block>
-</code-group>
+This module helps you connecting your [Nuxt.js](https://nuxtjs.org) application to your content hosted on [Prismic](https://prismic.io) while also assisting you in the set up of more advanced features like [Prismic Preview](https://prismic.io/feature/scheduling-and-previews).
 
 ## Features
 
-### Batteries Included
+<list :items="features"></list>
 
-Easily access official Prismic JavaScript & Prismic DOM libraries in your Nuxt.js app.
+<p class="flex items-center">Enjoy light and dark mode:&nbsp;<app-color-switcher class="inline-flex ml-2"></app-color-switcher></p>
 
-[Read more...](/getting-started)
+## Videos
 
-### Preview Mode
+Prismic Preview demonstration with `@nuxtjs/prismic`:
 
-Automatically add Prismic Previews to your site without additional configuration.
-
-[Read more...](/preview)
-
-### Compact Configuration
-
-Just add your Prismic repository endpoint and a link resolver and you're good to go.
-
-[Read more...](/configuration)
+<div class="relative w-full h-0" style="padding-bottom: 56.25%;">
+  <iframe class="w-full h-full absolute inset-0" src="https://www.youtube.com/embed/2DtDsnWe2MU" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+</div>

@@ -1,0 +1,55 @@
+---
+title: Installation
+description: 'Easily connect your Nuxt.js application to your content hosted on Prismic'
+position: 120
+category: 'Getting Started'
+version: 1.2
+fullscreen: false
+---
+
+Add `@nuxtjs/prismic` dependency to your project:
+
+<code-group>
+  <code-block label="Yarn" active>
+
+```bash
+yarn add --dev @nuxtjs/prismic
+```
+
+  </code-block>
+  <code-block label="NPM">
+
+```bash
+npm install --save-dev @nuxtjs/prismic
+```
+
+  </code-block>
+</code-group>
+
+Then, add `@nuxtjs/prismic` to the `buildModules` section of `nuxt.config.js` and configure your Prismic endpoint:
+
+```javascript[nuxt.config.js]
+{
+  buildModules: [
+    '@nuxtjs/prismic'
+  ],
+  prismic: {
+    endpoint: 'https://<REPOSITORY>.cdn.prismic.io/api/v2',
+    /* see configuration for more */
+  }
+}
+```
+
+Finally you're expected to provide a [link resolver](https://prismic.io/docs/vuejs/beyond-the-api/link-resolving) function inside `~/app/prismic/link-resolver.js`:
+
+```javascript[link-resolver.js]
+export default function(doc) {
+  return '/'
+}
+```
+
+<alert type="info">
+
+More on link resolving on [Prismic documentation](https://prismic.io/docs/vuejs/beyond-the-api/link-resolving).
+
+</alert>
