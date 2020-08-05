@@ -7,17 +7,36 @@ version: 1.2
 fullscreen: false
 ---
 
-The advantage of using this module is that it injects and configures for you Prismic kits.
+The main advantage of using this module is that it injects and configures for you Prismic kits, easing your development workflow with those.
 
-Methods and variables exposed by those kits are available through a `$prismic` object which is both injected inside your Vue.js application (`this.$prismic`) and [Nuxt.js context](https://nuxtjs.org/guides/concepts/context-helpers) object making them available pretty much anywhere inside your application (Vue.js components, Nuxt.js `asyncData` hook, Vuex store, etc.)
+<!-- prettier-ignore-start -->
+Methods and properties exposed by those kits are available through a [$prismic object](/prismic-object) which is injected globally, meaning that you can access it anywhere using `this.$prismic`. For plugins, `asyncData`, `nuxtServerInit` and middlewares, you can access it from `context.$prismic`.
+<!-- prettier-ignore-end -->
 
-## [`prismic-javascript`](https://github.com/prismicio/prismic-javascript)
+## [prismic-javascript](https://github.com/prismicio/prismic-javascript)
 
-This kit provides functions necesary to query Prismic API. It mainly grants access to the Prismic API object and its predicates.
+This kit provides functions necesary to query Prismic API. It mainly grants access to the Prismic API object and its predicates:
 
-You can check our example on [fetching a document](/fetching-content) or learn more on how to query the API on [Prismic documentation](https://prismic.io/docs/vuejs/query-the-api/how-to-query-the-api).
+<code-group>
+  <code-block label="api" active>
 
-## [`prismic-dom`](https://github.com/prismicio/prismic-dom)
+```javascript
+$prismic.api.query(/* ... */) // API query example
+```
+
+  </code-block>
+  <code-block label="predicates">
+
+```javascript
+$prismic.predicates.at(/* ... */) // `at` predicate example
+```
+
+  </code-block>
+</code-group>
+
+You can check our example on [fetching a document](/fetching-content#from-a-page) or learn more on how to query the API on [Prismic documentation](https://prismic.io/docs/vuejs/query-the-api/how-to-query-the-api).
+
+## [prismic-dom](https://github.com/prismicio/prismic-dom)
 
 This kit provides a set of helpers to handle Prismic data. They are injected inside your Nuxt.js application through the `$prismic` object:
 
@@ -52,7 +71,7 @@ $prismic.asDate(date)
   </code-block>
 </code-group>
 
-## [`@prismicio/vue`](https://github.com/prismicio/prismic-vue)
+## [@prismicio/vue](https://github.com/prismicio/prismic-vue)
 
 This kit provides a set of components to easily display Prismic data. They are injected inside your Vue.js application as global components therefore making them accessible from anywhere. Here's their basic usage:
 
