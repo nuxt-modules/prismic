@@ -7,7 +7,7 @@ version: 1.2
 fullscreen: false
 ---
 
-You can configure `@nuxtjs/prismic` with the `prismic` property in your `nuxt.config.js` or directly when registering the module in the `buildModules` array by providing the array syntax.
+You can configure `@nuxtjs/prismic` with the `prismic` property in your `nuxt.config.js` or directly when registering the module in the `buildModules` array by using the array syntax.
 
 <code-group>
   <code-block label="prismic key" active>
@@ -47,6 +47,7 @@ The endpoint of your Prismic repository.
 
 ```javascript[nuxt.config.js]
 prismic: {
+  // getting content from the Prismic repository named `my-repo`
   endpoint: 'https://my-repo.cdn.prismic.io/api/v2'
 }
 ```
@@ -56,12 +57,12 @@ prismic: {
 - Type: `Object`
 - Default: `{}`
 
-Options send to Prismic API when initing the client, see [Prismic documentation](https://prismic.io/docs/rest-api/basics/introduction-to-the-content-query-api#4_1-the-api-search-endpoint).
+Options sent to Prismic API when initing the client, see [Prismic documentation](https://prismic.io/docs/rest-api/basics/introduction-to-the-content-query-api#4_1-the-api-search-endpoint).
 
 ```javascript[nuxt.config.js]
 prismic: {
   // example querying a private Prismic repository
-  // please note that the token will bleed in the frontend
+  // please note that the token will bleed in the front-end
   apiOptions: {
     access_token: 'yourAccessToken'
   }
@@ -76,12 +77,12 @@ This feature has not been propagated on all clusters, contact us [on the forum](
 
 </alert>
 
-We're introducing a new routes resolver, which replaces the [link resolver](#linkresolver) function with a single JSON declaration. You can take advantage of it by passing a `routes` options to the API:
+A new routes resolver is being introduced, which replaces the [link resolver](#linkresolver) function with a single JSON declaration. You can take advantage of it by passing a `routes` options to the API:
 
 ```javascript[nuxt.config.js]
 prismic: {
   apiOptions: {
-    // example resolving document with type page to `/:uid`
+    // example resolving documents with type `page` to `/:uid`
     routes: [
       {
         type: 'page',
@@ -128,7 +129,7 @@ prismic: {
 
 ### linkResolver
 
-- Type: `String|Function`
+- Type: `String(path)|Function`
 - Default: `~/app/prismic/link-resolver.js`
 
 Your [link resolver](https://prismic.io/docs/vuejs/beyond-the-api/link-resolving) function. By default the module expects you to have it exported at `~/app/prismic/link-resolver.js`, see [installation](/installation).
@@ -144,7 +145,7 @@ prismic: {
 
 ### htmlSerializer
 
-- Type: `String|Function`
+- Type: `String(path)|Function`
 - Default: `~/app/prismic/html-serializer.js`
 
 Your [html serializer](https://prismic.io/docs/vuejs/beyond-the-api/html-serializer) function if you need one. By default the module expects you to have it exported at `~/app/prismic/html-serializer.js`.
@@ -154,9 +155,9 @@ Your [html serializer](https://prismic.io/docs/vuejs/beyond-the-api/html-seriali
 - Type: `Boolean`
 - Default: `false`
 
-When using the [new routes resolver](#new-routes-resolver) this module is providing a crawler feature that will crawl your Prismic documents and extending Nuxt.js `generate.routes` array ([see Nuxt.js documentation](https://nuxtjs.org/guides/configuration-glossary/configuration-generate#routes)) with routes to those.
+When using the [new routes resolver](#new-routes-resolver) this module is providing a crawler feature that will crawl your Prismic documents and extending Nuxt.js `generate.routes` array (see [Nuxt.js documentation](https://nuxtjs.org/guides/configuration-glossary/configuration-generate#routes)) with routes to those.
 
-Since version 2.13 Nuxt.js is shipped with a [built-in crawler](https://nuxtjs.org/guides/configuration-glossary/configuration-generate#crawler) so we're deprecating this module's crawler feature. If you're using Nuxt.js >= 2.13 you should be interested in disabling this module's generator with this option.
+Since version 2.13 Nuxt.js is shipped with a [built-in crawler](https://nuxtjs.org/guides/configuration-glossary/configuration-generate#crawler) so this module's crawler feature is being deprecated. If you're using Nuxt.js >= 2.13 you should be interested in disabling this module's generator with this option.
 
 ```javascript[nuxt.config.js]
 prismic: {

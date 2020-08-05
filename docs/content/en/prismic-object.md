@@ -11,26 +11,6 @@ This module globally injects a `$prismic` object, meaning that you can access it
 
 ## Methods
 
-### linkResolver(doc)
-
-This is the `linkResolver` function you provided to the module. See [configuration](/configuration#linkResolver).
-
-<alert type="info">
-
-More on link resolving on [Prismic documentation](https://prismic.io/docs/vuejs/beyond-the-api/link-resolving).
-
-</alert>
-
-### htmlSerializer(type, element, content, children)
-
-This is the `htmlSerializer` function you provided to the module. See [configuration](/configuration#htmlSerializer).
-
-<alert type="info">
-
-More on the HTML Serializer on [Prismic documentation](https://prismic.io/docs/vuejs/beyond-the-api/html-serializer).
-
-</alert>
-
 ### asHtml(richText)
 
 Similar to `PrismicDOM.RichText.asHtml`, except that you don't have to pass through `linkResolver` and `htmlResolver` functions, the ones you provided are injected.
@@ -63,6 +43,26 @@ Similar to `PrismicDOM.Date`.
   - Type: `String` (Prismic Date field string)
   - `required`
 
+### linkResolver(doc)
+
+This is the `linkResolver` function you provided to the module. See [configuration](/configuration#linkresolver).
+
+<alert type="info">
+
+More on link resolving on [Prismic documentation](https://prismic.io/docs/vuejs/beyond-the-api/link-resolving).
+
+</alert>
+
+### htmlSerializer(type, element, content, children)
+
+This is the `htmlSerializer` function you provided to the module. See [configuration](/configuration#htmlserializer).
+
+<alert type="info">
+
+More on the HTML Serializer on [Prismic documentation](https://prismic.io/docs/vuejs/beyond-the-api/html-serializer).
+
+</alert>
+
 ### preview()
 
 This method resolves a preview session. You might be interested to use it if you provide a [custom preview page](/previews#customizing-the-preview-page).
@@ -81,8 +81,8 @@ Contains current instance of the Prismic API, see [fetching content](/fetching-c
 
 ### predicates
 
-Contains all Prismic predicates coming from [`prismic-javascript`](https://github.com/prismicio/prismic-javascript) kit, see complete predicate reference on [Prismic documentation](https://prismic.io/docs/vuejs/query-the-api/query-predicate-reference).
+Contains all Prismic predicates coming from [`prismic-javascript` kit](https://github.com/prismicio/prismic-javascript), see complete predicate reference on [Prismic documentation](https://prismic.io/docs/vuejs/query-the-api/query-predicate-reference).
 
 ### dom
 
-Gives your direct access to the [`prismic-dom`](https://github.com/prismicio/prismic-dom) library.
+Gives your direct access to the [`prismic-dom` library](https://github.com/prismicio/prismic-dom).

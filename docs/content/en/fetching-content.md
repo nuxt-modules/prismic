@@ -14,7 +14,7 @@ This page is meant to show you some content fetching strategies with this module
 <code-group>
   <code-block label="Quick Query Helper" active>
 
-```javascript[_uid.vue]
+```javascript[pages/_uid.vue]
 export default {
   async asyncData({ $prismic, params, error }) {
     const document = await $prismic.api.getByUID('page', params.uid)
@@ -31,7 +31,7 @@ export default {
   </code-block>
   <code-block label="Predicates">
 
-```javascript[_uid.vue]
+```javascript[pages/_uid.vue]
 export default {
   async asyncData({ $prismic, params, error }) {
     const document = await $prismic.api.query(
@@ -52,7 +52,7 @@ export default {
 
 ## From a component
 
-```javascript[AppHeader.vue]
+```javascript[components/AppHeader.vue]
 export default {
   async fetch() {
     this.headerData = await $prismic.api.getSingle('header')
@@ -62,9 +62,9 @@ export default {
 
 ## From Vuex store
 
-```javascript[index.js]
+```javascript[store/index.js]
 export const actions = {
-  async load({ commit }) {
+  async loadSettings({ commit }) {
     const settings = await this.$prismic.api.getSingle('site_settings')
     commit('setSettings', settings)
   }

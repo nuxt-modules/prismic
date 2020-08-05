@@ -26,7 +26,7 @@ npm install --save-dev @nuxtjs/prismic
   </code-block>
 </code-group>
 
-Then, add `@nuxtjs/prismic` to the `buildModules` section of `nuxt.config.js` and configure your Prismic endpoint:
+Then, add `@nuxtjs/prismic` to the `buildModules` section of `nuxt.config.js` and configure your Prismic API endpoint:
 
 ```javascript[nuxt.config.js]
 {
@@ -34,13 +34,13 @@ Then, add `@nuxtjs/prismic` to the `buildModules` section of `nuxt.config.js` an
     '@nuxtjs/prismic'
   ],
   prismic: {
-    endpoint: 'https://<REPOSITORY>.cdn.prismic.io/api/v2',
+    endpoint: 'https://<REPOSITORY>.cdn.prismic.io/api/v2'
     /* see configuration for more */
   }
 }
 ```
 
-Finally you're expected to provide a [link resolver](https://prismic.io/docs/vuejs/beyond-the-api/link-resolving) function inside `~/app/prismic/link-resolver.js`:
+Finally, you're expected to provide a link resolver function at `~/app/prismic/link-resolver.js`:
 
 ```javascript[link-resolver.js]
 export default function(doc) {

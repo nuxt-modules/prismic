@@ -9,13 +9,11 @@ fullscreen: false
 
 The main advantage of using this module is that it injects and configures for you Prismic kits, easing your development workflow with those.
 
-<!-- prettier-ignore-start -->
-Methods and properties exposed by those kits are available through a [$prismic object](/prismic-object) which is injected globally, meaning that you can access it anywhere using `this.$prismic`. For plugins, `asyncData`, `nuxtServerInit` and middlewares, you can access it from `context.$prismic`.
-<!-- prettier-ignore-end -->
+Methods and properties exposed by those kits are made available through a [`$prismic` object](/prismic-object) which is injected globally, meaning that you can access it anywhere using `this.$prismic`. For plugins, `asyncData`, `nuxtServerInit` and middlewares, you can access it from `context.$prismic`.
 
 ## [prismic-javascript](https://github.com/prismicio/prismic-javascript)
 
-This kit provides functions necesary to query Prismic API. It mainly grants access to the Prismic API object and its predicates:
+This kit provides functions necessary to query Prismic API. It mainly grants access to the Prismic API object and its predicates:
 
 <code-group>
   <code-block label="api" active>
@@ -73,22 +71,22 @@ $prismic.asDate(date)
 
 ## [@prismicio/vue](https://github.com/prismicio/prismic-vue)
 
-This kit provides a set of components to easily display Prismic data. They are injected inside your Vue.js application as global components therefore making them accessible from anywhere. Here's their basic usage:
+This kit provides a set of components to easily display Prismic data. They are injected inside your Vue.js application as global components therefore making them accessible from anywhere, here's their basic usage:
 
 <code-group>
   <code-block label="prismic-rich-text" active>
 
 ```html
-<prismic-rich-text :field="doc.text" />
 <!-- link resolver is provided -->
+<prismic-rich-text :field="doc.text" />
 ```
 
   </code-block>
   <code-block label="prismic-link">
 
 ```html
-<prismic-link :field="doc.link">My link</prismic-link>
 <!-- link resolver is provided -->
+<prismic-link :field="doc.link">My link</prismic-link>
 ```
 
   </code-block>
@@ -111,5 +109,11 @@ This kit provides a set of components to easily display Prismic data. They are i
 <alert type="info">
 
 More on templating Prismic data on [Prismic documentation](https://prismic.io/docs/vuejs/templating/response-object).
+
+</alert>
+
+<alert type="info">
+
+You can disable injection of those components through [module's configuration](/configuration#components).
 
 </alert>

@@ -11,13 +11,13 @@ fullscreen: false
   <iframe class="w-full h-full absolute inset-0" src="https://www.youtube.com/embed/2DtDsnWe2MU" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 </div>
 
-One of the most powerful features of Prismic is the ability to preview content before it goes live. Setting up the preview functionality can be tricky but this module does it for you out of the box, all that's left for you to do is to configure a [preview encironment](https://prismic.io/docs/vuejs/beyond-the-api/in-website-preview#3_0-2.-setup-a-preview-environment) inside your Prismic repository.
+One of the most powerful features of Prismic is the ability to preview content before it goes live. Setting up the preview functionality can be tricky but this module does it for you out of the box, all that's left for you to do is to configure a [preview environment](https://prismic.io/docs/vuejs/beyond-the-api/in-website-preview#3_0-2.-setup-a-preview-environment) inside your Prismic repository.
 
 ## How does it do that?
 
 To enable previews on your website the module has to inject the Prismic preview script at the end of the `body` tag of the page. It also registers a new `/preview` route in the Nuxt.js application which is used to resolve your preview sessions.
 
-## Chaging the preview route
+## Changing the preview route
 
 You can configure the preview route by providing another path to the `preview` key of the module options:
 
@@ -30,7 +30,7 @@ prismic: {
 
 ## Disabling previews
 
-This module comes with previews enabled by default, if you want to disable previews on you website you can set the `preview` key of the module options to `false`:
+This module comes with previews enabled by default, if you want to disable previews on your website you can set the `preview` key of the module options to `false`:
 
 ```javascript[nuxt.config.js]
 prismic: {
@@ -43,7 +43,7 @@ The module won't inject anymore Prismic preview script and the `/preview` page w
 
 ## Customizing the preview page
 
-If you want to go fancy and provide a custom preview page you can do so by creating it at `~/app/prismic/pages/preview.vue`. Here's its minimum scaffolding:
+If you want to go fancy and provide a custom preview page, you can do so by creating it at `~/app/prismic/pages/preview.vue`. Here's its minimum scaffolding:
 
 ```vue[preview.vue]
 <template>
@@ -61,6 +61,6 @@ export default {
 
 <alert type="info">
 
-The [`$prismic.preview`](/prismic-object#preview) method is used to resolve your preview session, you **must** use it inside the `mounted` hook for the preview to work, more on that on [Prismic documentation](https://prismic.io/docs/vuejs/beyond-the-api/in-website-preview).
+The [`$prismic.preview`](/prismic-object#preview) method is used to resolve your preview session, you **must** use it inside the `mounted` hook for previews to work, more on that on [Prismic documentation](https://prismic.io/docs/vuejs/beyond-the-api/in-website-preview).
 
 </alert>
