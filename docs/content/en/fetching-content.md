@@ -11,7 +11,8 @@ This page is meant to show you some content fetching strategies with this module
 
 ## From a page
 
-### With [Quick Query Helpers](https://prismic.io/docs/vuejs/query-the-api/quick-query-helpers)
+<code-group>
+  <code-block label="Quick Query Helper" active>
 
 ```javascript[_uid.vue]
 export default {
@@ -27,7 +28,8 @@ export default {
 }
 ```
 
-### With [Predicates](https://prismic.io/docs/vuejs/query-the-api/query-predicate-reference)
+  </code-block>
+  <code-block label="Predicates">
 
 ```javascript[_uid.vue]
 export default {
@@ -44,6 +46,9 @@ export default {
   }
 }
 ```
+
+  </code-block>
+</code-group>
 
 ## From a component
 
