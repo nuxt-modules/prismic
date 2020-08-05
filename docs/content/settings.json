@@ -6,5 +6,6 @@
     "dark": "/logo-dark.svg"
   },
   "github": "nuxt-community/prismic-module",
+  "defaultBranch": "master",
   "twitter": "prismicio"
 }

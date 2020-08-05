@@ -1,5 +1,6 @@
 ---
-title: Introduction
+title: '@nuxtjs/prismic'
+menuTitle: Introduction
 description: 'Easily connect your Nuxt.js application to your content hosted on Prismic'
 position: 110
 category: 'Getting Started'
