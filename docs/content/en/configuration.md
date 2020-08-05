@@ -69,7 +69,7 @@ prismic: {
 }
 ```
 
-#### New routes resolver
+#### New Routes Resolver
 
 <alert>
 

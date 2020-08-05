@@ -9,7 +9,7 @@ fullscreen: false
 
 This page is meant to show you some content fetching strategies with this module, please refer to [Prismic documentation](https://prismic.io/docs/vuejs/query-the-api/how-to-query-the-api) to learn more on querying the API.
 
-## From a page
+## From a Page
 
 <code-group>
   <code-block label="Quick Query Helper" active>
@@ -50,7 +50,7 @@ export default {
   </code-block>
 </code-group>
 
-## From a component
+## From a Component
 
 ```javascript[components/AppHeader.vue]
 export default {
@@ -60,7 +60,7 @@ export default {
 }
 ```
 
-## From Vuex store
+## From Vuex Store
 
 ```javascript[store/index.js]
 export const actions = {

@@ -13,11 +13,11 @@ fullscreen: false
 
 One of the most powerful features of Prismic is the ability to preview content before it goes live. Setting up the preview functionality can be tricky but this module does it for you out of the box, all that's left for you to do is to configure a [preview environment](https://prismic.io/docs/vuejs/beyond-the-api/in-website-preview#3_0-2.-setup-a-preview-environment) inside your Prismic repository.
 
-## How does it do that?
+## How Does It Do That?
 
 To enable previews on your website the module has to inject the Prismic preview script at the end of the `body` tag of the page. It also registers a new `/preview` route in the Nuxt.js application which is used to resolve your preview sessions.
 
-## Changing the preview route
+## Changing the Preview Route
 
 You can configure the preview route by providing another path to the `preview` key of the module options:
 
@@ -28,7 +28,7 @@ prismic: {
 }
 ```
 
-## Disabling previews
+## Disabling Previews
 
 This module comes with previews enabled by default, if you want to disable previews on your website you can set the `preview` key of the module options to `false`:
 
@@ -41,7 +41,7 @@ prismic: {
 
 The module won't inject anymore Prismic preview script and the `/preview` page won't be registered.
 
-## Customizing the preview page
+## Customizing the Preview Page
 
 If you want to go fancy and provide a custom preview page, you can do so by creating it at `~/app/prismic/pages/preview.vue`. Here's its minimum scaffolding:
 
