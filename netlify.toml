@@ -1,0 +1,59 @@
+# Global context
+[build]
+  # Base directory
+  base = "docs/"
+  # Build command
+  command = "yarn generate"
+  # Build directory
+  publish = "dist/"
+
+# Post processing configuration
+[build.processing]
+  skip_processing = false
+[build.processing.html]
+  pretty_urls = false
+[build.processing.css]
+  bundle = false
+  minify = false
+[build.processing.js]
+  bundle = false
+  minify = false
+[build.processing.images]
+  compress = true
+
+# Netlify dev config
+[dev]
+  command = "nuxt"
+  port = 8888
+  targetPort = 3000
+  autoLaunch = false
+
+# Deploy from production branch
+[context.production]
+
+[context.production.processing]
+  skip_processing = false
+
+# Deploy from pull and merge request
+[context.deploy-preview]
+
+[context.deploy-preview.processing]
+  skip_processing = true
+
+# Deploy from non production branches
+[context.branch-deploy]
+
+[context.branch-deploy.processing]
+  skip_processing = true
+
+[[redirects]]
+  from = "https://prismic-nuxt.js.org/*"
+  to = "https://prismic.nuxtjs.org"
+  status = 301
+  force = true
+
+# [[redirects]]
+#   from = "https://<SITE_NAME>.netlify.app/*"
+#   to = "https://prismic.nuxtjs.org/:splat"
+#   status = 301
+#   force = true

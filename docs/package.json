@@ -6,8 +6,7 @@
     "dev": "nuxt",
     "build": "nuxt build",
     "start": "nuxt start",
-    "generate": "nuxt generate",
-    "publish": "npm run generate && push-dir --dir dist --branch=gh-pages --cleanup"
+    "generate": "nuxt generate"
   },
   "dependencies": {
     "@nuxt/content-theme-docs": "^0.3.1",
@@ -15,7 +14,6 @@
     "nuxt": "^2.14.1"
   },
   "devDependencies": {
-    "@nuxtjs/google-analytics": "^2.4.0",
-    "push-dir": "0.4.1"
+    "@nuxtjs/google-analytics": "^2.4.0"
   }
 }
