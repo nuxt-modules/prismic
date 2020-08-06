@@ -1,6 +1,6 @@
 {
   "title": "@nuxtjs/prismic",
-  "url": "https://nuxtjs-prismic-ctd.netlify.app",
+  "url": "https://prismic.nuxtjs.org",
   "logo": {
     "light": "/logo-light.svg",
     "dark": "/logo-dark.svg"
