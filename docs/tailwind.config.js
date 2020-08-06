@@ -1,7 +1,4 @@
-const defu = require('defu');
-const contentTailwind = require('@nuxt/content-theme-docs/src/tailwind.config.js');
-
-module.exports = defu({
+module.exports = {
   theme: {
     extend: {
       colors: {
@@ -17,15 +14,6 @@ module.exports = defu({
           900: '#262A3D'
         },
       },
-    },
-    typography: (theme) => defu({
-      dark: {
-        css: {
-          a: {
-            color: theme('colors.primary.500'),
-          },
-        },
-      },
-    }, contentTailwind.theme.typography(theme)),
+    }
   },
-}, contentTailwind);
+};
