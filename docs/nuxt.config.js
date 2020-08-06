@@ -9,16 +9,7 @@ export default theme({
     fallback: true,
     routes: ['/'],
   },
-  buildModules: (buildModules) => [
-    ...buildModules.map((module) => {
-      if (module !== '@nuxtjs/tailwindcss') {
-        return module;
-      }
-
-      return ['@nuxtjs/tailwindcss', {
-        configPath: path.resolve(__dirname, 'tailwind.config.js'),
-      }];
-    }),
+  buildModules: [
     ['@nuxtjs/google-analytics', {
       id: 'UA-27914050-11'
     }]
