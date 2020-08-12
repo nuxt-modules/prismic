@@ -1,5 +1,5 @@
 ---
-title: '@nuxtjs/prismic'
+title: Introduction
 menuTitle: Introduction
 description: 'Easily connect your Nuxt.js application to your content hosted on Prismic'
 position: 110
@@ -7,12 +7,16 @@ category: 'Getting Started'
 version: 1.2
 fullscreen: false
 features:
-  - Injects and configures Prismic SDK
-  - Sets up Prismic previews
+  - Add Prismic to your Nuxt app in seconds
+  - Access Prismic SDK with $prismic
+  - Prismic previews supported
   - Compact configuration
 ---
 
-This module helps you connect your [Nuxt.js](https://nuxtjs.org) application to your content hosted on [Prismic](https://prismic.io) while also assisting you in the set up of more advanced features like [Prismic previews](https://prismic.io/feature/scheduling-and-previews).
+<img src="/preview.png" class="light-img" alt="@nuxtjs/prismic module"/>
+<img src="/preview-dark.png" class="dark-img" alt="@nuxtjs/prismic module"/>
+
+`@nuxtjs/prismic` helps you connect your [Nuxt](https://nuxtjs.org) application to your content hosted on [Prismic](https://prismic.io) while also assisting you in the set up of more advanced features like [Prismic previews](https://prismic.io/feature/scheduling-and-previews).
 
 ## Features
 
