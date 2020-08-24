@@ -39,7 +39,7 @@
     "eslint-config-airbnb-base": "^14.2.0",
     "eslint-plugin-import": "^2.22.0",
     "jest": "^26.1.0",
-    "standard-version": "^8.0.2"
+    "standard-version": "^9.0.0"
   },
   "engines": {
     "node": ">= 8.0.0"
