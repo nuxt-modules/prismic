@@ -30,15 +30,15 @@
   "homepage": "https://prismic-nuxt.js.org",
   "dependencies": {
     "@prismicio/vue": "^2.0.7",
-    "consola": "^2.14.0",
+    "consola": "^2.15.0",
     "prismic-dom": "^2.2.3",
-    "prismic-javascript": "^3.0.1"
+    "prismic-javascript": "^3.0.2"
   },
   "devDependencies": {
-    "eslint": "^7.4.0",
+    "eslint": "^7.7.0",
     "eslint-config-airbnb-base": "^14.2.0",
     "eslint-plugin-import": "^2.22.0",
-    "jest": "^26.1.0",
+    "jest": "^26.4.2",
     "standard-version": "^8.0.2"
   },
   "engines": {
