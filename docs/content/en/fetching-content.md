@@ -55,7 +55,12 @@ export default {
 ```javascript[components/AppHeader.vue]
 export default {
   async fetch() {
-    this.headerData = await $prismic.api.getSingle('header')
+    this.headerData = await this.$prismic.api.getSingle('header')
+  },
+  data() {
+    return {
+      headerData: {}
+    }
   }
 }
 ```
@@ -63,6 +68,16 @@ export default {
 ## From Vuex Store
 
 ```javascript[store/index.js]
+export const state = () => ({
+  settings: {}
+})
+
+export const mutations = {
+  setSettings(state, settings) {
+    state.settings = settings
+  }
+}
+
 export const actions = {
   async loadSettings({ commit }) {
     const settings = await this.$prismic.api.getSingle('site_settings')
