@@ -110,14 +110,14 @@ describe('prismic-nuxt module', () => {
   });
 
   it('should not warn to create ~/app/prismic/link-resolver.js if path exists', async () => {
-    fs.existsSync = jest.fn().mockReturnValueOnce(true);
+    fs.existsSync = jest.fn().mockReturnValueOnce(true).mockReturnValueOnce(true);
     await prismicNuxt.call(context, { ...moduleOptions });
     expect(logger.warn.mock.calls.length).toEqual(0);
     expect(context.addTemplate.mock.calls[1][0].src).toEqual(path.join('/var/nuxt/app/prismic/link-resolver.js'));
   });
 
   it('should not create ~/app/prismic/html-serializer.js if path exists', async () => {
-    fs.existsSync = jest.fn().mockReturnValueOnce(true).mockReturnValueOnce(true);
+    fs.existsSync = jest.fn().mockReturnValueOnce(true).mockReturnValueOnce(true).mockReturnValueOnce(true);
     await prismicNuxt.call(context, { ...moduleOptions });
     expect(logger.warn.mock.calls.length).toEqual(0);
     expect(context.addTemplate.mock.calls[2][0].src).toEqual(path.join('/var/nuxt/app/prismic/html-serializer.js'));
