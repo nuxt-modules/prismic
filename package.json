@@ -27,7 +27,7 @@
   "bugs": {
     "url": "https://github.com/nuxt-community/prismic-module/issues"
   },
-  "homepage": "https://prismic-nuxt.js.org",
+  "homepage": "https://prismic.nuxtjs.org",
   "dependencies": {
     "@prismicio/vue": "^2.0.7",
     "consola": "^2.15.0",
