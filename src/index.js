@@ -14,13 +14,17 @@ function install(moduleOptions) {
     options.preview = '/preview';
   }
   const repo = options.endpoint.replace(/^https?:\/\//, '').replace(/(\.cdn)?\.prismic.+/, '');
+  const app = this.options.dir.app || 'app';
 
   // Add in Prismic libraries to enable preview
   if (options.preview) {
     // Add /preview
+    const userPreviewPage = path.join(this.options.srcDir, app, 'prismic', 'pages', 'preview.vue');
+    const userPreviewPageExists = fs.existsSync(userPreviewPage);
+
     this.addTemplate({
       fileName: 'prismic/pages/preview.vue',
-      src: path.join(__dirname, 'templates/pages/preview.vue'),
+      src: userPreviewPageExists ? userPreviewPage : path.join(__dirname, 'templates/pages/preview.vue'),
     });
     this.extendRoutes((routes, resolve) => {
       routes.unshift({
@@ -48,7 +52,6 @@ function install(moduleOptions) {
   }
 
   // Add templates & prismic plugin
-  const app = this.options.dir.app || 'app';
   const userLinkResolver = path.join(this.options.srcDir, app, 'prismic', 'link-resolver.js');
   const userLinkResolverExists = fs.existsSync(userLinkResolver);
   const userHtmlSerializer = path.join(this.options.srcDir, app, 'prismic', 'html-serializer.js');
