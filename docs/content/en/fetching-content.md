@@ -35,7 +35,7 @@ export default {
 export default {
   async asyncData({ $prismic, params, error }) {
     const document = await $prismic.api.query(
-      this.$prismic.predicates.at('my.page.uid', params.uid)
+      $prismic.predicates.at('my.page.uid', params.uid)
     )
 
     if (document) {
