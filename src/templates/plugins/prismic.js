@@ -7,6 +7,7 @@ import htmlSerializer from '../html-serializer.js'
 
 export default async (context, inject) => {
   const { req, route, res, query, redirect, nuxtState } = context
+  const isClientStatic = process.client && process.static;
   let options = {}
 
   // Pass through server requests, primarily for preview
@@ -16,7 +17,9 @@ export default async (context, inject) => {
 
   let api = {}
   try {
-    api = await Prismic.api('<%= options.endpoint %>', Object.assign({}, options,  <%= JSON.stringify(options.apiOptions) %>))
+    if (!isClientStatic) {
+      api = await Prismic.api('<%= options.endpoint %>', Object.assign({}, options,  <%= JSON.stringify(options.apiOptions) %>))
+    }
   } catch (error) {
     console.error(error)
     console.error("Failed to init Prismic API, preventing app fatal error.")
@@ -25,6 +28,9 @@ export default async (context, inject) => {
   let prismic = new Vue({
     computed: {
       api() {
+        if (isClientStatic) {
+          throw new Error('Prismic: You cannot use the primisc API on "target: static" mode');
+        }
         return api
       },
       apiEndpoint() {
@@ -65,7 +71,7 @@ export default async (context, inject) => {
           return PrismicDOM.Date(date)
         }
       },
-      <% if (options.preview) { %>
+      <% if (!(process.client && process.static) && options.preview) { %>
       async preview() {
         let url = '/'
         const { token, documentId } = query
@@ -105,7 +111,7 @@ export default async (context, inject) => {
   if (process.server && !process.static && route.path === '<%= options.preview %>') {
     await prismic.preview()
   }
-  if (process.client && process.static && route.path !== '<%= options.preview %>') {
+  if (isClientStatic && route.path !== '<%= options.preview %>') {
     const getPreviewCookie = function () {
       var value = `; ${document.cookie}`
       var parts = value.split(`; ${Prismic.previewCookie}=`)
