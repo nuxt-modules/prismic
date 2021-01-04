@@ -71,7 +71,7 @@ export default async (context, inject) => {
           return PrismicDOM.Date(date)
         }
       },
-      <% if (!(process.client && process.static) && options.preview) { %>
+      <% if (!isClientStatic && options.preview) { %>
       async preview() {
         let url = '/'
         const { token, documentId } = query
