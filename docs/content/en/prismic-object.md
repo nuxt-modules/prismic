@@ -81,7 +81,7 @@ Contains current instance of the Prismic API, see [fetching content](/fetching-c
 
 ### predicates
 
-Contains all Prismic predicates coming from [`prismic-javascript` kit](https://github.com/prismicio/prismic-javascript), see complete predicate reference on [Prismic documentation](https://prismic.io/docs/vuejs/query-the-api/query-predicate-reference).
+Contains all Prismic predicates coming from [`@prismicio/client` kit](https://github.com/prismicio/prismic-javascript), see complete predicate reference on [Prismic documentation](https://prismic.io/docs/vuejs/query-the-api/query-predicate-reference).
 
 ### dom
 
