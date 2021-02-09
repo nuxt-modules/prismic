@@ -64,7 +64,7 @@ prismic: {
   // example querying a private Prismic repository
   // please note that the token will bleed in the front-end
   apiOptions: {
-    access_token: 'yourAccessToken'
+    accessToken: 'yourAccessToken'
   }
 }
 ```
