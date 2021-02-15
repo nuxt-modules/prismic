@@ -1,7 +1,7 @@
 import path from 'path';
-import theme from '@nuxt/content-theme-docs';
+import { withDocus } from 'docus';
 
-export default theme({
+export default withDocus({
   loading: {
     color: "#7F8CCC"
   },
