@@ -50,6 +50,6 @@ export default function(doc) {
 
 <alert type="info">
 
-More on link resolving on [Prismic documentation](https://prismic.io/docs/vuejs/beyond-the-api/link-resolving).
+More on link resolving on [Prismic documentation](https://prismic.io/docs/technologies/link-resolver-nuxtjs).
 
 </alert>

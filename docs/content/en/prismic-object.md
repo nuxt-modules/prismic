@@ -49,7 +49,7 @@ This is the `linkResolver` function you provided to the module. See [configurati
 
 <alert type="info">
 
-More on link resolving on [Prismic documentation](https://prismic.io/docs/vuejs/beyond-the-api/link-resolving).
+More on link resolving on [Prismic documentation](https://prismic.io/docs/technologies/link-resolver-nuxtjs).
 
 </alert>
 
@@ -59,7 +59,7 @@ This is the `htmlSerializer` function you provided to the module. See [configura
 
 <alert type="info">
 
-More on the HTML Serializer on [Prismic documentation](https://prismic.io/docs/vuejs/beyond-the-api/html-serializer).
+More on the HTML Serializer on [Prismic documentation](https://prismic.io/docs/technologies/html-serializer-nuxtjs).
 
 </alert>
 
@@ -77,11 +77,11 @@ This method is only available when previews are enabled.
 
 ### api
 
-Contains current instance of the Prismic API, see [fetching content](/fetching-content) examples or learn more on how to query the API on [Prismic documentation](https://prismic.io/docs/vuejs/query-the-api/how-to-query-the-api).
+Contains current instance of the Prismic API, see [fetching content](/fetching-content) examples or learn more on how to query the API on [Prismic documentation](https://prismic.io/docs/technologies/query-content-from-cms-nuxtjs).
 
 ### predicates
 
-Contains all Prismic predicates coming from [`prismic-javascript` kit](https://github.com/prismicio/prismic-javascript), see complete predicate reference on [Prismic documentation](https://prismic.io/docs/vuejs/query-the-api/query-predicate-reference).
+Contains all Prismic predicates coming from [`prismic-javascript` kit](https://github.com/prismicio/prismic-javascript), see complete predicate reference on [Prismic documentation](https://prismic.io/docs/technologies/query-predicate-reference-vuejs).
 
 ### dom
 

@@ -14,7 +14,7 @@
 ## Features
 
 - Injects and configures Prismic SDK
-  - [`prismic-javascript`](https://github.com/prismicio/prismic-javascript), the kit allowing you to query [Prismic API](https://prismic.io/docs/vuejs/query-the-api/how-to-query-the-api)
+  - [`prismic-javascript`](https://github.com/prismicio/prismic-javascript), the kit allowing you to query [Prismic API](https://prismic.io/docs/technologies/query-content-from-cms-nuxtjs)
   - [`prismic-dom`](https://github.com/prismicio/prismic-dom), a set of helpers to handle Prismic data
   - [`@prismicio/vue`](https://github.com/prismicio/prismic-vue), a set of Vue.js components to easily display Prismic data
 - Sets up [Prismic previews](https://prismic.io/feature/scheduling-and-previews)
