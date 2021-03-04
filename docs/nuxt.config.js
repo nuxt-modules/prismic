@@ -2,22 +2,21 @@ import path from 'path';
 import { withDocus } from 'docus';
 
 export default withDocus({
-  loading: {
-    color: "#7F8CCC"
+  docus: {
+    colors: {
+      primary: "#7F8CCC"
+    }
   },
   generate: {
     fallback: true,
-    routes: ['/'],
   },
   buildModules: [
     ['@nuxtjs/google-analytics', {
       id: 'UA-27914050-11'
     }],
-    'nuxt-ackee'
+    'vue-plausible'
   ],
-  ackee: {
-    server: 'https://ackee.nuxtjs.com',
-    domainId: 'c34dbd9b-00c1-4de2-8274-29314298c092',
-    detailed: true
+  plausible: {
+    domain: 'prismic.nuxtjs.org'
   }
 });

@@ -5,7 +5,9 @@
     "light": "/logo-light.svg",
     "dark": "/logo-dark.svg"
   },
-  "github": "nuxt-community/prismic-module",
-  "defaultBranch": "master",
+  "github": {
+    "repo": "nuxt-community/prismic-module",
+    "branch": "master"
+  },
   "twitter": "prismicio"
 }
