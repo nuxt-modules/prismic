@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.2.5](https://github.com/nuxt-community/prismic-module/compare/v1.2.4...v1.2.5) (2021-03-09)
+
+
+### Bug Fixes
+
+* preview not persisting after navigation ([#129](https://github.com/nuxt-community/prismic-module/issues/129)) ([6f60b21](https://github.com/nuxt-community/prismic-module/commit/6f60b21d596306585391ffde7a662b1a87fdbf11))
+
 ### [1.2.4](https://github.com/nuxt-community/prismic-module/compare/v1.2.3...v1.2.4) (2020-09-10)
 
 
