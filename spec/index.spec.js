@@ -1,12 +1,12 @@
 const fs = require('fs');
 const path = require('path');
 const logger = require('@/logger');
-const Prismic = require('prismic-javascript');
+const Prismic = require('@prismicio/client');
 
 logger.mockTypes(() => jest.fn());
 const prismicNuxt = require('../src');
 
-jest.mock('prismic-javascript');
+jest.mock('@prismicio/client');
 
 Prismic.client = jest.fn(() => ({
   async query() {

@@ -1,5 +1,5 @@
 import Vue from 'vue'
-import Prismic from 'prismic-javascript'
+import Prismic from '@prismicio/client'
 import PrismicDOM from 'prismic-dom'
 
 import linkResolver from '../link-resolver.js'
