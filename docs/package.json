@@ -9,11 +9,11 @@
     "generate": "nuxt generate"
   },
   "dependencies": {
-    "@nuxt/content-theme-docs": "^0.5.6",
-    "nuxt": "^2.14.4"
+    "docus": "^0.0.9",
+    "nuxt": "^2.15.2"
   },
   "devDependencies": {
     "@nuxtjs/google-analytics": "^2.4.0",
-    "nuxt-ackee": "^2.0.0"
+    "vue-plausible": "^1.1.3"
   }
 }
