@@ -43,6 +43,6 @@
     "standard-version": "^8.0.2"
   },
   "engines": {
-    "node": ">= v8.17.0"
+    "node": ">= v14.16.1"
   }
 }
