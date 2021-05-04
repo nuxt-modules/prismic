@@ -14,6 +14,9 @@ export default {
     } else {
       error({ statusCode: 404, message: 'Page not found' })
     }
+  },
+  mounted () {
+    console.log(this.$prismic.api)
   }
 }
 </script>

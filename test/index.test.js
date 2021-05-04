@@ -167,4 +167,17 @@ describe('prismic-nuxt module', () => {
     prismicNuxt.call(context, moduleOptions)
     expect(context.nuxt.hook).not.toBeCalledWith('generate:before', expect.anything())
   })
+
+  it('should not run generate if only modern is set', () => {
+    moduleOptions.modern = true
+    prismicNuxt.call(context, moduleOptions)
+    expect(context.nuxt.hook).not.toBeCalledWith('generate:before', expect.anything())
+  })
+
+  it('should run generate if modern is set and generator is explicitely not disabled', () => {
+    moduleOptions.modern = true
+    moduleOptions.disableGenerator = false
+    prismicNuxt.call(context, moduleOptions)
+    expect(context.nuxt.hook).toBeCalledWith('generate:before', expect.anything())
+  })
 })

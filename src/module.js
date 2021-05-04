@@ -7,11 +7,15 @@ function install (moduleOptions) {
   const options = {
     preview: true,
     components: true,
+    modern: false,
     ...moduleOptions,
     ...(this.options.prismic || {})
   }
   if (options.preview === true) {
     options.preview = '/preview'
+  }
+  if (options.modern === true && typeof options.disableGenerator === 'undefined') {
+    options.disableGenerator = true
   }
   if (!options.endpoint) {
     logger.warn('Options `endpoint` is required, disabling module...')
@@ -72,6 +76,7 @@ function install (moduleOptions) {
     options: {
       preview: options.preview,
       endpoint: options.endpoint,
+      modern: options.modern,
       apiOptions,
       repo,
       script: `//static.cdn.prismic.io/prismic.min.js?repo=${repo}&new=true`

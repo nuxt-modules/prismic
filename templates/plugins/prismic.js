@@ -16,7 +16,11 @@ export default async (context, inject) => {
 
   let api = {}
   try {
+    <% if (options.modern) { %>
+    api = Prismic.client('<%= options.endpoint %>', Object.assign({}, options,  <%= JSON.stringify(options.apiOptions) %>))
+    <% } else { %>
     api = await Prismic.api('<%= options.endpoint %>', Object.assign({}, options,  <%= JSON.stringify(options.apiOptions) %>))
+    <% } %>
   } catch (error) {
     console.error(error)
     console.error("Failed to init Prismic API, preventing app fatal error.")

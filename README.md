@@ -36,7 +36,8 @@ yarn add @nuxtjs/prismic # or npm install @nuxtjs/prismic
     '@nuxtjs/prismic',
   ],
   prismic: {
-    endpoint: 'https://<REPOSITORY>.cdn.prismic.io/api/v2'
+    endpoint: 'https://<REPOSITORY>.cdn.prismic.io/api/v2',
+    modern: true
     // see documentation for more!
   }
 }
