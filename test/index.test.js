@@ -92,6 +92,11 @@ describe('prismic-nuxt module', () => {
     expect(context.addPlugin.mock.calls[1][0].options.repo).toEqual('test2')
   })
 
+  it('should warn to provide endpoint', async () => {
+    await prismicNuxt.call(context, {})
+    expect(logger.warn).toHaveBeenNthCalledWith(1, 'Options `endpoint` is required, disabling module...')
+  })
+
   it('should warn to create ~/app/prismic/link-resolver.js', async () => {
     await prismicNuxt.call(context, { ...moduleOptions, apiOptions: null })
     expect(logger.warn).toHaveBeenNthCalledWith(1, 'Please create ~/app/prismic/link-resolver.js')
