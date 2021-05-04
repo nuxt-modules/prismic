@@ -39,6 +39,6 @@
     "standard-version": "latest"
   },
   "engines": {
-    "node": ">= v8.17.0"
+    "node": ">= v12.0.0"
   }
 }
