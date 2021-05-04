@@ -36,6 +36,7 @@
     "babel-eslint": "latest",
     "eslint": "latest",
     "jest": "latest",
+    "nuxt-edge": "latest",
     "standard-version": "latest"
   },
   "engines": {
