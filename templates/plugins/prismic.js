@@ -103,9 +103,11 @@ export default async (context, inject) => {
   }
   // Preview mode
   if (process.server && !process.static && route.path === '<%= options.preview %>') {
+    // Server side
     await prismic.preview()
   }
   if (process.client && process.static && route.path !== '<%= options.preview %>') {
+    // Client side
     const getPreviewCookie = function () {
       var value = `; ${document.cookie}`
       var parts = value.split(`; ${Prismic.previewCookie}=`)
