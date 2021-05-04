@@ -9,6 +9,8 @@ All notable changes to this project will be documented in this file. See [standa
 
 * drop node 8 & 10 ([9f4192c](https://github.com/nuxt-community/prismic-module/commit/9f4192c601f7a2c38ca3783ba596907828d36015))
 
+> ⚠️ That's a breaking change, to some extent. We're following Nuxt's choice of not making those majors: https://github.com/nuxt/nuxt.js/releases/tag/v2.15.0
+
 
 ### Bug Fixes
 
