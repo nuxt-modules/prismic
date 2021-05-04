@@ -2,33 +2,28 @@
   "name": "@nuxtjs/prismic",
   "version": "1.2.6",
   "description": "Add Prismic to your NuxtJS project",
-  "main": "src/index.js",
-  "scripts": {
-    "test": "npm run lint && npm run unit",
-    "release": "yarn test && standard-version && git push --follow-tags && npm publish",
-    "standard-version": "standard-version",
-    "unit": "jest",
-    "lint": "eslint src"
-  },
   "keywords": [
-    "prismic",
     "nuxt",
-    "vue",
+    "module",
+    "nuxt-module",
+    "prismic",
     "cms"
   ],
-  "contributors": [
-    "James Pegg <jamescpegg@gmail.com>",
-    "Sebastien Chopin (@Atinux)"
-  ],
+  "repository": "nuxt-community/prismic-module",
   "license": "MIT",
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/nuxt-community/prismic-module.git"
+  "main": "src/module.js",
+  "files": [
+    "src",
+    "templates"
+  ],
+  "scripts": {
+    "dev": "nuxt example",
+    "release": "yarn test && standard-version && git push --follow-tags && npm publish",
+    "release:dry": "yarn test && standard-version --dry-run",
+    "unit": "jest",
+    "lint": "eslint --ext .js,.ts,.vue .",
+    "test": "npm run lint && npm run unit"
   },
-  "bugs": {
-    "url": "https://github.com/nuxt-community/prismic-module/issues"
-  },
-  "homepage": "https://prismic.nuxtjs.org",
   "dependencies": {
     "@prismicio/client": "^4.0.0",
     "@prismicio/vue": "^2.0.11",
@@ -36,11 +31,12 @@
     "prismic-dom": "^2.2.5"
   },
   "devDependencies": {
-    "eslint": "^7.25.0",
-    "eslint-config-airbnb-base": "^14.2.1",
-    "eslint-plugin-import": "^2.22.1",
-    "jest": "^26.6.3",
-    "standard-version": "^9.2.0"
+    "@nuxtjs/eslint-config": "latest",
+    "@types/jest": "latest",
+    "babel-eslint": "latest",
+    "eslint": "latest",
+    "jest": "latest",
+    "standard-version": "latest"
   },
   "engines": {
     "node": ">= v8.17.0"
