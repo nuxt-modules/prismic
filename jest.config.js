@@ -26,7 +26,7 @@ module.exports = {
   // ],
 
   // The directory where Jest should output its coverage files
-  coverageDirectory: "coverage",
+  coverageDirectory: 'coverage',
 
   // An array of regexp pattern strings used to skip coverage collection
   // coveragePathIgnorePatterns: [
@@ -35,8 +35,8 @@ module.exports = {
 
   // A list of reporter names that Jest uses when writing coverage reports
   coverageReporters: [
-    "text",
-    "lcov"
+    'text',
+    'lcov'
   ],
 
   // An object that configures minimum threshold enforcement for coverage results
@@ -45,7 +45,7 @@ module.exports = {
       lines: 100,
       statements: 100,
       functions: 100,
-      branches: 100,
+      branches: 100
     }
   },
 
@@ -141,7 +141,7 @@ module.exports = {
   // snapshotSerializers: [],
 
   // The test environment that will be used for testing
-  testEnvironment: "node",
+  testEnvironment: 'node'
 
   // Options that will be passed to the testEnvironment
   // testEnvironmentOptions: {},
@@ -194,4 +194,4 @@ module.exports = {
 
   // Whether to use watchman for file crawling
   // watchman: true,
-};
+}
