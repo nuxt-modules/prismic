@@ -1,0 +1,11 @@
+{
+  "compilerOptions": {
+    "resolveJsonModule": true,
+    "baseUrl": ".",
+    "types": [
+      "node",
+      "jest"
+    ]
+  },
+  "exclude": ["node_modules"]
+}
