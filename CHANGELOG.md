@@ -2,6 +2,18 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [1.3.0-alpha.0](https://github.com/nuxt-community/prismic-module/compare/v1.2.6...v1.3.0-alpha.0) (2021-05-04)
+
+
+### Features
+
+* drop node 8 & 10 ([9f4192c](https://github.com/nuxt-community/prismic-module/commit/9f4192c601f7a2c38ca3783ba596907828d36015))
+
+
+### Bug Fixes
+
+* prevent fatal error if endpoint is not provided ([b79e26b](https://github.com/nuxt-community/prismic-module/commit/b79e26b58318d04812ca45f8684b7bc09f29e4a7))
+
 ### [1.2.6](https://github.com/nuxt-community/prismic-module/compare/v1.2.5...v1.2.6) (2021-03-11)
 
 ### [1.2.5](https://github.com/nuxt-community/prismic-module/compare/v1.2.4...v1.2.5) (2021-03-09)
