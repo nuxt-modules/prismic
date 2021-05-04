@@ -1,15 +1,16 @@
+/* eslint-disable no-undef */
 const fs = require('fs')
 const path = require('path')
 const logger = require('@/logger')
 const Prismic = require('@prismicio/client')
 
 logger.mockTypes(() => jest.fn())
-const prismicNuxt = require('../src')
+const prismicNuxt = require('../src/module')
 
 jest.mock('@prismicio/client')
 
 Prismic.client = jest.fn(() => ({
-  async query () {
+  query () {
     const data = require('./__mockData__') // eslint-disable-line
     return data
   }
@@ -19,7 +20,7 @@ describe('prismic-nuxt module', () => {
   let context
   let moduleOptions
 
-  beforeAll(() => consola.wrapAll())
+  beforeAll(() => logger.wrapAll())
   beforeEach(() => {
     context = {
       _routes: [],
@@ -120,7 +121,7 @@ describe('prismic-nuxt module', () => {
     expect(context.addTemplate.mock.calls[2][0].src).toEqual(path.join('/var/nuxt/app/prismic/html-serializer.js'))
   })
 
-  it('should call hook on generate:before', async () => {
+  it('should call hook on generate:before', () => {
     prismicNuxt.call(context, moduleOptions)
     expect(context.nuxt.hook).toBeCalledWith('generate:before', jasmine.any(Function))
   })
@@ -156,7 +157,7 @@ describe('prismic-nuxt module', () => {
     expect(context.nuxt.hook).toBeCalledWith('generate:before', expect.anything())
   })
 
-  it('should not run generate if disabled', async () => {
+  it('should not run generate if disabled', () => {
     moduleOptions.disableGenerator = true
     prismicNuxt.call(context, moduleOptions)
     expect(context.nuxt.hook).not.toBeCalledWith('generate:before', expect.anything())
