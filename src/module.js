@@ -13,6 +13,10 @@ function install (moduleOptions) {
   if (options.preview === true) {
     options.preview = '/preview'
   }
+  if (!options.endpoint) {
+    logger.warn('Options `endpoint` is required, disabling module...')
+    return
+  }
   const repo = options.endpoint.replace(/^https?:\/\//, '').replace(/(\.cdn)?\.prismic.+/, '')
   const app = this.options.dir.app || 'app'
 
