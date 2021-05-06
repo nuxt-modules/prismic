@@ -22,5 +22,6 @@
 
 - [ ] My change requires a change to the documentation.
 - [ ] I have updated the documentation accordingly. (PR: #)
+- [ ] All new and existing tests are passing.
 
 <!--- A cute animal picture is welcome to close your PR! -->
