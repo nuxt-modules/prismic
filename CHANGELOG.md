@@ -2,6 +2,15 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [1.3.0](https://github.com/nuxt-community/prismic-module/compare/v1.3.0-alpha.1...v1.3.0) (2021-05-10)
+
+
+### Chore
+
+* add .versionrc ([0da1249](https://github.com/nuxt-community/prismic-module/commit/0da1249ca56b48bf76c2151b1ebe4f2f3a470ed1))
+* typo ([ac264f0](https://github.com/nuxt-community/prismic-module/commit/ac264f03f14b0539c996f508e0d202729cded874))
+* update pull request template ([ce7d103](https://github.com/nuxt-community/prismic-module/commit/ce7d103db3b07d24ea1dea5167e3454220ef8f33))
+
 ## [1.3.0-alpha.1](https://github.com/nuxt-community/prismic-module/compare/v1.3.0-alpha.0...v1.3.0-alpha.1) (2021-05-04)
 
 
