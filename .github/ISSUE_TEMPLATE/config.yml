@@ -1,0 +1,8 @@
+blank_issues_enabled: false
+contact_links:
+  - name: Nuxt Community Discord
+    url: https://discord.nuxtjs.org
+    about: Consider asking questions about the module here.
+  - name: Prismic Community Forum
+    url: https://community.prismic.io
+    about: Please use Prismic community forum for issues or questions directly related to Prismic.
