@@ -6,7 +6,7 @@ import linkResolver from '../link-resolver.js'
 import htmlSerializer from '../html-serializer.js'
 
 export default async (context, inject) => {
-  const { req, route, res, query, redirect, nuxtState } = context
+  const { req, route, res, query, redirect, nuxtState, base } = context
   let options = {}
 
   // Pass through server requests, primarily for preview
@@ -84,6 +84,9 @@ export default async (context, inject) => {
         if (process.server) {
           redirect(302, url)
         } else {
+          // Add the base path onto the url to preview
+          url = `${base.replace(/\/$/, '')}${url}`
+
           window.location.replace(url)
         }
       },<% } %>
