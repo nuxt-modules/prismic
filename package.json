@@ -27,7 +27,7 @@
     "test": "npm run lint && npm run unit"
   },
   "dependencies": {
-    "@prismicio/client": "^4.0.0",
+    "@prismicio/client": "^5.1.0",
     "@prismicio/vue": "^2.0.11",
     "consola": "^2.15.3",
     "prismic-dom": "^2.2.5"
