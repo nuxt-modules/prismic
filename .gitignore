@@ -1,9 +1,39 @@
-node_modules
-*.iml
-.idea
-*.log*
-.nuxt
-.vscode
-.DS_Store
-coverage
+# custom
 dist
+.nuxt
+examples/**/package-lock.json
+
+# os
+.DS_Store
+._*
+
+# node
+logs
+*.log
+node_modules
+
+# yarn
+yarn-debug.log*
+yarn-error.log*
+lerna-debug.log*
+.yarn-integrity
+
+# npm
+npm-debug.log*
+package-lock.json
+
+# tests
+coverage
+.eslintcache
+.nyc_output
+
+# .env
+.env
+.env.test
+.env*.local
+
+# vscode
+.vscode/*
+!.vscode/tasks.json
+!.vscode/launch.json
+*.code-workspace

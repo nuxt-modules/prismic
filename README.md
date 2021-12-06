@@ -1,59 +1,71 @@
+<!--
+
+Replace all on all files (README.md, CONTRIBUTING.md, bug_report.md, package.json):
+- @nuxtjs/prismic
+- Easily connect your Nuxt.js application to your content hosted on Prismic
+- nuxt-community/prismic-module
+- prismic-module
+
+-->
+
 # @nuxtjs/prismic
 
 [![npm version][npm-version-src]][npm-version-href]
 [![npm downloads][npm-downloads-src]][npm-downloads-href]
 [![Github Actions CI][github-actions-ci-src]][github-actions-ci-href]
 [![Codecov][codecov-src]][codecov-href]
+[![Conventional Commits][conventional-commits-src]][conventional-commits-href]
 [![License][license-src]][license-href]
 
-> @nuxtjs/prismic helps you connect your [Nuxt.js](https://nuxtjs.org) application to your content hosted on [Prismic](https://prismic.io)
+Easily connect your Nuxt.js application to your content hosted on [Prismic][prismic].
 
-- [✨ &nbsp;Release Notes](/CHANGELOG.md)
-- [📖 &nbsp;Read the documentation](https://prismic.nuxtjs.org)
+- 🚀 &nbsp;Add Prismic to your Nuxt app in seconds;
+- 🎣 &nbsp;Access Prismic SDK through composition and options API;
+- 🖼 &nbsp;Prismic previews supported.
 
-## Features
-
-- Add Prismic to your Nuxt app in seconds
-- Access Prismic SDK with `$prismic`
-- Prismic previews supported, [check out the demo!](https://prismic.nuxtjs.org/#videos)
-- Compact configuration
-
-[📖 &nbsp;Read the documentation](https://prismic.nuxtjs.org)
-
-## Setup
-
-1. Add `@nuxtjs/prismic` dependency to your project:
+## Install
 
 ```bash
-yarn add @nuxtjs/prismic # or npm install @nuxtjs/prismic
+npm install --save-dev @nuxtjs/prismic
 ```
 
-2. Then, add `@nuxtjs/prismic` to the `buildModules` section of `nuxt.config.js` and configure your Prismic API endpoint:
+## Documentation
 
-```js
-{
-  buildModules: [
-    '@nuxtjs/prismic',
-  ],
-  prismic: {
-    endpoint: 'https://<REPOSITORY>.cdn.prismic.io/api/v2',
-    modern: true
-    // see documentation for more!
-  }
-}
-```
+To discover what's new on this package check out [the changelog][changelog]. For full documentation, visit the [module documentation][nuxt-docs] and [Prismic official documentation][prismic-docs].
 
-## Development
+## Contributing
 
-1. Clone this repository
-2. Install dependencies using `yarn install`
-3. Start development server using `yarn dev`
+Whether you're helping us fix bugs, improve the docs, or spread the word, we'd love to have you as part of the Prismic developer community!
+
+**Asking a question**: [Open a new topic][forum-question] on our community forum explaining what you want to achieve / your question. Our support team will get back to you shortly.
+
+**Reporting a bug**: [Open an issue][repo-bug-report] explaining your application's setup and the bug you're encountering.
+
+**Suggesting an improvement**: [Open an issue][repo-feature-request] explaining your improvement or feature so we can discuss and learn more.
+
+**Submitting code changes**: For small fixes, feel free to [open a pull request][repo-pull-requests] with a description of your changes. For large changes, please first [open an issue][repo-feature-request] so we can discuss if and how the changes should be implemented.
 
 ## License
 
 [MIT License](./LICENSE)
 
-Thanks to [James Pegg](https://github.com/jamespeggsh) for the initial implementation of the module!
+<!-- Links -->
+
+[prismic]: https://prismic.io
+
+<!-- TODO: Replace link with a more useful one if available -->
+
+[nuxt-docs]: https://prismic.nuxtjs.org
+[prismic-docs]: https://prismic.io/docs
+[changelog]: ./CHANGELOG.md
+[contributing]: ./CONTRIBUTING.md
+
+<!-- TODO: Replace link with a more useful one if available -->
+
+[forum-question]: https://community.prismic.io
+[repo-bug-report]: https://github.com/nuxt-community/prismic-module/issues/new?assignees=&labels=bug&template=bug_report.md&title=
+[repo-feature-request]: https://github.com/nuxt-community/prismic-module/issues/new?assignees=&labels=enhancement&template=feature_request.md&title=
+[repo-pull-requests]: https://github.com/nuxt-community/prismic-module/pulls
 
 <!-- Badges -->
 
@@ -65,5 +77,7 @@ Thanks to [James Pegg](https://github.com/jamespeggsh) for the initial implement
 [github-actions-ci-href]: https://github.com/nuxt-community/prismic-module/actions?query=workflow%3Aci
 [codecov-src]: https://img.shields.io/codecov/c/github/nuxt-community/prismic-module.svg
 [codecov-href]: https://codecov.io/gh/nuxt-community/prismic-module
+[conventional-commits-src]: https://img.shields.io/badge/Conventional%20Commits-1.0.0-yellow.svg
+[conventional-commits-href]: https://conventionalcommits.org
 [license-src]: https://img.shields.io/npm/l/@nuxtjs/prismic.svg
 [license-href]: https://npmjs.com/package/@nuxtjs/prismic
