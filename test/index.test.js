@@ -3,8 +3,8 @@ const fs = require('fs')
 const path = require('path')
 const Prismic = require('@prismicio/client')
 
-const logger = require('@/logger')
 const prismicNuxt = require('../src/module')
+const logger = require('@/logger')
 logger.mockTypes(() => jest.fn())
 
 jest.mock('@prismicio/client')
