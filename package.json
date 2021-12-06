@@ -1,6 +1,6 @@
 {
   "name": "@nuxtjs/prismic",
-  "version": "1.3.2",
+  "version": "1.4.0",
   "description": "Easily connect your Nuxt.js application to your content hosted on Prismic",
   "keywords": [
     "nuxt",

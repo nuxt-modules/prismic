@@ -2,6 +2,23 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [1.4.0](https://github.com/nuxt-community/prismic-module/compare/v1.3.2...v1.4.0) (2021-12-06)
+
+
+### Features
+
+* hot reload previews for smoother workflow ([5575e92](https://github.com/nuxt-community/prismic-module/commit/5575e92c1015f626347386daa9ba2512ff13d12a))
+
+
+### Chore
+
+* update github template ([2fb354c](https://github.com/nuxt-community/prismic-module/commit/2fb354c62ef3b63acb04d752b26824cd4e117113))
+
+
+### Documentation
+
+* update doc ([0109bd3](https://github.com/nuxt-community/prismic-module/commit/0109bd38e8ccaf3e3a5d91d5ca9f3f340394f9aa))
+
 ### [1.3.2](https://github.com/nuxt-community/prismic-module/compare/v1.3.1...v1.3.2) (2021-11-02)
 
 
