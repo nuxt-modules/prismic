@@ -1,3 +1,6 @@
 module.exports = {
-  extends: ['@nuxtjs']
+  extends: ['@nuxtjs'],
+  rules: {
+    'vue/multi-word-component-names': 'off'
+  }
 }

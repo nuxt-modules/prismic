@@ -1,11 +1,11 @@
 /* eslint-disable no-undef */
 const fs = require('fs')
 const path = require('path')
-const logger = require('@/logger')
 const Prismic = require('@prismicio/client')
 
-logger.mockTypes(() => jest.fn())
+const logger = require('@/logger')
 const prismicNuxt = require('../src/module')
+logger.mockTypes(() => jest.fn())
 
 jest.mock('@prismicio/client')
 
@@ -128,12 +128,12 @@ describe('prismic-nuxt module', () => {
 
   it('should call hook on generate:before', () => {
     prismicNuxt.call(context, moduleOptions)
-    expect(context.nuxt.hook).toBeCalledWith('generate:before', jasmine.any(Function))
+    expect(context.nuxt.hook).toBeCalledWith('generate:before', expect.any(Function))
   })
 
   it('should return routes on generate', async () => {
     prismicNuxt.call(context, moduleOptions)
-    expect(context.options.generate.routes).toEqual(jasmine.any(Function))
+    expect(context.options.generate.routes).toEqual(expect.any(Function))
     try {
       const routes = await context.options.generate.routes()
       const expectedRoutes = ['/pages/my-page', '/pages/another-page', '/']
@@ -146,7 +146,7 @@ describe('prismic-nuxt module', () => {
   it('should preserve user defined routes on generate', async () => {
     context.options.generate.routes = ['/user-route']
     prismicNuxt.call(context, moduleOptions)
-    expect(context.options.generate.routes).toEqual(jasmine.any(Function))
+    expect(context.options.generate.routes).toEqual(expect.any(Function))
     const routes = await context.options.generate.routes()
     const expectedRoutes = ['/pages/my-page', '/pages/another-page', '/', '/user-route']
     expect(routes.sort()).toEqual(expectedRoutes.sort())
@@ -155,7 +155,7 @@ describe('prismic-nuxt module', () => {
   it('should preserve user routes function if it is defined', async () => {
     context.options.generate.routes = () => ['/user-route']
     prismicNuxt.call(context, moduleOptions)
-    expect(context.options.generate.routes).toEqual(jasmine.any(Function))
+    expect(context.options.generate.routes).toEqual(expect.any(Function))
     const routes = await context.options.generate.routes()
     const expectedRoutes = ['/pages/my-page', '/pages/another-page', '/', '/user-route']
     expect(routes.sort()).toEqual(expectedRoutes.sort())
