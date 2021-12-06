@@ -1,6 +1,6 @@
 ---
 name: 🚨 Bug report
-about: Report a bug report to help us improve the module.
+about: Report a bug report to help improve the module.
 title: ""
 labels: "bug"
 assignees: ""

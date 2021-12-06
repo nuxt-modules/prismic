@@ -1,6 +1,6 @@
 ---
 name: 🙋‍♀️ Feature request
-about: Suggest an idea or enhancement for the module.
+about: Suggest an idea or enhancement for the package.
 title: ""
 labels: "enhancement"
 assignees: ""
