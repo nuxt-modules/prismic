@@ -48,8 +48,9 @@
 				"unit": "nyc --reporter=lcovonly --reporter=text --exclude-after-remap=false ava"
 		},
 		"dependencies": {
-				"@nuxt/kit": "0.8.1-edge",
-				"@prismicio/vue": "^3.0.0-beta"
+				"@nuxt/kit": "npm:@nuxt/kit-edge",
+				"@prismicio/vue": "^3.0.0-beta",
+				"upath": "^2.0.1"
 		},
 		"devDependencies": {
 				"@typescript-eslint/eslint-plugin": "^5.5.0",

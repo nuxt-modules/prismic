@@ -397,7 +397,7 @@
     error-stack-parser "^2.0.0"
     string-width "^4.2.3"
 
-"@nuxt/kit-edge@latest":
+"@nuxt/kit@npm:@nuxt/kit-edge":
   version "3.0.0-27313139.1c88580"
   resolved "https://registry.yarnpkg.com/@nuxt/kit-edge/-/kit-edge-3.0.0-27313139.1c88580.tgz#c4a7fcadb7b2b999980c62751ecd3726468a842d"
   integrity sha512-QQwmTaF5YkP1dZZ38DC7A3tCH2SQUlzsXN3QgNqys+WzZnZB0dPuyvSqgD6L/Ts7MwIFrooOEIRz0i9iwnJPMQ==
@@ -418,13 +418,6 @@
     semver "^7.3.5"
     unctx "^1.0.2"
     untyped "^0.3.0"
-
-"@nuxt/kit@0.8.1-edge":
-  version "0.8.1-edge"
-  resolved "https://registry.npmjs.org/@nuxt/kit/-/kit-0.8.1-edge.tgz"
-  integrity sha512-7kU+mYxRy3w9UohFK/rfrPkKXM9A4LWsTqpFN3MH7mxohy98SFBkf87B6nqE6ulXmztInK+MptS0Lr+VQa0E6w==
-  dependencies:
-    "@nuxt/kit-edge" latest
 
 "@nuxt/kit@npm:@nuxt/kit-edge@3.0.0-27313139.1c88580":
   version "3.0.0-27313139.1c88580"

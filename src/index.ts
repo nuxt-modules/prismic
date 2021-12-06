@@ -1,4 +1,4 @@
-import path from "path";
+import { join } from "upath";
 import { addPluginTemplate, defineNuxtModule } from "@nuxt/kit";
 
 import { PrismicModuleOptions } from "./types";
@@ -24,8 +24,10 @@ export default defineNuxtModule<PrismicModuleOptions>({
 	async setup(mergedOptions, _nuxt) {
 		addPluginTemplate({
 			fileName: "prismic/prismic-plugin.js",
-			src: path.resolve(__dirname, "../templates/prismic-plugin.js"),
+			src: join(__dirname, "../templates/prismic-plugin.js"),
 			options: mergedOptions,
 		});
 	},
 });
+
+export { usePrismic } from "@prismicio/vue";
