@@ -6,6 +6,7 @@ const generate = require('./generator')
 function install (moduleOptions) {
   const options = {
     preview: true,
+    previewReloadType: 'hot',
     components: true,
     modern: false,
     ...moduleOptions,
@@ -75,6 +76,7 @@ function install (moduleOptions) {
     src: path.resolve(__dirname, '../templates/plugins/prismic.js'),
     options: {
       preview: options.preview,
+      previewReloadType: options.previewReloadType,
       endpoint: options.endpoint,
       modern: options.modern,
       apiOptions,

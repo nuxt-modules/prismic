@@ -101,11 +101,23 @@ export default async (context, inject) => {
   <% if (options.preview) { %>
   // Load prismic script after Nuxt app is mounted
   if (process.client) {
-    window.<%= globals.readyCallback %> && window.<%= globals.readyCallback %>(() => {
+    window.<%= globals.readyCallback %> && window.<%= globals.readyCallback %>((app) => {
       const script = document.createElement('script')
 
       script.src = '<%= options.script %>'
       document.body.appendChild(script)
+
+      <% if (options.previewReloadType === 'hot') { %>
+        window.addEventListener('prismicPreviewUpdate', async (event) => {
+          if (app && 'refresh' in app && typeof app.refresh === 'function') {
+            event.preventDefault();
+            if (app.$store && app.$store._actions.nuxtServerInit) {
+              await app.$store.dispatch('nuxtServerInit', app.$options.context)
+            }
+            await app.refresh();
+          }
+        });
+      <% } %>
     })
   }
   // Preview mode
