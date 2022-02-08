@@ -1,7 +1,7 @@
 # custom
 dist
 .nuxt
-examples/**/package-lock.json
+.output
 
 # os
 .DS_Store

@@ -1,8 +1,6 @@
-import test from "ava";
-
-import * as lib from "../src";
+import test from 'ava'
 
 // TODO: Dummy test, meant to be removed when real tests come in
-test("exports something", (t) => {
-	t.truthy(lib);
-});
+test('true is true', (t) => {
+	t.true(true)
+})

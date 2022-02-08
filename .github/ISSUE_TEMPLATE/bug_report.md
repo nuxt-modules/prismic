@@ -1,15 +1,15 @@
 ---
 name: 🚨 Bug report
-about: Report a bug report to help improve the package.
+about: Report a bug report to help improve the module.
 title: ""
 labels: "bug"
 assignees: ""
 ---
 
-<!-- 💙 Thanks for your time to make this package better with your feedback 💙
+<!-- 💙 Thanks for your time to make this module better with your feedback 💙
 
 **IMPORTANT** Before reporting a bug please make sure that you have read through the documentation:
-- https://prismic.io/docs
+- https://prismic.nuxtjs.org
 
 👍 A properly detailed bug report can save a LOT of time and help fixing issues as soon as possible.
 -->
@@ -17,7 +17,7 @@ assignees: ""
 ### Versions
 
 - nuxt: <!-- ex: v2.15.3 -->
-- @nuxtjs/prismic: <!-- ex: v1.3.0 -->
+- @nuxtjs/prismic: <!-- ex: v3.0.0 -->
 - node: <!-- ex: v12.14.0 -->
 
 ### Reproduction

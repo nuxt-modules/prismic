@@ -1,13 +1,10 @@
 <template>
 	<div>
-		Hello World!
+		<div>State: {{ state }}</div>
+		<slice-zone v-if="state === 'success'" :slices="home?.data.body" />
 	</div>
 </template>
 
-<script setup>
-import { usePrismic } from "~~/..";
-
-const prismic = usePrismic();
-
-console.log(prismic);
+<script setup lang="ts">
+const { data: home, state } = usePrismicDocumentByUID('page', 'home')
 </script>

@@ -1,0 +1,17 @@
+{
+	"extends": [
+		"@nuxtjs/eslint-config-typescript"
+	],
+	"rules": {
+		"@typescript-eslint/no-unused-vars": [
+			"off"
+		],
+		"@typescript-eslint/indent": [
+			"error",
+			"tab"
+		],
+		"indent": "off",
+		"no-tabs": "off",
+		"vue/html-indent": ["error", "tab"]
+  }
+}

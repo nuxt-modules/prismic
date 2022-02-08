@@ -6,7 +6,7 @@ labels: "enhancement"
 assignees: ""
 ---
 
-<!-- 💙 Thanks for your time to make this package better with your feedback 💙 -->
+<!-- 💙 Thanks for your time to make this module better with your feedback 💙 -->
 
 ### Is your feature request related to a problem? Please describe.
 
