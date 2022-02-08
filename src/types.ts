@@ -1,3 +1,3 @@
-import { PrismicPluginOptions } from "@prismicio/vue";
+import { PrismicPluginOptions } from '@prismicio/vue'
 
 export type PrismicModuleOptions = PrismicPluginOptions;
