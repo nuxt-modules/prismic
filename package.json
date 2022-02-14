@@ -55,7 +55,7 @@
 		"@nuxt/module-builder": "latest",
 		"@nuxtjs/eslint-config-typescript": "latest",
 		"ava": "^3.15.0",
-		"eslint": "^8.8.0",
+		"eslint": "^8.9.0",
 		"nuxt3": "latest",
 		"nyc": "^15.1.0",
 		"standard-version": "^9.3.2",

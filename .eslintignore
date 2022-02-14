@@ -19,10 +19,10 @@ yarn-debug.log*
 yarn-error.log*
 lerna-debug.log*
 .yarn-integrity
+yarn.lock
 
 # npm
 npm-debug.log*
-package-lock.json
 
 # tests
 coverage
