@@ -48,7 +48,8 @@
 	},
 	"dependencies": {
 		"@nuxt/kit": "npm:@nuxt/kit-edge@latest",
-		"@prismicio/vue": "^3.0.0-beta"
+		"@prismicio/vue": "^3.0.0-beta",
+		"consola": "^2.15.3"
 	},
 	"devDependencies": {
 		"@nuxt/module-builder": "latest",
