@@ -2,6 +2,7 @@
 dist
 .nuxt
 .output
+sw.*
 
 # os
 .DS_Store
