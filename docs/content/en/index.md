@@ -64,13 +64,13 @@ npm install --save-dev @nuxtjs/prismic@alpha
   </d-code-block>
 </d-code-group>
 
-Then, add `@nuxtjs/prismic` to the `buildModules` section of your Nuxt config and configure your Prismic API endpoint:
+Then, add `@nuxtjs/prismic` to the `modules` section of your Nuxt config and configure your Prismic API endpoint:
 
 ```javascript[nuxt.config.[jt]s]
 import { defineNuxtConfig } from 'nuxt3'
 
 export default defineNuxtConfig({
-	buildModules: ['@nuxtjs/prismic'],
+	modules: ['@nuxtjs/prismic'],
 	prismic: {
 		endpoint: 'my-repository'
 	},
