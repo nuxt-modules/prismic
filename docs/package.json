@@ -1,5 +1,5 @@
 {
-	"name": "@nuxtjs/prismic.doc",
+	"name": "@nuxtjs/prismic.docs",
 	"version": "2.0.0",
 	"private": true,
 	"scripts": {

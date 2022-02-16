@@ -1,14 +1,10 @@
 <template>
 	<div>
-		<h5
-			class="text-sm font-semibold text-gray-900 dark:text-gray-100 py-1"
-		>
-			Resources
-		</h5>
+		<h5 class="text-sm font-semibold text-gray-900 dark:text-gray-100 py-1">Resources</h5>
 		<ul class="font-medium dark:text-gray-400">
 			<li>
 				<a
-					href="https://github.com/nuxt-community/prismic-module/blob/next/CHANGELOG.md"
+					href="https://github.com/nuxt-community/prismic-module/blob/v3/CHANGELOG.md"
 					target="_blank"
 					rel="noopener"
 					class="flex items-center transition duration-200 py-2 group dark:hover:text-gray-100 hover:text-gray-900"

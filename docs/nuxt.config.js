@@ -9,13 +9,15 @@ export default withDocus({
 if (typeof JSConfetti !== "undefined") {
 	console
 	new JSConfetti().addConfetti({
-		emojis: ["🌲", "📚", "📐", "🚀"],
+		emojis: ["🌲", "💚", "📚", "📐", "🚀"],
 		emojiSize: 60,
 	});
 }
-`
+`,
+				body: true
 			}
-		]
+		],
+		__dangerouslyDisableSanitizers: ['script']
 	},
 	generate: {
 		fallback: true

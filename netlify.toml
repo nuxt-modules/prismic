@@ -9,7 +9,7 @@
 base    = "docs"
 command = "npm run generate"
 publish = "dist"
-# ignore  = "git diff --quiet HEAD^ HEAD . ../package.json"
+ignore  = "git diff --quiet HEAD^ HEAD . ../package.json ../netlify.toml"
 
 	[build.environment]
 	NODE_VERSION = "16.6.1"

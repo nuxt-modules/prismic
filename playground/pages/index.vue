@@ -1,7 +1,7 @@
 <template>
 	<div>
-		<div>State: {{ state }}</div>
-		<div v-if="state === 'success'">
+		<div>Pneding: {{ pending }}</div>
+		<div v-if="!pending">
 			<prismic-text :field="home?.data.body[0].primary.title" />
 			<slice-zone :slices="home?.data.body" />
 		</div>
@@ -9,5 +9,8 @@
 </template>
 
 <script setup lang="ts">
-const { data: home, state } = usePrismicDocumentByUID('page', 'home')
+const { client } = usePrismic()
+const { data: home, pending } = await useAsyncData('home', () => client.getByUID('page', 'home'))
+
+// const { data: home, state } = usePrismicDocumentByUID('page', 'home')
 </script>
