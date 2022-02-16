@@ -1,7 +1,7 @@
 {
 	"title": "@nuxtjs/prismic",
 	"description": "Easily connect your Nuxt 3 application to your content hosted on Prismic",
-	"url": "https://prismic.nuxtjs.org",
+	"url": "https://v3.prismic.nuxtjs.org",
 	"layout": "single",
 	"logo": {
 		"light": "/logo-light.svg",
