@@ -2,7 +2,7 @@
 
 Replace all on all files (README.md, CONTRIBUTING.md, bug_report.md, package.json):
 - @nuxtjs/prismic
-- Easily connect your Nuxt.js application to your content hosted on Prismic
+- Easily connect your Nuxt 3 application to your content hosted on Prismic
 - nuxt-community/prismic-module
 - prismic-module
 
@@ -26,7 +26,20 @@ Easily connect your Nuxt.js application to your content hosted on [Prismic][pris
 ## Install
 
 ```bash
-npm install --save-dev @nuxtjs/prismic
+npm install --save-dev @nuxtjs/prismic@alpha # or yarn add --dev @nuxtjs/prismic@alpha
+```
+
+Then, add `@nuxtjs/prismic` to the `buildModules` section of your Nuxt config and configure your Prismic API endpoint:
+
+```javascript
+import { defineNuxtConfig } from 'nuxt3'
+
+export default defineNuxtConfig({
+	buildModules: ['@nuxtjs/prismic'],
+	prismic: {
+		endpoint: 'my-repository'
+	},
+});
 ```
 
 ## Documentation
@@ -55,8 +68,8 @@ Whether you're helping us fix bugs, improve the docs, or spread the word, we'd l
 
 <!-- TODO: Replace link with a more useful one if available -->
 
-[nuxt-docs]: https://prismic.nuxtjs.org
-[prismic-docs]: https://prismic.io/docs
+[nuxt-docs]: https://v3.prismic.nuxtjs.org
+[prismic-docs]: https://prismic.io/docs/technical-reference/prismicio-vue?version=v3
 [changelog]: ./CHANGELOG.md
 [contributing]: ./CONTRIBUTING.md
 
