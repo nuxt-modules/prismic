@@ -2,6 +2,40 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [3.0.0-alpha.0](https://github.com/nuxt-community/prismic-module/compare/v1.3.2...v3.0.0-alpha.0) (2022-02-16)
+
+
+### ⚠ BREAKING CHANGES
+
+* prepare structure for Nuxt 3 support
+
+### Features
+
+* add basic preview support ([13ca4fa](https://github.com/nuxt-community/prismic-module/commit/13ca4faf224379472c1b68af07e77a501b8ef0f9))
+* load plugin and composables ([b1be73d](https://github.com/nuxt-community/prismic-module/commit/b1be73dbea4b761c3d69b19782b024fb10162b73))
+
+
+### Refactor
+
+* update to nuxt-builder ([9b25020](https://github.com/nuxt-community/prismic-module/commit/9b250206622f74ad2b6dd4f0d72bd97e8a1a2244))
+
+
+### Chore
+
+* **deps:** fix version ([cb9cdf4](https://github.com/nuxt-community/prismic-module/commit/cb9cdf487fe108be41398ef675fd02771944f127))
+* **deps:** maintain dependencies ([4d804b8](https://github.com/nuxt-community/prismic-module/commit/4d804b868c95489a412da266409441ac0da5006d))
+* prepare structure for Nuxt 3 support ([4d59509](https://github.com/nuxt-community/prismic-module/commit/4d59509c4d63664875ed67f0b4b29f88831ecda6))
+* set up basic utilities ([12701fa](https://github.com/nuxt-community/prismic-module/commit/12701fae71e4a85a8f6f5a2ab6f2db276d1557c3))
+* update playground ([68fa51a](https://github.com/nuxt-community/prismic-module/commit/68fa51ac6e50234b90d43f77a39db3f0bdc099f8))
+
+
+### Documentation
+
+* add doc site ([713b0b8](https://github.com/nuxt-community/prismic-module/commit/713b0b81765269db0813ced31bc11242be467654))
+* remove doc ([18f6d26](https://github.com/nuxt-community/prismic-module/commit/18f6d263d715b385bbd285f602e0f7b53e086917))
+* update doc ([573b479](https://github.com/nuxt-community/prismic-module/commit/573b4793528999d286f04bd2b5ee3b042127e1e2))
+* update url ([3af4276](https://github.com/nuxt-community/prismic-module/commit/3af427651cdde2ddf9746ecd02390f401487caf3))
+
 ### [1.3.2](https://github.com/nuxt-community/prismic-module/compare/v1.3.1...v1.3.2) (2021-11-02)
 
 
