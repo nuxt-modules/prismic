@@ -1,6 +1,6 @@
 import { join } from 'path'
 import { existsSync } from 'fs'
-import { defineNuxtModule, createResolver, addPlugin, addAutoImport, extendPages } from '@nuxt/kit'
+import { defineNuxtModule, createResolver, addPlugin, addAutoImport, addComponent, extendPages } from '@nuxt/kit'
 
 import * as prismicVue from '@prismicio/vue'
 
@@ -43,6 +43,24 @@ export default defineNuxtModule<PrismicModuleOptions>({
 
 		// Add plugin
 		addPlugin(resolver.resolve('runtime/plugin'))
+
+		// Add components auto import
+		if (mergedOptions.injectComponents) {
+			[
+				'PrismicEmbed',
+				'PrismicImage',
+				'PrismicLink',
+				'PrismicText',
+				'PrismicRichText',
+				'SliceZone'
+			].forEach((component) => {
+				addComponent({
+					name: component,
+					export: component,
+					filePath: '@prismicio/vue'
+				})
+			})
+		}
 
 		// Add composable auto import
 		const composableAutoImports = Object

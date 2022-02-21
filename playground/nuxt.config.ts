@@ -1,5 +1,6 @@
+import { useNuxt } from '@nuxt/kit'
 import { defineNuxtConfig } from 'nuxt3'
-import prismicModule from '..'
+import prismicModule from '../src/module'
 
 // https://v3.nuxtjs.org/docs/directory-structure/nuxt.config
 export default defineNuxtConfig({

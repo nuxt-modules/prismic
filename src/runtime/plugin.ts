@@ -7,5 +7,8 @@ import { PrismicModuleOptions } from '../types'
 export default defineNuxtPlugin((nuxtApp) => {
 	const mergedOptions: PrismicModuleOptions = nuxtApp.payload.config[pkgName]
 
-	nuxtApp.vueApp.use(createPrismic(mergedOptions))
+	nuxtApp.vueApp.use(createPrismic({
+		...mergedOptions,
+		injectComponents: false // Handled at module level
+	}))
 })
