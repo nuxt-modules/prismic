@@ -2,6 +2,18 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [3.0.0-alpha.1](https://github.com/nuxt-community/prismic-module/compare/v3.0.0-alpha.0...v3.0.0-alpha.1) (2022-02-21)
+
+
+### Features
+
+* use nuxt component auto import ([c1f23a1](https://github.com/nuxt-community/prismic-module/commit/c1f23a146e6a30f35d0aa3b9d91ccc549c3eb539))
+
+
+### Documentation
+
+* `buildModules` is deprecated actually ([e818e47](https://github.com/nuxt-community/prismic-module/commit/e818e47cd1a0cc8c5f14a5d79874a645002c94ea))
+
 ## [3.0.0-alpha.0](https://github.com/nuxt-community/prismic-module/compare/v1.3.2...v3.0.0-alpha.0) (2022-02-16)
 
 
