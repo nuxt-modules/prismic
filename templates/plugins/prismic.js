@@ -34,6 +34,9 @@ export default async (context, inject) => {
       apiEndpoint() {
         return '<%= options.endpoint %>'
       },
+      predicate() {
+        return Prismic.Predicates
+      },
       predicates() {
         return Prismic.Predicates
       },
@@ -42,6 +45,9 @@ export default async (context, inject) => {
       }
     },
     methods: {
+      asHTML(richText) {
+        return this.asHtml(richText)
+      },
       asHtml(richText) {
         if (richText) {
           return PrismicDOM.RichText.asHtml(
