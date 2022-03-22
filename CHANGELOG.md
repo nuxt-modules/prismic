@@ -2,6 +2,19 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.4.1](https://github.com/nuxt-community/prismic-module/compare/v1.4.0...v1.4.1) (2022-03-22)
+
+
+### Documentation
+
+* advertise Nuxt 3 version ([c010a55](https://github.com/nuxt-community/prismic-module/commit/c010a55a8985da32cfce50d1b01d7a1cf308cf44))
+* link styling ([cd3fc8f](https://github.com/nuxt-community/prismic-module/commit/cd3fc8f4f5ce10a9db90be177ea6994d08d91928))
+
+
+### Chore
+
+* feature-proof Nuxt 2 module ([dc1b582](https://github.com/nuxt-community/prismic-module/commit/dc1b582db9974e1b1e5cf9086427217afb5e03f3))
+
 ## [1.4.0](https://github.com/nuxt-community/prismic-module/compare/v1.3.2...v1.4.0) (2021-12-06)
 
 
