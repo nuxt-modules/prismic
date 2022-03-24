@@ -42,7 +42,7 @@
 		"release:alpha:dry": "standard-version --release-as major --prerelease alpha --dry-run",
 		"release:dry": "standard-version --dry-run",
 		"test": "npm run lint && npm run unit",
-		"unit": "echo 'TODO: vitest & nuxt-test-utils'"
+		"unit": "echo \"TODO: vitest & nuxt-test-utils\""
 	},
 	"dependencies": {
 		"@nuxt/kit": "npm:@nuxt/kit-edge@latest",
