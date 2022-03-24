@@ -31,7 +31,7 @@ export default defineNuxtModule<PrismicModuleOptions>({
 		configKey: 'prismic',
 		compatibility: { nuxt: '^3.0.0' }
 	},
-	defaults: (nuxt) => ({
+	defaults: nuxt => ({
 		endpoint: '',
 		clientConfig: {},
 		client: cleanDoubleSlashes(`~/${nuxt.options.dir.app}/prismic/client`),
@@ -42,7 +42,7 @@ export default defineNuxtModule<PrismicModuleOptions>({
 		preview: '/preview'
 	}),
 	hooks: {},
-	setup(mergedOptions, nuxt) {
+	setup (mergedOptions, nuxt) {
 		if (!mergedOptions.endpoint) {
 			logger.warn('Options `endpoint` is required, disabling module...')
 			return
@@ -57,7 +57,7 @@ export default defineNuxtModule<PrismicModuleOptions>({
 			const resolvedFilename = `prismic/${filename}.ts`
 			const resolvedPath = path
 				? path.replace(/^(~~|@@)/, nuxt.options.rootDir).replace(/^(~|@)/, nuxt.options.srcDir)
-				: undefined;
+				: undefined
 			const maybeUserFile = fileExists(resolvedPath, extensions)
 
 			if (maybeUserFile) {
@@ -65,12 +65,12 @@ export default defineNuxtModule<PrismicModuleOptions>({
 
 				addTemplate({
 					filename: resolvedFilename,
-					src: maybeUserFile,
+					src: maybeUserFile
 				})
 			} else {
 				addTemplate({
 					filename: resolvedFilename,
-					getContents: () => `export default undefined`
+					getContents: () => 'export default undefined'
 				})
 			}
 		}
@@ -117,11 +117,11 @@ export default defineNuxtModule<PrismicModuleOptions>({
 
 		// Add preview route
 		if (mergedOptions.preview) {
-			const maybeUserPreviewPage = fileExists(join(nuxt.options.srcDir, nuxt.options.dir.pages, mergedOptions.preview), ["js", "ts", "vue"])
+			const maybeUserPreviewPage = fileExists(join(nuxt.options.srcDir, nuxt.options.dir.pages, mergedOptions.preview), ['js', 'ts', 'vue'])
 
 			if (maybeUserPreviewPage) {
 				logger.info(`Using user-defined preview page at \`${maybeUserPreviewPage.replace(join(nuxt.options.srcDir), '~').replace(/\\/g, '/')
-					}\`, available at \`${mergedOptions.preview}\``)
+				}\`, available at \`${mergedOptions.preview}\``)
 			} else {
 				logger.info(`Using default preview page, available at \`${mergedOptions.preview}\``)
 

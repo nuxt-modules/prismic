@@ -12,12 +12,12 @@ export default defineNuxtConfig({
 		clientConfig: {
 			routes: [
 				{
-					type: "kitchen_sink_2",
-					path: "/"
+					type: 'kitchen_sink_2',
+					path: '/'
 				},
 				{
-					type: "page",
-					path: "/"
+					type: 'page',
+					path: '/'
 				}
 			]
 		}
