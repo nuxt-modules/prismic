@@ -2,6 +2,23 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [3.0.0-alpha.2](https://github.com/nuxt-community/prismic-module/compare/v3.0.0-alpha.1...v3.0.0-alpha.2) (2022-03-24)
+
+
+### Features
+
+* support user-defined client & link resolvers ([e8ce69b](https://github.com/nuxt-community/prismic-module/commit/e8ce69b58a597645f60bcb04d35a66500ad7f792))
+
+
+### Bug Fixes
+
+* use `<NuxtLink />` properly ([eed8a80](https://github.com/nuxt-community/prismic-module/commit/eed8a809194be548fbebbb99475050f5afda269a))
+
+
+### Chore
+
+* **deps:** maintain dependencies ([1670ba9](https://github.com/nuxt-community/prismic-module/commit/1670ba9eaac329a4434ffe214e9be6b7aa71dfb1))
+
 ## [3.0.0-alpha.1](https://github.com/nuxt-community/prismic-module/compare/v3.0.0-alpha.0...v3.0.0-alpha.1) (2022-02-21)
 
 
