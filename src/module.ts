@@ -8,6 +8,9 @@ import { name as pkgName, version as pkgVersion } from '../package.json'
 import { PrismicModuleOptions } from './types'
 import { logger } from './logger'
 
+export { PrismicModuleOptions } from './types'
+export { PrismicModuleOptions as ModuleOptions } from './types'
+
 export default defineNuxtModule<PrismicModuleOptions>({
 	meta: {
 		name: pkgName,
@@ -21,13 +24,11 @@ export default defineNuxtModule<PrismicModuleOptions>({
 		linkResolver: undefined,
 		htmlSerializer: undefined,
 		injectComponents: true,
-		components: {
-			linkInternalComponent: 'nuxt-link'
-		},
+		components: {},
 		preview: '/preview'
 	},
 	hooks: {},
-	setup (mergedOptions, nuxt) {
+	setup(mergedOptions, nuxt) {
 		if (!mergedOptions.client && !mergedOptions.endpoint) {
 			logger.warn('Options `endpoint` or `client` are required, disabling module...')
 			return
@@ -38,7 +39,7 @@ export default defineNuxtModule<PrismicModuleOptions>({
 		nuxt.options.build.transpile.push(resolver.resolve('runtime'))
 
 		// Expose options through public runtime config
-		nuxt.options.publicRuntimeConfig ||= {}
+		nuxt.options.publicRuntimeConfig ||= {} as typeof nuxt.options.publicRuntimeConfig
 		nuxt.options.publicRuntimeConfig[pkgName] = mergedOptions
 
 		// Add plugin
@@ -80,9 +81,8 @@ export default defineNuxtModule<PrismicModuleOptions>({
 			const userPreviewPagePath = join(nuxt.options.srcDir, nuxt.options.dir.pages, `${mergedOptions.preview}.vue`)
 
 			if (existsSync(userPreviewPagePath)) {
-				logger.info(`Using user-defined preview page at \`${
-					userPreviewPagePath.replace(join(nuxt.options.rootDir), '~~').replace(/\\/g, '/')
-				}\`, available at \`${mergedOptions.preview}\``)
+				logger.info(`Using user-defined preview page at \`${userPreviewPagePath.replace(join(nuxt.options.rootDir), '~~').replace(/\\/g, '/')
+					}\`, available at \`${mergedOptions.preview}\``)
 			} else {
 				logger.info(`Using default preview page, available at \`${mergedOptions.preview}\``)
 

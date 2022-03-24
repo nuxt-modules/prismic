@@ -1,4 +1,3 @@
-import { useNuxt } from '@nuxt/kit'
 import { defineNuxtConfig } from 'nuxt3'
 import prismicModule from '../src/module'
 
@@ -9,6 +8,18 @@ export default defineNuxtConfig({
 	},
 	modules: [prismicModule],
 	prismic: {
-		endpoint: '200629-sms-hoy'
+		endpoint: '200629-sms-hoy',
+		clientConfig: {
+			routes: [
+				{
+					type: "kitchen_sink_2",
+					path: "/"
+				},
+				{
+					type: "page",
+					path: "/"
+				}
+			]
+		}
 	}
 })
