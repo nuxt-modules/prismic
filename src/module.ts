@@ -1,16 +1,29 @@
 import { join } from 'path'
-import { existsSync } from 'fs'
-import { defineNuxtModule, createResolver, addPlugin, addAutoImport, addComponent, extendPages } from '@nuxt/kit'
 
+import {
+	defineNuxtModule,
+	createResolver,
+	addTemplate,
+	addPlugin,
+	addAutoImport,
+	addComponent,
+	extendPages
+} from '@nuxt/kit'
+import { cleanDoubleSlashes } from 'ufo'
+
+import { isRepositoryEndpoint, getRepositoryName } from '@prismicio/client'
 import * as prismicVue from '@prismicio/vue'
 
 import { name as pkgName, version as pkgVersion } from '../package.json'
-import { PrismicModuleOptions } from './types'
+import type { PrismicModuleOptions } from './types'
+import { fileExists } from './utils'
 import { logger } from './logger'
 
-export { PrismicModuleOptions } from './types'
-export { PrismicModuleOptions as ModuleOptions } from './types'
+// Options export
+export type { PrismicModuleOptions } from './types'
+export type { PrismicModuleOptions as ModuleOptions } from './types'
 
+// Module export
 export default defineNuxtModule<PrismicModuleOptions>({
 	meta: {
 		name: pkgName,
@@ -18,25 +31,51 @@ export default defineNuxtModule<PrismicModuleOptions>({
 		configKey: 'prismic',
 		compatibility: { nuxt: '^3.0.0' }
 	},
-	defaults: {
+	defaults: (nuxt) => ({
 		endpoint: '',
 		clientConfig: {},
-		linkResolver: undefined,
+		client: cleanDoubleSlashes(`~/${nuxt.options.dir.app}/prismic/client`),
+		linkResolver: cleanDoubleSlashes(`~/${nuxt.options.dir.app}/prismic/linkResolver`),
 		htmlSerializer: undefined,
 		injectComponents: true,
 		components: {},
 		preview: '/preview'
-	},
+	}),
 	hooks: {},
 	setup(mergedOptions, nuxt) {
-		if (!mergedOptions.client && !mergedOptions.endpoint) {
-			logger.warn('Options `endpoint` or `client` are required, disabling module...')
+		if (!mergedOptions.endpoint) {
+			logger.warn('Options `endpoint` is required, disabling module...')
 			return
 		}
 
 		// Runtime dir boilerplate
 		const resolver = createResolver(import.meta.url)
 		nuxt.options.build.transpile.push(resolver.resolve('runtime'))
+
+		// Add runtime user code
+		const addUserFileWithUndefinedFallback = (filename: string, path?: string, extensions = ['js', 'ts']) => {
+			const resolvedFilename = `prismic/${filename}.ts`
+			const resolvedPath = path
+				? path.replace(/^(~~|@@)/, nuxt.options.rootDir).replace(/^(~|@)/, nuxt.options.srcDir)
+				: undefined;
+			const maybeUserFile = fileExists(resolvedPath, extensions)
+
+			if (maybeUserFile) {
+				logger.info(`Using user-defined \`${filename}\` at \`${maybeUserFile.replace(nuxt.options.srcDir, '~').replace(/\\/g, '/')}\``)
+
+				addTemplate({
+					filename: resolvedFilename,
+					src: maybeUserFile,
+				})
+			} else {
+				addTemplate({
+					filename: resolvedFilename,
+					getContents: () => `export default undefined`
+				})
+			}
+		}
+		addUserFileWithUndefinedFallback('client', mergedOptions.client)
+		addUserFileWithUndefinedFallback('linkResolver', mergedOptions.linkResolver)
 
 		// Expose options through public runtime config
 		nuxt.options.publicRuntimeConfig ||= {} as typeof nuxt.options.publicRuntimeConfig
@@ -78,10 +117,10 @@ export default defineNuxtModule<PrismicModuleOptions>({
 
 		// Add preview route
 		if (mergedOptions.preview) {
-			const userPreviewPagePath = join(nuxt.options.srcDir, nuxt.options.dir.pages, `${mergedOptions.preview}.vue`)
+			const maybeUserPreviewPage = fileExists(join(nuxt.options.srcDir, nuxt.options.dir.pages, mergedOptions.preview), ["js", "ts", "vue"])
 
-			if (existsSync(userPreviewPagePath)) {
-				logger.info(`Using user-defined preview page at \`${userPreviewPagePath.replace(join(nuxt.options.rootDir), '~~').replace(/\\/g, '/')
+			if (maybeUserPreviewPage) {
+				logger.info(`Using user-defined preview page at \`${maybeUserPreviewPage.replace(join(nuxt.options.srcDir), '~').replace(/\\/g, '/')
 					}\`, available at \`${mergedOptions.preview}\``)
 			} else {
 				logger.info(`Using default preview page, available at \`${mergedOptions.preview}\``)
@@ -95,19 +134,10 @@ export default defineNuxtModule<PrismicModuleOptions>({
 				})
 			}
 
-			// TODO: Refactor with new client helpers
-			let repositoryName = ''
-			if (mergedOptions.client) {
-				repositoryName = new URL(mergedOptions.client.endpoint).host.split('.')[0]
-			} else {
-				try {
-					repositoryName = new URL(mergedOptions.endpoint).host.split('.')[0]
-				} catch (error) {
-					repositoryName = mergedOptions.endpoint
-				}
-			}
-
 			// Add toolbar
+			const repositoryName = isRepositoryEndpoint(mergedOptions.endpoint)
+				? getRepositoryName(mergedOptions.endpoint)
+				: mergedOptions.endpoint
 			nuxt.options.meta ||= {}
 			nuxt.options.meta.script ||= []
 			nuxt.options.meta.script.push({

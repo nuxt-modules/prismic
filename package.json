@@ -36,8 +36,6 @@
 		"dev": "nuxi dev playground",
 		"dev:build": "nuxi build playground",
 		"lint": "eslint --ext .js,.ts .",
-		"playground:build": "nuxi build playground",
-		"playground:dev": "nuxi dev playground",
 		"prepare": "nuxi prepare playground && npm run build",
 		"release": "npm run build && npm run test && standard-version && git push --follow-tags && npm run build && npm publish",
 		"release:alpha": "npm run build && npm run test && standard-version --release-as major --prerelease alpha && git push --follow-tags && npm run build && npm publish --tag alpha",
@@ -48,8 +46,10 @@
 	},
 	"dependencies": {
 		"@nuxt/kit": "npm:@nuxt/kit-edge@latest",
+		"@prismicio/client": "^6.4.2",
 		"@prismicio/vue": "^3.0.0-beta",
-		"consola": "^2.15.3"
+		"consola": "^2.15.3",
+		"ufo": "^0.8.1"
 	},
 	"devDependencies": {
 		"@nuxt/module-builder": "latest",

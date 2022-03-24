@@ -145,9 +145,31 @@ The module injects multiple components to template Prismic data which are made a
 
 Learn more about injected components in the [`@prismicio/vue` documentation](https://prismic.io/docs/technical-reference/prismicio-vue?version=v3&utm_campaign=devexp&utm_source=nuxt3doc&utm_medium=doc#components-usage)
 
+### Custom `@prismicio/client`
+
+You can provide the module your own `@prismicio/client` instance by exporting one from the file configured in the `client` option (default: `~/app/prismic/client`):
+
+```javascript[~/app/prismic/client.[jt]s]
+import { createClient } from '@prismicio/client'
+
+export default createClient('my-repository')
+```
+
+### Providing a Link Resolver
+
+You can provide the module a [Link Resolver](https://prismic.io/docs/core-concepts/link-resolver-route-resolver#link-resolver) by exporting one from the file configured in the `linkResolver` option (default: `~/app/prismic/linkResolver`):
+
+```javascript[~/app/prismic/linkResolver.[jt]s]
+export default (doc) => {
+	if (doc.type === 'page') {
+		return `/${doc.uid}`
+	}
+}
+```
+
 ### Custom preview page
 
-You can override the default preview page by creating a page at the route configured for the preview (default: `/preview`):
+You can override the default preview page by creating a page at the route configured in the `preview` option (default: `/preview`):
 
 ```vue[~/pages/preview.vue]
 <template>
@@ -189,6 +211,38 @@ export default defineNuxtConfig({
 
 Refer to [`@prismicio/vue` documentation](https://prismic.io/docs/technical-reference/prismicio-vue?version=v3&utm_campaign=devexp&utm_source=nuxt3doc&utm_medium=doc#plugin-usage) for available options.
 
+<d-alert type="warning">
+
+⚠ &nbsp;`client` and `linkResolver` options are replaced, see below.
+
+</d-alert>
+
+#### `client`
+
+- Type: `string`
+- Default: `~/app/prismic/client`
+
+Path to an optional file exporting an `@prismicio/client` instance for the module to use.
+
+```javascript[nuxt.config.[jt]s]
+prismic: {
+  client: '~/prismicClient.js' // attempt to import client from `~/prismicClient.js`
+}
+```
+
+#### `linkResolver`
+
+- Type: `string`
+- Default: `~/app/prismic/linkResolver`
+
+Path to an optional file exporting a [Link Resolver](https://prismic.io/docs/core-concepts/link-resolver-route-resolver#link-resolver) for the module to use.
+
+```javascript[nuxt.config.[jt]s]
+prismic: {
+  linkResolver: '~/prismicLinkResolver.js' // attempt to import client from `~/prismicLinkResolver.js`
+}
+```
+
 #### `preview`
 
 - Type: `string | false`
@@ -214,6 +268,8 @@ type PrismicModuleOptions = PrismicPluginOptions & {
 
 ```
 {
+	client: '~/app/prismic/client',
+	linkResolver: '~/app/prismic/linkResolver',
 	injectComponents: true,
 	preview: '/preview'
 }
