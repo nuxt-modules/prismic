@@ -44,7 +44,7 @@
 		"release:alpha:dry": "standard-version --release-as major --prerelease alpha --dry-run",
 		"release:dry": "standard-version --dry-run",
 		"test": "npm run lint && npm run unit",
-		"unit": "nyc --reporter=lcovonly --reporter=text --exclude-after-remap=false ava"
+		"unit": "echo 'TODO: vitest & nuxt-test-utils'"
 	},
 	"dependencies": {
 		"@nuxt/kit": "npm:@nuxt/kit-edge@latest",
@@ -54,13 +54,10 @@
 	"devDependencies": {
 		"@nuxt/module-builder": "latest",
 		"@nuxtjs/eslint-config-typescript": "latest",
-		"ava": "^3.15.0",
-		"eslint": "^8.9.0",
+		"eslint": "^8.11.0",
 		"nuxt3": "latest",
-		"nyc": "^15.1.0",
 		"standard-version": "^9.3.2",
-		"ts-eager": "^2.0.2",
-		"typescript": "^4.5.5"
+		"typescript": "^4.6.2"
 	},
 	"engines": {
 		"node": ">=12.7.0"
