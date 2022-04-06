@@ -42,7 +42,7 @@ export default defineNuxtModule<PrismicModuleOptions>({
 		preview: '/preview'
 	}),
 	hooks: {},
-	setup (mergedOptions, nuxt) {
+	setup(mergedOptions, nuxt) {
 		if (!mergedOptions.endpoint) {
 			logger.warn('Options `endpoint` is required, disabling module...')
 			return
@@ -121,7 +121,7 @@ export default defineNuxtModule<PrismicModuleOptions>({
 
 			if (maybeUserPreviewPage) {
 				logger.info(`Using user-defined preview page at \`${maybeUserPreviewPage.replace(join(nuxt.options.srcDir), '~').replace(/\\/g, '/')
-				}\`, available at \`${mergedOptions.preview}\``)
+					}\`, available at \`${mergedOptions.preview}\``)
 			} else {
 				logger.info(`Using default preview page, available at \`${mergedOptions.preview}\``)
 
@@ -138,9 +138,9 @@ export default defineNuxtModule<PrismicModuleOptions>({
 			const repositoryName = isRepositoryEndpoint(mergedOptions.endpoint)
 				? getRepositoryName(mergedOptions.endpoint)
 				: mergedOptions.endpoint
-			nuxt.options.meta ||= {}
-			nuxt.options.meta.script ||= []
-			nuxt.options.meta.script.push({
+			nuxt.options.head ||= {}
+			nuxt.options.head.script ||= []
+			nuxt.options.head.script.push({
 				src: `https://static.cdn.prismic.io/prismic.min.js?repo=${repositoryName}&new=true`
 			})
 		}
