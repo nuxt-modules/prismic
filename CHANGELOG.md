@@ -2,6 +2,23 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [3.0.0-alpha.3](https://github.com/nuxt-community/prismic-module/compare/v3.0.0-alpha.2...v3.0.0-alpha.3) (2022-04-06)
+
+
+### Bug Fixes
+
+* force `@prismicio/vue` transpilation ([ead4eb1](https://github.com/nuxt-community/prismic-module/commit/ead4eb1071e47c6e175bc557003f4fef22e214cb))
+
+
+### Chore
+
+* **deps:** maintain dependencies ([e4008ee](https://github.com/nuxt-community/prismic-module/commit/e4008ee75c1742bbf04b79d5c14e32ef5f514057))
+
+
+### Refactor
+
+* `useMeta()` is now `useHead()` ([86c1a26](https://github.com/nuxt-community/prismic-module/commit/86c1a261c49992a78c3f3ca92c474f4f61f41ad5))
+
 ## [3.0.0-alpha.2](https://github.com/nuxt-community/prismic-module/compare/v3.0.0-alpha.1...v3.0.0-alpha.2) (2022-03-24)
 
 
