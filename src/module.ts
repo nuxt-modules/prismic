@@ -42,7 +42,7 @@ export default defineNuxtModule<PrismicModuleOptions>({
 		preview: '/preview'
 	}),
 	hooks: {},
-	setup(mergedOptions, nuxt) {
+	setup (mergedOptions, nuxt) {
 		if (!mergedOptions.endpoint) {
 			logger.warn('Options `endpoint` is required, disabling module...')
 			return
@@ -50,7 +50,7 @@ export default defineNuxtModule<PrismicModuleOptions>({
 
 		// Runtime dir boilerplate
 		const resolver = createResolver(import.meta.url)
-		nuxt.options.build.transpile.push(resolver.resolve('runtime'), "@prismicio/vue")
+		nuxt.options.build.transpile.push(resolver.resolve('runtime'), '@prismicio/vue')
 
 		// Add runtime user code
 		const addUserFileWithUndefinedFallback = (filename: string, path?: string, extensions = ['js', 'ts']) => {
@@ -121,7 +121,7 @@ export default defineNuxtModule<PrismicModuleOptions>({
 
 			if (maybeUserPreviewPage) {
 				logger.info(`Using user-defined preview page at \`${maybeUserPreviewPage.replace(join(nuxt.options.srcDir), '~').replace(/\\/g, '/')
-					}\`, available at \`${mergedOptions.preview}\``)
+				}\`, available at \`${mergedOptions.preview}\``)
 			} else {
 				logger.info(`Using default preview page, available at \`${mergedOptions.preview}\``)
 
