@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.4.2](https://github.com/nuxt-community/prismic-module/compare/v1.4.1...v1.4.2) (2022-04-08)
+
+
+### Bug Fixes
+
+* disable nuxtI18n preventively on preview page, fixes [#90](https://github.com/nuxt-community/prismic-module/issues/90) ([7ee7f29](https://github.com/nuxt-community/prismic-module/commit/7ee7f293ca50f501b7de1ea79635b1af47f2a4d6))
+
 ### [1.4.1](https://github.com/nuxt-community/prismic-module/compare/v1.4.0...v1.4.1) (2022-03-22)
 
 
