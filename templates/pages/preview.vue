@@ -9,6 +9,7 @@
 
 <script>
 export default {
+  nuxtI18n: false,
   head: {
     title: 'Prismic Preview'
   },
