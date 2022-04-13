@@ -167,6 +167,16 @@ export default (doc) => {
 }
 ```
 
+### Providing an HTML Serializer
+
+You can provide the module an [HTML Serializer](https://prismic.io/docs/core-concepts/html-serializer) by exporting one from the file configured in the `htmlSerializer` option (default: `~/app/prismic/htmlSerializer`):
+
+```javascript[~/app/prismic/htmlSerializer.[jt]s]
+export default {
+	paragraph: ({ children }) => `<p class="fooBar">${children}</p>`,
+}
+```
+
 ### Custom preview page
 
 You can override the default preview page by creating a page at the route configured in the `preview` option (default: `/preview`):
@@ -243,6 +253,19 @@ prismic: {
 }
 ```
 
+#### `htmlSerializer`
+
+- Type: `string`
+- Default: `~/app/prismic/htmlSerializer`
+
+Path to an optional file exporting an [HTML Serializer](https://prismic.io/docs/core-concepts/html-serializer) for the module to use.
+
+```javascript[nuxt.config.[jt]s]
+prismic: {
+  htmlSerializer: '~/prismicHTMLSerializer.js' // attempt to import client from `~/prismicHTMLSerializer.js`
+}
+```
+
 #### `preview`
 
 - Type: `string | false`
@@ -260,7 +283,10 @@ prismic: {
 
 ```typescript
 type PrismicModuleOptions = PrismicPluginOptions & {
-	preview?: string | false
+	client?: string;
+	linkResolver?: string;
+	htmlSerializer?: string;
+	preview?: string | false;
 }
 ```
 
@@ -270,6 +296,7 @@ type PrismicModuleOptions = PrismicPluginOptions & {
 {
 	client: '~/app/prismic/client',
 	linkResolver: '~/app/prismic/linkResolver',
+	htmlSerializer: '~/app/prismic/htmlSerializer',
 	injectComponents: true,
 	preview: '/preview'
 }

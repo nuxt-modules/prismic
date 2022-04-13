@@ -36,7 +36,7 @@ export default defineNuxtModule<PrismicModuleOptions>({
 		clientConfig: {},
 		client: cleanDoubleSlashes(`~/${nuxt.options.dir.app}/prismic/client`),
 		linkResolver: cleanDoubleSlashes(`~/${nuxt.options.dir.app}/prismic/linkResolver`),
-		htmlSerializer: undefined,
+		htmlSerializer: cleanDoubleSlashes(`~/${nuxt.options.dir.app}/prismic/htmlSerializer`),
 		injectComponents: true,
 		components: {},
 		preview: '/preview'
@@ -76,10 +76,11 @@ export default defineNuxtModule<PrismicModuleOptions>({
 		}
 		addUserFileWithUndefinedFallback('client', mergedOptions.client)
 		addUserFileWithUndefinedFallback('linkResolver', mergedOptions.linkResolver)
+		addUserFileWithUndefinedFallback('htmlSerializer', mergedOptions.htmlSerializer)
 
 		// Expose options through public runtime config
-		nuxt.options.publicRuntimeConfig ||= {} as typeof nuxt.options.publicRuntimeConfig
-		nuxt.options.publicRuntimeConfig[pkgName] = mergedOptions
+		nuxt.options.runtimeConfig.public ||= {} as typeof nuxt.options.runtimeConfig.public
+		nuxt.options.runtimeConfig.public[pkgName] = mergedOptions
 
 		// Add plugin
 		addPlugin(resolver.resolve('runtime/plugin'))
