@@ -2,6 +2,19 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [3.0.0-alpha.4](https://github.com/nuxt-community/prismic-module/compare/v3.0.0-alpha.3...v3.0.0-alpha.4) (2022-04-20)
+
+
+### Features
+
+* support providing runtime HTML Serializer ([e6e6d13](https://github.com/nuxt-community/prismic-module/commit/e6e6d13ae66569e8d4a6c5f252ebefd7826098c4))
+
+
+### Chore
+
+* **deps:** maintain dependencies ([3a8fc36](https://github.com/nuxt-community/prismic-module/commit/3a8fc36ca2112127818fd42c3d208f66ece05be9))
+* **deps:** maintain dependencies ([878005e](https://github.com/nuxt-community/prismic-module/commit/878005ef88fb6040775424fecd339656e8de732e))
+
 ## [3.0.0-alpha.3](https://github.com/nuxt-community/prismic-module/compare/v3.0.0-alpha.2...v3.0.0-alpha.3) (2022-04-06)
 
 
