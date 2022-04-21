@@ -2,6 +2,20 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [3.0.0-alpha.5](https://github.com/nuxt-community/prismic-module/compare/v3.0.0-alpha.4...v3.0.0-alpha.5) (2022-04-21)
+
+
+### Bug Fixes
+
+* proxy user-provided files instead of duplicating them to support TypeScript ([bd5d176](https://github.com/nuxt-community/prismic-module/commit/bd5d176d7feb18cb2e5f0bd85ba72962c9e86181))
+* temporary hardcode package name ([#160](https://github.com/nuxt-community/prismic-module/issues/160)) ([326724e](https://github.com/nuxt-community/prismic-module/commit/326724e2ba3b16c1068a05eb67948eb76cc96da1))
+
+
+### Chore
+
+* **deps:** maintain dependencies ([9d24d66](https://github.com/nuxt-community/prismic-module/commit/9d24d665e3a33af962d84a6ac59f3e2d689b9b2c))
+* update playground ([0fa6574](https://github.com/nuxt-community/prismic-module/commit/0fa65742535eb8257122080802994c30de727b50))
+
 ## [3.0.0-alpha.4](https://github.com/nuxt-community/prismic-module/compare/v3.0.0-alpha.3...v3.0.0-alpha.4) (2022-04-20)
 
 
