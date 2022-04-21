@@ -53,30 +53,32 @@ export default defineNuxtModule<PrismicModuleOptions>({
 		nuxt.options.build.transpile.push(resolver.resolve('runtime'), '@prismicio/vue')
 
 		// Add runtime user code
-		const addUserFileWithUndefinedFallback = (filename: string, path?: string, extensions = ['js', 'ts']) => {
-			const resolvedFilename = `prismic/${filename}.ts`
+		const proxyUserFileWithUndefinedFallback = (filename: string, path?: string, extensions = ['js', 'mjs', 'ts']) => {
+			const resolvedFilename = `prismic/proxy/${filename}.ts`
 			const resolvedPath = path
 				? path.replace(/^(~~|@@)/, nuxt.options.rootDir).replace(/^(~|@)/, nuxt.options.srcDir)
 				: undefined
 			const maybeUserFile = fileExists(resolvedPath, extensions)
 
 			if (maybeUserFile) {
+				// If user file exists, proxy it with vfs
 				logger.info(`Using user-defined \`${filename}\` at \`${maybeUserFile.replace(nuxt.options.srcDir, '~').replace(/\\/g, '/')}\``)
 
 				addTemplate({
 					filename: resolvedFilename,
-					src: maybeUserFile
+					getContents: () => `export { default } from '${path}'`
 				})
 			} else {
+				// Else provide `undefined` fallback
 				addTemplate({
 					filename: resolvedFilename,
 					getContents: () => 'export default undefined'
 				})
 			}
 		}
-		addUserFileWithUndefinedFallback('client', mergedOptions.client)
-		addUserFileWithUndefinedFallback('linkResolver', mergedOptions.linkResolver)
-		addUserFileWithUndefinedFallback('htmlSerializer', mergedOptions.htmlSerializer)
+		proxyUserFileWithUndefinedFallback('client', mergedOptions.client)
+		proxyUserFileWithUndefinedFallback('linkResolver', mergedOptions.linkResolver)
+		proxyUserFileWithUndefinedFallback('htmlSerializer', mergedOptions.htmlSerializer)
 
 		// Expose options through public runtime config
 		nuxt.options.runtimeConfig.public ||= {} as typeof nuxt.options.runtimeConfig.public
