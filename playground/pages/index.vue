@@ -2,11 +2,16 @@
 	<div>
 		<div>Pending: {{ pending }}</div>
 		<div v-if="!pending">
-			<prismic-link :field="doc.data.relation" v-slot="{ href }">{{ href }} foo</prismic-link>
-			<prismic-link
-				:field="{ link_type: 'Web', url: 'https://google.com' }"
-				v-slot="{ href }"
-			>{{ href }} bar</prismic-link>
+			<prismic-link v-slot="{ href }"
+				:field="doc.data.relation">
+				{{ href }} foo
+			</prismic-link>
+			<prismic-link v-slot="{ href }"
+				:field="{ link_type: 'Web', url: 'https://google.com' }">
+				{{ href }} bar
+			</prismic-link>
+			<prismic-rich-text
+				:field="doc.data.richtext" />
 			<!-- <prismic-text :field="home?.data.body[0].primary.title" /> -->
 			<!-- <slice-zone :slices="home?.data.body" /> -->
 		</div>
