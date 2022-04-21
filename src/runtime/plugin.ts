@@ -3,12 +3,18 @@ import NuxtLink from '#app/components/nuxt-link'
 
 import { createPrismic } from '@prismicio/vue'
 
-import { name as pkgName } from '../../package.json'
+// import { name as pkgName } from '../../package.json'
 import { PrismicModuleOptions } from '../types'
 
-import client from '#build/prismic/client'
-import linkResolver from '#build/prismic/linkResolver'
-import htmlSerializer from '#build/prismic/htmlSerializer'
+// @ts-expect-error vfs cannot be resolved here
+import client from '#build/prismic/proxy/client'
+// @ts-expect-error vfs cannot be resolved here
+import linkResolver from '#build/prismic/proxy/linkResolver'
+// @ts-expect-error vfs cannot be resolved here
+import htmlSerializer from '#build/prismic/proxy/htmlSerializer'
+
+// TODO: Revert when fixed
+const pkgName = '@nuxtjs/prismic'
 
 export default defineNuxtPlugin((nuxtApp) => {
 	const mergedOptions: PrismicModuleOptions =
