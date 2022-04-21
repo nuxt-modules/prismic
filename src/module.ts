@@ -62,7 +62,7 @@ export default defineNuxtModule<PrismicModuleOptions>({
 
 			if (maybeUserFile) {
 				// If user file exists, proxy it with vfs
-				logger.info(`Using user-defined \`${filename}\` at \`${maybeUserFile.replace(nuxt.options.srcDir, '~').replace(/\\/g, '/')}\``)
+				logger.info(`Using user-defined \`${filename}\` at \`${maybeUserFile.replace(nuxt.options.srcDir, '~').replace(nuxt.options.rootDir, '~~').replace(/\\/g, '/')}\``)
 
 				addTemplate({
 					filename: resolvedFilename,
@@ -123,7 +123,7 @@ export default defineNuxtModule<PrismicModuleOptions>({
 			const maybeUserPreviewPage = fileExists(join(nuxt.options.srcDir, nuxt.options.dir.pages, mergedOptions.preview), ['js', 'ts', 'vue'])
 
 			if (maybeUserPreviewPage) {
-				logger.info(`Using user-defined preview page at \`${maybeUserPreviewPage.replace(join(nuxt.options.srcDir), '~').replace(/\\/g, '/')
+				logger.info(`Using user-defined preview page at \`${maybeUserPreviewPage.replace(join(nuxt.options.srcDir), '~').replace(nuxt.options.rootDir, '~~').replace(/\\/g, '/')
 				}\`, available at \`${mergedOptions.preview}\``)
 			} else {
 				logger.info(`Using default preview page, available at \`${mergedOptions.preview}\``)
