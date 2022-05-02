@@ -187,19 +187,8 @@ You can override the default preview page by creating a page at the route config
 </template>
 
 <script setup>
-// The following code is quite boilerplate for now, a simpler composable will be provided in the future
-import { onMounted } from 'vue'
-
-const { client, options: { linkResolver } } = usePrismic()
-const { push } = useRouter()
-onMounted(async () => {
-	const redirectURL = await client.resolvePreviewURL({
-		linkResolver,
-		defaultURL: '/'
-	})
-
-	push(redirectURL ?? '/')
-})
+// The following code is mandatory for starting previews when entering this page
+usePrismicPreview()
 </script>
 ```
 

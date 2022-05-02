@@ -117,6 +117,11 @@ export default defineNuxtModule<PrismicModuleOptions>({
 				}
 			})
 		addAutoImport(composableAutoImports)
+		addAutoImport({
+			name: 'usePrismicPreview',
+			as: 'usePrismicPreview',
+			from: resolver.resolve('runtime/usePrismicPreview')
+		})
 
 		// Add preview route
 		if (mergedOptions.preview) {
