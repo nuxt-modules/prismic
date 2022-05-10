@@ -67,7 +67,7 @@ npm install --save-dev @nuxtjs/prismic@alpha
 Then, add `@nuxtjs/prismic` to the `modules` section of your Nuxt config and configure your Prismic API endpoint:
 
 ```javascript[nuxt.config.[jt]s]
-import { defineNuxtConfig } from 'nuxt3'
+import { defineNuxtConfig } from 'nuxt'
 
 export default defineNuxtConfig({
 	modules: ['@nuxtjs/prismic'],
