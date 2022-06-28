@@ -12,6 +12,8 @@
 </template>
 
 <script setup>
+import { useHead, usePrismicPreview } from '#imports'
+
 useHead({
 	title: 'Prismic Preview - Loading'
 })

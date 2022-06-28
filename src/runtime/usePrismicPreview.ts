@@ -1,5 +1,7 @@
 import { onMounted } from 'vue'
 
+import { useRouter, usePrismic } from '#imports'
+
 /**
  * Resolves Prismic previews on the preview entry page (`/preview`)
  *
