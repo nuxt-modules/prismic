@@ -2,6 +2,29 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [3.0.0-alpha.6](https://github.com/nuxt-community/prismic-module/compare/v3.0.0-alpha.5...v3.0.0-alpha.6) (2022-06-28)
+
+
+### Bug Fixes
+
+* explicitely declare dependencies for runtime directory ([204e628](https://github.com/nuxt-community/prismic-module/commit/204e628007f0b00fab68702ffe194d6f7df7460c))
+
+
+### Refactor
+
+* provide composable for prismic previews ([26bf287](https://github.com/nuxt-community/prismic-module/commit/26bf287d3c1204ca1d17ab499712f0bbdd17c9b0))
+
+
+### Documentation
+
+* update `nuxt3` to `nuxt` ([#161](https://github.com/nuxt-community/prismic-module/issues/161)) ([c71a56c](https://github.com/nuxt-community/prismic-module/commit/c71a56c5f6a9b089f67fbf2791c4b461abc9f1ac))
+
+
+### Chore
+
+* **deps:** maintain dependencies ([45a1d1f](https://github.com/nuxt-community/prismic-module/commit/45a1d1fea866d73ab68efb957ca164c123a70522))
+* **deps:** maintain dependencies ([f668af9](https://github.com/nuxt-community/prismic-module/commit/f668af9086998a1c592eca98bd851e40be5487f6))
+
 ## [3.0.0-alpha.5](https://github.com/nuxt-community/prismic-module/compare/v3.0.0-alpha.4...v3.0.0-alpha.5) (2022-04-21)
 
 
