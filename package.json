@@ -22,6 +22,7 @@
 			"require": "./dist/module.cjs",
 			"import": "./dist/module.mjs"
 		},
+		"./runtime/*": "./dist/runtime/*",
 		"./package.json": "./package.json"
 	},
 	"main": "dist/module.cjs",
@@ -46,18 +47,18 @@
 	},
 	"dependencies": {
 		"@nuxt/kit": "^3.0.0-rc",
-		"@prismicio/client": "^6.4.3",
+		"@prismicio/client": "^6.6.1",
 		"@prismicio/vue": "^3.0.0-beta",
 		"consola": "^2.15.3",
-		"ufo": "^0.8.3"
+		"ufo": "^0.8.4"
 	},
 	"devDependencies": {
 		"@nuxt/module-builder": "latest",
 		"@nuxtjs/eslint-config-typescript": "latest",
-		"eslint": "^8.14.0",
+		"eslint": "^8.18.0",
 		"nuxt": "^3.0.0-rc",
-		"standard-version": "^9.3.2",
-		"typescript": "^4.6.4"
+		"standard-version": "^9.5.0",
+		"typescript": "^4.7.4"
 	},
 	"engines": {
 		"node": ">=14.15.0"
