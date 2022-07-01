@@ -155,7 +155,9 @@ export default defineNuxtModule<PrismicModuleOptions>({
 				nuxt.options.app.head ||= {}
 				nuxt.options.app.head.script ||= []
 				nuxt.options.app.head.script.push({
-					src: `https://static.cdn.prismic.io/prismic.min.js?repo=${repositoryName}&new=true`
+					src: `https://static.cdn.prismic.io/prismic.min.js?repo=${repositoryName}&new=true`,
+					async: true,
+					defer: true
 				})
 			}
 		}
