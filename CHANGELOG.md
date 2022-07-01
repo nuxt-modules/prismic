@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [3.0.0-alpha.7](https://github.com/nuxt-community/prismic-module/compare/v3.0.0-alpha.6...v3.0.0-alpha.7) (2022-07-01)
+
+
+### Bug Fixes
+
+* load Prismic toolbar through Nuxt 3 API ([6393fb2](https://github.com/nuxt-community/prismic-module/commit/6393fb28a1b2df1ed71a9a530dcc3c10e7f8a0ba))
+
 ## [3.0.0-alpha.6](https://github.com/nuxt-community/prismic-module/compare/v3.0.0-alpha.5...v3.0.0-alpha.6) (2022-06-28)
 
 
