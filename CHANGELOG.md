@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [3.0.0-alpha.10](https://github.com/nuxt-community/prismic-module/compare/v3.0.0-alpha.9...v3.0.0-alpha.10) (2022-07-01)
+
+
+### Bug Fixes
+
+* explicitely declare dependencies for runtime directory ([aa38cf9](https://github.com/nuxt-community/prismic-module/commit/aa38cf97ee628e7209232db0e14b1a3ba66fd636))
+
 ## [3.0.0-alpha.9](https://github.com/nuxt-community/prismic-module/compare/v3.0.0-alpha.8...v3.0.0-alpha.9) (2022-07-01)
 
 
