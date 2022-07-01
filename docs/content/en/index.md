@@ -257,10 +257,11 @@ prismic: {
 
 #### `preview`
 
-- Type: `string | false`
-- Default: `/preview`
+- Type: `Preview | false`
+- Default: { url: `/preview`, script: true }
 
 The route to use for the preview page, disable previews with `false`.
+If you want to activate the preview but not load the script automatically, disable script with : `false`
 
 ```javascript[nuxt.config.[jt]s]
 prismic: {
@@ -271,11 +272,16 @@ prismic: {
 ### Interface
 
 ```typescript
+type Preview = {
+	url: string;
+	script: boolean;
+}
+
 type PrismicModuleOptions = PrismicPluginOptions & {
 	client?: string;
 	linkResolver?: string;
 	htmlSerializer?: string;
-	preview?: string | false;
+	preview?: Preview | false;
 }
 ```
 
@@ -287,6 +293,9 @@ type PrismicModuleOptions = PrismicPluginOptions & {
 	linkResolver: '~/app/prismic/linkResolver',
 	htmlSerializer: '~/app/prismic/htmlSerializer',
 	injectComponents: true,
-	preview: '/preview'
+	preview: {
+		url: '/preview',
+		script: true
+	}
 }
 ```
