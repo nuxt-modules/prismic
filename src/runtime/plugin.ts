@@ -1,4 +1,4 @@
-import { defineNuxtPlugin, useCookie, refreshNuxtData } from '#app'
+import { defineNuxtPlugin, useCookie, useRequestEvent, refreshNuxtData } from '#app'
 import NuxtLink from '#app/components/nuxt-link'
 
 import { createPrismic } from '@prismicio/vue'
