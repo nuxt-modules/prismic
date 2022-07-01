@@ -146,9 +146,9 @@ export default defineNuxtModule<PrismicModuleOptions>({
 			const repositoryName = isRepositoryEndpoint(mergedOptions.endpoint)
 				? getRepositoryName(mergedOptions.endpoint)
 				: mergedOptions.endpoint
-			nuxt.options.head ||= {}
-			nuxt.options.head.script ||= []
-			nuxt.options.head.script.push({
+			nuxt.options.app.head ||= {}
+			nuxt.options.app.head.script ||= []
+			nuxt.options.app.head.script.push({
 				src: `https://static.cdn.prismic.io/prismic.min.js?repo=${repositoryName}&new=true`
 			})
 		}

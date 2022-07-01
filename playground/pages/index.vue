@@ -1,6 +1,9 @@
 <template>
 	<div>
-		<div>Pending: {{ pending }}</div>
+		<div
+			@click="() => refreshNuxtData()">
+			Pending: {{ pending }}
+		</div>
 		<div v-if="!pending">
 			<prismic-link v-slot="{ href }"
 				:field="doc.data.relation">

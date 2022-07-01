@@ -9,7 +9,7 @@ const linkResolver: prismicH.LinkResolverFunction<string | undefined> = (doc) =>
 		return `/${doc.uid}`
 	}
 
-	return '/baz'
+	return '/'
 }
 
 export default linkResolver
