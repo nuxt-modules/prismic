@@ -1,4 +1,4 @@
-import { defineNuxtPlugin } from '#app'
+import { defineNuxtPlugin, refreshNuxtData } from '#app'
 
 // import { name as pkgName } from '../../package.json'
 import { PrismicModuleOptions } from '../types'
@@ -15,10 +15,8 @@ export default defineNuxtPlugin((nuxtApp) => {
 	// Hot reload preview updates
 	if (mergedOptions.preview) {
 		window.addEventListener('prismicPreviewUpdate', (event) => {
-			if (refreshNuxtData) {
-				event.preventDefault()
-				refreshNuxtData()
-			}
+			event.preventDefault()
+			refreshNuxtData()
 		})
 	}
 })
