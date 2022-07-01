@@ -22,7 +22,7 @@ export default defineNuxtPlugin((nuxtApp) => {
 		nuxtApp.payload.config.public[pkgName] ??
 		{}
 
-	nuxtApp.vueApp.use(createPrismic({
+	const prismicPlugin = createPrismic({
 		...mergedOptions,
 		client,
 		linkResolver,
@@ -33,5 +33,34 @@ export default defineNuxtPlugin((nuxtApp) => {
 			linkExternalComponent: NuxtLink,
 			...mergedOptions.components
 		}
-	}))
+	})
+
+	nuxtApp.vueApp.use(prismicPlugin)
+
+	if (mergedOptions.preview) {
+		const previewCookie = useCookie('io.prismic.preview').value
+
+		// Update client with req when running server side
+		if (process.server) {
+			prismicPlugin.client.enableAutoPreviewsFromReq(useRequestEvent()?.req)
+		}
+
+		if (previewCookie) {
+			try {
+				const session = typeof previewCookie === 'string' ? JSON.parse(decodeURIComponent(previewCookie)) : previewCookie
+
+				if (Object.keys(session).some(key =>
+					key in session &&
+					typeof session[key] === 'object' &&
+					session[key] !== null &&
+					'preview' in session[key] &&
+					session[key].preview)
+				) {
+					refreshNuxtData()
+				}
+			} catch (error) {
+				// noop
+			}
+		}
+	}
 })

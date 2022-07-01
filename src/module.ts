@@ -86,6 +86,7 @@ export default defineNuxtModule<PrismicModuleOptions>({
 
 		// Add plugin
 		addPlugin(resolver.resolve('runtime/plugin'))
+		addPlugin(resolver.resolve('runtime/plugin.client'))
 
 		// Add components auto import
 		if (mergedOptions.injectComponents) {
