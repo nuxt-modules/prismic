@@ -39,7 +39,10 @@ export default defineNuxtModule<PrismicModuleOptions>({
 		htmlSerializer: cleanDoubleSlashes(`~/${nuxt.options.dir.app}/prismic/htmlSerializer`),
 		injectComponents: true,
 		components: {},
-		preview: '/preview'
+		preview: {
+			url: '/preview',
+			script: true
+		}
 	}),
 	hooks: {},
 	setup (mergedOptions, nuxt) {
@@ -125,19 +128,20 @@ export default defineNuxtModule<PrismicModuleOptions>({
 		})
 
 		// Add preview route
-		if (mergedOptions.preview) {
-			const maybeUserPreviewPage = fileExists(join(nuxt.options.srcDir, nuxt.options.dir.pages, mergedOptions.preview), ['js', 'ts', 'vue'])
+		const previewUrl = (mergedOptions.preview && mergedOptions.preview.url) ? mergedOptions.preview.url : false
+		if (previewUrl) {
+			const maybeUserPreviewPage = fileExists(join(nuxt.options.srcDir, nuxt.options.dir.pages, previewUrl), ['js', 'ts', 'vue'])
 
 			if (maybeUserPreviewPage) {
 				logger.info(`Using user-defined preview page at \`${maybeUserPreviewPage.replace(join(nuxt.options.srcDir), '~').replace(nuxt.options.rootDir, '~~').replace(/\\/g, '/')
-				}\`, available at \`${mergedOptions.preview}\``)
+				}\`, available at \`${previewUrl}\``)
 			} else {
-				logger.info(`Using default preview page, available at \`${mergedOptions.preview}\``)
+				logger.info(`Using default preview page, available at \`${previewUrl}\``)
 
 				extendPages((pages) => {
 					pages.unshift({
 						name: 'prismic-preview',
-						path: mergedOptions.preview as string, // Checked before
+						path: previewUrl as string, // Checked before
 						file: resolver.resolve('runtime/preview.vue')
 					})
 				})
@@ -147,11 +151,13 @@ export default defineNuxtModule<PrismicModuleOptions>({
 			const repositoryName = isRepositoryEndpoint(mergedOptions.endpoint)
 				? getRepositoryName(mergedOptions.endpoint)
 				: mergedOptions.endpoint
-			nuxt.options.app.head ||= {}
-			nuxt.options.app.head.script ||= []
-			nuxt.options.app.head.script.push({
-				src: `https://static.cdn.prismic.io/prismic.min.js?repo=${repositoryName}&new=true`
-			})
+			if (mergedOptions.preview && (!mergedOptions.preview.script && mergedOptions.preview.script !== false)) {
+				nuxt.options.app.head ||= {}
+				nuxt.options.app.head.script ||= []
+				nuxt.options.app.head.script.push({
+					src: `https://static.cdn.prismic.io/prismic.min.js?repo=${repositoryName}&new=true`
+				})
+			}
 		}
 	}
 })
