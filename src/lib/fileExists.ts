@@ -1,4 +1,4 @@
-import { existsSync } from 'fs'
+import { existsSync } from 'node:fs'
 
 export const fileExists = (path?: string, extensions = ['js', 'ts']): string | null => {
 	if (!path) {

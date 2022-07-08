@@ -1,4 +1,4 @@
-import { join } from 'path'
+import { join } from 'node:path'
 
 import {
 	defineNuxtModule,
@@ -15,9 +15,8 @@ import { isRepositoryEndpoint, getRepositoryName } from '@prismicio/client'
 import * as prismicVue from '@prismicio/vue'
 
 import { name as pkgName, version as pkgVersion } from '../package.json'
+import { logger, fileExists } from './lib'
 import type { PrismicModuleOptions } from './types'
-import { fileExists } from './utils'
-import { logger } from './logger'
 
 // Options export
 export type { PrismicModuleOptions } from './types'
