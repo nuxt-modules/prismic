@@ -15,6 +15,7 @@ features:
 .prose h2 {
 	margin-top: 6rem;
 }
+
 .prose h3 {
 	margin-top: 1rem;
 }
@@ -268,6 +269,19 @@ prismic: {
 }
 ```
 
+#### `toolbar`
+
+- Type: `boolean`
+- Default: `true`
+
+Whether or not to inject Prismic toolbar.
+
+```javascript[nuxt.config.[jt]s]
+prismic: {
+  toolbar: true // disable toolbar
+}
+```
+
 ### Interface
 
 ```typescript
@@ -276,6 +290,7 @@ type PrismicModuleOptions = PrismicPluginOptions & {
 	linkResolver?: string;
 	htmlSerializer?: string;
 	preview?: string | false;
+	toolbar?: boolean;
 }
 ```
 
@@ -287,6 +302,7 @@ type PrismicModuleOptions = PrismicPluginOptions & {
 	linkResolver: '~/app/prismic/linkResolver',
 	htmlSerializer: '~/app/prismic/htmlSerializer',
 	injectComponents: true,
-	preview: '/preview'
+	preview: '/preview',
+	toolbar: true
 }
 ```

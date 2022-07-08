@@ -39,7 +39,8 @@ export default defineNuxtModule<PrismicModuleOptions>({
 		htmlSerializer: cleanDoubleSlashes(`~/${nuxt.options.dir.app}/prismic/htmlSerializer`),
 		injectComponents: true,
 		components: {},
-		preview: '/preview'
+		preview: '/preview',
+		toolbar: true
 	}),
 	hooks: {},
 	setup (mergedOptions, nuxt) {
@@ -143,6 +144,12 @@ export default defineNuxtModule<PrismicModuleOptions>({
 				})
 			}
 
+			if (!mergedOptions.toolbar) {
+				logger.warn('`toolbar` option is disabled but `preview` is enabled. Previews won\'t work unless you manually load the toolbar.')
+			}
+		}
+
+		if (mergedOptions.toolbar) {
 			// Add toolbar
 			const repositoryName = isRepositoryEndpoint(mergedOptions.endpoint)
 				? getRepositoryName(mergedOptions.endpoint)
@@ -150,7 +157,10 @@ export default defineNuxtModule<PrismicModuleOptions>({
 			nuxt.options.app.head ||= {}
 			nuxt.options.app.head.script ||= []
 			nuxt.options.app.head.script.push({
-				src: `https://static.cdn.prismic.io/prismic.min.js?repo=${repositoryName}&new=true`
+				hid: 'prismic-preview',
+				src: `https://static.cdn.prismic.io/prismic.min.js?repo=${repositoryName}&new=true`,
+				async: true,
+				defer: true
 			})
 		}
 	}

@@ -6,4 +6,5 @@ export type PrismicModuleOptions = Omit<PrismicPluginOptions, 'endpoint' | 'clie
 	linkResolver?: string;
 	htmlSerializer?: string;
 	preview?: string | false;
+	toolbar?: boolean;
 };
