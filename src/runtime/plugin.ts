@@ -59,7 +59,8 @@ export default defineNuxtPlugin((nuxtApp) => {
 					refreshNuxtData()
 				}
 			} catch (error) {
-				// noop
+				// eslint-disable-next-line no-console
+				console.warn('Failed to parse Prismic preview cookie', error)
 			}
 		}
 	}

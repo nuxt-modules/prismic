@@ -1,67 +1,35 @@
-import { it, expect, vi } from 'vitest'
+import { it, expect, vi, beforeEach, afterEach } from 'vitest'
 import mockFS from 'mock-fs'
 
 import { addTemplate } from '@nuxt/kit'
-import { Nuxt } from '@nuxt/schema'
 
-import prismicModule, { ModuleOptions } from '../src/module'
-import { logger } from '../src/lib'
+import prismicModule from '../src/module'
 
-const mockedNuxt = {
-	options: {
-		rootDir: '/tmp/nuxt',
-		srcDir: '/tmp/nuxt',
-		dir: { app: 'app', pages: 'pages' },
-		build: { transpile: [] },
-		runtimeConfig: {},
-		app: {}
-	},
-	version: '3.0.0'
-} as unknown as Nuxt
+import { mockModule } from './__testutils__/mockModule'
 
-vi.mock('../src/lib/logger.ts', () => ({
-	logger: { info: vi.fn(), warn: vi.fn() }
-}))
+const mockedPrismicModule = mockModule(prismicModule)
 
-vi.mock('@nuxt/kit', async () => {
-	const kit: Record<string, unknown> = await vi.importActual('@nuxt/kit')
+beforeEach(() => {
+	vi.mock('../src/lib/logger.ts', () => ({
+		logger: { info: vi.fn(), warn: vi.fn() }
+	}))
+	vi.mock('@nuxt/kit', async () => {
+		const { mockedNuxtKit } = await vi.importActual('./__testutils__/mockedNuxtKit')
 
-	return {
-		...kit,
-		defineNuxtModule: definition => (options = {}) => {
-			const mergedOptions = {
-				...definition.defaults(mockedNuxt),
-				...{ endpoint: 'qwerty' },
-				...options
-			}
-
-			return definition.setup(mergedOptions, mockedNuxt)
-		},
-		addTemplate: vi.fn(),
-		addPlugin: vi.fn(),
-		addAutoImport: vi.fn(),
-		addComponent: vi.fn(),
-		extendPages: vi.fn()
-	}
+		return mockedNuxtKit()
+	})
 })
 
-const mockedPrismicModule = prismicModule as unknown as (options?: Partial<ModuleOptions>) => void
-
-it('warns and returns early if endpoint if not provided', () => {
-	mockedPrismicModule({ endpoint: '' })
-
-	expect(logger.warn).toHaveBeenCalledOnce()
-	expect(logger.warn).toHaveBeenCalledWith('Options `endpoint` is required, disabling module...')
-
-	vi.clearAllMocks()
+afterEach(() => {
+	vi.restoreAllMocks()
 })
 
 it('proxies nothing if user files are not available', () => {
-	mockedPrismicModule()
+	mockedPrismicModule({ endpoint: 'qwerty' })
 
 	expect(addTemplate).toHaveBeenCalledTimes(3)
 	// @ts-expect-error - Mocked type is wrong
-	expect(addTemplate.calls.map(([options]) => [options.filename, options.getContents()])).toMatchInlineSnapshot(`
+	expect(addTemplate.calls.flat().map(options => [options.filename, options.getContents()])).toMatchInlineSnapshot(`
 		[
 		  [
 		    "prismic/proxy/client.ts",
@@ -77,8 +45,6 @@ it('proxies nothing if user files are not available', () => {
 		  ],
 		]
 	`)
-
-	vi.clearAllMocks()
 })
 
 it('proxies user files from default location', () => {
@@ -88,11 +54,11 @@ it('proxies user files from default location', () => {
 		'/tmp/nuxt/app/prismic/htmlSerializer.ts': ''
 	})
 
-	mockedPrismicModule()
+	mockedPrismicModule({ endpoint: 'qwerty' })
 
 	expect(addTemplate).toHaveBeenCalledTimes(3)
 	// @ts-expect-error - Mocked type is wrong
-	expect(addTemplate.calls.map(([options]) => [options.filename, options.getContents()])).toMatchInlineSnapshot(`
+	expect(addTemplate.calls.flat().map(options => [options.filename, options.getContents()])).toMatchInlineSnapshot(`
 		[
 		  [
 		    "prismic/proxy/client.ts",
@@ -108,8 +74,6 @@ it('proxies user files from default location', () => {
 		  ],
 		]
 	`)
-
-	vi.clearAllMocks()
 	mockFS.restore()
 })
 
@@ -121,6 +85,7 @@ it('proxies user files from provided location', () => {
 	})
 
 	mockedPrismicModule({
+		endpoint: 'qwerty',
 		client: '~/custom/client',
 		linkResolver: '~/custom/linkResolver',
 		htmlSerializer: '~/custom/htmlSerializer'
@@ -128,7 +93,7 @@ it('proxies user files from provided location', () => {
 
 	expect(addTemplate).toHaveBeenCalledTimes(3)
 	// @ts-expect-error - Mocked type is wrong
-	expect(addTemplate.calls.map(([options]) => [options.filename, options.getContents()])).toMatchInlineSnapshot(`
+	expect(addTemplate.calls.flat().map(options => [options.filename, options.getContents()])).toMatchInlineSnapshot(`
 		[
 		  [
 		    "prismic/proxy/client.ts",
@@ -145,6 +110,5 @@ it('proxies user files from provided location', () => {
 		]
 	`)
 
-	vi.clearAllMocks()
 	mockFS.restore()
 })

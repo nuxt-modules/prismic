@@ -59,11 +59,11 @@
 		"@nuxtjs/eslint-config-typescript": "latest",
 		"c8": "^7.11.3",
 		"eslint": "^8.19.0",
-		"mock-fs": "5.1.2",
+		"mock-fs": "^5.1.2",
 		"nuxt": "^3.0.0-rc",
 		"standard-version": "^9.5.0",
 		"typescript": "^4.7.4",
-		"vitest": "^0.17.1"
+		"vitest": "^0.18.0"
 	},
 	"engines": {
 		"node": ">=14.15.0"
