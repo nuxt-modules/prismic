@@ -18,7 +18,8 @@ aside:
 github:
   root: docs/content
   edit: true
-  releases: true
+  releases: false
+  contributors: false
 
 cover:
   src: /cover.jpg
