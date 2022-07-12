@@ -1,19 +1,17 @@
 {
 	"name": "@nuxtjs/prismic.docs",
-	"version": "2.0.0",
+	"version": "3.0.0",
 	"private": true,
 	"scripts": {
-		"dev": "nuxt",
-		"build": "nuxt build",
-		"start": "nuxt start",
-		"generate": "nuxt generate"
+		"dev": "nuxi dev",
+		"build": "nuxi build",
+		"generate": "nuxi build",
+		"preview": "nuxi preview"
 	},
-	"dependencies": {
-    "docus": "0.1.5",
-    "nuxt-edge": "2.16.0-27001452.1676b861"
-  },
-  "devDependencies": {
-    "nuxt-vite": "0.0.37",
-    "vue-plausible": "1.1.4"
-  }
+	"devDependencies": {
+		"@docus/docs-theme": "npm:@docus/docs-theme-edge@latest",
+		"@docus/github": "npm:@docus/github-edge@latest",
+		"nuxt": "^3.0.0-rc.4",
+		"vue-plausible": "1.1.4"
+	}
 }
