@@ -2,6 +2,32 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [3.0.0-rc.0](https://github.com/nuxt-community/prismic-module/compare/v3.0.0-alpha.10...v3.0.0-rc.0) (2022-07-18)
+
+
+### Features
+
+* allow disabling toolbar ([0b4e6c0](https://github.com/nuxt-community/prismic-module/commit/0b4e6c00382d2085d52304503fa6e3f21939b33c))
+
+
+### Refactor
+
+* extract utils into `lib` ([3168bda](https://github.com/nuxt-community/prismic-module/commit/3168bdaf47a537d30f276bf8dafc0b3a16b7d00f))
+
+
+### Chore
+
+* **deps:** maintain dependencies ([aa71ca9](https://github.com/nuxt-community/prismic-module/commit/aa71ca93691bd78802f22f943233b10c92174ddb))
+* **deps:** maintain dependencies ([7530502](https://github.com/nuxt-community/prismic-module/commit/753050273a5148230e28daa5630453318bf448ca))
+
+
+### Documentation
+
+* disable github ([e545f50](https://github.com/nuxt-community/prismic-module/commit/e545f507bf47b1f37488351b4cd49bba02c88440))
+* fix new docs ([#166](https://github.com/nuxt-community/prismic-module/issues/166)) ([51affea](https://github.com/nuxt-community/prismic-module/commit/51affea19b1082bf780eb4d15052f3e98cf72160))
+* install with rc tag ([8495424](https://github.com/nuxt-community/prismic-module/commit/8495424d69fa35d1e269ea0cb8fa41700f2b006e))
+* revamp doc ([9aa9d69](https://github.com/nuxt-community/prismic-module/commit/9aa9d690e1604a31e759d6c849501ececd7b155e))
+
 ## [3.0.0-alpha.10](https://github.com/nuxt-community/prismic-module/compare/v3.0.0-alpha.9...v3.0.0-alpha.10) (2022-07-01)
 
 
