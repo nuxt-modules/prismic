@@ -26,7 +26,7 @@ Easily connect your Nuxt.js application to your content hosted on [Prismic][pris
 ## Install
 
 ```bash
-npm install --save-dev @nuxtjs/prismic@alpha # or yarn add --dev @nuxtjs/prismic@alpha
+npm install --save-dev @nuxtjs/prismic@rc # or yarn add --dev @nuxtjs/prismic@rc
 ```
 
 Then, add `@nuxtjs/prismic` to the `modules` section of your Nuxt config and configure your Prismic API endpoint:
