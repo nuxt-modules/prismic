@@ -1,26 +1,12 @@
 import { defineNuxtConfig } from 'nuxt'
 
-const confettiScripts = [
-	{ src: 'https://cdn.jsdelivr.net/npm/js-confetti@0.8.0/dist/js-confetti.browser.js', body: true },
-	{
-		innerHTML: `
-if (typeof JSConfetti !== "undefined") {
-	new JSConfetti().addConfetti({
-		emojis: ["🌲", "💚", "📚", "📐", "🚀"],
-		emojiSize: 60,
-	});
-}
-`,
-		body: true
-	}
-]
-
 export default defineNuxtConfig({
 	extends: ['./node_modules/@docus/docs-theme'],
 	app: {
 		head: {
-			script: [...confettiScripts],
-			__dangerouslyDisableSanitizers: ['script']
+			meta: [
+				{ name: 'og:title', content: 'Nuxt Prismic', hid: 'og:title' }
+			]
 		}
 	},
 	modules: ['@nuxthq/admin', '@docus/github', 'vue-plausible'],
