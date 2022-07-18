@@ -28,7 +28,7 @@
   },
   "dependencies": {
     "@prismicio/client": "^4.0.0 || ^5.1.0",
-    "@prismicio/vue": "^2.1.0",
+    "@prismicio/vue": "^3.0.0",
     "consola": "^2.15.3",
     "prismic-dom": "^2.2.6"
   },
