@@ -9,7 +9,7 @@
     "prismic",
     "cms"
   ],
-  "repository": "nuxt-community/prismic-module",
+  "repository": "nuxt-modules/prismic",
   "license": "MIT",
   "main": "src/module.js",
   "files": [

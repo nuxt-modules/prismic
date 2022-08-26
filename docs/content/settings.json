@@ -13,7 +13,7 @@
   },
   "twitter": "@prismicio",
   "github": {
-    "repo": "nuxt-community/prismic-module",
+    "repo": "nuxt-modules/prismic",
     "branch": "master",
     "dir": "docs",
     "releases": false

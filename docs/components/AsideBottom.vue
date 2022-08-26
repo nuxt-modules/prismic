@@ -8,7 +8,7 @@
     <ul>
       <li>
         <a
-          href="https://github.com/nuxt-community/prismic-module/blob/master/CHANGELOG.md"
+          href="https://github.com/nuxt-modules/prismic/blob/master/CHANGELOG.md"
           target="_blank"
           rel="noopener"
           class="flex items-center transition duration-200 py-2 group dark:hover:text-gray-100 hover:text-gray-900"

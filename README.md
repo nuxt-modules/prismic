@@ -61,9 +61,9 @@ Thanks to [James Pegg](https://github.com/jamespeggsh) for the initial implement
 [npm-version-href]: https://npmjs.com/package/@nuxtjs/prismic
 [npm-downloads-src]: https://img.shields.io/npm/dm/@nuxtjs/prismic.svg
 [npm-downloads-href]: https://npmjs.com/package/@nuxtjs/prismic
-[github-actions-ci-src]: https://github.com/nuxt-community/prismic-module/workflows/ci/badge.svg
-[github-actions-ci-href]: https://github.com/nuxt-community/prismic-module/actions?query=workflow%3Aci
-[codecov-src]: https://img.shields.io/codecov/c/github/nuxt-community/prismic-module.svg
-[codecov-href]: https://codecov.io/gh/nuxt-community/prismic-module
+[github-actions-ci-src]: https://github.com/nuxt-modules/prismic/workflows/ci/badge.svg
+[github-actions-ci-href]: https://github.com/nuxt-modules/prismic/actions?query=workflow%3Aci
+[codecov-src]: https://img.shields.io/codecov/c/github/nuxt-modules/prismic.svg
+[codecov-href]: https://codecov.io/gh/nuxt-modules/prismic
 [license-src]: https://img.shields.io/npm/l/@nuxtjs/prismic.svg
 [license-href]: https://npmjs.com/package/@nuxtjs/prismic
