@@ -18,8 +18,8 @@ export default defineNuxtConfig({
 		}
 	],
 	github: {
-		owner: 'nuxt-community',
-		repo: 'prismic-module',
+		owner: 'nuxt-modules',
+		repo: 'prismic',
 		branch: 'v3'
 	},
 	plausible: {

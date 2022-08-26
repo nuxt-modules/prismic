@@ -31,7 +31,7 @@ const isActive = (link: any) => (link.exact ? route.fullPath === link._path : ro
 			{{ link?.navigation?.title || link.title }}
 		</NuxtLink>
 		<NuxtLink
-			to="https://github.com/nuxt-community/prismic-module/blob/master/CHANGELOG.md#readme"
+			to="https://github.com/nuxt-modules/prismic/blob/master/CHANGELOG.md#readme"
 			class="text-sm u-text-gray-500 hover:u-text-gray-700 inline-flex items-center space-x-0.5 group"
 		>
 			<span>Changelog</span>

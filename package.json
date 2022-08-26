@@ -12,7 +12,7 @@
 	],
 	"repository": {
 		"type": "git",
-		"url": "ssh://git@github.com/nuxt-community/prismic-module.git"
+		"url": "ssh://git@github.com/nuxt-modules/prismic.git"
 	},
 	"license": "MIT",
 	"author": "Nuxt.js Community",

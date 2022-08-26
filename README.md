@@ -3,8 +3,8 @@
 Replace all on all files (README.md, CONTRIBUTING.md, bug_report.md, package.json):
 - @nuxtjs/prismic
 - Easily connect your Nuxt 3 application to your content hosted on Prismic
-- nuxt-community/prismic-module
-- prismic-module
+- nuxt-modules/prismic
+- prismic
 
 -->
 
@@ -76,9 +76,9 @@ Whether you're helping us fix bugs, improve the docs, or spread the word, we'd l
 <!-- TODO: Replace link with a more useful one if available -->
 
 [forum-question]: https://community.prismic.io
-[repo-bug-report]: https://github.com/nuxt-community/prismic-module/issues/new?assignees=&labels=bug&template=bug_report.md&title=
-[repo-feature-request]: https://github.com/nuxt-community/prismic-module/issues/new?assignees=&labels=enhancement&template=feature_request.md&title=
-[repo-pull-requests]: https://github.com/nuxt-community/prismic-module/pulls
+[repo-bug-report]: https://github.com/nuxt-modules/prismic/issues/new?assignees=&labels=bug&template=bug_report.md&title=
+[repo-feature-request]: https://github.com/nuxt-modules/prismic/issues/new?assignees=&labels=enhancement&template=feature_request.md&title=
+[repo-pull-requests]: https://github.com/nuxt-modules/prismic/pulls
 
 <!-- Badges -->
 
@@ -86,10 +86,10 @@ Whether you're helping us fix bugs, improve the docs, or spread the word, we'd l
 [npm-version-href]: https://npmjs.com/package/@nuxtjs/prismic
 [npm-downloads-src]: https://img.shields.io/npm/dm/@nuxtjs/prismic.svg
 [npm-downloads-href]: https://npmjs.com/package/@nuxtjs/prismic
-[github-actions-ci-src]: https://github.com/nuxt-community/prismic-module/workflows/ci/badge.svg
-[github-actions-ci-href]: https://github.com/nuxt-community/prismic-module/actions?query=workflow%3Aci
-[codecov-src]: https://img.shields.io/codecov/c/github/nuxt-community/prismic-module.svg
-[codecov-href]: https://codecov.io/gh/nuxt-community/prismic-module
+[github-actions-ci-src]: https://github.com/nuxt-modules/prismic/workflows/ci/badge.svg
+[github-actions-ci-href]: https://github.com/nuxt-modules/prismic/actions?query=workflow%3Aci
+[codecov-src]: https://img.shields.io/codecov/c/github/nuxt-modules/prismic.svg
+[codecov-href]: https://codecov.io/gh/nuxt-modules/prismic
 [conventional-commits-src]: https://img.shields.io/badge/Conventional%20Commits-1.0.0-yellow.svg
 [conventional-commits-href]: https://conventionalcommits.org
 [license-src]: https://img.shields.io/npm/l/@nuxtjs/prismic.svg
