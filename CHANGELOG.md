@@ -2,6 +2,19 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [3.0.0-rc.1](https://github.com/nuxt-modules/prismic/compare/v3.0.0-rc.0...v3.0.0-rc.1) (2022-09-05)
+
+
+### Documentation
+
+* fix meta ([a7ec956](https://github.com/nuxt-modules/prismic/commit/a7ec956a2aff17f4aa1b86fa10ec1a5102a19c46))
+
+
+### Chore
+
+* enable prerelease support ([233eb3a](https://github.com/nuxt-modules/prismic/commit/233eb3a5ae5bf8cd37ec0001be3abf6c9439bd6f))
+* GitHub org change ([70dbd28](https://github.com/nuxt-modules/prismic/commit/70dbd28257f9bf4518000f4c610383adad4070a4))
+
 ## [3.0.0-rc.0](https://github.com/nuxt-modules/prismic/compare/v3.0.0-alpha.10...v3.0.0-rc.0) (2022-07-18)
 
 ### Features
