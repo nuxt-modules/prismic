@@ -28,7 +28,7 @@ export default defineNuxtModule<PrismicModuleOptions>({
 		name: pkgName,
 		version: pkgVersion,
 		configKey: 'prismic',
-		compatibility: { nuxt: '^3.0.0-rc.9' }
+		compatibility: { nuxt: '^3.0.0-rc.6' }
 	},
 	defaults: nuxt => ({
 		endpoint: '',
