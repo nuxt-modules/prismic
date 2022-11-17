@@ -1,5 +1,3 @@
-import { defineNuxtConfig } from 'nuxt'
-
 import prismicModule from '../src/module'
 
 // https://v3.nuxtjs.org/docs/directory-structure/nuxt.config

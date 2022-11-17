@@ -5,16 +5,14 @@ import {
 	createResolver,
 	addTemplate,
 	addPlugin,
-	addAutoImport,
+	addImports,
 	addComponent,
 	extendPages
 } from '@nuxt/kit'
-import { cleanDoubleSlashes } from 'ufo'
 
 import { isRepositoryEndpoint, getRepositoryName } from '@prismicio/client'
 import * as prismicVue from '@prismicio/vue'
 
-import { name as pkgName, version as pkgVersion } from '../package.json'
 import { logger, fileExists } from './lib'
 import type { PrismicModuleOptions } from './types'
 
@@ -22,20 +20,21 @@ import type { PrismicModuleOptions } from './types'
 export type { PrismicModuleOptions } from './types'
 export type { PrismicModuleOptions as ModuleOptions } from './types'
 
+const PACKAGE_NAME = '@nuxtjs/prismic'
+
 // Module export
 export default defineNuxtModule<PrismicModuleOptions>({
 	meta: {
-		name: pkgName,
-		version: pkgVersion,
+		name: PACKAGE_NAME,
 		configKey: 'prismic',
 		compatibility: { nuxt: '^3.0.0-rc.6' }
 	},
 	defaults: nuxt => ({
 		endpoint: '',
 		clientConfig: {},
-		client: cleanDoubleSlashes(`~/${nuxt.options.dir.app}/prismic/client`),
-		linkResolver: cleanDoubleSlashes(`~/${nuxt.options.dir.app}/prismic/linkResolver`),
-		htmlSerializer: cleanDoubleSlashes(`~/${nuxt.options.dir.app}/prismic/htmlSerializer`),
+		client: '~/app/prismic/client',
+		linkResolver: '~/app/prismic/linkResolver',
+		htmlSerializer: '~/app/prismic/htmlSerializer',
 		injectComponents: true,
 		components: {},
 		preview: '/preview',
@@ -80,7 +79,10 @@ export default defineNuxtModule<PrismicModuleOptions>({
 
 		// Expose options through public runtime config
 		nuxt.options.runtimeConfig.public ||= {} as typeof nuxt.options.runtimeConfig.public
-		nuxt.options.runtimeConfig.public[pkgName] = mergedOptions
+		// @ts-expect-error - Inferred type by `nuxi prepare` might vary depending on previous run.
+		//                    However, this is the source of truth for the runtime config and types
+		//                    will be inferred after it.
+		nuxt.options.runtimeConfig.public[PACKAGE_NAME] = mergedOptions
 
 		// Add plugin
 		addPlugin(resolver.resolve('runtime/plugin'))
@@ -115,8 +117,8 @@ export default defineNuxtModule<PrismicModuleOptions>({
 					from: '@prismicio/vue'
 				}
 			})
-		addAutoImport(composableAutoImports)
-		addAutoImport({
+		addImports(composableAutoImports)
+		addImports({
 			name: 'usePrismicPreview',
 			as: 'usePrismicPreview',
 			from: resolver.resolve('runtime/usePrismicPreview')

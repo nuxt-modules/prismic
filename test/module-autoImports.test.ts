@@ -1,6 +1,6 @@
 import { it, expect, vi, beforeEach, afterEach } from 'vitest'
 
-import { addAutoImport, addComponent } from '@nuxt/kit'
+import { addImports, addComponent } from '@nuxt/kit'
 
 import prismicModule from '../src/module'
 
@@ -13,7 +13,7 @@ beforeEach(() => {
 		logger: { info: vi.fn(), warn: vi.fn() }
 	}))
 	vi.mock('@nuxt/kit', async () => {
-		const { mockedNuxtKit } = await vi.importActual('./__testutils__/mockedNuxtKit')
+		const { mockedNuxtKit } = await vi.importActual<any>('./__testutils__/mockedNuxtKit')
 
 		return mockedNuxtKit()
 	})
@@ -73,9 +73,9 @@ it('doesn\'t auto-import component when `injectComponents` is `false`', () => {
 it('auto-imports composables', () => {
 	mockedPrismicModule({ endpoint: 'qwerty' })
 
-	expect(addAutoImport).toHaveBeenCalledTimes(2)
+	expect(addImports).toHaveBeenCalledTimes(2)
 	// @ts-expect-error - Mocked type is wrong
-	expect(addAutoImport.calls.flat(2).map(options => [options.name, options.as])).toMatchInlineSnapshot(`
+	expect(addImports.calls.flat(2).map(options => [options.name, options.as])).toMatchInlineSnapshot(`
 		[
 		  [
 		    "useAllPrismicDocumentsByEveryTag",

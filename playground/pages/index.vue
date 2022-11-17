@@ -1,22 +1,28 @@
 <template>
 	<div>
 		<div
-			@click="() => refreshNuxtData()">
+			@click="() => refreshNuxtData()"
+		>
 			Pending: {{ pending }}
 		</div>
 		<div v-if="!pending">
-			<prismic-link v-slot="{ href }"
-				:field="doc.data.relation">
+			<prismic-link
+				v-slot="{ href }"
+				:field="doc?.data.relation"
+			>
 				{{ href }} foo
 			</prismic-link>
-			<prismic-link v-slot="{ href }"
-				:field="{ link_type: 'Web', url: 'https://google.com' }">
+			<prismic-link
+				v-slot="{ href }"
+				:field="{ link_type: 'Web', url: 'https://google.com' }"
+			>
 				{{ href }} bar
 			</prismic-link>
 			<prismic-rich-text
-				:field="doc.data.richtext" />
-			<!-- <prismic-text :field="home?.data.body[0].primary.title" /> -->
-			<!-- <slice-zone :slices="home?.data.body" /> -->
+				:field="doc?.data.richtext"
+			/>
+			<!-- <prismic-text :field="doc?.data.body[0].primary.title" /> -->
+			<!-- <slice-zone :slices="doc?.data.body" /> -->
 		</div>
 	</div>
 </template>

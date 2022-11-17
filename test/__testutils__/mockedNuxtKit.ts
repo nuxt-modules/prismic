@@ -31,7 +31,7 @@ export const mockedNuxtKit = async () => {
 		},
 		addTemplate: vi.fn(),
 		addPlugin: vi.fn(),
-		addAutoImport: vi.fn(),
+		addImports: vi.fn(),
 		addComponent: vi.fn(),
 		extendPages: vi.fn((extendPagesHook) => {
 			const pages = []
