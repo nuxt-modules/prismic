@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [3.0.0-rc.2](https://github.com/nuxt-modules/prismic/compare/v3.0.0-rc.1...v3.0.0-rc.2) (2022-11-17)
+
+
+### Chore
+
+* **deps:** update to Nuxt 3 ([884d067](https://github.com/nuxt-modules/prismic/commit/884d067cc41f00a414eef24474d9d9e7168745df))
+
 ## [3.0.0-rc.1](https://github.com/nuxt-modules/prismic/compare/v3.0.0-rc.0...v3.0.0-rc.1) (2022-09-05)
 
 
