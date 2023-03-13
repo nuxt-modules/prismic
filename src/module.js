@@ -107,7 +107,7 @@ async function install (moduleOptions) {
             const libraries = []
 
             for (const rawLibrary of rawLibraries) {
-              if (/^[@~.]/.test(rawLibrary)) {
+              if (/^[@~.]\//.test(rawLibrary)) {
                 const libraryAbsolutePath = path.resolve(root, rawLibrary.replace(/^[@~.]/, '.'))
                 const libraryRelativePath = path.relative(this.options.rootDir, libraryAbsolutePath).replaceAll('\\', '/')
                 libraries.push(`~~/${libraryRelativePath}`)

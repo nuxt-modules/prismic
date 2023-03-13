@@ -1,6 +1,6 @@
 {
   "_latest": "1.0.0",
   "repositoryName": "nuxt",
-  "libraries": ["./slices", "@/slices", "~/slices"],
+  "libraries": ["@/slices", "@/marketing", "my-company"],
   "localSliceSimulatorURL": "http://localhost:3000/simulator"
 }
