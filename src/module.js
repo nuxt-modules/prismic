@@ -91,13 +91,26 @@ async function install (moduleOptions) {
 
             const manager = createSliceMachineManager({ cwd: this.options.rootDir })
 
-            const root = await manager.project.getRoot()
+            let root
+
+            try {
+              root = await manager.project.getRoot()
+            } catch {
+              root = this.options.rootDir
+            }
+
             let config
             try {
               config = await manager.project.getSliceMachineConfig()
-            } catch (error) {
-              const configPath = await manager.project.getSliceMachineConfigPath()
-              config = JSON.parse(fs.readFileSync(configPath))
+            } catch {
+              let configPath
+              try {
+                configPath = await manager.project.getSliceMachineConfigPath()
+                config = JSON.parse(fs.readFileSync(configPath))
+              } catch {
+                configPath = path.join(root, 'sm.json')
+                config = JSON.parse(fs.readFileSync(configPath))
+              }
 
               if (!Array.isArray(config.libraries)) {
                 throw new TypeError(`\`${configPath}\` is missing \`libraries\` array`)

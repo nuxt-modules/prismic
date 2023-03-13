@@ -1,7 +1,7 @@
-<% _.forEach(options.libraries, function(library, index) { %>import { components as library<%- index %> } from '<%- library %>'
+<% options.libraries.forEach((library, index) => { %>import { components as library<%- index %> } from '<%- library %>'
 <% }); %>
 
 export default {
-<% _.forEach(options.libraries, function(library, index) { %>  ...library<%- index %>,
+<% options.libraries.forEach((library, index) => { %>  ...library<%- index %>,
 <% }); %>
 }
