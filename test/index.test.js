@@ -8,6 +8,22 @@ const logger = require('@/logger')
 logger.mockTypes(() => jest.fn())
 
 jest.mock('@prismicio/client')
+jest.mock('@slicemachine/manager', () => {
+  const actual = jest.requireActual('@slicemachine/manager')
+
+  return {
+    ...actual,
+    createSliceMachineManager: () => {
+      return {
+        project: {
+          getRoot: () => Promise.resolve('/var/nuxt'),
+          getSliceMachineConfig: () => Promise.resolve({ libraries: ['~/slices'] }),
+          getSliceMachineConfigPath: () => Promise.resolve('/var/nuxt/slicemachine.config.json')
+        }
+      }
+    }
+  }
+})
 
 Prismic.client = jest.fn(() => ({
   query () {
@@ -32,6 +48,7 @@ describe('prismic-nuxt module', () => {
       }),
       options: {
         srcDir: '/var/nuxt',
+        rootDir: '/var/nuxt',
         buildDir: '/var/nuxt/.nuxt/',
         head: {},
         dir: {},
@@ -46,6 +63,7 @@ describe('prismic-nuxt module', () => {
 
     moduleOptions = {
       endpoint: 'https://repoz.prismic.io/api/v2',
+      simulator: false,
       apiOptions: {
         routes: [{
           type: 'page',
@@ -59,36 +77,53 @@ describe('prismic-nuxt module', () => {
     expect(prismicNuxt).toBeDefined()
   })
 
-  it('should add the components', () => {
-    prismicNuxt.call(context, moduleOptions)
+  it('should add the components', async () => {
+    await prismicNuxt.call(context, moduleOptions)
     expect(context.addPlugin.mock.calls).toHaveLength(2)
   })
 
-  it('should not add the components if components=false', () => {
-    prismicNuxt.call(context, { ...moduleOptions, components: false })
+  it('should not add the components if components=false', async () => {
+    await prismicNuxt.call(context, { ...moduleOptions, components: false })
     expect(context.addPlugin.mock.calls).toHaveLength(1)
   })
 
-  it('should set preview to /preview if true', () => {
-    prismicNuxt.call(context, { ...moduleOptions, preview: true })
+  it('should set preview to /preview if true', async () => {
+    await prismicNuxt.call(context, { ...moduleOptions, preview: true })
     expect(context.addPlugin.mock.calls.length).toEqual(2)
     expect(context.addPlugin.mock.calls[1][0].options.preview).toEqual('/preview')
   })
 
-  it('should set preview to /test_preview', () => {
-    prismicNuxt.call(context, { ...moduleOptions, preview: '/test_preview' })
+  it('should set preview to /test_preview', async () => {
+    await prismicNuxt.call(context, { ...moduleOptions, preview: '/test_preview' })
     expect(context.addPlugin.mock.calls[1][0].options.preview).toEqual('/test_preview')
     expect(context._routes[0].path).toEqual('/test_preview')
     expect(context._resolve.mock.calls[0]).toEqual(['/var/nuxt/.nuxt/', 'prismic/pages/preview.vue'])
   })
 
-  it('should remove preview if false', () => {
-    prismicNuxt.call(context, { ...moduleOptions, preview: false })
+  it('should remove preview if false', async () => {
+    await prismicNuxt.call(context, { ...moduleOptions, preview: false })
     expect(context.addPlugin.mock.calls.length).toEqual(2)
   })
 
-  it('should parse repo from endpoint', () => {
-    prismicNuxt.call(context, { endpoint: 'https://test2.prismic.io/api/v2' })
+  it('should set simulator to /simulator if true', async () => {
+    await prismicNuxt.call(context, { ...moduleOptions, simulator: true })
+    expect(context.extendRoutes.mock.calls.length).toEqual(2)
+    expect(context._routes[0].path).toEqual('/simulator')
+  })
+
+  it('should set simulator to /slice-simulator', async () => {
+    await prismicNuxt.call(context, { ...moduleOptions, simulator: '/slice-simulator' })
+    expect(context.extendRoutes.mock.calls.length).toEqual(2)
+    expect(context._routes[0].path).toEqual('/slice-simulator')
+  })
+
+  it('should remove simulator if false', async () => {
+    await prismicNuxt.call(context, { ...moduleOptions, simulator: false })
+    expect(context.addPlugin.mock.calls.length).toEqual(2)
+  })
+
+  it('should parse repo from endpoint', async () => {
+    await prismicNuxt.call(context, { endpoint: 'https://test2.prismic.io/api/v2' })
     expect(context.addPlugin.mock.calls[1][0].options.repo).toEqual('test2')
   })
 
@@ -126,13 +161,13 @@ describe('prismic-nuxt module', () => {
     expect(context.addTemplate.mock.calls[2][0].src).toEqual(path.join('/var/nuxt/app/prismic/html-serializer.js'))
   })
 
-  it('should call hook on generate:before', () => {
-    prismicNuxt.call(context, moduleOptions)
+  it('should call hook on generate:before', async () => {
+    await prismicNuxt.call(context, moduleOptions)
     expect(context.nuxt.hook).toBeCalledWith('generate:before', expect.any(Function))
   })
 
   it('should return routes on generate', async () => {
-    prismicNuxt.call(context, moduleOptions)
+    await prismicNuxt.call(context, moduleOptions)
     expect(context.options.generate.routes).toEqual(expect.any(Function))
     try {
       const routes = await context.options.generate.routes()
@@ -145,7 +180,7 @@ describe('prismic-nuxt module', () => {
 
   it('should preserve user defined routes on generate', async () => {
     context.options.generate.routes = ['/user-route']
-    prismicNuxt.call(context, moduleOptions)
+    await prismicNuxt.call(context, moduleOptions)
     expect(context.options.generate.routes).toEqual(expect.any(Function))
     const routes = await context.options.generate.routes()
     const expectedRoutes = ['/pages/my-page', '/pages/another-page', '/', '/user-route']
@@ -154,7 +189,7 @@ describe('prismic-nuxt module', () => {
 
   it('should preserve user routes function if it is defined', async () => {
     context.options.generate.routes = () => ['/user-route']
-    prismicNuxt.call(context, moduleOptions)
+    await prismicNuxt.call(context, moduleOptions)
     expect(context.options.generate.routes).toEqual(expect.any(Function))
     const routes = await context.options.generate.routes()
     const expectedRoutes = ['/pages/my-page', '/pages/another-page', '/', '/user-route']
@@ -162,22 +197,22 @@ describe('prismic-nuxt module', () => {
     expect(context.nuxt.hook).toBeCalledWith('generate:before', expect.anything())
   })
 
-  it('should not run generate if disabled', () => {
+  it('should not run generate if disabled', async () => {
     moduleOptions.disableGenerator = true
-    prismicNuxt.call(context, moduleOptions)
+    await prismicNuxt.call(context, moduleOptions)
     expect(context.nuxt.hook).not.toBeCalledWith('generate:before', expect.anything())
   })
 
-  it('should not run generate if only modern is set', () => {
+  it('should not run generate if only modern is set', async () => {
     moduleOptions.modern = true
-    prismicNuxt.call(context, moduleOptions)
+    await prismicNuxt.call(context, moduleOptions)
     expect(context.nuxt.hook).not.toBeCalledWith('generate:before', expect.anything())
   })
 
-  it('should run generate if modern is set and generator is explicitely not disabled', () => {
+  it('should run generate if modern is set and generator is explicitely not disabled', async () => {
     moduleOptions.modern = true
     moduleOptions.disableGenerator = false
-    prismicNuxt.call(context, moduleOptions)
+    await prismicNuxt.call(context, moduleOptions)
     expect(context.nuxt.hook).toBeCalledWith('generate:before', expect.anything())
   })
 })
