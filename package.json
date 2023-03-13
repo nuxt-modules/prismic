@@ -27,13 +27,16 @@
     "test": "npm run lint && npm run unit"
   },
   "dependencies": {
-    "@prismicio/client": "^4.0.0 || ^5.1.0",
-    "@prismicio/vue": "^2.1.0",
+    "@prismicio/client": "^5.1.1 || ^4.0.0",
+    "@prismicio/vue": "^2.2.0",
+    "@slicemachine/manager": "0.1.1-dev-plugins.3",
     "consola": "^2.15.3",
-    "prismic-dom": "^2.2.6"
+    "io-ts-types": "^0.5.19",
+    "prismic-dom": "^2.2.7"
   },
   "devDependencies": {
     "@nuxtjs/eslint-config": "latest",
+    "@prismicio/slice-simulator-vue": "^0.2.3",
     "@types/jest": "latest",
     "babel-eslint": "latest",
     "eslint": "latest",
