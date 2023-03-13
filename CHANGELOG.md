@@ -2,6 +2,33 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [1.5.0-alpha.0](https://github.com/nuxt-modules/prismic/compare/v1.4.2...v1.5.0-alpha.0) (2023-03-13)
+
+
+### Features
+
+* inject `slice-simulator` automatically ([e7ca141](https://github.com/nuxt-modules/prismic/commit/e7ca14187ef407aa8ede542fcc86cbcfb1cad559))
+
+
+### Bug Fixes
+
+* provide empty state for backward compatibility ([a7805c4](https://github.com/nuxt-modules/prismic/commit/a7805c44c0c381955617c06c772692ba4b7b5c30))
+* remove lodash dependency on templates ([766f39c](https://github.com/nuxt-modules/prismic/commit/766f39c5af43e4ffce11a37aaf2671928bd3a444))
+* support legacy `sm.json` ([552fd7a](https://github.com/nuxt-modules/prismic/commit/552fd7af87a9997caee1b5ea51b28b3954b6ff3c))
+* use correct export from slice libraries ([3ff27fe](https://github.com/nuxt-modules/prismic/commit/3ff27fe131cec01a4668ba987737be0fe102b6a2))
+
+
+### Chore
+
+* GitHub org change ([d56bc86](https://github.com/nuxt-modules/prismic/commit/d56bc867040d6abd752e807be68c822297d0b3c3))
+
+
+### Documentation
+
+* new `simulator` option ([da1138d](https://github.com/nuxt-modules/prismic/commit/da1138d2fd236f67eb2f6ba7f3b0e620c78525b0))
+* remove warning ([9d91b66](https://github.com/nuxt-modules/prismic/commit/9d91b66f4d45847309884b7526e3f58a8b7ba53c))
+* udpate example ([4066381](https://github.com/nuxt-modules/prismic/commit/40663813d8c1a31736a9c13457e7c229c422d411))
+
 ### [1.4.2](https://github.com/nuxt-modules/prismic/compare/v1.4.1...v1.4.2) (2022-04-08)
 
 ### Bug Fixes
