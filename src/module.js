@@ -55,9 +55,9 @@ async function install (moduleOptions) {
   // Add in Prismic Simulator for Slice Machine
   if (options.simulator) {
     // Skip on existing simulator (legacy)
-    const slashSliceSimulator = path.join(this.options.srcDir, pages, 'pages', 'slice-simulator.vue')
+    const slashSliceSimulator = path.join(this.options.srcDir, pages, 'slice-simulator.vue')
     if (fs.existsSync(slashSliceSimulator)) {
-      logger.warn('TODO')
+      logger.info('Using user-defined simulator page within the `pages` directory, available at `/slice-simulator')
     } else {
       // Detect Simulator provider (flavor)
       let flavor
