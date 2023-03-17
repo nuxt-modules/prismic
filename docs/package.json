@@ -9,11 +9,11 @@
     "generate": "nuxt generate"
   },
   "dependencies": {
-    "docus": "0.1.5",
+    "docus": "0.9.0",
     "nuxt-edge": "latest"
   },
   "devDependencies": {
-    "nuxt-vite": "0.0.37",
-    "vue-plausible": "^1.1.4"
+    "nuxt-vite": "0.3.5",
+    "vue-plausible": "^1.3.2"
   }
 }

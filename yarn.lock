@@ -1572,10 +1572,10 @@
   resolved "https://registry.yarnpkg.com/@prismicio/richtext/-/richtext-1.1.0.tgz#c8769c3d953ae42854a2aba951e3b2121682b8c7"
   integrity sha512-925JuFiZiIkwu9jmlR9O/U8xCSZk/Y6BQDXKpavoVsKo+n90ml1hGdtWkglIupX+ITQO1ZINyDgUgiY1oG9dsA==
 
-"@prismicio/vue@^2.1.0":
-  version "2.1.0"
-  resolved "https://registry.yarnpkg.com/@prismicio/vue/-/vue-2.1.0.tgz#9e480f0f6714e6c9b60e7105e02c0506817391f7"
-  integrity sha512-9lc0x02ZsMD7KdyRikGLXVuEPnVSLGpEo24AcTnf9KiVBBYLPNx/lxESNr9gvLg0z77bs9ivu5BTBt67acEcGQ==
+"@prismicio/vue@^2.2.0":
+  version "2.2.0"
+  resolved "https://registry.yarnpkg.com/@prismicio/vue/-/vue-2.2.0.tgz#17144e0ede2efa5c4818e97eeeef95da0c13396f"
+  integrity sha512-k5WZor+XaNvmwBHbTL1phb/i+9VKNxvFgdaWYJpSqJVUyDaAQeuRFxt1pWuGGKGLsgf/SmiBvN84KX8QkfjZaw==
 
 "@sinonjs/commons@^1.7.0":
   version "1.8.3"
@@ -8486,10 +8486,10 @@ pretty-time@^1.1.0:
   resolved "https://registry.yarnpkg.com/pretty-time/-/pretty-time-1.1.0.tgz#ffb7429afabb8535c346a34e41873adf3d74dd0e"
   integrity sha512-28iF6xPQrP8Oa6uxE6a1biz+lWeTOAPKggvjB8HAs6nVMKZwf5bG++632Dx614hIWgUPkgivRfG+a8uAXGTIbA==
 
-prismic-dom@^2.2.6:
-  version "2.2.6"
-  resolved "https://registry.yarnpkg.com/prismic-dom/-/prismic-dom-2.2.6.tgz#a7bbf54b8bcae00e44067c1b376cb7e275139ea9"
-  integrity sha512-b4TDkfNisfRPGBpvUSuHIs3bfCFqc7k9Eek81LM5ReHB8OrzTxYqvC6IukLPVMdxpCGCwbOfNQX4ae+2T0hbrQ==
+prismic-dom@^2.2.7:
+  version "2.2.7"
+  resolved "https://registry.yarnpkg.com/prismic-dom/-/prismic-dom-2.2.7.tgz#a4d36cc4fc92b84f8b46e5a515513c07b5f2f43e"
+  integrity sha512-4rJWzBqq/6h15giAzB6L8+eaWLQJrQcM4EAicmtw3mI8DhussbJOgheTeFtTCgvO7e5QEjZA0he5gEbQYfKGmg==
   dependencies:
     "@prismicio/helpers" "^1.0.4"
     "@prismicio/richtext" "^1.1.0"
