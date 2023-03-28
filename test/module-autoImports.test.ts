@@ -70,7 +70,7 @@ it('doesn\'t auto-import component when `injectComponents` is `false`', () => {
 	expect(addComponent).not.toHaveBeenCalled()
 })
 
-it('auto-imports composables', () => {
+it('auto-imports', () => {
 	mockedPrismicModule({ endpoint: 'qwerty' })
 
 	expect(addImports).toHaveBeenCalledTimes(2)
@@ -164,6 +164,14 @@ it('auto-imports composables', () => {
 		  [
 		    "useSinglePrismicDocument",
 		    "useSinglePrismicDocument",
+		  ],
+		  [
+		    "getSliceComponentProps",
+		    "getSliceComponentProps",
+		  ],
+		  [
+		    "defineSliceZoneComponents",
+		    "defineSliceZoneComponents",
 		  ],
 		  [
 		    "usePrismicPreview",

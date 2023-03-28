@@ -1,5 +1,6 @@
 import { join } from 'node:path'
 
+import { defu } from 'defu'
 import {
 	defineNuxtModule,
 	createResolver,
@@ -10,7 +11,6 @@ import {
 	extendPages
 } from '@nuxt/kit'
 
-import { isRepositoryEndpoint, getRepositoryName } from '@prismicio/client'
 import * as prismicVue from '@prismicio/vue'
 
 import { logger, fileExists } from './lib'
@@ -18,14 +18,17 @@ import type { PrismicModuleOptions } from './types'
 
 // Options export
 export type { PrismicModuleOptions } from './types'
-export type { PrismicModuleOptions as ModuleOptions } from './types'
 
-const PACKAGE_NAME = '@nuxtjs/prismic'
+declare module '@nuxt/schema' {
+	interface PublicRuntimeConfig {
+		prismic: PrismicModuleOptions
+	}
+}
 
 // Module export
 export default defineNuxtModule<PrismicModuleOptions>({
 	meta: {
-		name: PACKAGE_NAME,
+		name: '@nuxtjs/prismic',
 		configKey: 'prismic',
 		compatibility: { nuxt: '^3.0.0' }
 	},
@@ -41,8 +44,8 @@ export default defineNuxtModule<PrismicModuleOptions>({
 		toolbar: true
 	}),
 	hooks: {},
-	setup (mergedOptions, nuxt) {
-		if (!mergedOptions.endpoint) {
+	setup (options, nuxt) {
+		if (!options.endpoint) {
 			logger.warn('Options `endpoint` is required, disabling module...')
 			return
 		}
@@ -73,23 +76,20 @@ export default defineNuxtModule<PrismicModuleOptions>({
 				})
 			}
 		}
-		proxyUserFileWithUndefinedFallback('client', mergedOptions.client!)
-		proxyUserFileWithUndefinedFallback('linkResolver', mergedOptions.linkResolver!)
-		proxyUserFileWithUndefinedFallback('htmlSerializer', mergedOptions.htmlSerializer!)
+		proxyUserFileWithUndefinedFallback('client', options.client!)
+		proxyUserFileWithUndefinedFallback('linkResolver', options.linkResolver!)
+		proxyUserFileWithUndefinedFallback('htmlSerializer', options.htmlSerializer!)
 
 		// Expose options through public runtime config
 		nuxt.options.runtimeConfig.public ||= {} as typeof nuxt.options.runtimeConfig.public
-		// @ts-expect-error - Inferred type by `nuxi prepare` might vary depending on previous run.
-		//                    However, this is the source of truth for the runtime config and types
-		//                    will be inferred after it.
-		nuxt.options.runtimeConfig.public[PACKAGE_NAME] = mergedOptions
+		nuxt.options.runtimeConfig.public.prismic = defu(nuxt.options.runtimeConfig.public.prismic, options)
 
 		// Add plugin
 		addPlugin(resolver.resolve('runtime/plugin'))
 		addPlugin(resolver.resolve('runtime/plugin.client'))
 
 		// Add components auto import
-		if (mergedOptions.injectComponents) {
+		if (options.injectComponents) {
 			[
 				'PrismicEmbed',
 				'PrismicImage',
@@ -106,10 +106,11 @@ export default defineNuxtModule<PrismicModuleOptions>({
 			})
 		}
 
-		// Add composable auto import
-		const composableAutoImports = Object
+		// Add auto imports
+		const prismicVueAutoImports = Object
 			.keys(prismicVue)
 			.filter(key => key.startsWith('use'))
+			.concat('getSliceComponentProps', 'defineSliceZoneComponents')
 			.map((key) => {
 				return {
 					name: key,
@@ -117,7 +118,7 @@ export default defineNuxtModule<PrismicModuleOptions>({
 					from: '@prismicio/vue'
 				}
 			})
-		addImports(composableAutoImports)
+		addImports(prismicVueAutoImports)
 		addImports({
 			name: 'usePrismicPreview',
 			as: 'usePrismicPreview',
@@ -125,42 +126,27 @@ export default defineNuxtModule<PrismicModuleOptions>({
 		})
 
 		// Add preview route
-		if (mergedOptions.preview) {
-			const maybeUserPreviewPage = fileExists(join(nuxt.options.srcDir, nuxt.options.dir.pages, mergedOptions.preview), ['js', 'ts', 'vue'])
+		if (options.preview) {
+			const maybeUserPreviewPage = fileExists(join(nuxt.options.srcDir, nuxt.options.dir.pages, options.preview), ['js', 'ts', 'vue'])
 
 			if (maybeUserPreviewPage) {
 				logger.info(`Using user-defined preview page at \`${maybeUserPreviewPage.replace(join(nuxt.options.srcDir), '~').replace(nuxt.options.rootDir, '~~').replace(/\\/g, '/')
-				}\`, available at \`${mergedOptions.preview}\``)
+				}\`, available at \`${options.preview}\``)
 			} else {
-				logger.info(`Using default preview page, available at \`${mergedOptions.preview}\``)
+				logger.info(`Using default preview page, available at \`${options.preview}\``)
 
 				extendPages((pages) => {
 					pages.unshift({
 						name: 'prismic-preview',
-						path: mergedOptions.preview as string, // Checked before
+						path: options.preview as string, // Checked before
 						file: resolver.resolve('runtime/preview.vue')
 					})
 				})
 			}
 
-			if (!mergedOptions.toolbar) {
+			if (!options.toolbar) {
 				logger.warn('`toolbar` option is disabled but `preview` is enabled. Previews won\'t work unless you manually load the toolbar.')
 			}
-		}
-
-		if (mergedOptions.toolbar) {
-			// Add toolbar
-			const repositoryName = isRepositoryEndpoint(mergedOptions.endpoint)
-				? getRepositoryName(mergedOptions.endpoint)
-				: mergedOptions.endpoint
-			nuxt.options.app.head ||= {}
-			nuxt.options.app.head.script ||= []
-			nuxt.options.app.head.script.push({
-				hid: 'prismic-preview',
-				src: `https://static.cdn.prismic.io/prismic.min.js?repo=${repositoryName}&new=true`,
-				async: true,
-				defer: true
-			})
 		}
 	}
 })

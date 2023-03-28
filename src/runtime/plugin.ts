@@ -1,10 +1,10 @@
-import { defineNuxtPlugin, useCookie, useRequestEvent, refreshNuxtData } from '#app'
 import NuxtLink from '#app/components/nuxt-link'
 
+import { isRepositoryEndpoint, getRepositoryName } from '@prismicio/client'
 import { createPrismic } from '@prismicio/vue'
 
-// import { name as pkgName } from '../../package.json'
 import { PrismicModuleOptions } from '../types'
+import { defineNuxtPlugin, useCookie, useRequestEvent, refreshNuxtData, useHead } from '#imports'
 
 // @ts-expect-error vfs cannot be resolved here
 import client from '#build/prismic/proxy/client'
@@ -13,17 +13,11 @@ import linkResolver from '#build/prismic/proxy/linkResolver'
 // @ts-expect-error vfs cannot be resolved here
 import htmlSerializer from '#build/prismic/proxy/htmlSerializer'
 
-// TODO: Revert when fixed
-const pkgName = '@nuxtjs/prismic'
-
 export default defineNuxtPlugin((nuxtApp) => {
-	const mergedOptions: PrismicModuleOptions =
-		nuxtApp.payload.config[pkgName] ??
-		nuxtApp.payload.config.public[pkgName] ??
-		{}
+	const options: PrismicModuleOptions = useRuntimeConfig().public.prismic
 
 	const prismicPlugin = createPrismic({
-		...mergedOptions,
+		...options,
 		client,
 		linkResolver,
 		htmlSerializer,
@@ -31,13 +25,13 @@ export default defineNuxtPlugin((nuxtApp) => {
 		components: {
 			linkInternalComponent: NuxtLink,
 			linkExternalComponent: NuxtLink,
-			...mergedOptions.components
+			...options.components
 		}
 	})
 
 	nuxtApp.vueApp.use(prismicPlugin)
 
-	if (mergedOptions.preview) {
+	if (options.preview) {
 		const previewCookie = useCookie('io.prismic.preview').value
 
 		// Update client with req when running server side
@@ -63,5 +57,21 @@ export default defineNuxtPlugin((nuxtApp) => {
 				console.warn('Failed to parse Prismic preview cookie', error)
 			}
 		}
+	}
+
+	if (options.toolbar) {
+		// Add toolbar
+		const repositoryName = isRepositoryEndpoint(options.endpoint)
+			? getRepositoryName(options.endpoint)
+			: options.endpoint
+
+		useHead({
+			script: [{
+				key: 'prismic-preview',
+				src: `https://static.cdn.prismic.io/prismic.min.js?repo=${repositoryName}&new=true`,
+				async: true,
+				defer: true
+			}]
+		})
 	}
 })
