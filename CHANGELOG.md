@@ -2,6 +2,31 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [3.0.0-rc.3](https://github.com/nuxt-modules/prismic/compare/v3.0.0-rc.2...v3.0.0-rc.3) (2023-03-28)
+
+
+### Features
+
+* allow configuring module at runtime using environment variables ([3328125](https://github.com/nuxt-modules/prismic/commit/33281256034a2038e840869dffb2836a4a2797c1))
+* inject Vue plugin into Nuxt app ([c12457e](https://github.com/nuxt-modules/prismic/commit/c12457ef9e6076c83612019f444de7547c830267))
+
+
+### Documentation
+
+* add link resolver warning ([cd6e497](https://github.com/nuxt-modules/prismic/commit/cd6e497a13e5a4f8313d26f9d7cfcbabcc340cb8))
+
+
+### Refactor
+
+* inject toolbar script from plugin ([cbab6c8](https://github.com/nuxt-modules/prismic/commit/cbab6c89473e6eff9c19746e791a0f4d520c625a))
+
+
+### Chore
+
+* **deps:** add missing package ([dcab0b8](https://github.com/nuxt-modules/prismic/commit/dcab0b8e7e4feb8328b9d3402e892d8ed5744ea2))
+* **deps:** maintain dependencies ([1d289e3](https://github.com/nuxt-modules/prismic/commit/1d289e3d128a58b71c16b505b70d36b8c08c4135))
+* **deps:** maintain dependencies ([e54cae3](https://github.com/nuxt-modules/prismic/commit/e54cae359b33becf3b5ed145a7099c6350f731e0))
+
 ## [3.0.0-rc.2](https://github.com/nuxt-modules/prismic/compare/v3.0.0-rc.1...v3.0.0-rc.2) (2022-11-17)
 
 
