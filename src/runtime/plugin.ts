@@ -74,4 +74,8 @@ export default defineNuxtPlugin((nuxtApp) => {
 			}]
 		})
 	}
+
+	return {
+		provide: { prismic: prismicPlugin }
+	}
 })
