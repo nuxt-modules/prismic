@@ -1,6 +1,6 @@
 import { join } from 'node:path'
-import { defu } from 'defu'
 
+import { defu } from 'defu'
 import {
 	defineNuxtModule,
 	createResolver,
@@ -11,7 +11,6 @@ import {
 	extendPages
 } from '@nuxt/kit'
 
-import { isRepositoryEndpoint, getRepositoryName } from '@prismicio/client'
 import * as prismicVue from '@prismicio/vue'
 
 import { logger, fileExists } from './lib'
@@ -20,18 +19,16 @@ import type { PrismicModuleOptions } from './types'
 // Options export
 export type { PrismicModuleOptions } from './types'
 
-declare module 'nuxt/schema' {
+declare module '@nuxt/schema' {
 	interface PublicRuntimeConfig {
 		prismic: PrismicModuleOptions
 	}
 }
 
-const PACKAGE_NAME = '@nuxtjs/prismic'
-
 // Module export
 export default defineNuxtModule<PrismicModuleOptions>({
 	meta: {
-		name: PACKAGE_NAME,
+		name: '@nuxtjs/prismic',
 		configKey: 'prismic',
 		compatibility: { nuxt: '^3.0.0' }
 	},
@@ -109,10 +106,11 @@ export default defineNuxtModule<PrismicModuleOptions>({
 			})
 		}
 
-		// Add composable auto import
-		const composableAutoImports = Object
+		// Add auto imports
+		const prismicVueAutoImports = Object
 			.keys(prismicVue)
 			.filter(key => key.startsWith('use'))
+			.concat('getSliceComponentProps', 'defineSliceZoneComponents')
 			.map((key) => {
 				return {
 					name: key,
@@ -120,7 +118,7 @@ export default defineNuxtModule<PrismicModuleOptions>({
 					from: '@prismicio/vue'
 				}
 			})
-		addImports(composableAutoImports)
+		addImports(prismicVueAutoImports)
 		addImports({
 			name: 'usePrismicPreview',
 			as: 'usePrismicPreview',
@@ -149,21 +147,6 @@ export default defineNuxtModule<PrismicModuleOptions>({
 			if (!options.toolbar) {
 				logger.warn('`toolbar` option is disabled but `preview` is enabled. Previews won\'t work unless you manually load the toolbar.')
 			}
-		}
-
-		if (options.toolbar) {
-			// Add toolbar
-			const repositoryName = isRepositoryEndpoint(options.endpoint)
-				? getRepositoryName(options.endpoint)
-				: options.endpoint
-			nuxt.options.app.head ||= {}
-			nuxt.options.app.head.script ||= []
-			nuxt.options.app.head.script.push({
-				hid: 'prismic-preview',
-				src: `https://static.cdn.prismic.io/prismic.min.js?repo=${repositoryName}&new=true`,
-				async: true,
-				defer: true
-			})
 		}
 	}
 })
