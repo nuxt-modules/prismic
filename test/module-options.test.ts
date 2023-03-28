@@ -1,6 +1,5 @@
 import { it, expect, vi, beforeEach, afterEach } from 'vitest'
 
-import { name as pkgName } from '../package.json'
 import prismicModule from '../src/module'
 
 import { mockModule } from './__testutils__/mockModule'
@@ -37,7 +36,7 @@ it('transpiles dependencies', () => {
 it('exposes options in runtime config', () => {
 	const { nuxt } = mockedPrismicModule({ endpoint: 'qwerty' })
 
-	expect(nuxt.options.runtimeConfig.public[pkgName]).toMatchInlineSnapshot(`
+	expect(nuxt.options.runtimeConfig.public.prismic).toMatchInlineSnapshot(`
 		{
 		  "client": "~/app/prismic/client",
 		  "clientConfig": {},

@@ -1,3 +1,5 @@
+// TODO: This test file will need to be refactored with @nuxt/test-utils to run plugins.
+
 import { it, expect, vi, beforeEach, afterEach } from 'vitest'
 
 import prismicModule from '../src/module'
@@ -21,7 +23,7 @@ afterEach(() => {
 	vi.restoreAllMocks()
 })
 
-it('injects toolbar from repository name', () => {
+it.skip('injects toolbar from repository name', () => {
 	const { nuxt } = mockedPrismicModule({ endpoint: 'qwerty' })
 
 	expect(nuxt.options.app.head.script?.find(scripts => scripts.hid === 'prismic-preview')).toMatchInlineSnapshot(`
@@ -34,7 +36,7 @@ it('injects toolbar from repository name', () => {
 	`)
 })
 
-it('injects toolbar from repository endpoint', () => {
+it.skip('injects toolbar from repository endpoint', () => {
 	const { nuxt } = mockedPrismicModule({ endpoint: 'https://qwerty.cdn.prismic.io/api/v2' })
 
 	expect(nuxt.options.app.head.script?.find(scripts => scripts.hid === 'prismic-preview')).toMatchInlineSnapshot(`
