@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [3.0.0-rc.4](https://github.com/nuxt-modules/prismic/compare/v3.0.0-rc.3...v3.0.0-rc.4) (2023-03-30)
+
+
+### Bug Fixes
+
+* explicitely import utilities in module runtime ([9e9af4b](https://github.com/nuxt-modules/prismic/commit/9e9af4b67f5572724e214fa3cb28eb95fed24789))
+
 ## [3.0.0-rc.3](https://github.com/nuxt-modules/prismic/compare/v3.0.0-rc.2...v3.0.0-rc.3) (2023-03-28)
 
 
