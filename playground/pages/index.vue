@@ -28,6 +28,8 @@
 </template>
 
 <script setup lang="ts">
+import { usePrismic, useAsyncData, refreshNuxtData } from '#imports'
+
 const { client } = usePrismic()
 const { data: doc, pending } = await useAsyncData('doc', () => client.getSingle('kitchen_sink_2'))
 </script>
