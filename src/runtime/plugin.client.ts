@@ -1,4 +1,4 @@
-import { defineNuxtPlugin, refreshNuxtData } from '#app'
+import { defineNuxtPlugin, refreshNuxtData, useRuntimeConfig } from '#imports'
 
 import { PrismicModuleOptions } from '../types'
 

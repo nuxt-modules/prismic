@@ -4,7 +4,7 @@ import { isRepositoryEndpoint, getRepositoryName } from '@prismicio/client'
 import { createPrismic } from '@prismicio/vue'
 
 import { PrismicModuleOptions } from '../types'
-import { defineNuxtPlugin, useCookie, useRequestEvent, refreshNuxtData, useHead } from '#imports'
+import { defineNuxtPlugin, useCookie, useRequestEvent, refreshNuxtData, useHead, useRuntimeConfig } from '#imports'
 
 // @ts-expect-error vfs cannot be resolved here
 import client from '#build/prismic/proxy/client'
