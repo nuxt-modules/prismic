@@ -45,7 +45,18 @@ export default defineNuxtModule<PrismicModuleOptions>({
 	}),
 	hooks: {},
 	setup (options, nuxt) {
-		if (!options.endpoint) {
+		// Expose options through public runtime config
+		nuxt.options.runtimeConfig.public ||= {} as typeof nuxt.options.runtimeConfig.public
+		const moduleOptions: PrismicModuleOptions = defu(nuxt.options.runtimeConfig.public.prismic, options)
+		nuxt.options.runtimeConfig.public.prismic = moduleOptions
+
+		nuxt.options.alias['#prismicOptions'] = addTemplate({
+			filename: 'prismicOptions.mjs',
+			write: true,
+			getContents: () => `export default ${JSON.stringify(moduleOptions, undefined, 2)}`
+		}).dst || ''
+
+		if (!moduleOptions.endpoint) {
 			logger.warn('Options `endpoint` is required, disabling module...')
 			return
 		}
@@ -76,20 +87,16 @@ export default defineNuxtModule<PrismicModuleOptions>({
 				})
 			}
 		}
-		proxyUserFileWithUndefinedFallback('client', options.client!)
-		proxyUserFileWithUndefinedFallback('linkResolver', options.linkResolver!)
-		proxyUserFileWithUndefinedFallback('htmlSerializer', options.htmlSerializer!)
-
-		// Expose options through public runtime config
-		nuxt.options.runtimeConfig.public ||= {} as typeof nuxt.options.runtimeConfig.public
-		nuxt.options.runtimeConfig.public.prismic = defu(nuxt.options.runtimeConfig.public.prismic, options)
+		proxyUserFileWithUndefinedFallback('client', moduleOptions.client!)
+		proxyUserFileWithUndefinedFallback('linkResolver', moduleOptions.linkResolver!)
+		proxyUserFileWithUndefinedFallback('htmlSerializer', moduleOptions.htmlSerializer!)
 
 		// Add plugin
 		addPlugin(resolver.resolve('runtime/plugin'))
 		addPlugin(resolver.resolve('runtime/plugin.client'))
 
 		// Add components auto import
-		if (options.injectComponents) {
+		if (moduleOptions.injectComponents) {
 			[
 				'PrismicEmbed',
 				'PrismicImage',
@@ -126,25 +133,25 @@ export default defineNuxtModule<PrismicModuleOptions>({
 		})
 
 		// Add preview route
-		if (options.preview) {
-			const maybeUserPreviewPage = fileExists(join(nuxt.options.srcDir, nuxt.options.dir.pages, options.preview), ['js', 'ts', 'vue'])
+		if (moduleOptions.preview) {
+			const maybeUserPreviewPage = fileExists(join(nuxt.options.srcDir, nuxt.options.dir.pages, moduleOptions.preview), ['js', 'ts', 'vue'])
 
 			if (maybeUserPreviewPage) {
 				logger.info(`Using user-defined preview page at \`${maybeUserPreviewPage.replace(join(nuxt.options.srcDir), '~').replace(nuxt.options.rootDir, '~~').replace(/\\/g, '/')
-				}\`, available at \`${options.preview}\``)
+				}\`, available at \`${moduleOptions.preview}\``)
 			} else {
-				logger.info(`Using default preview page, available at \`${options.preview}\``)
+				logger.info(`Using default preview page, available at \`${moduleOptions.preview}\``)
 
 				extendPages((pages) => {
 					pages.unshift({
 						name: 'prismic-preview',
-						path: options.preview as string, // Checked before
+						path: moduleOptions.preview as string, // Checked before
 						file: resolver.resolve('runtime/preview.vue')
 					})
 				})
 			}
 
-			if (!options.toolbar) {
+			if (!moduleOptions.toolbar) {
 				logger.warn('`toolbar` option is disabled but `preview` is enabled. Previews won\'t work unless you manually load the toolbar.')
 			}
 		}
