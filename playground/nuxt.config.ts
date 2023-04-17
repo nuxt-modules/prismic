@@ -6,19 +6,23 @@ export default defineNuxtConfig({
 		strict: true
 	},
 	modules: [prismicModule],
-	prismic: {
-		endpoint: '200629-sms-hoy',
-		clientConfig: {
-			routes: [
-				{
-					type: 'kitchen_sink_2',
-					path: '/'
-				},
-				{
-					type: 'page',
-					path: '/'
+	runtimeConfig: {
+		public: {
+			prismic: {
+				endpoint: '200629-sms-hoy',
+				clientConfig: {
+					routes: [
+						{
+							type: 'kitchen_sink_2',
+							path: '/'
+						},
+						{
+							type: 'page',
+							path: '/'
+						}
+					]
 				}
-			]
+			}
 		}
 	}
 })
