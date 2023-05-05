@@ -13,8 +13,10 @@ import linkResolver from '#build/prismic/proxy/linkResolver'
 // @ts-expect-error vfs cannot be resolved here
 import htmlSerializer from '#build/prismic/proxy/htmlSerializer'
 
+import moduleOptions from '#prismicOptions'
+
 export default defineNuxtPlugin((nuxtApp) => {
-	const options: PrismicModuleOptions = useRuntimeConfig().public.prismic
+	const options = moduleOptions as PrismicModuleOptions
 
 	const prismicPlugin = createPrismic({
 		...options,
