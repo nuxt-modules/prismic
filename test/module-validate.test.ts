@@ -1,25 +1,23 @@
-import { it, expect, vi, beforeEach, afterEach } from 'vitest'
+import { it, expect, vi, afterEach } from 'vitest'
 
 import prismicModule from '../src/module'
-import { logger } from '../src/lib'
+import { logger } from '../src/lib/logger'
 
 import { mockModule } from './__testutils__/mockModule'
 
 const mockedPrismicModule = mockModule(prismicModule)
 
-beforeEach(() => {
-	vi.mock('../src/lib/logger.ts', () => ({
-		logger: { info: vi.fn(), warn: vi.fn() }
-	}))
-	vi.mock('@nuxt/kit', async () => {
-		const { mockedNuxtKit } = await vi.importActual('./__testutils__/mockedNuxtKit')
+vi.mock('consola', () => ({
+	consola: { withTag: () => ({ info: vi.fn(), warn: vi.fn() }) }
+}))
+vi.mock('@nuxt/kit', async () => {
+	const { mockedNuxtKit } = await vi.importActual<typeof import('./__testutils__/mockedNuxtKit')>('./__testutils__/mockedNuxtKit')
 
-		return mockedNuxtKit()
-	})
+	return mockedNuxtKit()
 })
 
 afterEach(() => {
-	vi.restoreAllMocks()
+	vi.clearAllMocks()
 })
 
 it('warns and returns early if endpoint if not provided', () => {
@@ -27,6 +25,4 @@ it('warns and returns early if endpoint if not provided', () => {
 
 	expect(logger.warn).toHaveBeenCalledOnce()
 	expect(logger.warn).toHaveBeenCalledWith('Options `endpoint` is required, disabling module...')
-
-	vi.unmock('../src/lib/logger.ts')
 })

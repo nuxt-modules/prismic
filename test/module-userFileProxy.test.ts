@@ -1,4 +1,4 @@
-import { it, expect, vi, beforeEach, afterEach } from 'vitest'
+import { it, expect, vi, afterEach } from 'vitest'
 import mockFS from 'mock-fs'
 
 import { addTemplate } from '@nuxt/kit'
@@ -9,27 +9,24 @@ import { mockModule } from './__testutils__/mockModule'
 
 const mockedPrismicModule = mockModule(prismicModule)
 
-beforeEach(() => {
-	vi.mock('../src/lib/logger.ts', () => ({
-		logger: { info: vi.fn(), warn: vi.fn() }
-	}))
-	vi.mock('@nuxt/kit', async () => {
-		const { mockedNuxtKit } = await vi.importActual('./__testutils__/mockedNuxtKit')
+vi.mock('../src/lib/logger.ts', () => ({
+	logger: { info: vi.fn(), warn: vi.fn() }
+}))
+vi.mock('@nuxt/kit', async () => {
+	const { mockedNuxtKit } = await vi.importActual<typeof import('./__testutils__/mockedNuxtKit')>('./__testutils__/mockedNuxtKit')
 
-		return mockedNuxtKit()
-	})
+	return mockedNuxtKit()
 })
 
 afterEach(() => {
-	vi.restoreAllMocks()
+	vi.clearAllMocks()
 })
 
 it('proxies nothing if user files are not available', () => {
 	mockedPrismicModule({ endpoint: 'qwerty' })
 
-	expect(addTemplate).toHaveBeenCalledTimes(3)
-	// @ts-expect-error - Mocked type is wrong
-	expect(addTemplate.calls.flat().map(options => [options.filename, options.getContents()])).toMatchInlineSnapshot(`
+	expect(addTemplate).toHaveBeenCalledTimes(4)
+	expect(vi.mocked(addTemplate).mock.calls.flat().filter((options: any) => !options.filename.startsWith('prismicOptions')).map((options: any) => [options.filename, options.getContents()])).toMatchInlineSnapshot(`
 		[
 		  [
 		    "prismic/proxy/client.ts",
@@ -56,9 +53,8 @@ it('proxies user files from default location', () => {
 
 	mockedPrismicModule({ endpoint: 'qwerty' })
 
-	expect(addTemplate).toHaveBeenCalledTimes(3)
-	// @ts-expect-error - Mocked type is wrong
-	expect(addTemplate.calls.flat().map(options => [options.filename, options.getContents()])).toMatchInlineSnapshot(`
+	expect(addTemplate).toHaveBeenCalledTimes(4)
+	expect(vi.mocked(addTemplate).mock.calls.flat().filter((options: any) => !options.filename.startsWith('prismicOptions')).map((options: any) => [options.filename, options.getContents()])).toMatchInlineSnapshot(`
 		[
 		  [
 		    "prismic/proxy/client.ts",
@@ -74,6 +70,7 @@ it('proxies user files from default location', () => {
 		  ],
 		]
 	`)
+
 	mockFS.restore()
 })
 
@@ -91,9 +88,8 @@ it('proxies user files from provided location', () => {
 		htmlSerializer: '~/custom/htmlSerializer'
 	})
 
-	expect(addTemplate).toHaveBeenCalledTimes(3)
-	// @ts-expect-error - Mocked type is wrong
-	expect(addTemplate.calls.flat().map(options => [options.filename, options.getContents()])).toMatchInlineSnapshot(`
+	expect(addTemplate).toHaveBeenCalledTimes(4)
+	expect(vi.mocked(addTemplate).mock.calls.flat().filter((options: any) => !options.filename.startsWith('prismicOptions')).map((options: any) => [options.filename, options.getContents()])).toMatchInlineSnapshot(`
 		[
 		  [
 		    "prismic/proxy/client.ts",

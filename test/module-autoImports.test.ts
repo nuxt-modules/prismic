@@ -1,4 +1,4 @@
-import { it, expect, vi, beforeEach, afterEach } from 'vitest'
+import { it, expect, vi, afterEach } from 'vitest'
 
 import { addImports, addComponent } from '@nuxt/kit'
 
@@ -8,27 +8,24 @@ import { mockModule } from './__testutils__/mockModule'
 
 const mockedPrismicModule = mockModule(prismicModule)
 
-beforeEach(() => {
-	vi.mock('../src/lib/logger.ts', () => ({
-		logger: { info: vi.fn(), warn: vi.fn() }
-	}))
-	vi.mock('@nuxt/kit', async () => {
-		const { mockedNuxtKit } = await vi.importActual<any>('./__testutils__/mockedNuxtKit')
+vi.mock('../src/lib/logger.ts', () => ({
+	logger: { info: vi.fn(), warn: vi.fn() }
+}))
+vi.mock('@nuxt/kit', async () => {
+	const { mockedNuxtKit } = await vi.importActual<typeof import('./__testutils__/mockedNuxtKit')>('./__testutils__/mockedNuxtKit')
 
-		return mockedNuxtKit()
-	})
+	return mockedNuxtKit()
 })
 
 afterEach(() => {
-	vi.restoreAllMocks()
+	vi.clearAllMocks()
 })
 
 it('auto-imports components', () => {
 	mockedPrismicModule({ endpoint: 'qwerty' })
 
 	expect(addComponent).toHaveBeenCalledTimes(6)
-	// @ts-expect-error - Mocked type is wrong
-	expect(addComponent.calls.flat().map(options => [options.name, options.export, options.filePath])).toMatchInlineSnapshot(`
+	expect(vi.mocked(addComponent).mock.calls.flat().map(options => [options.name, options.export, options.filePath])).toMatchInlineSnapshot(`
 		[
 		  [
 		    "PrismicEmbed",
@@ -74,8 +71,7 @@ it('auto-imports', () => {
 	mockedPrismicModule({ endpoint: 'qwerty' })
 
 	expect(addImports).toHaveBeenCalledTimes(2)
-	// @ts-expect-error - Mocked type is wrong
-	expect(addImports.calls.flat(2).map(options => [options.name, options.as])).toMatchInlineSnapshot(`
+	expect(vi.mocked(addImports).mock.calls.flat(2).map(options => [options.name, options.as])).toMatchInlineSnapshot(`
 		[
 		  [
 		    "useAllPrismicDocumentsByEveryTag",

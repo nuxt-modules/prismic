@@ -15,7 +15,8 @@ export const mockedNuxtKit = async () => {
 					dir: { app: 'app', pages: 'pages' },
 					build: { transpile: [] },
 					runtimeConfig: {},
-					app: { head: {} }
+					app: { head: {} },
+					alias: {}
 				},
 				version: '3.0.0'
 			} as unknown as Nuxt
@@ -29,7 +30,7 @@ export const mockedNuxtKit = async () => {
 
 			return { nuxt: mockedNuxt }
 		},
-		addTemplate: vi.fn(),
+		addTemplate: vi.fn(() => ({})),
 		addPlugin: vi.fn(),
 		addImports: vi.fn(),
 		addComponent: vi.fn(),

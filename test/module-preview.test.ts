@@ -1,4 +1,4 @@
-import { it, expect, vi, beforeEach, afterEach } from 'vitest'
+import { it, expect, vi, afterEach } from 'vitest'
 import mockFS from 'mock-fs'
 
 import { extendPages } from '@nuxt/kit'
@@ -10,27 +10,24 @@ import { mockModule } from './__testutils__/mockModule'
 
 const mockedPrismicModule = mockModule(prismicModule)
 
-beforeEach(() => {
-	vi.mock('../src/lib/logger.ts', () => ({
-		logger: { info: vi.fn(), warn: vi.fn() }
-	}))
-	vi.mock('@nuxt/kit', async () => {
-		const { mockedNuxtKit } = await vi.importActual('./__testutils__/mockedNuxtKit')
+vi.mock('../src/lib/logger.ts', () => ({
+	logger: { info: vi.fn(), warn: vi.fn() }
+}))
+vi.mock('@nuxt/kit', async () => {
+	const { mockedNuxtKit } = await vi.importActual<typeof import('./__testutils__/mockedNuxtKit')>('./__testutils__/mockedNuxtKit')
 
-		return mockedNuxtKit()
-	})
+	return mockedNuxtKit()
 })
 
 afterEach(() => {
-	vi.restoreAllMocks()
+	vi.clearAllMocks()
 })
 
 it('injects default preview page', () => {
 	mockedPrismicModule({ endpoint: 'qwerty' })
 
 	expect(extendPages).toHaveBeenCalledOnce()
-	// @ts-expect-error - Mocked type is wrong
-	expect(extendPages.results[0][1].find(route => route.name === 'prismic-preview')).toBeDefined()
+	expect(vi.mocked(extendPages).mock.results[0].value.find(route => route.name === 'prismic-preview')).toBeDefined()
 })
 
 it('uses user preview when avaiable', () => {
@@ -63,10 +60,8 @@ it('doesn\'t enable preview when `preview` is `false`', () => {
 	mockedPrismicModule({ endpoint: 'qwerty', preview: false })
 
 	expect(extendPages).not.toHaveBeenCalled()
-	// @ts-expect-error - Mocked type is wrong
-	expect(logger.info.calls.find(([info]) => info.startsWith('Using user-defined preview page at'))).toBeUndefined()
-	// @ts-expect-error - Mocked type is wrong
-	expect(logger.info.calls.find(([info]) => info.startsWith('Using default preview page, available at'))).toBeUndefined()
+	expect(logger.info.mock.calls.find(([info]) => info.startsWith('Using user-defined preview page at'))).toBeUndefined()
+	expect(logger.info.mock.calls.find(([info]) => info.startsWith('Using default preview page, available at'))).toBeUndefined()
 })
 
 it('warns user that toolbar is required when `toolbar` is `false`', () => {

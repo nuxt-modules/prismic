@@ -1,4 +1,4 @@
-import { it, expect, vi, beforeEach, afterEach } from 'vitest'
+import { it, expect, vi, afterEach } from 'vitest'
 
 import { addPlugin } from '@nuxt/kit'
 
@@ -8,19 +8,17 @@ import { mockModule } from './__testutils__/mockModule'
 
 const mockedPrismicModule = mockModule(prismicModule)
 
-beforeEach(() => {
-	vi.mock('../src/lib/logger.ts', () => ({
-		logger: { info: vi.fn(), warn: vi.fn() }
-	}))
-	vi.mock('@nuxt/kit', async () => {
-		const { mockedNuxtKit } = await vi.importActual('./__testutils__/mockedNuxtKit')
+vi.mock('../src/lib/logger.ts', () => ({
+	logger: { info: vi.fn(), warn: vi.fn() }
+}))
+vi.mock('@nuxt/kit', async () => {
+	const { mockedNuxtKit } = await vi.importActual<typeof import('./__testutils__/mockedNuxtKit')>('./__testutils__/mockedNuxtKit')
 
-		return mockedNuxtKit()
-	})
+	return mockedNuxtKit()
 })
 
 afterEach(() => {
-	vi.restoreAllMocks()
+	vi.clearAllMocks()
 })
 
 it('injects plugins', () => {

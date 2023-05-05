@@ -1,26 +1,24 @@
-import { it, expect, vi, afterEach, beforeEach } from 'vitest'
+import { it, expect, vi, afterEach } from 'vitest'
 
 import { onMounted } from 'vue'
 import { usePrismicPreview } from '../src/runtime/usePrismicPreview'
 // @ts-expect-error VFS
 import { useRouter, usePrismic } from '#imports'
 
-beforeEach(() => {
-	vi.mock('vue', () => {
-		return {
-			onMounted: vi.fn(callback => callback())
-		}
-	})
-	vi.mock('#imports', () => {
-		return {
-			useRouter: vi.fn(() => ({ push: vi.fn() })),
-			usePrismic: vi.fn(() => ({ client: { resolvePreviewURL: vi.fn(({ defaultURL }) => defaultURL) }, options: { linkResolver: vi.fn() } }))
-		}
-	})
+vi.mock('vue', () => {
+	return {
+		onMounted: vi.fn(callback => callback())
+	}
+})
+vi.mock('#imports', () => {
+	return {
+		useRouter: vi.fn(() => ({ push: vi.fn() })),
+		usePrismic: vi.fn(() => ({ client: { resolvePreviewURL: vi.fn(({ defaultURL }) => defaultURL) }, options: { linkResolver: vi.fn() } }))
+	}
 })
 
 afterEach(() => {
-	vi.restoreAllMocks()
+	vi.clearAllMocks()
 })
 
 it('resolves preview', async () => {
@@ -30,12 +28,11 @@ it('resolves preview', async () => {
 	expect(usePrismic).toHaveBeenCalledOnce()
 	expect(onMounted).toHaveBeenCalledOnce()
 
-	// @ts-expect-error - Mocked type is wrong
-	await onMounted.results[0][1]
+	await vi.mocked(onMounted).mock.results[0].value
 
-	expect(usePrismic.results[0][1].client.resolvePreviewURL).toHaveBeenCalledOnce()
-	expect(useRouter.results[0][1].push).toHaveBeenCalledOnce()
-	expect(useRouter.results[0][1].push).toHaveBeenCalledWith('/')
+	expect(usePrismic.mock.results[0].value.client.resolvePreviewURL).toHaveBeenCalledOnce()
+	expect(useRouter.mock.results[0].value.push).toHaveBeenCalledOnce()
+	expect(useRouter.mock.results[0].value.push).toHaveBeenCalledWith('/')
 })
 
 it('resolves preview with provided `defaultURL`', async (ctx) => {
@@ -45,10 +42,9 @@ it('resolves preview with provided `defaultURL`', async (ctx) => {
 	expect(usePrismic).toHaveBeenCalledOnce()
 	expect(onMounted).toHaveBeenCalledOnce()
 
-	// @ts-expect-error - Mocked type is wrong
-	await onMounted.results[0][1]
+	await vi.mocked(onMounted).mock.results[0].value
 
-	expect(usePrismic.results[0][1].client.resolvePreviewURL).toHaveBeenCalledOnce()
-	expect(useRouter.results[0][1].push).toHaveBeenCalledOnce()
-	expect(useRouter.results[0][1].push).toHaveBeenCalledWith(ctx.meta.name)
+	expect(usePrismic.mock.results[0].value.client.resolvePreviewURL).toHaveBeenCalledOnce()
+	expect(useRouter.mock.results[0].value.push).toHaveBeenCalledOnce()
+	expect(useRouter.mock.results[0].value.push).toHaveBeenCalledWith(ctx.meta.name)
 })

@@ -1,3 +1,3 @@
-import consola from 'consola'
+import { consola } from 'consola'
 
-export const logger = consola.withScope('nuxt:prismic')
+export const logger = consola.withTag('nuxt:prismic')
