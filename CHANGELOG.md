@@ -2,6 +2,24 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [3.0.0-rc.5](https://github.com/nuxt-modules/prismic/compare/v3.0.0-rc.4...v3.0.0-rc.5) (2023-05-05)
+
+
+### Features
+
+* add full support of nuxt public runtime config ([a73f575](https://github.com/nuxt-modules/prismic/commit/a73f57577a3b69a1ec3fc6398020f638f90d60de))
+
+
+### Refactor
+
+* **playground:** use public runtime config in playground app ([304f656](https://github.com/nuxt-modules/prismic/commit/304f656018fcea02fb4274f5145c9bfe6c297a87))
+
+
+### Chore
+
+* **deps:** maintain dependencies ([9413ef1](https://github.com/nuxt-modules/prismic/commit/9413ef1407c151fc530c575e3e5ed4a7836bfc5d))
+* update to consola v3 ([bb61327](https://github.com/nuxt-modules/prismic/commit/bb61327100e9b1814fdc80fb1796c6321cc36079))
+
 ## [3.0.0-rc.4](https://github.com/nuxt-modules/prismic/compare/v3.0.0-rc.3...v3.0.0-rc.4) (2023-03-30)
 
 
