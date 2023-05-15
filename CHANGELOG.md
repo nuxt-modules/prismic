@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [3.0.0-rc.6](https://github.com/nuxt-modules/prismic/compare/v3.0.0-rc.5...v3.0.0-rc.6) (2023-05-15)
+
+
+### Bug Fixes
+
+* don't use alias to inject config to preserve runtime reactivity, resolves [#192](https://github.com/nuxt-modules/prismic/issues/192) ([6846c07](https://github.com/nuxt-modules/prismic/commit/6846c07a4395845111c3c8809a1414b6543a877d))
+
 ## [3.0.0-rc.5](https://github.com/nuxt-modules/prismic/compare/v3.0.0-rc.4...v3.0.0-rc.5) (2023-05-05)
 
 
