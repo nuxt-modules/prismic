@@ -25,8 +25,8 @@ afterEach(() => {
 it('proxies nothing if user files are not available', () => {
 	mockedPrismicModule({ endpoint: 'qwerty' })
 
-	expect(addTemplate).toHaveBeenCalledTimes(4)
-	expect(vi.mocked(addTemplate).mock.calls.flat().filter((options: any) => !options.filename.startsWith('prismicOptions')).map((options: any) => [options.filename, options.getContents()])).toMatchInlineSnapshot(`
+	expect(addTemplate).toHaveBeenCalledTimes(3)
+	expect(vi.mocked(addTemplate).mock.calls.flat().map((options: any) => [options.filename, options.getContents()])).toMatchInlineSnapshot(`
 		[
 		  [
 		    "prismic/proxy/client.ts",
@@ -53,8 +53,8 @@ it('proxies user files from default location', () => {
 
 	mockedPrismicModule({ endpoint: 'qwerty' })
 
-	expect(addTemplate).toHaveBeenCalledTimes(4)
-	expect(vi.mocked(addTemplate).mock.calls.flat().filter((options: any) => !options.filename.startsWith('prismicOptions')).map((options: any) => [options.filename, options.getContents()])).toMatchInlineSnapshot(`
+	expect(addTemplate).toHaveBeenCalledTimes(3)
+	expect(vi.mocked(addTemplate).mock.calls.flat().map((options: any) => [options.filename, options.getContents()])).toMatchInlineSnapshot(`
 		[
 		  [
 		    "prismic/proxy/client.ts",
@@ -88,8 +88,8 @@ it('proxies user files from provided location', () => {
 		htmlSerializer: '~/custom/htmlSerializer'
 	})
 
-	expect(addTemplate).toHaveBeenCalledTimes(4)
-	expect(vi.mocked(addTemplate).mock.calls.flat().filter((options: any) => !options.filename.startsWith('prismicOptions')).map((options: any) => [options.filename, options.getContents()])).toMatchInlineSnapshot(`
+	expect(addTemplate).toHaveBeenCalledTimes(3)
+	expect(vi.mocked(addTemplate).mock.calls.flat().map((options: any) => [options.filename, options.getContents()])).toMatchInlineSnapshot(`
 		[
 		  [
 		    "prismic/proxy/client.ts",

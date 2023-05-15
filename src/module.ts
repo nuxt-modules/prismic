@@ -50,12 +50,6 @@ export default defineNuxtModule<PrismicModuleOptions>({
 		const moduleOptions: PrismicModuleOptions = defu(nuxt.options.runtimeConfig.public.prismic, options)
 		nuxt.options.runtimeConfig.public.prismic = moduleOptions
 
-		nuxt.options.alias['#prismicOptions'] = addTemplate({
-			filename: 'prismicOptions.mjs',
-			write: true,
-			getContents: () => `export default ${JSON.stringify(moduleOptions, undefined, 2)}`
-		}).dst || ''
-
 		if (!moduleOptions.endpoint) {
 			logger.warn('Options `endpoint` is required, disabling module...')
 			return
