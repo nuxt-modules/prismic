@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [3.0.0-rc.7](https://github.com/nuxt-modules/prismic/compare/v3.0.0-rc.6...v3.0.0-rc.7) (2023-05-16)
+
+
+### Bug Fixes
+
+* **plugins:** await Nuxt ready state before previewing data ([cf31e04](https://github.com/nuxt-modules/prismic/commit/cf31e04081cbc303698ce910868911f35695e30e))
+
 ## [3.0.0-rc.6](https://github.com/nuxt-modules/prismic/compare/v3.0.0-rc.5...v3.0.0-rc.6) (2023-05-15)
 
 
