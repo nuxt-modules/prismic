@@ -4,7 +4,7 @@ import { isRepositoryEndpoint, getRepositoryName } from '@prismicio/client'
 import { createPrismic } from '@prismicio/vue'
 
 import { PrismicModuleOptions } from '../types'
-import { defineNuxtPlugin, useCookie, useRequestEvent, refreshNuxtData, useHead, useRuntimeConfig } from '#imports'
+import { defineNuxtPlugin, useCookie, useRequestEvent, onNuxtReady, refreshNuxtData, useHead, useRuntimeConfig } from '#imports'
 
 // @ts-expect-error vfs cannot be resolved here
 import client from '#build/prismic/proxy/client'
@@ -50,7 +50,7 @@ export default defineNuxtPlugin((nuxtApp) => {
 					'preview' in session[key] &&
 					session[key].preview)
 				) {
-					refreshNuxtData()
+					onNuxtReady(() => refreshNuxtData())
 				}
 			} catch (error) {
 				// eslint-disable-next-line no-console
