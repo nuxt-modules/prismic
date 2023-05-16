@@ -37,7 +37,7 @@ it('proxies nothing if user files are not available', () => {
 		    "export default undefined",
 		  ],
 		  [
-		    "prismic/proxy/htmlSerializer.ts",
+		    "prismic/proxy/richTextSerializer.ts",
 		    "export default undefined",
 		  ],
 		]
@@ -48,7 +48,7 @@ it('proxies user files from default location', () => {
 	mockFS({
 		'/tmp/nuxt/app/prismic/client.ts': '',
 		'/tmp/nuxt/app/prismic/linkResolver.ts': '',
-		'/tmp/nuxt/app/prismic/htmlSerializer.ts': ''
+		'/tmp/nuxt/app/prismic/richTextSerializer.ts': ''
 	})
 
 	mockedPrismicModule({ endpoint: 'qwerty' })
@@ -65,8 +65,8 @@ it('proxies user files from default location', () => {
 		    "export { default } from '~/app/prismic/linkResolver'",
 		  ],
 		  [
-		    "prismic/proxy/htmlSerializer.ts",
-		    "export { default } from '~/app/prismic/htmlSerializer'",
+		    "prismic/proxy/richTextSerializer.ts",
+		    "export { default } from '~/app/prismic/richTextSerializer'",
 		  ],
 		]
 	`)
@@ -78,14 +78,14 @@ it('proxies user files from provided location', () => {
 	mockFS({
 		'/tmp/nuxt/custom/client.ts': '',
 		'/tmp/nuxt/custom/linkResolver.ts': '',
-		'/tmp/nuxt/custom/htmlSerializer.ts': ''
+		'/tmp/nuxt/custom/richTextSerializer.ts': ''
 	})
 
 	mockedPrismicModule({
 		endpoint: 'qwerty',
 		client: '~/custom/client',
 		linkResolver: '~/custom/linkResolver',
-		htmlSerializer: '~/custom/htmlSerializer'
+		richTextSerializer: '~/custom/richTextSerializer'
 	})
 
 	expect(addTemplate).toHaveBeenCalledTimes(3)
@@ -100,8 +100,8 @@ it('proxies user files from provided location', () => {
 		    "export { default } from '~/custom/linkResolver'",
 		  ],
 		  [
-		    "prismic/proxy/htmlSerializer.ts",
-		    "export { default } from '~/custom/htmlSerializer'",
+		    "prismic/proxy/richTextSerializer.ts",
+		    "export { default } from '~/custom/richTextSerializer'",
 		  ],
 		]
 	`)
