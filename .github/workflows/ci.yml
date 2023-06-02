@@ -24,7 +24,9 @@ jobs:
         id: cache
         uses: actions/cache@v3
         with:
-          path: node_modules
+          path: |
+            node_modules
+            playground/.nuxt
           key: ${{ matrix.os }}-node-v${{ matrix.node }}-deps-${{ hashFiles(format('{0}{1}', github.workspace, '/package-lock.json')) }}
 
       - name: Install dependencies
@@ -39,7 +41,7 @@ jobs:
       fail-fast: false
       matrix:
         os: [ubuntu-latest]
-        node: [14, 16, 18, 20]
+        node: [16, 18, 20]
 
     steps:
       - name: Set up Node
