@@ -23,50 +23,6 @@ All notable changes to this project will be documented in this file. See [standa
 
 * remove warning ([9d91b66](https://github.com/nuxt-modules/prismic/commit/9d91b66f4d45847309884b7526e3f58a8b7ba53c))
 
-### [1.4.2](https://github.com/nuxt-modules/prismic/compare/v3.0.0-alpha.3...v1.4.2) (2022-04-08)
-
-
-### Bug Fixes
-
-* disable nuxtI18n preventively on preview page, fixes [#90](https://github.com/nuxt-modules/prismic/issues/90) ([7ee7f29](https://github.com/nuxt-modules/prismic/commit/7ee7f293ca50f501b7de1ea79635b1af47f2a4d6))
-
-
-### Chore
-
-* **release:** 1.4.2 ([2aab014](https://github.com/nuxt-modules/prismic/commit/2aab0142c3c2d3e09c4caff8284b61b1e7c00c27))
-
-### [1.4.1](https://github.com/nuxt-modules/prismic/compare/v3.0.0-alpha.1...v1.4.1) (2022-03-22)
-
-
-### Documentation
-
-* advertise Nuxt 3 version ([c010a55](https://github.com/nuxt-modules/prismic/commit/c010a55a8985da32cfce50d1b01d7a1cf308cf44))
-* link styling ([cd3fc8f](https://github.com/nuxt-modules/prismic/commit/cd3fc8f4f5ce10a9db90be177ea6994d08d91928))
-
-
-### Chore
-
-* feature-proof Nuxt 2 module ([dc1b582](https://github.com/nuxt-modules/prismic/commit/dc1b582db9974e1b1e5cf9086427217afb5e03f3))
-* **release:** 1.4.1 ([15ad92b](https://github.com/nuxt-modules/prismic/commit/15ad92b389eaf20bb6839d998433c060cfb71b02))
-
-## [1.4.0](https://github.com/nuxt-modules/prismic/compare/v1.3.2...v1.4.0) (2021-12-06)
-
-
-### Features
-
-* hot reload previews for smoother workflow ([5575e92](https://github.com/nuxt-modules/prismic/commit/5575e92c1015f626347386daa9ba2512ff13d12a))
-
-
-### Documentation
-
-* update doc ([0109bd3](https://github.com/nuxt-modules/prismic/commit/0109bd38e8ccaf3e3a5d91d5ca9f3f340394f9aa))
-
-
-### Chore
-
-* **release:** 1.4.0 ([25e2c6e](https://github.com/nuxt-modules/prismic/commit/25e2c6e2627c413a8a0fed32b3e190f85082f19b))
-* update github template ([2fb354c](https://github.com/nuxt-modules/prismic/commit/2fb354c62ef3b63acb04d752b26824cd4e117113))
-
 ## [3.0.0-rc.7](https://github.com/nuxt-modules/prismic/compare/v3.0.0-rc.6...v3.0.0-rc.7) (2023-05-16)
 
 
