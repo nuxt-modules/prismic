@@ -20,7 +20,7 @@ jobs:
       - name: Checkout
         uses: actions/checkout@master
 
-      - name: Cache node_modules
+      - name: Cache node_modules and .nuxt
         id: cache
         uses: actions/cache@v3
         with:
@@ -52,10 +52,12 @@ jobs:
       - name: Checkout
         uses: actions/checkout@master
 
-      - name: Retrieve node_modules
+      - name: Retrieve node_modules and .nuxt
         uses: actions/cache@v3
         with:
-          path: node_modules
+          path: |
+            node_modules
+            playground/.nuxt
           key: ${{ matrix.os }}-node-v${{ matrix.node }}-deps-${{ hashFiles(format('{0}{1}', github.workspace, '/package-lock.json')) }}
 
       - name: Lint
@@ -91,10 +93,12 @@ jobs:
       - name: Checkout
         uses: actions/checkout@master
 
-      - name: Retrieve node_modules
+      - name: Retrieve node_modules and .nuxt
         uses: actions/cache@v3
         with:
-          path: node_modules
+          path: |
+            node_modules
+            playground/.nuxt
           key: ${{ matrix.os }}-node-v${{ matrix.node }}-deps-${{ hashFiles(format('{0}{1}', github.workspace, '/package-lock.json')) }}
 
       - name: Overwrite TypeScript
