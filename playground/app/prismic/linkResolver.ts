@@ -1,6 +1,6 @@
-import type * as prismicH from '@prismicio/helpers'
+import type * as prismic from '@prismicio/client'
 
-const linkResolver: prismicH.LinkResolverFunction<string | undefined> = (doc) => {
+const linkResolver: prismic.LinkResolverFunction<string | undefined> = (doc) => {
 	if (doc.isBroken) {
 		return '/404'
 	}
