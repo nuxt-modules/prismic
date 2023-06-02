@@ -174,6 +174,12 @@ All notable changes to this project will be documented in this file. See [standa
 - **deps:** maintain dependencies ([3a8fc36](https://github.com/nuxt-modules/prismic/commit/3a8fc36ca2112127818fd42c3d208f66ece05be9))
 - **deps:** maintain dependencies ([878005e](https://github.com/nuxt-modules/prismic/commit/878005ef88fb6040775424fecd339656e8de732e))
 
+### [1.4.2](https://github.com/nuxt-modules/prismic/compare/v1.4.1...v1.4.2) (2022-04-08)
+
+### Bug Fixes
+
+- disable nuxtI18n preventively on preview page, fixes [#90](https://github.com/nuxt-modules/prismic/issues/90) ([7ee7f29](https://github.com/nuxt-modules/prismic/commit/7ee7f293ca50f501b7de1ea79635b1af47f2a4d6))
+
 ## [3.0.0-alpha.3](https://github.com/nuxt-modules/prismic/compare/v3.0.0-alpha.2...v3.0.0-alpha.3) (2022-04-06)
 
 ### Bug Fixes
@@ -201,6 +207,17 @@ All notable changes to this project will be documented in this file. See [standa
 ### Chore
 
 - **deps:** maintain dependencies ([1670ba9](https://github.com/nuxt-modules/prismic/commit/1670ba9eaac329a4434ffe214e9be6b7aa71dfb1))
+
+### [1.4.1](https://github.com/nuxt-modules/prismic/compare/v1.4.0...v1.4.1) (2022-03-22)
+
+### Documentation
+
+- advertise Nuxt 3 version ([c010a55](https://github.com/nuxt-modules/prismic/commit/c010a55a8985da32cfce50d1b01d7a1cf308cf44))
+- link styling ([cd3fc8f](https://github.com/nuxt-modules/prismic/commit/cd3fc8f4f5ce10a9db90be177ea6994d08d91928))
+
+### Chore
+
+- feature-proof Nuxt 2 module ([dc1b582](https://github.com/nuxt-modules/prismic/commit/dc1b582db9974e1b1e5cf9086427217afb5e03f3))
 
 ## [3.0.0-alpha.1](https://github.com/nuxt-modules/prismic/compare/v3.0.0-alpha.0...v3.0.0-alpha.1) (2022-02-21)
 
@@ -241,6 +258,20 @@ All notable changes to this project will be documented in this file. See [standa
 - remove doc ([18f6d26](https://github.com/nuxt-modules/prismic/commit/18f6d263d715b385bbd285f602e0f7b53e086917))
 - update doc ([573b479](https://github.com/nuxt-modules/prismic/commit/573b4793528999d286f04bd2b5ee3b042127e1e2))
 - update url ([3af4276](https://github.com/nuxt-modules/prismic/commit/3af427651cdde2ddf9746ecd02390f401487caf3))
+
+## [1.4.0](https://github.com/nuxt-modules/prismic/compare/v1.3.2...v1.4.0) (2021-12-06)
+
+### Features
+
+- hot reload previews for smoother workflow ([5575e92](https://github.com/nuxt-modules/prismic/commit/5575e92c1015f626347386daa9ba2512ff13d12a))
+
+### Chore
+
+- update github template ([2fb354c](https://github.com/nuxt-modules/prismic/commit/2fb354c62ef3b63acb04d752b26824cd4e117113))
+
+### Documentation
+
+- update doc ([0109bd3](https://github.com/nuxt-modules/prismic/commit/0109bd38e8ccaf3e3a5d91d5ca9f3f340394f9aa))
 
 ### [1.3.2](https://github.com/nuxt-modules/prismic/compare/v1.3.1...v1.3.2) (2021-11-02)
 
