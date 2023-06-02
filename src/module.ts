@@ -37,7 +37,7 @@ export default defineNuxtModule<PrismicModuleOptions>({
 		clientConfig: {},
 		client: '~/app/prismic/client',
 		linkResolver: '~/app/prismic/linkResolver',
-		htmlSerializer: '~/app/prismic/htmlSerializer',
+		richTextSerializer: '~/app/prismic/richTextSerializer',
 		injectComponents: true,
 		components: {},
 		preview: '/preview',
@@ -83,7 +83,7 @@ export default defineNuxtModule<PrismicModuleOptions>({
 		}
 		proxyUserFileWithUndefinedFallback('client', moduleOptions.client!)
 		proxyUserFileWithUndefinedFallback('linkResolver', moduleOptions.linkResolver!)
-		proxyUserFileWithUndefinedFallback('htmlSerializer', moduleOptions.htmlSerializer!)
+		proxyUserFileWithUndefinedFallback('richTextSerializer', moduleOptions.richTextSerializer!)
 
 		// Add plugin
 		addPlugin(resolver.resolve('runtime/plugin'))

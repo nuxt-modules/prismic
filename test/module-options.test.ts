@@ -40,10 +40,10 @@ it('exposes options in runtime config', () => {
 		  "clientConfig": {},
 		  "components": {},
 		  "endpoint": "qwerty",
-		  "htmlSerializer": "~/app/prismic/htmlSerializer",
 		  "injectComponents": true,
 		  "linkResolver": "~/app/prismic/linkResolver",
 		  "preview": "/preview",
+		  "richTextSerializer": "~/app/prismic/richTextSerializer",
 		  "toolbar": true,
 		}
 	`)
