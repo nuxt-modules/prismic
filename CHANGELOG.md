@@ -2,6 +2,18 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [3.0.0-rc.9](https://github.com/nuxt-modules/prismic/compare/v3.0.0-rc.8...v3.0.0-rc.9) (2023-06-05)
+
+
+### Bug Fixes
+
+* **vite:** exclude `@prismicio/vue` from pre-bundling ([b95dca2](https://github.com/nuxt-modules/prismic/commit/b95dca2bab294a81f5673ecd008bf27057d76d49))
+
+
+### Documentation
+
+* fix changelog ([aa5b0fa](https://github.com/nuxt-modules/prismic/commit/aa5b0fa0bde555a05126ac0b5aad9baef3df437d))
+
 ## [3.0.0-rc.8](https://github.com/nuxt-modules/prismic/compare/v3.0.0-rc.7...v3.0.0-rc.8) (2023-06-02)
 
 
