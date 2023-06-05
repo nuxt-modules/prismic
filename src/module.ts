@@ -58,6 +58,9 @@ export default defineNuxtModule<PrismicModuleOptions>({
 		// Runtime dir boilerplate
 		const resolver = createResolver(import.meta.url)
 		nuxt.options.build.transpile.push(resolver.resolve('runtime'), '@nuxtjs/prismic', '@prismicio/vue')
+		nuxt.options.vite.optimizeDeps ||= {}
+		nuxt.options.vite.optimizeDeps.exclude ||= []
+		nuxt.options.vite.optimizeDeps.exclude.push('@prismicio/vue')
 
 		// Add runtime user code
 		const proxyUserFileWithUndefinedFallback = (filename: string, path: string, extensions = ['js', 'mjs', 'ts']) => {

@@ -14,6 +14,7 @@ export const mockedNuxtKit = async () => {
 					srcDir: '/tmp/nuxt',
 					dir: { app: 'app', pages: 'pages' },
 					build: { transpile: [] },
+					vite: {},
 					runtimeConfig: {},
 					app: { head: {} },
 					alias: {}
