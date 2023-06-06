@@ -1,1 +1,3 @@
 icon: heroicons-outline:book-open
+main:
+  fluid: false
