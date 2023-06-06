@@ -17,7 +17,7 @@ assignees: ""
 ### Versions
 
 - nuxt: <!-- ex: v2.15.3 -->
-- @nuxtjs/prismic: <!-- ex: v1.3.0 -->
+- @nuxtjs/prismic: <!-- ex: v3.0.0 -->
 - node: <!-- ex: v12.14.0 -->
 
 ### Reproduction

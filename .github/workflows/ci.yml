@@ -1,45 +1,108 @@
 name: ci
 
-on:
-  push:
-    branches:
-      - master
-  pull_request:
-    branches:
-      - master
+on: push
 
 jobs:
-  ci:
+  prepare:
+    name: Prepare (${{ matrix.os}}, Node ${{ matrix.node }})
     runs-on: ${{ matrix.os }}
-
     strategy:
       matrix:
         os: [ubuntu-latest]
-        node: [16]
+        node: [16, 18, 20]
 
     steps:
-      - uses: actions/setup-node@v2
+      - name: Set up Node
+        uses: actions/setup-node@v3
         with:
           node-version: ${{ matrix.node }}
 
       - name: Checkout
         uses: actions/checkout@master
 
-      - name: Cache node_modules
-        uses: actions/cache@v2
+      - name: Cache node_modules and .nuxt
+        id: cache
+        uses: actions/cache@v3
         with:
-          path: node_modules
-          key: ${{ matrix.os }}-node-v${{ matrix.node }}-deps-${{ hashFiles(format('{0}{1}', github.workspace, '/yarn.lock')) }}
+          path: |
+            node_modules
+            playground/.nuxt
+          key: ${{ matrix.os }}-node-v${{ matrix.node }}-deps-${{ hashFiles(format('{0}{1}', github.workspace, '/package-lock.json')) }}
 
       - name: Install dependencies
         if: steps.cache.outputs.cache-hit != 'true'
-        run: yarn
+        run: npm ci
+
+  suite:
+    needs: prepare
+    name: Suite (${{ matrix.os}}, Node ${{ matrix.node }})
+    runs-on: ${{ matrix.os }}
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [ubuntu-latest]
+        node: [16, 18, 20]
+
+    steps:
+      - name: Set up Node
+        uses: actions/setup-node@v3
+        with:
+          node-version: ${{ matrix.node }}
+
+      - name: Checkout
+        uses: actions/checkout@master
+
+      - name: Retrieve node_modules and .nuxt
+        uses: actions/cache@v3
+        with:
+          path: |
+            node_modules
+            playground/.nuxt
+          key: ${{ matrix.os }}-node-v${{ matrix.node }}-deps-${{ hashFiles(format('{0}{1}', github.workspace, '/package-lock.json')) }}
 
       - name: Lint
-        run: yarn lint
+        run: npm run lint
 
       - name: Unit
-        run: yarn unit
+        run: npm run unit
+
+      - name: Build
+        run: npm run build
 
       - name: Coverage
-        uses: codecov/codecov-action@v1
+        if: matrix.os == 'ubuntu-latest' && matrix.node == 16
+        uses: codecov/codecov-action@v3
+
+  types:
+    needs: prepare
+    name: Types (${{ matrix.os}}, Node ${{ matrix.node }}, TS ${{ matrix.typescript }})
+    runs-on: ${{ matrix.os }}
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [ubuntu-latest]
+        node: [16]
+        typescript: ["4.9", "5.0", "5.1"]
+
+    steps:
+      - name: Set up Node
+        uses: actions/setup-node@v3
+        with:
+          node-version: ${{ matrix.node }}
+
+      - name: Checkout
+        uses: actions/checkout@master
+
+      - name: Retrieve node_modules and .nuxt
+        uses: actions/cache@v3
+        with:
+          path: |
+            node_modules
+            playground/.nuxt
+          key: ${{ matrix.os }}-node-v${{ matrix.node }}-deps-${{ hashFiles(format('{0}{1}', github.workspace, '/package-lock.json')) }}
+
+      - name: Overwrite TypeScript
+        run: npm install --no-save typescript@${{ matrix.typescript }} && npx tsc --version
+
+      - name: Types
+        run: npm run types

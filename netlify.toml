@@ -6,7 +6,10 @@
 # “publish” is the directory to publish (relative to the root of your repo).
 
 [build]
-  base    = "docs"
-  command = "yarn generate"
-  publish = "dist"
-  ignore  = "git diff --quiet HEAD^ HEAD . ../package.json"
+base    = "docs"
+command = "npm run generate"
+publish = "dist"
+ignore  = "git diff --quiet HEAD^ HEAD . ../package.json ../netlify.toml"
+
+	[build.environment]
+	NODE_VERSION = "16.6.1"
