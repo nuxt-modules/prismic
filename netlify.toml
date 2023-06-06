@@ -16,12 +16,12 @@ ignore  = "git diff --quiet HEAD^ HEAD . ../package.json ../netlify.toml"
 
 [[redirects]]
 	from = "https://prismic-module.netlify.app/*"
-	to = "https://prismic.nuxtjs.com/:splat"
+	to = "https://prismic.nuxtjs.org/:splat"
 	status = 301
 	force = true
 
 [[redirects]]
-	from = "https://v3.prismic.nuxtjs.com/*"
-	to = "https://prismic.nuxtjs.com/:splat"
+	from = "https://v3.prismic.nuxtjs.org/*"
+	to = "https://prismic.nuxtjs.org/:splat"
 	status = 301
 	force = true
