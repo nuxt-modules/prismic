@@ -65,6 +65,5 @@
 				fill="#D77EE9"
 			/>
 		</svg>
-		<span class="inline-flex items-center mt-1.2 px-2 py-0.5 rounded text-xs font-bold font-mono bg-primary-100 dark:bg-primary-800 dark:text-white">RC</span>
 	</figure>
 </template>

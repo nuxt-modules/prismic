@@ -13,3 +13,15 @@ ignore  = "git diff --quiet HEAD^ HEAD . ../package.json ../netlify.toml"
 
 	[build.environment]
 	NODE_VERSION = "16.6.1"
+
+[[redirects]]
+	from = "https://prismic-module.netlify.app/*"
+	to = "https://prismic.nuxtjs.com/:splat"
+	status = 301
+	force = true
+
+[[redirects]]
+	from = "https://v3.prismic.nuxtjs.com/*"
+	to = "https://prismic.nuxtjs.com/:splat"
+	status = 301
+	force = true
