@@ -22,7 +22,11 @@ assignees: ""
 
 ### Reproduction
 
-<!-- Link to a minimal test case, without a reproduction, it is so hard to address problem :( -->
+<!-- Link to a minimal test case, without a reproduction, it is so hard to address problem :(
+
+You can use this minimal reproduction starter if you want to:
+- https://stackblitz.com/github/nuxt-modules/prismic/tree/master/examples/minimal?file=pages%2Findex.vue
+-->
 
 <details open>
 <summary>Additional Details</summary>
