@@ -2,6 +2,22 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [3.0.1](https://github.com/nuxt-modules/prismic/compare/v3.0.0...v3.0.1) (2023-06-21)
+
+
+### Bug Fixes
+
+* cleanup stale preview cookie from toolbar when disabled ([3f3c9f2](https://github.com/nuxt-modules/prismic/commit/3f3c9f20f66aaa6d0d2b5fdab99626546a523f34))
+
+
+### Documentation
+
+* minimal reproduction starter ([a397b81](https://github.com/nuxt-modules/prismic/commit/a397b8162e16e95fd0dc4a75b5c735b5775774d6))
+* nuxt 2 doc link ([217f4f1](https://github.com/nuxt-modules/prismic/commit/217f4f15e304b5f8a61ece34f4476736bd38ae0a))
+* remove starter readme ([87f73fb](https://github.com/nuxt-modules/prismic/commit/87f73fb6409d464cbe4c1ec1fe393408cbfbc4c1))
+* update 0.index.md ([fa72cfb](https://github.com/nuxt-modules/prismic/commit/fa72cfb8d51fa7914a26d89e41150ccf40d8c9d7))
+* update readme ([6f2affb](https://github.com/nuxt-modules/prismic/commit/6f2affb20304d04062cbebc3f3b1ecb13c981d3d))
+
 ## [3.0.0](https://github.com/nuxt-modules/prismic/compare/v3.0.0-rc.9...v3.0.0) (2023-06-06)
 
 
