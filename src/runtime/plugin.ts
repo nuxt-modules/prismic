@@ -73,6 +73,9 @@ export default defineNuxtPlugin((nuxtApp) => {
 				defer: true
 			}]
 		})
+	} else {
+		// TODO: We might want to let user disable this behavior because it might have unexpected side effects
+		useCookie('io.prismic.preview').value = null
 	}
 
 	return {
