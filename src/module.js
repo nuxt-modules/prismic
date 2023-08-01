@@ -22,6 +22,9 @@ function install (moduleOptions) {
     logger.warn('Options `endpoint` is required, disabling module...')
     return
   }
+
+  this.options.build.transpile.push('@prismicio/vue', '@prismicio/simulator')
+
   const repo = options.endpoint.replace(/^https?:\/\//, '').replace(/(\.cdn)?\.prismic.+/, '')
   const app = this.options.dir.app || 'app'
 

@@ -18,7 +18,7 @@
   ],
   "scripts": {
     "dev": "nuxt example",
-    "release": "yarn test && standard-version && git push --follow-tags && npm publish",
+    "release": "yarn test && standard-version && git push --follow-tags && npm publish --tag 1x",
     "release:dry": "standard-version --dry-run",
     "release:alpha": "yarn test && standard-version --release-as minor --prerelease alpha && git push --follow-tags && npm publish --tag alpha",
     "release:alpha:dry": "standard-version --release-as minor --prerelease alpha --dry-run",
