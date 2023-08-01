@@ -35,7 +35,10 @@ describe('prismic-nuxt module', () => {
         buildDir: '/var/nuxt/.nuxt/',
         head: {},
         dir: {},
-        generate: {}
+        generate: {},
+        build: {
+          transpile: []
+        }
       },
       nuxt: {
         hook: jest.fn(async (_, fn) => {
