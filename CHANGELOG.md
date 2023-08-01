@@ -2,6 +2,24 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.4.3](https://github.com/nuxt-modules/prismic/compare/v1.4.2...v1.4.3) (2023-08-01)
+
+
+### Bug Fixes
+
+* transpile prismic dependencies correctly ([5be8b23](https://github.com/nuxt-modules/prismic/commit/5be8b23f9909c9d3a50773a6a5247ed1ae9643b3))
+
+
+### Chore
+
+* GitHub org change ([d56bc86](https://github.com/nuxt-modules/prismic/commit/d56bc867040d6abd752e807be68c822297d0b3c3))
+
+
+### Documentation
+
+* remove warning ([9d91b66](https://github.com/nuxt-modules/prismic/commit/9d91b66f4d45847309884b7526e3f58a8b7ba53c))
+* v3 release ([cde349f](https://github.com/nuxt-modules/prismic/commit/cde349f7e32f89fc21b25226f19ad6cecf94f171))
+
 ### [1.4.2](https://github.com/nuxt-modules/prismic/compare/v1.4.1...v1.4.2) (2022-04-08)
 
 ### Bug Fixes
