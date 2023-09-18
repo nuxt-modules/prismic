@@ -1,3 +1,20 @@
+<script setup lang="ts">
+import { usePrismic, useAsyncData, refreshNuxtData } from '#imports'
+
+const { client } = usePrismic()
+const { data: doc, pending } = await useAsyncData('doc', async () => {
+	// eslint-disable-next-line no-console
+	console.log('start:doc')
+
+	const kitchen = await client.getSingle('kitchen_sink_2')
+
+	// eslint-disable-next-line no-console
+	console.log('end:doc')
+
+	return kitchen
+})
+</script>
+
 <template>
 	<div>
 		<div
@@ -6,7 +23,7 @@
 			Pending: {{ pending }}
 		</div>
 		<div v-if="!pending">
-			<prismic-link
+			<!-- <prismic-link
 				v-slot="{ href }"
 				:field="doc?.data.relation"
 			>
@@ -17,7 +34,7 @@
 				:field="{ link_type: 'Web', url: 'https://google.com' }"
 			>
 				{{ href }} bar
-			</prismic-link>
+			</prismic-link> -->
 			<prismic-rich-text
 				:field="doc?.data.richtext"
 			/>
@@ -26,13 +43,6 @@
 		</div>
 	</div>
 </template>
-
-<script setup lang="ts">
-import { usePrismic, useAsyncData, refreshNuxtData } from '#imports'
-
-const { client } = usePrismic()
-const { data: doc, pending } = await useAsyncData('doc', () => client.getSingle('kitchen_sink_2'))
-</script>
 
 <style>
 a {

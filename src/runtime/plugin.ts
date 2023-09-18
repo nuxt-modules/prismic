@@ -3,7 +3,7 @@ import { createPrismic } from '@prismicio/vue'
 
 import { PrismicModuleOptions } from '../types'
 import NuxtLink from '#app/components/nuxt-link'
-import { defineNuxtPlugin, useCookie, useRequestEvent, onNuxtReady, refreshNuxtData, useHead, useRuntimeConfig } from '#imports'
+import { defineNuxtPlugin, useCookie, useRequestEvent, onNuxtReady, refreshNuxtData, useHead, useRuntimeConfig, useRouter } from '#imports'
 
 // @ts-expect-error vfs cannot be resolved here
 import client from '#build/prismic/proxy/client'
@@ -49,7 +49,16 @@ export default defineNuxtPlugin((nuxtApp) => {
 					'preview' in session[key] &&
 					session[key].preview)
 				) {
-					onNuxtReady(() => refreshNuxtData())
+					let afterEachCalled = false
+					onNuxtReady(() => {
+						if (!afterEachCalled) {
+							refreshNuxtData()
+						}
+					})
+					useRouter().afterEach(() => {
+						afterEachCalled = true
+						refreshNuxtData()
+					})
 				}
 			} catch (error) {
 				// eslint-disable-next-line no-console
