@@ -1,9 +1,8 @@
-import NuxtLink from '#app/components/nuxt-link'
-
 import { isRepositoryEndpoint, getRepositoryName } from '@prismicio/client'
 import { createPrismic } from '@prismicio/vue'
 
 import { PrismicModuleOptions } from '../types'
+import NuxtLink from '#app/components/nuxt-link'
 import { defineNuxtPlugin, useCookie, useRequestEvent, onNuxtReady, refreshNuxtData, useHead, useRuntimeConfig } from '#imports'
 
 // @ts-expect-error vfs cannot be resolved here
