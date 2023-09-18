@@ -2,6 +2,18 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [3.0.2](https://github.com/nuxt-modules/prismic/compare/v3.0.1...v3.0.2) (2023-09-18)
+
+
+### Bug Fixes
+
+* refresh Nuxt data during preview on page change properly ([30bb9f8](https://github.com/nuxt-modules/prismic/commit/30bb9f83beddf449d305882d94d07aeae46617d0))
+
+
+### Chore
+
+* **deps:** maintain dependencies ([e7a6a2b](https://github.com/nuxt-modules/prismic/commit/e7a6a2b3b87742c6506a79da91a7f486e5b73dee))
+
 ### [3.0.1](https://github.com/nuxt-modules/prismic/compare/v3.0.0...v3.0.1) (2023-06-21)
 
 
