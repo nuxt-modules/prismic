@@ -1,7 +1,7 @@
 import { isRepositoryEndpoint, getRepositoryName } from '@prismicio/client'
 import { createPrismic } from '@prismicio/vue'
 
-import { PrismicModuleOptions } from '../types'
+import type { PrismicModuleOptions } from '../types'
 import NuxtLink from '#app/components/nuxt-link'
 import { defineNuxtPlugin, useCookie, useRequestEvent, onNuxtReady, refreshNuxtData, useHead, useRuntimeConfig, useRouter } from '#imports'
 
@@ -14,9 +14,11 @@ import richTextSerializer from '#build/prismic/proxy/richTextSerializer'
 
 export default defineNuxtPlugin((nuxtApp) => {
 	const options: PrismicModuleOptions = useRuntimeConfig().public.prismic
+	const endpoint = options.environment || options.endpoint
 
 	const prismicPlugin = createPrismic({
 		...options,
+		endpoint,
 		client,
 		linkResolver,
 		richTextSerializer,
@@ -69,9 +71,9 @@ export default defineNuxtPlugin((nuxtApp) => {
 
 	if (options.toolbar) {
 		// Add toolbar
-		const repositoryName = isRepositoryEndpoint(options.endpoint)
-			? getRepositoryName(options.endpoint)
-			: options.endpoint
+		const repositoryName = isRepositoryEndpoint(endpoint)
+			? getRepositoryName(endpoint)
+			: endpoint
 
 		useHead({
 			script: [{

@@ -21,6 +21,12 @@ export type { PrismicModuleOptions } from './types'
 
 declare module '@nuxt/schema' {
 	interface PublicRuntimeConfig {
+		/**
+		 * `@nuxtjs/prismic` module options.
+		 *
+		 * @see Module documentation: {@link https://prismic.nuxtjs.org}
+		 * @see Prismic documentation: {@link https://prismic.io/docs/nuxt-3-setup}
+		 */
 		prismic: PrismicModuleOptions
 	}
 }
