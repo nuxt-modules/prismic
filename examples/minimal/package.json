@@ -10,7 +10,7 @@
 	},
 	"devDependencies": {
 		"@nuxt/devtools": "latest",
-		"@nuxtjs/prismic": "^3.0.3",
+		"@nuxtjs/prismic": "^3.1.0",
 		"@types/node": "^20.8.8",
 		"nuxt": "^3.8.0"
 	}
