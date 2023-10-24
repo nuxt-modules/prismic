@@ -2,6 +2,20 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [3.1.0](https://github.com/nuxt-modules/prismic/compare/v3.0.3...v3.1.0) (2023-10-24)
+
+
+### Features
+
+* allow `endpoint` to be optional, fixes [#199](https://github.com/nuxt-modules/prismic/issues/199) ([0eb67c1](https://github.com/nuxt-modules/prismic/commit/0eb67c178825f286f48edf2bcf3a6e90d828c903))
+* support environments ([#202](https://github.com/nuxt-modules/prismic/issues/202)) ([ec6dcc9](https://github.com/nuxt-modules/prismic/commit/ec6dcc9e22b338b8f54f0e98b1a0a07eac850935))
+
+
+### Chore
+
+* **deps:** maintain dependencies ([91c95c8](https://github.com/nuxt-modules/prismic/commit/91c95c8f3e87b4bfc9b147cc14fabf1dcbbf3d29))
+* **deps:** update minimal example ([0e00bfc](https://github.com/nuxt-modules/prismic/commit/0e00bfc734469b9e218f5613969f03fa808c966b))
+
 ### [3.0.3](https://github.com/nuxt-modules/prismic/compare/v3.0.2...v3.0.3) (2023-09-26)
 
 
