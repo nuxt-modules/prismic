@@ -40,6 +40,7 @@ export default defineNuxtModule<PrismicModuleOptions>({
 	},
 	defaults: nuxt => ({
 		endpoint: '',
+		environment: '',
 		clientConfig: {},
 		client: '~/app/prismic/client',
 		linkResolver: '~/app/prismic/linkResolver',
@@ -56,10 +57,41 @@ export default defineNuxtModule<PrismicModuleOptions>({
 		const moduleOptions: PrismicModuleOptions = defu(nuxt.options.runtimeConfig.public.prismic, options)
 		nuxt.options.runtimeConfig.public.prismic = moduleOptions
 
-		if (!moduleOptions.endpoint) {
-			logger.warn('Options `endpoint` is required, disabling module...')
+		// Add runtime user code
+		const proxyUserFileWithUndefinedFallback =
+			(filename: string, path: string, extensions = ['js', 'mjs', 'ts']): boolean => {
+				const resolvedFilename = `prismic/proxy/${filename}.ts`
+				const resolvedPath = path.replace(/^(~~|@@)/, nuxt.options.rootDir).replace(/^(~|@)/, nuxt.options.srcDir)
+				const maybeUserFile = fileExists(resolvedPath, extensions)
+
+				if (maybeUserFile) {
+				// If user file exists, proxy it with vfs
+					logger.info(`Using user-defined \`${filename}\` at \`${maybeUserFile.replace(nuxt.options.srcDir, '~').replace(nuxt.options.rootDir, '~~').replace(/\\/g, '/')}\``)
+
+					addTemplate({
+						filename: resolvedFilename,
+						getContents: () => `export { default } from '${path}'`
+					})
+
+					return true
+				} else {
+				// Else provide `undefined` fallback
+					addTemplate({
+						filename: resolvedFilename,
+						getContents: () => 'export default undefined'
+					})
+
+					return false
+				}
+			}
+
+		const proxiedUserClient = proxyUserFileWithUndefinedFallback('client', moduleOptions.client!)
+		if (!moduleOptions.endpoint && !proxiedUserClient && !process.env.NUXT_PUBLIC_PRISMIC_ENDPOINT) {
+			logger.warn(`\`endpoint\` option is missing and \`${moduleOptions.client}\` was not found. At least one of them is required for the module to run. Disabling module...`)
 			return
 		}
+		proxyUserFileWithUndefinedFallback('linkResolver', moduleOptions.linkResolver!)
+		proxyUserFileWithUndefinedFallback('richTextSerializer', moduleOptions.richTextSerializer!)
 
 		// Runtime dir boilerplate
 		const resolver = createResolver(import.meta.url)
@@ -67,32 +99,6 @@ export default defineNuxtModule<PrismicModuleOptions>({
 		nuxt.options.vite.optimizeDeps ||= {}
 		nuxt.options.vite.optimizeDeps.exclude ||= []
 		nuxt.options.vite.optimizeDeps.exclude.push('@prismicio/vue')
-
-		// Add runtime user code
-		const proxyUserFileWithUndefinedFallback = (filename: string, path: string, extensions = ['js', 'mjs', 'ts']) => {
-			const resolvedFilename = `prismic/proxy/${filename}.ts`
-			const resolvedPath = path.replace(/^(~~|@@)/, nuxt.options.rootDir).replace(/^(~|@)/, nuxt.options.srcDir)
-			const maybeUserFile = fileExists(resolvedPath, extensions)
-
-			if (maybeUserFile) {
-				// If user file exists, proxy it with vfs
-				logger.info(`Using user-defined \`${filename}\` at \`${maybeUserFile.replace(nuxt.options.srcDir, '~').replace(nuxt.options.rootDir, '~~').replace(/\\/g, '/')}\``)
-
-				addTemplate({
-					filename: resolvedFilename,
-					getContents: () => `export { default } from '${path}'`
-				})
-			} else {
-				// Else provide `undefined` fallback
-				addTemplate({
-					filename: resolvedFilename,
-					getContents: () => 'export default undefined'
-				})
-			}
-		}
-		proxyUserFileWithUndefinedFallback('client', moduleOptions.client!)
-		proxyUserFileWithUndefinedFallback('linkResolver', moduleOptions.linkResolver!)
-		proxyUserFileWithUndefinedFallback('richTextSerializer', moduleOptions.richTextSerializer!)
 
 		// Add plugin
 		addPlugin(resolver.resolve('runtime/plugin'))

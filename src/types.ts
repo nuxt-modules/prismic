@@ -26,7 +26,7 @@ export type PrismicModuleOptions = Omit<PrismicPluginOptions, 'endpoint' | 'clie
 	 *
 	 * @see Prismic client documentation {@link https://prismic.io/docs/technical-reference/prismicio-client}
 	 */
-	endpoint: string;
+	endpoint?: string;
 
 	/**
 	 * The Prismic environment in use by Slice Machine configured through

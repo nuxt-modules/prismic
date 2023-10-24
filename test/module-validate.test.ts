@@ -1,4 +1,5 @@
 import { it, expect, vi, afterEach } from 'vitest'
+import mockFS from 'mock-fs'
 
 import prismicModule from '../src/module'
 import { logger } from '../src/lib/logger'
@@ -20,9 +21,25 @@ afterEach(() => {
 	vi.clearAllMocks()
 })
 
-it('warns and returns early if endpoint if not provided', () => {
+it('warns and returns early if endpoint is not provided, and client file is not available, and runtime config environment variables aren\'t set', () => {
 	mockedPrismicModule()
 
 	expect(logger.warn).toHaveBeenCalledOnce()
-	expect(logger.warn).toHaveBeenCalledWith('Options `endpoint` is required, disabling module...')
+	expect(logger.warn).toHaveBeenCalledWith('`endpoint` option is missing and `~/app/prismic/client` was not found. At least one of them is required for the module to run. Disabling module...')
+})
+
+it('doesn\'t warn and return early if endpoint is provided', () => {
+	mockedPrismicModule({ endpoint: 'qwerty' })
+
+	expect(logger.warn).not.toHaveBeenCalled()
+})
+
+it('doesn\'t warn and return early if client file is provided', () => {
+	mockFS({
+		'/tmp/nuxt/app/prismic/client.ts': ''
+	})
+
+	mockedPrismicModule({ endpoint: 'qwerty' })
+
+	expect(logger.warn).not.toHaveBeenCalled()
 })

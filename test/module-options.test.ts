@@ -40,6 +40,7 @@ it('exposes options in runtime config', () => {
 		  "clientConfig": {},
 		  "components": {},
 		  "endpoint": "qwerty",
+		  "environment": "",
 		  "injectComponents": true,
 		  "linkResolver": "~/app/prismic/linkResolver",
 		  "preview": "/preview",

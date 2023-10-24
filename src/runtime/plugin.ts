@@ -1,4 +1,4 @@
-import { isRepositoryEndpoint, getRepositoryName } from '@prismicio/client'
+import { isRepositoryEndpoint, getRepositoryName, type Client } from '@prismicio/client'
 import { createPrismic } from '@prismicio/vue'
 
 import type { PrismicModuleOptions } from '../types'
@@ -14,7 +14,7 @@ import richTextSerializer from '#build/prismic/proxy/richTextSerializer'
 
 export default defineNuxtPlugin((nuxtApp) => {
 	const options: PrismicModuleOptions = useRuntimeConfig().public.prismic
-	const endpoint = options.environment || options.endpoint
+	const endpoint = options.environment || options.endpoint || (client as Client | undefined)?.endpoint || ''
 
 	const prismicPlugin = createPrismic({
 		...options,
