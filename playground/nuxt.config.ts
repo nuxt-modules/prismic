@@ -24,7 +24,6 @@ export default defineNuxtConfig({
 					path: '/'
 				}
 			]
-
 		}
 	}
 })
