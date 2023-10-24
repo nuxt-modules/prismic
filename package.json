@@ -33,7 +33,7 @@
 		"src"
 	],
 	"scripts": {
-		"build": "nuxt-module-build",
+		"build": "nuxt-module-build build",
 		"dev": "nuxi dev playground",
 		"dev:build": "nuxi build playground",
 		"dev:preview": "nuxi preview playground",
