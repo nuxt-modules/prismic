@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [1.5.0](https://github.com/nuxt-modules/prismic/compare/v1.4.3...v1.5.0) (2023-10-24)
+
+
+### Features
+
+* **backport:** support environments ([#203](https://github.com/nuxt-modules/prismic/issues/203)) ([9f4609d](https://github.com/nuxt-modules/prismic/commit/9f4609d76c330f4eb9fb8a3bbab5c87ace3e9475))
+
 ### [1.4.3](https://github.com/nuxt-modules/prismic/compare/v1.4.2...v1.4.3) (2023-08-01)
 
 
