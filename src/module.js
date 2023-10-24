@@ -22,6 +22,15 @@ function install (moduleOptions) {
     logger.warn('Options `endpoint` is required, disabling module...')
     return
   }
+  if (process.env.NUXT_PUBLIC_PRISMIC_ENVIRONMENT) {
+    options.endpoint = process.env.NUXT_PUBLIC_PRISMIC_ENVIRONMENT
+    try {
+      // eslint-disable-next-line no-new
+      new URL(options.endpoint)
+    } catch (error) {
+      options.endpoint = `https://${options.endpoint}.cdn.prismic.io/api/v2`
+    }
+  }
 
   this.options.build.transpile.push('@prismicio/vue', '@prismicio/simulator')
 
