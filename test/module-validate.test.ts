@@ -42,4 +42,6 @@ it('doesn\'t warn and return early if client file is provided', () => {
 	mockedPrismicModule({ endpoint: 'qwerty' })
 
 	expect(logger.warn).not.toHaveBeenCalled()
+
+	mockFS.restore()
 })
