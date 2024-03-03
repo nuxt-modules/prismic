@@ -1,5 +1,5 @@
 import { join } from 'node:path'
-
+import { setupDevToolsUI } from './devtools'
 import { defu } from 'defu'
 import {
 	defineNuxtModule,
@@ -57,6 +57,10 @@ export default defineNuxtModule<PrismicModuleOptions>({
 		const moduleOptions: PrismicModuleOptions = defu(nuxt.options.runtimeConfig.public.prismic, options)
 		nuxt.options.runtimeConfig.public.prismic = moduleOptions
 
+		// Runtime dir boilerplate
+		const resolver = createResolver(import.meta.url)
+		if (nuxt.options.devtools) setupDevToolsUI(nuxt, resolver)
+	
 		// Add runtime user code
 		const proxyUserFileWithUndefinedFallback =
 			(filename: string, path: string, extensions = ['js', 'mjs', 'ts']): boolean => {
@@ -93,8 +97,6 @@ export default defineNuxtModule<PrismicModuleOptions>({
 		proxyUserFileWithUndefinedFallback('linkResolver', moduleOptions.linkResolver!)
 		proxyUserFileWithUndefinedFallback('richTextSerializer', moduleOptions.richTextSerializer!)
 
-		// Runtime dir boilerplate
-		const resolver = createResolver(import.meta.url)
 		nuxt.options.build.transpile.push(resolver.resolve('runtime'), '@nuxtjs/prismic', '@prismicio/vue')
 		nuxt.options.vite.optimizeDeps ||= {}
 		nuxt.options.vite.optimizeDeps.exclude ||= []

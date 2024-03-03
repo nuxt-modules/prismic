@@ -38,6 +38,8 @@
 		"dev:build": "nuxi build playground",
 		"dev:preview": "nuxi preview playground",
 		"dev:generate": "nuxi generate playground",
+		"dev:client": "nuxi dev client",
+		"build:client": "nuxi build client",
 		"lint": "eslint --ext .js,.ts .",
 		"prepare": "nuxi prepare playground && npm run build",
 		"release": "npm run test && standard-version && git push --follow-tags && npm run build && npm publish",
@@ -51,18 +53,21 @@
 	},
 	"dependencies": {
 		"@nuxt/kit": "^3.8.0",
+		"@nuxt/devtools-kit": "^1.0.8",
 		"@prismicio/client": "^7.3.1",
 		"@prismicio/vue": "^4.1.0",
 		"consola": "^3.2.3",
-		"defu": "^6.1.2"
+		"defu": "^6.1.2",
+		"sirv": "^2.0.4"
 	},
 	"devDependencies": {
 		"@nuxt/module-builder": "^0.5.2",
+		"@nuxt/schema": "^3.10.1",
 		"@nuxtjs/eslint-config-typescript": "^12.1.0",
 		"@vitest/coverage-v8": "^0.34.6",
 		"eslint": "^8.52.0",
 		"mock-fs": "^5.2.0",
-		"nuxt": "^3.8.0",
+		"nuxt": "^3.10.1",
 		"standard-version": "^9.5.0",
 		"typescript": "^5.2.2",
 		"vitest": "^0.34.6"

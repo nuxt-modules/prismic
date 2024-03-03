@@ -11,6 +11,9 @@ export default defineNuxtConfig({
 			}
 		}
 	},
+	devtools: {
+		enabled: true
+	},
 	prismic: {
 		// endpoint: '200629-sms-hoy',
 		clientConfig: {
