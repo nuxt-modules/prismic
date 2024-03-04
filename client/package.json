@@ -6,7 +6,6 @@
     "@nuxt/devtools-ui-kit": "^1.0.8",
     "nuxt": "^3.10.1",
     "pathe": "^1.1.2",
-    "vue": "*",
-    "birpc": "*"
+    "vue": "*"
   }
 }

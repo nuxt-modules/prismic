@@ -52,13 +52,15 @@
 		"unit:watch": "vitest watch"
 	},
 	"dependencies": {
-		"@nuxt/kit": "^3.8.0",
 		"@nuxt/devtools-kit": "^1.0.8",
+		"@nuxt/kit": "^3.8.0",
 		"@prismicio/client": "^7.3.1",
 		"@prismicio/vue": "^4.1.0",
+		"birpc": "*",
 		"consola": "^3.2.3",
 		"defu": "^6.1.2",
-		"sirv": "^2.0.4"
+		"sirv": "^2.0.4",
+		"terminate": "^2.6.1"
 	},
 	"devDependencies": {
 		"@nuxt/module-builder": "^0.5.2",

@@ -1,9 +1,9 @@
 <script setup lang="ts">
-import { useDevtoolsClient } from '@nuxt/devtools-kit/iframe-client'
+import { useSlicemachine} from "../composables/slicemachine"
 const props = defineProps<{
   rpc: RpcClientType
 }>()
-
+const { status, start, stop } = await useSlicemachine(props.rpc)
 </script>
 
 <template>
@@ -12,35 +12,14 @@ const props = defineProps<{
       @nuxtjs/prismic
     </h1>
 
-    <div
-      v-if="client"
-      class="flex flex-col gap-2"
+    <NCard
+      class="flex  gap-2"
     >
-      <NTip
-        n="green"
-        icon="carbon-checkmark"
-      >
-        Nuxt DevTools is connected
-      </NTip>
-      <div>
-        The current app is using
-        <code class="text-green">vue@{{ client.host.nuxt.vueApp.version }}</code>
-      </div>
-      <div>
-        <NButton
-          n="green"
-          class="mt-4"
-          @click="client!.host.devtools.close()"
-        >
-          Close DevTools
-        </NButton>
-      </div>
-    </div>
-    <div v-else>
-      <NTip n="yellow">
-        Failed to connect to the client. Did you open this page inside Nuxt DevTools?
-      </NTip>
-    </div>
+    <SlicemachineStatusTip :started="status" class="flex-1" />
+    <NButton @click="status ? stop() : start()">
+      {{ status ? 'Stop' : 'Start' }} Slicemachine
+    </NButton> 
+    </NCard> 
 
   </div>
 </template>

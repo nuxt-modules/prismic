@@ -1,20 +1,73 @@
 import type { Nuxt } from 'nuxt/schema'
 import { existsSync } from 'fs'
 import type { Resolver } from '@nuxt/kit'
-import { extendServerRpc, onDevToolsInitialized } from '@nuxt/devtools-kit'
-import type { ISlicemachineClientFunctions, ISlicemachineServerFunctions } from './types'
-import { serverFunctions } from './serverFunctions'
+import { extendServerRpc, onDevToolsInitialized, } from '@nuxt/devtools-kit'
+import { SliceMachineStatus, type ISlicemachineServerFunctions, type RpcServerType, type ISlicemachineClientFunctions } from "./types"
+import { startSubprocess } from '@nuxt/devtools-kit'
+import terminate from "terminate"
 
 const DEVTOOLS_UI_ROUTE = '/__prismic-client'
 const DEVTOOLS_UI_LOCAL_PORT = 3300
 const RPC_NAMESPACE = 'prismic-slicemachine-rpc'
 
+let process: null | ReturnType<typeof startSubprocess> = null
+
 export function setupDevToolsUI(nuxt: Nuxt, resolver: Resolver) {
   const clientPath = resolver.resolve('./client')
   const isProductionBuild = existsSync(clientPath)
 
+  nuxt.hooks.hook('close', () => {
+    if (process) {
+      const pid = process.getProcess().pid
+      if (pid) {
+        terminate(pid)
+      }
+      process.terminate()
+    }
+  })
+
   onDevToolsInitialized(async () => {
-    const rpc = extendServerRpc<ISlicemachineClientFunctions, ISlicemachineServerFunctions>(RPC_NAMESPACE, serverFunctions)
+    const root = nuxt.options.rootDir
+    const rpc = extendServerRpc<ISlicemachineClientFunctions, ISlicemachineServerFunctions>(RPC_NAMESPACE, {
+      isSliceMachineStarted() {
+        return process !== null
+      },
+      async startSliceMachine() {
+        if (process) {
+          const pid = process.getProcess().pid
+          if (pid) {
+            terminate(pid)
+          }
+          process.terminate()
+        }
+        process = startSubprocess({
+          command: `npx`,
+          args: ['start-slicemachine'],
+          cwd: root,
+        }, {
+          id: 'slicemachine',
+          name: 'SliceMachine',
+          icon: 'cib:prismic'
+        }, nuxt)
+
+        rpc.broadcast.updateStatus(SliceMachineStatus.STARTED)
+        return SliceMachineStatus.STARTED
+      },
+      async stopSliceMachine() {
+        if (process) {
+          const pid = process.getProcess().pid
+          if (pid) {
+            terminate(pid)
+          }
+          process = null
+
+          rpc.broadcast.updateStatus(SliceMachineStatus.STOPPED)
+          return SliceMachineStatus.STOPPED
+        }
+
+        return SliceMachineStatus.NO_CHANGE
+      }
+    })
   })
 
   // Serve production-built client (used when package is published)
