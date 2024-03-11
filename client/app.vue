@@ -19,17 +19,11 @@ const RPC_NAMESPACE = 'prismic-slicemachine-rpc'
 const slicemachineState = useSlicemachineState()
 
 const rpcClient = ref<RpcClientType>()
+
 onDevtoolsClientConnected(async (client) => {
   const rpc = client.devtools.extendClientRpc<ISlicemachineServerFunctions, ISlicemachineClientFunctions>(RPC_NAMESPACE, {
     updateStatus(status) {
-      console.log(status, 'yolo')
-      if (status === SliceMachineStatus.STARTED) {
-        slicemachineState.value = true
-      }
-      else {
-
-        slicemachineState.value = false
-      }
+      slicemachineState.value = status === SliceMachineStatus.STARTED
     },
   })
   rpcClient.value = rpc

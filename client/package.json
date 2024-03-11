@@ -2,8 +2,10 @@
   "private": true,
   "name": "prismic-devtools-client",
   "devDependencies": {
+    "@iconify-json/carbon": "^1.1.31",
     "@nuxt/devtools-kit": "^1.0.8",
     "@nuxt/devtools-ui-kit": "^1.0.8",
+    "@unocss/preset-icons": "^0.58.5",
     "nuxt": "^3.10.1",
     "pathe": "^1.1.2",
     "vue": "*"

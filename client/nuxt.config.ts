@@ -3,9 +3,9 @@ import { resolve } from "pathe";
 export default defineNuxtConfig({
   ssr: false,
   modules: [
-    '@nuxt/devtools-ui-kit',
-    '@unocss/nuxt'
+    '@nuxt/devtools-ui-kit'
   ],
+  devtools: {enabled: true},
   nitro: {
     output: {
       publicDir: resolve(__dirname, '../dist/client')
@@ -16,6 +16,5 @@ export default defineNuxtConfig({
   },
   devServer: {
     port: 3300
-  }
-
+  } 
 })

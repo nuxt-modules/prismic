@@ -1,6 +1,8 @@
 <template>
     <NTip :n="started ? 'green' : 'yellow'">
         {{ text }}
+
+        <a v-if="started" target="_blank" href="http://localhost:9999">http://localhost:9999</a>
     </NTip>
 </template>
 
@@ -11,6 +13,6 @@ const props = defineProps<{
 }>()
 
 const text = computed(() => {
-    return props.started ? 'Slicemachine has been started' : 'Slicemachine has not been started yet'
+    return props.started ? 'Slicemachine has been started and available at' : 'Slicemachine has not been started yet'
 })
 </script>

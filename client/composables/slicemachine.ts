@@ -10,10 +10,11 @@ export async  function useSlicemachine(rpc:RpcClientType) {
     _status.value = await rpc.isSliceMachineStarted()
     
     const status = computed(() => _status.value)
-
+    const config = ref(await rpc.getSlicemachineConfig())
     return {
         status,
-        start:   rpc.startSliceMachine,
-        stop: rpc.stopSliceMachine
+        start: rpc.startSliceMachine,
+        stop: rpc.stopSliceMachine,
+        config
     }
 }
