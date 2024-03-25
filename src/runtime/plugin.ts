@@ -80,7 +80,8 @@ export default defineNuxtPlugin((nuxtApp) => {
 				key: 'prismic-preview',
 				src: `https://static.cdn.prismic.io/prismic.min.js?repo=${repositoryName}&new=true`,
 				async: true,
-				defer: true
+				defer: true,
+				crossorigin: 'anonymous'
 			}]
 		})
 	} else {
