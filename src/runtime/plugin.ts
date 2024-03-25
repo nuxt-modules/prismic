@@ -36,7 +36,7 @@ export default defineNuxtPlugin((nuxtApp) => {
 		const previewCookie = useCookie('io.prismic.preview').value
 
 		// Update client with req when running server side
-		if (process.server) {
+		if (import.meta.server) {
 			prismicPlugin.client.enableAutoPreviewsFromReq(useRequestEvent()?.req)
 		}
 
