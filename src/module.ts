@@ -36,7 +36,7 @@ export default defineNuxtModule<PrismicModuleOptions>({
 	meta: {
 		name: '@nuxtjs/prismic',
 		configKey: 'prismic',
-		compatibility: { nuxt: '^3.0.0' }
+		compatibility: { nuxt: '^3.7.0' }
 	},
 	defaults: nuxt => ({
 		endpoint: '',
