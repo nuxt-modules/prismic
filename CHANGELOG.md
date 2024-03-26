@@ -2,6 +2,27 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [3.1.1](https://github.com/nuxt-modules/prismic/compare/v3.1.0...v3.1.1) (2024-03-26)
+
+
+### Bug Fixes
+
+* COEP error ([#209](https://github.com/nuxt-modules/prismic/issues/209)) ([0f2729a](https://github.com/nuxt-modules/prismic/commit/0f2729a33a56b8b80dc001234e37b529763c3deb))
+* opt in to `import.meta.*` properties ([#208](https://github.com/nuxt-modules/prismic/issues/208)) ([fee3cbe](https://github.com/nuxt-modules/prismic/commit/fee3cbe3e9ac30bb1ae2eba55e922c5de3e85ebb))
+
+
+### Documentation
+
+* link to official doc ([57d9ebb](https://github.com/nuxt-modules/prismic/commit/57d9ebb1958e02219af2959bca2707fbee5674fe))
+* update install step, fixes: [#206](https://github.com/nuxt-modules/prismic/issues/206) ([7ec855b](https://github.com/nuxt-modules/prismic/commit/7ec855b0d2399b7ad81014029a57182fe03e0050))
+
+
+### Chore
+
+* **deps:** maintain dependencies ([698bdde](https://github.com/nuxt-modules/prismic/commit/698bddeccb133e4fc47ee99ebcbcecbb620962c5))
+* **deps:** maintain lockfile ([2505462](https://github.com/nuxt-modules/prismic/commit/2505462cc35624e21eb48816d48027642dd89a91))
+* update minimal example ([4ce471f](https://github.com/nuxt-modules/prismic/commit/4ce471f6dceadc1f38729234e296dc3429a231eb))
+
 ## [3.1.0](https://github.com/nuxt-modules/prismic/compare/v3.0.3...v3.1.0) (2023-10-24)
 
 
