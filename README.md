@@ -19,9 +19,10 @@ Replace all on all files (README.md, CONTRIBUTING.md, bug_report.md, package.jso
 
 Easily connect your Nuxt.js application to your content hosted on [Prismic][prismic].
 
-- [✨ &nbsp;Release Notes](/CHANGELOG.md)
-- [🏀 Online playground](https://stackblitz.com/github/nuxt-modules/prismic/tree/master/examples/minimal?file=pages%2Findex.vue)
-- [📖 &nbsp;Documentation](https://prismic.nuxtjs.org)
+- [✨ &nbsp;Release Notes][changelog]
+- [🏀 Online Playground][playground]
+- [📖 &nbsp;Module Documentation][nuxt-docs]
+- [📚 &nbsp;Prismic Documentation][prismic-docs]
 
 ## Features
 
@@ -53,10 +54,6 @@ export default defineNuxtConfig({
 
 That's it! You can now use Prismic in your Nuxt app ✨
 
-## Documentation
-
-To discover what's new on this package check out [the changelog][changelog]. For full documentation, visit the [module documentation][nuxt-docs] and [Prismic official documentation][prismic-docs].
-
 ## Contributing
 
 Whether you're helping us fix bugs, improve the docs, or spread the word, we'd love to have you as part of the Prismic developer community!
@@ -79,6 +76,7 @@ Whether you're helping us fix bugs, improve the docs, or spread the word, we'd l
 
 <!-- TODO: Replace link with a more useful one if available -->
 
+[playground]: https://stackblitz.com/github/nuxt-modules/prismic/tree/master/examples/minimal?file=pages%2Findex.vue
 [nuxt-docs]: https://prismic.nuxtjs.org
 [prismic-docs]: https://prismic.io/docs/technical-reference/prismicio-vue?version=v4
 [changelog]: ./CHANGELOG.md
