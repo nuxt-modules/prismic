@@ -3,6 +3,7 @@
   "name": "prismic-devtools-client",
   "devDependencies": {
     "@iconify-json/carbon": "^1.1.31",
+    "@iconify-json/logos": "^1.1.42",
     "@nuxt/devtools-kit": "^1.0.8",
     "@nuxt/devtools-ui-kit": "^1.0.8",
     "@unocss/preset-icons": "^0.58.5",

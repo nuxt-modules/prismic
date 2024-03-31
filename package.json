@@ -80,5 +80,9 @@
 	},
 	"publishConfig": {
 		"access": "public"
-	}
+	},
+	"workspaces": [
+		"./",
+		"./client"
+	]
 }
