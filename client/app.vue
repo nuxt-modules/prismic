@@ -1,9 +1,6 @@
 <template>
   <div>
     <NuxtPage v-if="hasRpc" :rpc="rpcClient" />
-    <div v-else>
-      <div class="i-logos:prismic-icon w-1em h-1em"></div>
-    </div>
   </div>
 </template>
 
