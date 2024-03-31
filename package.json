@@ -1,6 +1,6 @@
 {
 	"name": "@nuxtjs/prismic",
-	"version": "3.1.0",
+	"version": "3.1.1",
 	"description": "Easily connect your Nuxt 3 application to your content hosted on Prismic",
 	"keywords": [
 		"nuxt",
@@ -53,7 +53,7 @@
 	},
 	"dependencies": {
 		"@nuxt/devtools-kit": "^1.0.8",
-		"@nuxt/kit": "^3.8.0",
+		"@nuxt/kit": "^3.11.1",
 		"@prismicio/client": "^7.3.1",
 		"@prismicio/vue": "^4.1.0",
 		"birpc": "*",
@@ -64,16 +64,16 @@
 		"terminate": "^2.6.1"
 	},
 	"devDependencies": {
-		"@nuxt/module-builder": "^0.5.2",
+		"@nuxt/module-builder": "^0.5.5",
 		"@nuxt/schema": "^3.10.1",
 		"@nuxtjs/eslint-config-typescript": "^12.1.0",
-		"@vitest/coverage-v8": "^0.34.6",
-		"eslint": "^8.52.0",
+		"@vitest/coverage-v8": "^1.4.0",
+		"eslint": "^8.57.0",
 		"mock-fs": "^5.2.0",
-		"nuxt": "^3.10.1",
+		"nuxt": "^3.11.1",
 		"standard-version": "^9.5.0",
-		"typescript": "^5.2.2",
-		"vitest": "^0.34.6"
+		"typescript": "^5.4.3",
+		"vitest": "^1.4.0"
 	},
 	"engines": {
 		"node": ">=16.10.0"

@@ -19,17 +19,27 @@ Replace all on all files (README.md, CONTRIBUTING.md, bug_report.md, package.jso
 
 Easily connect your Nuxt.js application to your content hosted on [Prismic][prismic].
 
+- [✨ &nbsp;Release Notes][changelog]
+- [🏀 Online Playground][playground]
+- [📖 &nbsp;Module Documentation][nuxt-docs]
+- [📚 &nbsp;Prismic Documentation][prismic-docs]
+
+## Features
+
+<!-- Highlight some of the features your module provide here -->
 - 🚀 &nbsp;Add Prismic to your Nuxt app in seconds;
 - 🎣 &nbsp;Access Prismic SDK through composition and options API;
 - 🖼 &nbsp;Prismic previews supported.
 
-## Install
+## Quick Setup
+
+Install the module to your Nuxt application with one command:
 
 ```bash
-npm install --save-dev @nuxtjs/prismic # or yarn add --dev @nuxtjs/prismic
+npx nuxi module add prismic
 ```
 
-Then, add `@nuxtjs/prismic` to the `modules` section of your Nuxt config and configure your Prismic API endpoint:
+Then, configure your Prismic API endpoint:
 
 ```javascript
 import { defineNuxtConfig } from 'nuxt'
@@ -42,9 +52,7 @@ export default defineNuxtConfig({
 });
 ```
 
-## Documentation
-
-To discover what's new on this package check out [the changelog][changelog]. For full documentation, visit the [module documentation][nuxt-docs] and [Prismic official documentation][prismic-docs].
+That's it! You can now use Prismic in your Nuxt app ✨
 
 ## Contributing
 
@@ -68,6 +76,7 @@ Whether you're helping us fix bugs, improve the docs, or spread the word, we'd l
 
 <!-- TODO: Replace link with a more useful one if available -->
 
+[playground]: https://stackblitz.com/github/nuxt-modules/prismic/tree/master/examples/minimal?file=pages%2Findex.vue
 [nuxt-docs]: https://prismic.nuxtjs.org
 [prismic-docs]: https://prismic.io/docs/technical-reference/prismicio-vue?version=v4
 [changelog]: ./CHANGELOG.md

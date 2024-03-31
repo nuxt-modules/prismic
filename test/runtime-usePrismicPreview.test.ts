@@ -36,7 +36,7 @@ it('resolves preview', async () => {
 })
 
 it('resolves preview with provided `defaultURL`', async (ctx) => {
-	usePrismicPreview(ctx.meta.name)
+	usePrismicPreview(ctx.task.name)
 
 	expect(useRouter).toHaveBeenCalledOnce()
 	expect(usePrismic).toHaveBeenCalledOnce()
@@ -46,5 +46,5 @@ it('resolves preview with provided `defaultURL`', async (ctx) => {
 
 	expect(usePrismic.mock.results[0].value.client.resolvePreviewURL).toHaveBeenCalledOnce()
 	expect(useRouter.mock.results[0].value.push).toHaveBeenCalledOnce()
-	expect(useRouter.mock.results[0].value.push).toHaveBeenCalledWith(ctx.meta.name)
+	expect(useRouter.mock.results[0].value.push).toHaveBeenCalledWith(ctx.task.name)
 })

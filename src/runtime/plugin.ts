@@ -36,8 +36,11 @@ export default defineNuxtPlugin((nuxtApp) => {
 		const previewCookie = useCookie('io.prismic.preview').value
 
 		// Update client with req when running server side
-		if (process.server) {
-			prismicPlugin.client.enableAutoPreviewsFromReq(useRequestEvent()?.req)
+		if (import.meta.server) {
+			const req = useRequestEvent()?.node.req
+			if (req) {
+				prismicPlugin.client.enableAutoPreviewsFromReq(req)
+			}
 		}
 
 		if (previewCookie) {
@@ -80,7 +83,8 @@ export default defineNuxtPlugin((nuxtApp) => {
 				key: 'prismic-preview',
 				src: `https://static.cdn.prismic.io/prismic.min.js?repo=${repositoryName}&new=true`,
 				async: true,
-				defer: true
+				defer: true,
+				crossorigin: 'anonymous'
 			}]
 		})
 	} else {
