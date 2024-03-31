@@ -48,7 +48,8 @@ export default defineNuxtModule<PrismicModuleOptions>({
 		injectComponents: true,
 		components: {},
 		preview: '/preview',
-		toolbar: true
+		toolbar: true,
+		devtools: true
 	}),
 	hooks: {},
 	setup (options, nuxt) {
@@ -59,7 +60,7 @@ export default defineNuxtModule<PrismicModuleOptions>({
 
 		// Runtime dir boilerplate
 		const resolver = createResolver(import.meta.url)
-		if (nuxt.options.devtools) setupDevToolsUI(nuxt, resolver)
+		if (nuxt.options.devtools && options.devtools) setupDevToolsUI(nuxt, resolver)
 	
 		// Add runtime user code
 		const proxyUserFileWithUndefinedFallback =
