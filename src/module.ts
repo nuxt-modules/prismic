@@ -1,5 +1,4 @@
 import { join } from 'node:path'
-import { setupDevToolsUI } from './devtools'
 import { defu } from 'defu'
 import {
 	defineNuxtModule,
@@ -12,6 +11,7 @@ import {
 } from '@nuxt/kit'
 
 import * as prismicVue from '@prismicio/vue'
+import { setupDevToolsUI } from './devtools'
 
 import { logger, fileExists } from './lib'
 import type { PrismicModuleOptions } from './types'
@@ -60,8 +60,8 @@ export default defineNuxtModule<PrismicModuleOptions>({
 
 		// Runtime dir boilerplate
 		const resolver = createResolver(import.meta.url)
-		if (nuxt.options.devtools && options.devtools) setupDevToolsUI(nuxt, resolver)
-	
+		if (nuxt.options.devtools && options.devtools) { setupDevToolsUI(nuxt, resolver) }
+
 		// Add runtime user code
 		const proxyUserFileWithUndefinedFallback =
 			(filename: string, path: string, extensions = ['js', 'mjs', 'ts']): boolean => {

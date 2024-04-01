@@ -1,19 +1,19 @@
-import type { BirpcReturn} from "birpc"
-
-export interface ISlicemachineClientFunctions {
-    updateStatus(status: SliceMachineStatus) : void
-}
+import type { BirpcReturn } from 'birpc'
 
 export enum SliceMachineStatus {
-    STARTED,
-    STOPPED
+	STARTED,
+	STOPPED
+}
+
+export interface ISlicemachineClientFunctions {
+	updateStatus(status: SliceMachineStatus) : void
 }
 
 export interface ISlicemachineServerFunctions {
-    getSlicemachineConfig() : Promise<Object | null>
+	getSlicemachineConfig() : Promise<Object | null>
 	isSliceMachineStarted() : boolean
-	startSliceMachine() : Promise<SliceMachineStatus>
-	stopSliceMachine() : Promise<SliceMachineStatus>
+	startSliceMachine() : SliceMachineStatus
+	stopSliceMachine() : SliceMachineStatus
 }
 
 export type RpcServerType = BirpcReturn<ISlicemachineClientFunctions, ISlicemachineServerFunctions>
