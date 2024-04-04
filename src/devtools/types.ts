@@ -1,5 +1,7 @@
 import type { BirpcReturn } from 'birpc'
 
+export const RPC_NAMESPACE = 'prismic-slicemachine-rpc'
+
 export enum SliceMachineStatus {
 	STARTED,
 	STOPPED
@@ -16,4 +18,5 @@ export interface ISlicemachineServerFunctions {
 	stopSliceMachine() : SliceMachineStatus
 }
 
-export type RpcServerType = BirpcReturn<ISlicemachineClientFunctions, ISlicemachineServerFunctions>
+export type RPCServerType = BirpcReturn<ISlicemachineClientFunctions, ISlicemachineServerFunctions>
+export type RPCClientType = BirpcReturn<ISlicemachineServerFunctions, ISlicemachineClientFunctions>

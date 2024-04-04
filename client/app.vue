@@ -1,34 +1,32 @@
 <template>
-  <div>
-    <NuxtPage v-if="hasRpc" :rpc="rpcClient" />
-  </div>
+	<NuxtLayout>
+		<NuxtPage v-if="rpcClient" :rpc="rpcClient" />
+	</NuxtLayout>
 </template>
-
 
 <script setup lang="ts">
 import { onDevtoolsClientConnected } from '@nuxt/devtools-kit/iframe-client'
-import { SliceMachineStatus, type ISlicemachineClientFunctions, type ISlicemachineServerFunctions } from '../src/devtools/types'
-import { ref } from "vue"
-import type { RpcClientType } from '#imports';
-import { useSlicemachineState } from './composables/slicemachine';
-const RPC_NAMESPACE = 'prismic-slicemachine-rpc'
 
-const slicemachineState = useSlicemachineState()
+import {
+	RPC_NAMESPACE,
+	SliceMachineStatus,
+	type RPCClientType,
+	type ISlicemachineClientFunctions,
+	type ISlicemachineServerFunctions
+} from '../src/devtools/types'
 
-const rpcClient = ref<RpcClientType>()
+const sliceMachineStatus = useSliceMachineStatus()
 
-onDevtoolsClientConnected(async (client) => {
-  const rpc = client.devtools.extendClientRpc<ISlicemachineServerFunctions, ISlicemachineClientFunctions>(RPC_NAMESPACE, {
-    updateStatus(status) {
-      slicemachineState.value = status === SliceMachineStatus.STARTED
-    },
-  })
-  rpcClient.value = rpc
+const rpcClient = ref<RPCClientType>()
 
+onDevtoolsClientConnected((client) => {
+	rpcClient.value = client.devtools.extendClientRpc<ISlicemachineServerFunctions, ISlicemachineClientFunctions>(
+		RPC_NAMESPACE,
+		{
+			updateStatus (status) {
+				sliceMachineStatus.value.running = status === SliceMachineStatus.STARTED
+			}
+		}
+	)
 })
-
-const hasRpc = computed(() => {
-  return rpcClient.value !== undefined
-})
-
 </script>

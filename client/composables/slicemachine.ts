@@ -1,18 +1,19 @@
-const STATUS_KEY = 'sm-status'
+import type { RPCClientType } from '../../src/devtools/types'
 
-export const useSlicemachineState = () => useState(STATUS_KEY, () => false)
+export const useSliceMachineStatus = () => useState(
+	'prismic-slice-machine-running',
+	() => ({ running: false })
+)
 
-export async function useSlicemachine (rpc:RpcClientType) {
-	const _status = useSlicemachineState()
+export const useSlicemachine = async (rpc: RPCClientType) => {
+	const _status = useSliceMachineStatus()
+	_status.value.running = await rpc.isSliceMachineStarted()
+	const _config = await rpc.getSlicemachineConfig()
 
-	_status.value = await rpc.isSliceMachineStarted()
-
-	const status = computed(() => _status.value)
-	const config = ref(await rpc.getSlicemachineConfig())
 	return {
-		status,
+		status: computed(() => _status.value),
 		start: rpc.startSliceMachine,
 		stop: rpc.stopSliceMachine,
-		config
+		config: ref(_config)
 	}
 }

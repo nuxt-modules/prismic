@@ -5,7 +5,6 @@ export default defineNuxtConfig({
 	modules: [
 		'@nuxt/devtools-ui-kit'
 	],
-	devtools: { enabled: true },
 	nitro: {
 		output: {
 			publicDir: resolve(__dirname, '../dist/client')

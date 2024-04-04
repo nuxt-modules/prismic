@@ -1,4 +1,5 @@
 import { join } from 'node:path'
+
 import { defu } from 'defu'
 import {
 	defineNuxtModule,
@@ -38,7 +39,7 @@ export default defineNuxtModule<PrismicModuleOptions>({
 		configKey: 'prismic',
 		compatibility: { nuxt: '^3.7.0' }
 	},
-	defaults: nuxt => ({
+	defaults: _nuxt => ({
 		endpoint: '',
 		environment: '',
 		clientConfig: {},
@@ -60,7 +61,9 @@ export default defineNuxtModule<PrismicModuleOptions>({
 
 		// Runtime dir boilerplate
 		const resolver = createResolver(import.meta.url)
-		if (nuxt.options.devtools && options.devtools) { setupDevToolsUI(nuxt, resolver) }
+		if (nuxt.options.devtools && options.devtools) {
+			setupDevToolsUI(nuxt, resolver)
+		}
 
 		// Add runtime user code
 		const proxyUserFileWithUndefinedFallback =
