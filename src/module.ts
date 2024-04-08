@@ -12,6 +12,7 @@ import {
 } from '@nuxt/kit'
 
 import * as prismicVue from '@prismicio/vue'
+import { setupDevToolsUI } from './devtools'
 
 import { logger, fileExists } from './lib'
 import type { PrismicModuleOptions } from './types'
@@ -38,7 +39,7 @@ export default defineNuxtModule<PrismicModuleOptions>({
 		configKey: 'prismic',
 		compatibility: { nuxt: '^3.7.0' }
 	},
-	defaults: nuxt => ({
+	defaults: _nuxt => ({
 		endpoint: '',
 		environment: '',
 		clientConfig: {},
@@ -48,7 +49,8 @@ export default defineNuxtModule<PrismicModuleOptions>({
 		injectComponents: true,
 		components: {},
 		preview: '/preview',
-		toolbar: true
+		toolbar: true,
+		devtools: true
 	}),
 	hooks: {},
 	setup (options, nuxt) {
@@ -56,6 +58,12 @@ export default defineNuxtModule<PrismicModuleOptions>({
 		nuxt.options.runtimeConfig.public ||= {} as typeof nuxt.options.runtimeConfig.public
 		const moduleOptions: PrismicModuleOptions = defu(nuxt.options.runtimeConfig.public.prismic, options)
 		nuxt.options.runtimeConfig.public.prismic = moduleOptions
+
+		// Runtime dir boilerplate
+		const resolver = createResolver(import.meta.url)
+		if (nuxt.options.devtools && options.devtools) {
+			setupDevToolsUI(nuxt, resolver)
+		}
 
 		// Add runtime user code
 		const proxyUserFileWithUndefinedFallback =
@@ -93,8 +101,6 @@ export default defineNuxtModule<PrismicModuleOptions>({
 		proxyUserFileWithUndefinedFallback('linkResolver', moduleOptions.linkResolver!)
 		proxyUserFileWithUndefinedFallback('richTextSerializer', moduleOptions.richTextSerializer!)
 
-		// Runtime dir boilerplate
-		const resolver = createResolver(import.meta.url)
 		nuxt.options.build.transpile.push(resolver.resolve('runtime'), '@nuxtjs/prismic', '@prismicio/vue')
 		nuxt.options.vite.optimizeDeps ||= {}
 		nuxt.options.vite.optimizeDeps.exclude ||= []

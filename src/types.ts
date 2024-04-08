@@ -86,4 +86,11 @@ export type PrismicModuleOptions = Omit<PrismicPluginOptions, 'endpoint' | 'clie
 	 * @defaultValue `true`
 	 */
 	toolbar?: boolean;
+
+	/**
+	 * Whether or not to enable the devtools UI.
+	 * 
+	 * @defaultValue `true`
+	 */
+	devtools?: boolean;
 };
