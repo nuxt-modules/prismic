@@ -39,6 +39,7 @@ it('exposes options in runtime config', () => {
 		  "client": "~/app/prismic/client",
 		  "clientConfig": {},
 		  "components": {},
+		  "devtools": true,
 		  "endpoint": "qwerty",
 		  "environment": "",
 		  "injectComponents": true,
