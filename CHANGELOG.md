@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [3.2.0](https://github.com/nuxt-modules/prismic/compare/v3.1.1...v3.2.0) (2024-04-08)
+
+
+### Features
+
+* devtool integration for slicemachine ([#210](https://github.com/nuxt-modules/prismic/issues/210)) ([a04d52c](https://github.com/nuxt-modules/prismic/commit/a04d52ca9b1600ce7f7ac43aa8586405c9ec0942))
+
 ### [3.1.1](https://github.com/nuxt-modules/prismic/compare/v3.1.0...v3.1.1) (2024-03-26)
 
 
