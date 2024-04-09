@@ -2,6 +2,23 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [3.2.1](https://github.com/nuxt-modules/prismic/compare/v3.2.0...v3.2.1) (2024-04-09)
+
+
+### Bug Fixes
+
+* slice machine configuration not loading in production (cjs), fixes: [#212](https://github.com/nuxt-modules/prismic/issues/212) ([a704db2](https://github.com/nuxt-modules/prismic/commit/a704db25d244c20c6240ef293db8c0509d51fafc))
+
+
+### Documentation
+
+* use new `nuxi module add` command in installation ([#211](https://github.com/nuxt-modules/prismic/issues/211)) ([67c4991](https://github.com/nuxt-modules/prismic/commit/67c4991bf4399c4f812a5a02eb35452be0e6b7fe))
+
+
+### Chore
+
+* **deps:** maintain lock file ([817ad6a](https://github.com/nuxt-modules/prismic/commit/817ad6aea4a9b04eac4c7e4814feca2824411a7d))
+
 ## [3.2.0](https://github.com/nuxt-modules/prismic/compare/v3.1.1...v3.2.0) (2024-04-08)
 
 
