@@ -1,4 +1,5 @@
 import { existsSync } from 'node:fs'
+import { readFile } from 'node:fs/promises'
 
 import { extendServerRpc, onDevToolsInitialized, startSubprocess } from '@nuxt/devtools-kit'
 import type { Resolver } from '@nuxt/kit'
@@ -71,7 +72,7 @@ export const setupDevToolsUI = (nuxt: Nuxt, resolver: Resolver) => {
 					const configPath = resolve(nuxt.options.rootDir, 'slicemachine.config.json')
 
 					if (existsSync(configPath)) {
-						return await import(configPath)
+						return JSON.parse(await readFile(configPath, 'utf-8'))
 					}
 
 					return null
