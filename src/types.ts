@@ -26,7 +26,7 @@ export type PrismicModuleOptions = Omit<PrismicPluginOptions, 'endpoint' | 'clie
 	 *
 	 * @see Prismic client documentation {@link https://prismic.io/docs/technical-reference/prismicio-client}
 	 */
-	endpoint?: string;
+	endpoint?: string
 
 	/**
 	 * The Prismic environment in use by Slice Machine configured through
@@ -36,7 +36,7 @@ export type PrismicModuleOptions = Omit<PrismicPluginOptions, 'endpoint' | 'clie
 	 *
 	 * @internal
 	 */
-	environment?: string;
+	environment?: string
 
 	/**
 	 * An optional path to a file exporting a `@prismicio/client` instance used
@@ -47,7 +47,7 @@ export type PrismicModuleOptions = Omit<PrismicPluginOptions, 'endpoint' | 'clie
 	 * `usePrismic().client`.
 	 * @see Prismic client documentation {@link https://prismic.io/docs/technical-reference/prismicio-client}
 	 */
-	client?: string;
+	client?: string
 
 	/**
 	 * An optional path to a file exporting a link resolver function used to
@@ -56,7 +56,7 @@ export type PrismicModuleOptions = Omit<PrismicPluginOptions, 'endpoint' | 'clie
 	 *
 	 * @see Link resolver documentation {@link https://prismic.io/docs/route-resolver#link-resolver}
 	 */
-	linkResolver?: string;
+	linkResolver?: string
 
 	/**
 	 * An optional path to a file exporting an HTML serializer to customize
@@ -64,7 +64,7 @@ export type PrismicModuleOptions = Omit<PrismicPluginOptions, 'endpoint' | 'clie
 	 *
 	 * @see HTML serializer documentation {@link https://prismic.io/docs/rich-text}
 	 */
-	richTextSerializer?: string;
+	richTextSerializer?: string
 
 	/**
 	 * Desired path of the preview page used by Prismic to enter preview
@@ -75,7 +75,7 @@ export type PrismicModuleOptions = Omit<PrismicPluginOptions, 'endpoint' | 'clie
 	 *
 	 * @defaultValue `"/preview"`
 	 */
-	preview?: string | false;
+	preview?: string | false
 
 	/**
 	 * Whether or not to inject Prismic toolbar script.
@@ -85,12 +85,12 @@ export type PrismicModuleOptions = Omit<PrismicPluginOptions, 'endpoint' | 'clie
 	 *
 	 * @defaultValue `true`
 	 */
-	toolbar?: boolean;
+	toolbar?: boolean
 
 	/**
 	 * Whether or not to enable the devtools UI.
 	 *
 	 * @defaultValue `true`
 	 */
-	devtools?: boolean;
-};
+	devtools?: boolean
+}

@@ -2,7 +2,7 @@ import type { RPCClientType } from '../../src/devtools/types'
 
 export const useSliceMachineStatus = () => useState(
 	'prismic-slice-machine-running',
-	() => ({ running: false })
+	() => ({ running: false }),
 )
 
 export const useSlicemachine = async (rpc: RPCClientType) => {
@@ -14,6 +14,6 @@ export const useSlicemachine = async (rpc: RPCClientType) => {
 		status: computed(() => _status.value),
 		start: rpc.startSliceMachine,
 		stop: rpc.stopSliceMachine,
-		config: ref(_config)
+		config: ref(_config),
 	}
 }

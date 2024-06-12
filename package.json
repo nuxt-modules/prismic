@@ -45,7 +45,7 @@
 		"release:dry": "standard-version --dry-run",
 		"release:rc": "npm run test && standard-version --release-as major --prerelease rc && git push --follow-tags && npm run build && npm publish --tag rc",
 		"release:rc:dry": "standard-version --release-as major --prerelease rc --dry-run",
-		"lint": "eslint --ext .js,.ts .",
+		"lint": "eslint .",
 		"types": "tsc --noEmit",
 		"unit": "vitest run --coverage",
 		"unit:watch": "vitest watch",

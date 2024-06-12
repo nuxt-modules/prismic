@@ -3,7 +3,8 @@ import { existsSync } from 'node:fs'
 export const fileExists = (path?: string, extensions = ['js', 'ts']): string | null => {
 	if (!path) {
 		return null
-	} else if (existsSync(path)) {
+	}
+	else if (existsSync(path)) {
 		// If path already contains/forces the extension
 		return path
 	}

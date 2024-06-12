@@ -11,7 +11,7 @@ import { mockModule } from './__testutils__/mockModule'
 const mockedPrismicModule = mockModule(prismicModule)
 
 vi.mock('../src/lib/logger.ts', () => ({
-	logger: { info: vi.fn(), warn: vi.fn() }
+	logger: { info: vi.fn(), warn: vi.fn() },
 }))
 vi.mock('@nuxt/kit', async () => {
 	const { mockedNuxtKit } = await vi.importActual<typeof import('./__testutils__/mockedNuxtKit')>('./__testutils__/mockedNuxtKit')
@@ -32,7 +32,7 @@ it('injects default preview page', () => {
 
 it('uses user preview when avaiable', () => {
 	mockFS({
-		'/tmp/nuxt/pages/preview.vue': ''
+		'/tmp/nuxt/pages/preview.vue': '',
 	})
 
 	mockedPrismicModule({ endpoint: 'qwerty' })
@@ -45,7 +45,7 @@ it('uses user preview when avaiable', () => {
 
 it('uses user preview when avaiable at specified location', () => {
 	mockFS({
-		'/tmp/nuxt/pages/prismic-preview.vue': ''
+		'/tmp/nuxt/pages/prismic-preview.vue': '',
 	})
 
 	mockedPrismicModule({ endpoint: 'qwerty', preview: '/prismic-preview' })
@@ -60,8 +60,8 @@ it('doesn\'t enable preview when `preview` is `false`', () => {
 	mockedPrismicModule({ endpoint: 'qwerty', preview: false })
 
 	expect(extendPages).not.toHaveBeenCalled()
-	expect(logger.info.mock.calls.find(([info]) => info.startsWith('Using user-defined preview page at'))).toBeUndefined()
-	expect(logger.info.mock.calls.find(([info]) => info.startsWith('Using default preview page, available at'))).toBeUndefined()
+	expect(vi.mocked(logger.info).mock.calls.find(([info]) => info.startsWith('Using user-defined preview page at'))).toBeUndefined()
+	expect(vi.mocked(logger.info).mock.calls.find(([info]) => info.startsWith('Using default preview page, available at'))).toBeUndefined()
 })
 
 it('warns user that toolbar is required when `toolbar` is `false`', () => {

@@ -10,7 +10,7 @@ it('returns null when path is missing', () => {
 it('returns path when path already exists', () => {
 	mockFS({
 		'/path/to/file': '',
-		'/path/to/image': ''
+		'/path/to/image': '',
 	})
 
 	expect(fileExists('/path/to/file')).toBe('/path/to/file')
@@ -22,7 +22,7 @@ it('returns path when path already exists', () => {
 it('returns path with extension when path and extension match', () => {
 	mockFS({
 		'/path/to/file.js': '',
-		'/path/to/image.png': ''
+		'/path/to/image.png': '',
 	})
 
 	expect(fileExists('/path/to/file')).toBe('/path/to/file.js')

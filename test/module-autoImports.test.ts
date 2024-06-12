@@ -9,7 +9,7 @@ import { mockModule } from './__testutils__/mockModule'
 const mockedPrismicModule = mockModule(prismicModule)
 
 vi.mock('../src/lib/logger.ts', () => ({
-	logger: { info: vi.fn(), warn: vi.fn() }
+	logger: { info: vi.fn(), warn: vi.fn() },
 }))
 vi.mock('@nuxt/kit', async () => {
 	const { mockedNuxtKit } = await vi.importActual<typeof import('./__testutils__/mockedNuxtKit')>('./__testutils__/mockedNuxtKit')

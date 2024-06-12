@@ -11,8 +11,12 @@ const text = computed(() => {
 </script>
 
 <template>
-	<NTip :n="running ? 'green' : 'yellow'">
-		{{ text }}
-		<a v-if="running" target="_blank" href="http://localhost:9999">http://localhost:9999</a>
-	</NTip>
+  <NTip :n="running ? 'green' : 'yellow'">
+    {{ text }}
+    <a
+      v-if="running"
+      target="_blank"
+      href="http://localhost:9999"
+    >http://localhost:9999</a>
+  </NTip>
 </template>

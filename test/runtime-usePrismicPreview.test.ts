@@ -2,18 +2,18 @@ import { it, expect, vi, afterEach } from 'vitest'
 
 import { onMounted } from 'vue'
 import { usePrismicPreview } from '../src/runtime/usePrismicPreview'
-// @ts-expect-error VFS
+// @ts-expect-error VFS is not typed here
 import { useRouter, usePrismic } from '#imports'
 
 vi.mock('vue', () => {
 	return {
-		onMounted: vi.fn(callback => callback())
+		onMounted: vi.fn(callback => callback()),
 	}
 })
 vi.mock('#imports', () => {
 	return {
 		useRouter: vi.fn(() => ({ push: vi.fn() })),
-		usePrismic: vi.fn(() => ({ client: { resolvePreviewURL: vi.fn(({ defaultURL }) => defaultURL) }, options: { linkResolver: vi.fn() } }))
+		usePrismic: vi.fn(() => ({ client: { resolvePreviewURL: vi.fn(({ defaultURL }) => defaultURL) }, options: { linkResolver: vi.fn() } })),
 	}
 })
 

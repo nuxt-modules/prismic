@@ -1,6 +1,6 @@
 import { vi } from 'vitest'
 
-import { Nuxt } from '@nuxt/schema'
+import type { Nuxt } from '@nuxt/schema'
 
 export const mockedNuxtKit = async () => {
 	const kit: Record<string, unknown> = await vi.importActual('@nuxt/kit')
@@ -17,14 +17,14 @@ export const mockedNuxtKit = async () => {
 					vite: {},
 					runtimeConfig: {},
 					app: { head: {} },
-					alias: {}
+					alias: {},
 				},
-				version: '3.0.0'
+				version: '3.0.0',
 			} as unknown as Nuxt
 
 			const mergedOptions = {
 				...definition.defaults(mockedNuxt),
-				...options
+				...options,
 			}
 
 			definition.setup(mergedOptions, mockedNuxt)
@@ -41,6 +41,6 @@ export const mockedNuxtKit = async () => {
 			extendPagesHook(pages)
 
 			return pages
-		})
+		}),
 	}
 }

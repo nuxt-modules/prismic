@@ -9,7 +9,7 @@ import { mockModule } from './__testutils__/mockModule'
 const mockedPrismicModule = mockModule(prismicModule)
 
 vi.mock('consola', () => ({
-	consola: { withTag: () => ({ info: vi.fn(), warn: vi.fn() }) }
+	consola: { withTag: () => ({ info: vi.fn(), warn: vi.fn() }) },
 }))
 vi.mock('@nuxt/kit', async () => {
 	const { mockedNuxtKit } = await vi.importActual<typeof import('./__testutils__/mockedNuxtKit')>('./__testutils__/mockedNuxtKit')
@@ -36,7 +36,7 @@ it('doesn\'t warn and return early if endpoint is provided', () => {
 
 it('doesn\'t warn and return early if client file is provided', () => {
 	mockFS({
-		'/tmp/nuxt/app/prismic/client.ts': ''
+		'/tmp/nuxt/app/prismic/client.ts': '',
 	})
 
 	mockedPrismicModule({ endpoint: 'qwerty' })

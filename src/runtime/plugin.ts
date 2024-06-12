@@ -1,8 +1,8 @@
 import { isRepositoryEndpoint, getRepositoryName, type Client } from '@prismicio/client'
 import { createPrismic } from '@prismicio/vue'
 
-import NuxtLink from '#app/components/nuxt-link'
 import type { PrismicModuleOptions } from '../types'
+import NuxtLink from '#app/components/nuxt-link'
 import { defineNuxtPlugin, useCookie, useRequestEvent, onNuxtReady, refreshNuxtData, useHead, useRuntimeConfig, useRouter } from '#imports'
 
 // @ts-expect-error vfs cannot be resolved here
@@ -26,8 +26,8 @@ export default defineNuxtPlugin((nuxtApp) => {
 		components: {
 			linkInternalComponent: NuxtLink,
 			linkExternalComponent: NuxtLink,
-			...options.components
-		}
+			...options.components,
+		},
 	})
 
 	nuxtApp.vueApp.use(prismicPlugin)
@@ -48,11 +48,11 @@ export default defineNuxtPlugin((nuxtApp) => {
 				const session = typeof previewCookie === 'string' ? JSON.parse(decodeURIComponent(previewCookie)) : previewCookie
 
 				if (Object.keys(session).some(key =>
-					key in session &&
-					typeof session[key] === 'object' &&
-					session[key] !== null &&
-					'preview' in session[key] &&
-					session[key].preview)
+					key in session
+					&& typeof session[key] === 'object'
+					&& session[key] !== null
+					&& 'preview' in session[key]
+					&& session[key].preview)
 				) {
 					let afterEachCalled = false
 					onNuxtReady(() => {
@@ -65,8 +65,8 @@ export default defineNuxtPlugin((nuxtApp) => {
 						refreshNuxtData()
 					})
 				}
-			} catch (error) {
-				// eslint-disable-next-line no-console
+			}
+			catch (error) {
 				console.warn('Failed to parse Prismic preview cookie', error)
 			}
 		}
@@ -84,15 +84,16 @@ export default defineNuxtPlugin((nuxtApp) => {
 				src: `https://static.cdn.prismic.io/prismic.min.js?repo=${repositoryName}&new=true`,
 				async: true,
 				defer: true,
-				crossorigin: 'anonymous'
-			}]
+				crossorigin: 'anonymous',
+			}],
 		})
-	} else {
+	}
+	else {
 		// TODO: We might want to let user disable this behavior because it might have unexpected side effects
 		useCookie('io.prismic.preview').value = null
 	}
 
 	return {
-		provide: { prismic: prismicPlugin }
+		provide: { prismic: prismicPlugin },
 	}
 })

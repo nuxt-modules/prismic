@@ -11,7 +11,7 @@ import {
 	RPC_NAMESPACE,
 	SliceMachineStatus,
 	type ISlicemachineServerFunctions,
-	type ISlicemachineClientFunctions
+	type ISlicemachineClientFunctions,
 } from './types'
 
 const DEVTOOLS_UI_ROUTE = '/__prismic-client'
@@ -40,10 +40,11 @@ export const setupDevToolsUI = (nuxt: Nuxt, resolver: Resolver) => {
 			const sirv = await import('sirv').then(r => r.default || r)
 			server.middlewares.use(
 				DEVTOOLS_UI_ROUTE,
-				sirv(clientPath, { dev: true, single: true })
+				sirv(clientPath, { dev: true, single: true }),
 			)
 		})
-	} else {
+	}
+	else {
 		// In local development, start a separate Nuxt Server and proxy to serve the client
 		nuxt.hook('vite:extendConfig', (config) => {
 			config.server = config.server || {}
@@ -52,7 +53,7 @@ export const setupDevToolsUI = (nuxt: Nuxt, resolver: Resolver) => {
 				target: `http://localhost:${DEVTOOLS_UI_LOCAL_PORT}${DEVTOOLS_UI_ROUTE}`,
 				changeOrigin: true,
 				followRedirects: true,
-				rewrite: path => path.replace(DEVTOOLS_UI_ROUTE, '')
+				rewrite: path => path.replace(DEVTOOLS_UI_ROUTE, ''),
 			}
 		})
 	}
@@ -68,7 +69,7 @@ export const setupDevToolsUI = (nuxt: Nuxt, resolver: Resolver) => {
 		const rpc = extendServerRpc<ISlicemachineClientFunctions, ISlicemachineServerFunctions>(
 			RPC_NAMESPACE,
 			{
-				async getSlicemachineConfig () {
+				async getSlicemachineConfig() {
 					const configPath = resolve(nuxt.options.rootDir, 'slicemachine.config.json')
 
 					if (existsSync(configPath)) {
@@ -78,32 +79,32 @@ export const setupDevToolsUI = (nuxt: Nuxt, resolver: Resolver) => {
 					return null
 				},
 
-				isSliceMachineStarted () {
+				isSliceMachineStarted() {
 					return subProcess !== null
 				},
 
-				startSliceMachine () {
+				startSliceMachine() {
 					stopSubprocess()
 
 					subProcess = startSubprocess({
 						command: 'npx',
 						args: ['start-slicemachine'],
-						cwd: nuxt.options.rootDir
+						cwd: nuxt.options.rootDir,
 					}, {
 						id: 'slicemachine',
 						name: 'SliceMachine',
-						icon: 'cib:prismic'
+						icon: 'cib:prismic',
 					}, nuxt)
 
 					rpc.broadcast.updateStatus(SliceMachineStatus.STARTED)
 					return SliceMachineStatus.STARTED
 				},
-				stopSliceMachine () {
+				stopSliceMachine() {
 					stopSubprocess()
 
 					rpc.broadcast.updateStatus(SliceMachineStatus.STOPPED)
 					return SliceMachineStatus.STOPPED
-				}
+				},
 			})
 	})
 
@@ -118,8 +119,8 @@ export const setupDevToolsUI = (nuxt: Nuxt, resolver: Resolver) => {
 			// iframe view
 			view: {
 				type: 'iframe',
-				src: DEVTOOLS_UI_ROUTE
-			}
+				src: DEVTOOLS_UI_ROUTE,
+			},
 		})
 	})
 }
