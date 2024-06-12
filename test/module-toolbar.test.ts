@@ -21,6 +21,7 @@ afterEach(() => {
 	vi.clearAllMocks()
 })
 
+// We now use `useHead` to inject the toolbar script
 it.skip('injects toolbar from repository name', () => {
 	const { nuxt } = mockedPrismicModule({ endpoint: 'qwerty' })
 
@@ -35,6 +36,7 @@ it.skip('injects toolbar from repository name', () => {
 	`)
 })
 
+// We now use `useHead` to inject the toolbar script
 it.skip('injects toolbar from repository endpoint', () => {
 	const { nuxt } = mockedPrismicModule({ endpoint: 'https://qwerty.cdn.prismic.io/api/v2' })
 

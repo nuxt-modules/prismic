@@ -30,7 +30,7 @@ jobs:
       matrix:
         node: [lts/*]
         # Based on https://majors.nullvoxpopuli.com/q?minors=on&packages=typescript
-        typescript: ["5.3", "5.4"]
+        typescript: ["5.4"]
       fail-fast: false
 
     steps:

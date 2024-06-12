@@ -85,10 +85,5 @@
 	"publishConfig": {
 		"access": "public"
 	},
-	"workspaces": [
-		"./",
-		"./client",
-		"./docs"
-	],
 	"packageManager": "pnpm@9.3.0"
 }
