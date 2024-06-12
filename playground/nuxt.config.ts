@@ -5,12 +5,11 @@ import { startSubprocess } from '@nuxt/devtools-kit'
 
 // https://v3.nuxtjs.org/docs/directory-structure/nuxt.config
 export default defineNuxtConfig({
-	devtools: {
-		enabled: true,
+	future: {
+		compatibilityVersion: 4,
 	},
-	typescript: {
-		strict: true,
-	},
+	devtools: { enabled: true },
+	typescript: { strict: true },
 	modules: [
 		'../src/module',
 		/**

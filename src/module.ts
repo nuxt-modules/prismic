@@ -9,6 +9,7 @@ import {
 	addImports,
 	addComponent,
 	extendPages,
+	getNuxtVersion,
 } from '@nuxt/kit'
 
 import * as prismicVue from '@prismicio/vue'
@@ -39,19 +40,37 @@ export default defineNuxtModule<PrismicModuleOptions>({
 		configKey: 'prismic',
 		compatibility: { nuxt: '>=3.7.0' },
 	},
-	defaults: _nuxt => ({
-		endpoint: '',
-		environment: '',
-		clientConfig: {},
-		client: '~/app/prismic/client',
-		linkResolver: '~/app/prismic/linkResolver',
-		richTextSerializer: '~/app/prismic/richTextSerializer',
-		injectComponents: true,
-		components: {},
-		preview: '/preview',
-		toolbar: true,
-		devtools: true,
-	}),
+	defaults: (nuxt) => {
+		let prismicFiles = {
+			client: '~/app/prismic/client',
+			linkResolver: '~/app/prismic/linkResolver',
+			richTextSerializer: '~/app/prismic/richTextSerializer',
+		}
+
+		// Nuxt 4 sets `app` as its `srcDir`, so we're just using the `prismic` folder there.
+		if (
+			nuxt.options?.future?.compatibilityVersion === 4
+			|| getNuxtVersion(nuxt).startsWith('4')
+		) {
+			prismicFiles = {
+				client: '~/prismic/client',
+				linkResolver: '~/prismic/linkResolver',
+				richTextSerializer: '~/prismic/richTextSerializer',
+			}
+		}
+
+		return {
+			endpoint: '',
+			environment: '',
+			clientConfig: {},
+			...prismicFiles,
+			injectComponents: true,
+			components: {},
+			preview: '/preview',
+			toolbar: true,
+			devtools: true,
+		}
+	},
 	hooks: {},
 	setup(options, nuxt) {
 		// Expose options through public runtime config
