@@ -48,7 +48,7 @@ jobs:
         run: pnpm install
 
       - name: Set typescript ${{ matrix.typescript }}
-        run: pnpm add --save-dev typescript@${{ matrix.typescript }} && npx tsc --version
+        run: pnpm add --workspace-root --save-dev typescript@${{ matrix.typescript }} && npx tsc --version
 
       - name: Typecheck
         run: pnpm typecheck
