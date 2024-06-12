@@ -2,7 +2,6 @@ import { it, expect, vi, afterEach } from 'vitest'
 
 import { onMounted } from 'vue'
 import { usePrismicPreview } from '../src/runtime/usePrismicPreview'
-// @ts-expect-error VFS is not typed here
 import { useRouter, usePrismic } from '#imports'
 
 vi.mock('vue', () => {
@@ -30,9 +29,9 @@ it('resolves preview', async () => {
 
 	await vi.mocked(onMounted).mock.results[0].value
 
-	expect(usePrismic.mock.results[0].value.client.resolvePreviewURL).toHaveBeenCalledOnce()
-	expect(useRouter.mock.results[0].value.push).toHaveBeenCalledOnce()
-	expect(useRouter.mock.results[0].value.push).toHaveBeenCalledWith('/')
+	expect(vi.mocked(usePrismic).mock.results[0].value.client.resolvePreviewURL).toHaveBeenCalledOnce()
+	expect(vi.mocked(useRouter).mock.results[0].value.push).toHaveBeenCalledOnce()
+	expect(vi.mocked(useRouter).mock.results[0].value.push).toHaveBeenCalledWith('/')
 })
 
 it('resolves preview with provided `defaultURL`', async (ctx) => {
@@ -44,7 +43,7 @@ it('resolves preview with provided `defaultURL`', async (ctx) => {
 
 	await vi.mocked(onMounted).mock.results[0].value
 
-	expect(usePrismic.mock.results[0].value.client.resolvePreviewURL).toHaveBeenCalledOnce()
-	expect(useRouter.mock.results[0].value.push).toHaveBeenCalledOnce()
-	expect(useRouter.mock.results[0].value.push).toHaveBeenCalledWith(ctx.task.name)
+	expect(vi.mocked(usePrismic).mock.results[0].value.client.resolvePreviewURL).toHaveBeenCalledOnce()
+	expect(vi.mocked(useRouter).mock.results[0].value.push).toHaveBeenCalledOnce()
+	expect(vi.mocked(useRouter).mock.results[0].value.push).toHaveBeenCalledWith(ctx.task.name)
 })

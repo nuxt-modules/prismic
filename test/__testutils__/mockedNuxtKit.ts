@@ -7,7 +7,8 @@ export const mockedNuxtKit = async () => {
 
 	return {
 		...kit,
-		defineNuxtModule: definition => (options = {}) => {
+		// eslint-disable-next-line @typescript-eslint/no-explicit-any
+		defineNuxtModule: (definition: any) => (options = {}) => {
 			const mockedNuxt = {
 				options: {
 					rootDir: '/tmp/nuxt',
@@ -35,8 +36,8 @@ export const mockedNuxtKit = async () => {
 		addPlugin: vi.fn(),
 		addImports: vi.fn(),
 		addComponent: vi.fn(),
-		extendPages: vi.fn((extendPagesHook) => {
-			const pages = []
+		extendPages: vi.fn((extendPagesHook: (pages: string[]) => void) => {
+			const pages: string[] = []
 
 			extendPagesHook(pages)
 

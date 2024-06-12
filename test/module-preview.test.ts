@@ -27,7 +27,7 @@ it('injects default preview page', () => {
 	mockedPrismicModule({ endpoint: 'qwerty' })
 
 	expect(extendPages).toHaveBeenCalledOnce()
-	expect(vi.mocked(extendPages).mock.results[0].value.find(route => route.name === 'prismic-preview')).toBeDefined()
+	expect(vi.mocked(extendPages).mock.results[0].value.find((route: { name: string }) => route.name === 'prismic-preview')).toBeDefined()
 })
 
 it('uses user preview when avaiable', () => {
