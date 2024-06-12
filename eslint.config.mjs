@@ -12,7 +12,7 @@ export default createConfigForNuxt({
 	dirs: {
 		src: [
 			'./examples/minimal',
-			'./playground',
+			'./playground/app',
 			'./client',
 			'./docs',
 		],
@@ -21,9 +21,14 @@ export default createConfigForNuxt({
 	.append(
 		{
 			rules: {
-				'vue/multi-word-component-names': 'off',
 				'@stylistic/no-tabs': ['error', { allowIndentationTabs: true }],
 				'@stylistic/indent': ['error', 'tab'],
+			},
+		},
+		{
+			files: ['docs/**/*.vue'],
+			rules: {
+				'vue/multi-word-component-names': 'off',
 			},
 		},
 	)

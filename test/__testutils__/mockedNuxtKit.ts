@@ -21,6 +21,7 @@ export const mockedNuxtKit = async (mockOptions?: { nuxt4?: boolean }) => {
 					alias: {},
 				},
 				version: '3.0.0',
+				hook: () => {},
 			} as unknown as Nuxt
 
 			if (mockOptions?.nuxt4) {
@@ -37,6 +38,7 @@ export const mockedNuxtKit = async (mockOptions?: { nuxt4?: boolean }) => {
 						alias: {},
 					},
 					version: '3.0.0',
+					hook: () => {},
 				} as unknown as Nuxt
 			}
 

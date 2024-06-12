@@ -1,4 +1,6 @@
 import { join } from 'node:path'
+import { readFile } from 'node:fs/promises'
+import { existsSync } from 'node:fs'
 
 import { defu } from 'defu'
 import {
@@ -182,7 +184,7 @@ export default defineNuxtModule<PrismicModuleOptions>({
 					pages.unshift({
 						name: 'prismic-preview',
 						path: moduleOptions.preview as string, // Checked before
-						file: resolver.resolve('runtime/preview.vue'),
+						file: resolver.resolve('runtime/PrismicPreview.vue'),
 					})
 				})
 			}
@@ -191,5 +193,41 @@ export default defineNuxtModule<PrismicModuleOptions>({
 				logger.warn('`toolbar` option is disabled but `preview` is enabled. Previews won\'t work unless you manually load the toolbar.')
 			}
 		}
+
+		// Integrate with @nuxt/eslint
+		// @ts-expect-error 3rd party hook
+		nuxt.hook('eslint:config:addons', (addons: {
+			name: string
+			getConfigs: () => Promise<{ configs: string[] }>
+		}[]) => {
+			addons.push({
+				name: '@nuxtjs/prismic',
+				async getConfigs() {
+					const configPath = resolver.resolve(nuxt.options.rootDir, 'slicemachine.config.json')
+
+					const configs: string[] = []
+
+					try {
+						if (existsSync(configPath)) {
+							const config = JSON.parse(await readFile(configPath, 'utf-8'))
+
+							if (config && 'slices' in config && Array.isArray(config.slices)) {
+								configs.push(JSON.stringify({
+									files: config.slices.map((slice: string) => `${slice.replace('./', '')}/**/index.vue`),
+									rules: {
+										'vue/multi-word-component-names': 'off',
+									},
+								}))
+							}
+						}
+					}
+					catch (error) {
+						// noop
+					}
+
+					return { configs }
+				},
+			})
+		})
 	},
 })
