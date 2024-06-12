@@ -46,10 +46,10 @@
 		"release:rc": "npm run test && standard-version --release-as major --prerelease rc && git push --follow-tags && npm run build && npm publish --tag rc",
 		"release:rc:dry": "standard-version --release-as major --prerelease rc --dry-run",
 		"lint": "eslint .",
-		"types": "tsc --noEmit",
+		"typecheck": "tsc --noEmit",
 		"unit": "vitest run --coverage",
 		"unit:watch": "vitest watch",
-		"test": "npm run types && npm run lint && npm run unit && npm run build"
+		"test": "npm run typecheck && npm run lint && npm run unit && npm run build"
 	},
 	"dependencies": {
 		"@nuxt/devtools-kit": "^1.3.3",
