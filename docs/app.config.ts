@@ -12,7 +12,7 @@ export default defineAppConfig({
 			logo: true,
 			showLinkIcon: true,
 			exclude: [],
-			fluid: true,
+			fluid: false,
 		},
 		main: {
 			padded: true,

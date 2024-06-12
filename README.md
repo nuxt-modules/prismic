@@ -2,7 +2,7 @@
 
 Replace all on all files (README.md, CONTRIBUTING.md, bug_report.md, package.json):
 - @nuxtjs/prismic
-- Easily connect your Nuxt 3 application to your content hosted on Prismic
+- Easily connect your Nuxt application to your content hosted on Prismic
 - nuxt-modules/prismic
 - prismic
 
