@@ -73,7 +73,7 @@
 		"@unocss/preset-icons": "^0.61.0",
 		"@vitest/coverage-v8": "^1.6.0",
 		"eslint": "^9.4.0",
-		"mock-fs": "^5.2.0",
+		"memfs": "^4.9.2",
 		"nuxt": "^3.12.1",
 		"standard-version": "^9.5.0",
 		"typescript": "^5.4.5",

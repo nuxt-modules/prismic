@@ -1,5 +1,5 @@
 import { it, expect, vi, afterEach } from 'vitest'
-import mockFS from 'mock-fs'
+import { vol } from 'memfs'
 
 import { addTemplate } from '@nuxt/kit'
 
@@ -46,7 +46,7 @@ it('proxies nothing if user files are not available', () => {
 })
 
 it('proxies user files from default location', () => {
-	mockFS({
+	vol.fromJSON({
 		'/tmp/nuxt/app/prismic/client.ts': '',
 		'/tmp/nuxt/app/prismic/linkResolver.ts': '',
 		'/tmp/nuxt/app/prismic/richTextSerializer.ts': '',
@@ -72,12 +72,10 @@ it('proxies user files from default location', () => {
 		  ],
 		]
 	`)
-
-	mockFS.restore()
 })
 
 it('proxies user files from provided location', () => {
-	mockFS({
+	vol.fromJSON({
 		'/tmp/nuxt/custom/client.ts': '',
 		'/tmp/nuxt/custom/linkResolver.ts': '',
 		'/tmp/nuxt/custom/richTextSerializer.ts': '',
@@ -108,6 +106,4 @@ it('proxies user files from provided location', () => {
 		  ],
 		]
 	`)
-
-	mockFS.restore()
 })

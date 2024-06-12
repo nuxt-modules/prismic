@@ -1,5 +1,5 @@
 import { it, expect, vi, afterEach } from 'vitest'
-import mockFS from 'mock-fs'
+import { vol } from 'memfs'
 
 import { extendPages } from '@nuxt/kit'
 
@@ -31,7 +31,7 @@ it('injects default preview page', () => {
 })
 
 it('uses user preview when avaiable', () => {
-	mockFS({
+	vol.fromJSON({
 		'/tmp/nuxt/pages/preview.vue': '',
 	})
 
@@ -39,12 +39,10 @@ it('uses user preview when avaiable', () => {
 
 	expect(extendPages).not.toHaveBeenCalledOnce()
 	expect(logger.info).toHaveBeenCalledWith('Using user-defined preview page at `~/pages/preview.vue`, available at `/preview`')
-
-	mockFS.restore()
 })
 
 it('uses user preview when avaiable at specified location', () => {
-	mockFS({
+	vol.fromJSON({
 		'/tmp/nuxt/pages/prismic-preview.vue': '',
 	})
 
@@ -52,8 +50,6 @@ it('uses user preview when avaiable at specified location', () => {
 
 	expect(extendPages).not.toHaveBeenCalledOnce()
 	expect(logger.info).toHaveBeenCalledWith('Using user-defined preview page at `~/pages/prismic-preview.vue`, available at `/prismic-preview`')
-
-	mockFS.restore()
 })
 
 it('doesn\'t enable preview when `preview` is `false`', () => {
