@@ -15,7 +15,7 @@ vi.mock('../src/lib/logger.ts', () => ({
 vi.mock('@nuxt/kit', async () => {
 	const { mockedNuxtKit } = await vi.importActual<typeof import('./__testutils__/mockedNuxtKit')>('./__testutils__/mockedNuxtKit')
 
-	return mockedNuxtKit()
+	return mockedNuxtKit({ nuxt4: true })
 })
 
 afterEach(() => {
@@ -60,15 +60,15 @@ it('proxies user files from default location', () => {
 		[
 		  [
 		    "prismic/proxy/client.ts",
-		    "export { default } from '~/app/prismic/client'",
+		    "export { default } from '~/prismic/client'",
 		  ],
 		  [
 		    "prismic/proxy/linkResolver.ts",
-		    "export { default } from '~/app/prismic/linkResolver'",
+		    "export { default } from '~/prismic/linkResolver'",
 		  ],
 		  [
 		    "prismic/proxy/richTextSerializer.ts",
-		    "export { default } from '~/app/prismic/richTextSerializer'",
+		    "export { default } from '~/prismic/richTextSerializer'",
 		  ],
 		]
 	`)
@@ -89,15 +89,15 @@ it('proxies user files from default location (Nuxt 4)', () => {
 		[
 		  [
 		    "prismic/proxy/client.ts",
-		    "export { default } from '~/app/prismic/client'",
+		    "export { default } from '~/prismic/client'",
 		  ],
 		  [
 		    "prismic/proxy/linkResolver.ts",
-		    "export { default } from '~/app/prismic/linkResolver'",
+		    "export { default } from '~/prismic/linkResolver'",
 		  ],
 		  [
 		    "prismic/proxy/richTextSerializer.ts",
-		    "export { default } from '~/app/prismic/richTextSerializer'",
+		    "export { default } from '~/prismic/richTextSerializer'",
 		  ],
 		]
 	`)
@@ -105,9 +105,9 @@ it('proxies user files from default location (Nuxt 4)', () => {
 
 it('proxies user files from provided location', () => {
 	vol.fromJSON({
-		'/tmp/nuxt/custom/client.ts': '',
-		'/tmp/nuxt/custom/linkResolver.ts': '',
-		'/tmp/nuxt/custom/richTextSerializer.ts': '',
+		'/tmp/nuxt/app/custom/client.ts': '',
+		'/tmp/nuxt/app/custom/linkResolver.ts': '',
+		'/tmp/nuxt/app/custom/richTextSerializer.ts': '',
 	})
 
 	mockedPrismicModule({

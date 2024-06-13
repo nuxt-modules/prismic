@@ -1,40 +1,56 @@
-# custom
-dist
-.nuxt
-.output
-sw.*
-
-# os
-.DS_Store
-._*
-
-# node
-logs
-*.log
+# Dependencies
 node_modules
 
-# yarn
-yarn-debug.log*
-yarn-error.log*
-lerna-debug.log*
-.yarn-integrity
-yarn.lock
+# Logs
+*.log*
 
-# npm
-npm-debug.log*
+# Temp directories
+.temp
+.tmp
+.cache
 
-# tests
+# Yarn
+**/.yarn/cache
+**/.yarn/*state*
+
+# Generated dirs
+dist
+
+# Nuxt
+.nuxt
+.output
+.data
+.vercel_build_output
+.build-*
+.netlify
+
+# Env
+.env
+
+# Testing
+reports
 coverage
-.eslintcache
+*.lcov
 .nyc_output
 
-# .env
-.env
-.env.test
-.env*.local
-
-# vscode
+# VSCode
 .vscode/*
+!.vscode/settings.json
 !.vscode/tasks.json
 !.vscode/launch.json
-*.code-workspace
+!.vscode/extensions.json
+!.vscode/*.code-snippets
+
+# Intellij idea
+*.iml
+.idea
+
+# OSX
+.DS_Store
+.AppleDouble
+.LSOverride
+.AppleDB
+.AppleDesktop
+Network Trash Folder
+Temporary Items
+.apdisk

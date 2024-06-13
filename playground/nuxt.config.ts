@@ -5,21 +5,20 @@ import { startSubprocess } from '@nuxt/devtools-kit'
 
 // https://v3.nuxtjs.org/docs/directory-structure/nuxt.config
 export default defineNuxtConfig({
-	devtools: {
-		enabled: true
+	future: {
+		compatibilityVersion: 4,
 	},
-	typescript: {
-		strict: true
-	},
+	devtools: { enabled: true },
+	typescript: { strict: true },
 	modules: [
 		'../src/module',
 		/**
-     * Start a sub Nuxt Server for developing the client
-     *
-     * The terminal output can be found in the Terminals tab of the devtools.
-     */
+		 * Start a sub Nuxt Server for developing the client
+		 *
+		 * The terminal output can be found in the Terminals tab of the devtools.
+		 */
 		defineNuxtModule({
-			setup (_, nuxt) {
+			setup(_, nuxt) {
 				if (!nuxt.options.dev) {
 					return
 				}
@@ -28,34 +27,32 @@ export default defineNuxtConfig({
 					{
 						command: 'npx',
 						args: ['nuxi', 'dev'],
-						cwd: resolve(__dirname, '../client')
+						cwd: resolve(__dirname, '../client'),
 					},
 					{
 						id: 'prismic:client',
-						name: 'Prismic Client Dev'
-					}
+						name: 'Prismic Client Dev',
+					},
 				)
 				subprocess.getProcess().stdout?.on('data', (data) => {
-					// eslint-disable-next-line no-console
 					console.log(` - devtools: ${data.toString()}`)
 				})
 				subprocess.getProcess().stderr?.on('data', (data) => {
-					// eslint-disable-next-line no-console
 					console.error(` - devtools: ${data.toString()}`)
 				})
 
 				process.on('exit', () => {
 					subprocess.terminate()
 				})
-			}
-		})
+			},
+		}),
 	],
 	runtimeConfig: {
 		public: {
 			prismic: {
-				endpoint: '200629-sms-hoy'
-			}
-		}
+				endpoint: '200629-sms-hoy',
+			},
+		},
 	},
 	prismic: {
 		// endpoint: '200629-sms-hoy',
@@ -63,13 +60,13 @@ export default defineNuxtConfig({
 			routes: [
 				{
 					type: 'kitchen_sink_2',
-					path: '/'
+					path: '/',
 				},
 				{
 					type: 'page',
-					path: '/'
-				}
-			]
-		}
-	}
+					path: '/',
+				},
+			],
+		},
+	},
 })

@@ -2,7 +2,7 @@
 
 Replace all on all files (README.md, CONTRIBUTING.md, bug_report.md, package.json):
 - @nuxtjs/prismic
-- Easily connect your Nuxt 3 application to your content hosted on Prismic
+- Easily connect your Nuxt application to your content hosted on Prismic
 - nuxt-modules/prismic
 - prismic
 
@@ -91,15 +91,15 @@ Whether you're helping us fix bugs, improve the docs, or spread the word, we'd l
 
 <!-- Badges -->
 
-[npm-version-src]: https://img.shields.io/npm/v/@nuxtjs/prismic/latest.svg
+[npm-version-src]: https://img.shields.io/npm/v/@nuxtjs/prismic/latest.svg?style=flat&colorA=020420&colorB=00DC82
 [npm-version-href]: https://npmjs.com/package/@nuxtjs/prismic
-[npm-downloads-src]: https://img.shields.io/npm/dm/@nuxtjs/prismic.svg
+[npm-downloads-src]: https://img.shields.io/npm/dm/@nuxtjs/prismic.svg?style=flat&colorA=020420&colorB=00DC82
 [npm-downloads-href]: https://npmjs.com/package/@nuxtjs/prismic
-[github-actions-ci-src]: https://github.com/nuxt-modules/prismic/workflows/ci/badge.svg
+[github-actions-ci-src]: https://img.shields.io/github/actions/workflow/status/nuxt-modules/prismic/ci.yml.svg?style=flat&colorA=020420&colorB=00DC82
 [github-actions-ci-href]: https://github.com/nuxt-modules/prismic/actions?query=workflow%3Aci
-[codecov-src]: https://img.shields.io/codecov/c/github/nuxt-modules/prismic.svg
+[codecov-src]: https://img.shields.io/codecov/c/github/nuxt-modules/prismic.svg?style=flat&colorA=020420&colorB=00DC82
 [codecov-href]: https://codecov.io/gh/nuxt-modules/prismic
-[conventional-commits-src]: https://img.shields.io/badge/Conventional%20Commits-1.0.0-yellow.svg
+[conventional-commits-src]: https://img.shields.io/badge/Conventional%20Commits-1.0.0-yellow.svg?style=flat&colorA=020420&colorB=00DC82
 [conventional-commits-href]: https://conventionalcommits.org
-[license-src]: https://img.shields.io/npm/l/@nuxtjs/prismic.svg
+[license-src]: https://img.shields.io/npm/l/@nuxtjs/prismic.svg?style=flat&colorA=020420&colorB=00DC82
 [license-href]: https://npmjs.com/package/@nuxtjs/prismic

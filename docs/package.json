@@ -1,17 +1,18 @@
 {
 	"name": "@nuxtjs/prismic.docs",
-	"version": "3.0.0",
 	"private": true,
+	"type": "module",
 	"scripts": {
-		"dev": "nuxi dev",
-		"build": "nuxi build",
-		"generate": "nuxi generate",
-		"preview": "nuxi preview"
+		"build": "nuxt build",
+		"dev": "nuxt dev",
+		"generate": "nuxt generate",
+		"preview": "nuxt preview",
+		"postinstall": "nuxt prepare"
 	},
 	"devDependencies": {
-		"@nuxt-themes/docus": "^1.12.0",
-		"@nuxt/devtools": "^0.5.5",
-		"@nuxtjs/plausible": "^0.2.1",
-		"nuxt": "^3.5.3"
-	}
+		"@nuxt-themes/docus": "^1.15.0",
+		"@nuxtjs/plausible": "^1.0.0",
+		"nuxt": "^3.12.1"
+	},
+	"packageManager": "pnpm@9.3.0"
 }

@@ -1,6 +1,9 @@
 <template>
 	<NuxtLayout>
-		<NuxtPage v-if="rpcClient" :rpc="rpcClient" />
+		<NuxtPage
+			v-if="rpcClient"
+			:rpc="rpcClient"
+		/>
 	</NuxtLayout>
 </template>
 
@@ -12,7 +15,7 @@ import {
 	SliceMachineStatus,
 	type RPCClientType,
 	type ISlicemachineClientFunctions,
-	type ISlicemachineServerFunctions
+	type ISlicemachineServerFunctions,
 } from '../src/devtools/types'
 
 const sliceMachineStatus = useSliceMachineStatus()
@@ -23,10 +26,10 @@ onDevtoolsClientConnected((client) => {
 	rpcClient.value = client.devtools.extendClientRpc<ISlicemachineServerFunctions, ISlicemachineClientFunctions>(
 		RPC_NAMESPACE,
 		{
-			updateStatus (status) {
+			updateStatus(status) {
 				sliceMachineStatus.value.running = status === SliceMachineStatus.STARTED
-			}
-		}
+			},
+		},
 	)
 })
 </script>

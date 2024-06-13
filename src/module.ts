@@ -1,4 +1,6 @@
 import { join } from 'node:path'
+import { readFile } from 'node:fs/promises'
+import { existsSync } from 'node:fs'
 
 import { defu } from 'defu'
 import {
@@ -8,7 +10,8 @@ import {
 	addPlugin,
 	addImports,
 	addComponent,
-	extendPages
+	extendPages,
+	getNuxtVersion,
 } from '@nuxt/kit'
 
 import * as prismicVue from '@prismicio/vue'
@@ -37,23 +40,41 @@ export default defineNuxtModule<PrismicModuleOptions>({
 	meta: {
 		name: '@nuxtjs/prismic',
 		configKey: 'prismic',
-		compatibility: { nuxt: '^3.7.0' }
+		compatibility: { nuxt: '>=3.7.0' },
 	},
-	defaults: _nuxt => ({
-		endpoint: '',
-		environment: '',
-		clientConfig: {},
-		client: '~/app/prismic/client',
-		linkResolver: '~/app/prismic/linkResolver',
-		richTextSerializer: '~/app/prismic/richTextSerializer',
-		injectComponents: true,
-		components: {},
-		preview: '/preview',
-		toolbar: true,
-		devtools: true
-	}),
+	defaults: (nuxt) => {
+		let prismicFiles = {
+			client: '~/app/prismic/client',
+			linkResolver: '~/app/prismic/linkResolver',
+			richTextSerializer: '~/app/prismic/richTextSerializer',
+		}
+
+		// Nuxt 4 sets `app` as its `srcDir`, so we're just using the `prismic` folder there.
+		if (
+			nuxt.options?.future?.compatibilityVersion === 4
+			|| getNuxtVersion(nuxt).startsWith('4')
+		) {
+			prismicFiles = {
+				client: '~/prismic/client',
+				linkResolver: '~/prismic/linkResolver',
+				richTextSerializer: '~/prismic/richTextSerializer',
+			}
+		}
+
+		return {
+			endpoint: '',
+			environment: '',
+			clientConfig: {},
+			...prismicFiles,
+			injectComponents: true,
+			components: {},
+			preview: '/preview',
+			toolbar: true,
+			devtools: true,
+		}
+	},
 	hooks: {},
-	setup (options, nuxt) {
+	setup(options, nuxt) {
 		// Expose options through public runtime config
 		nuxt.options.runtimeConfig.public ||= {} as typeof nuxt.options.runtimeConfig.public
 		const moduleOptions: PrismicModuleOptions = defu(nuxt.options.runtimeConfig.public.prismic, options)
@@ -66,8 +87,8 @@ export default defineNuxtModule<PrismicModuleOptions>({
 		}
 
 		// Add runtime user code
-		const proxyUserFileWithUndefinedFallback =
-			(filename: string, path: string, extensions = ['js', 'mjs', 'ts']): boolean => {
+		const proxyUserFileWithUndefinedFallback
+			= (filename: string, path: string, extensions = ['js', 'mjs', 'ts']): boolean => {
 				const resolvedFilename = `prismic/proxy/${filename}.ts`
 				const resolvedPath = path.replace(/^(~~|@@)/, nuxt.options.rootDir).replace(/^(~|@)/, nuxt.options.srcDir)
 				const maybeUserFile = fileExists(resolvedPath, extensions)
@@ -78,15 +99,16 @@ export default defineNuxtModule<PrismicModuleOptions>({
 
 					addTemplate({
 						filename: resolvedFilename,
-						getContents: () => `export { default } from '${path}'`
+						getContents: () => `export { default } from '${path}'`,
 					})
 
 					return true
-				} else {
+				}
+				else {
 				// Else provide `undefined` fallback
 					addTemplate({
 						filename: resolvedFilename,
-						getContents: () => 'export default undefined'
+						getContents: () => 'export default undefined',
 					})
 
 					return false
@@ -118,12 +140,12 @@ export default defineNuxtModule<PrismicModuleOptions>({
 				'PrismicLink',
 				'PrismicText',
 				'PrismicRichText',
-				'SliceZone'
+				'SliceZone',
 			].forEach((component) => {
 				addComponent({
 					name: component,
 					export: component,
-					filePath: '@prismicio/vue'
+					filePath: '@prismicio/vue',
 				})
 			})
 		}
@@ -137,14 +159,14 @@ export default defineNuxtModule<PrismicModuleOptions>({
 				return {
 					name: key,
 					as: key,
-					from: '@prismicio/vue'
+					from: '@prismicio/vue',
 				}
 			})
 		addImports(prismicVueAutoImports)
 		addImports({
 			name: 'usePrismicPreview',
 			as: 'usePrismicPreview',
-			from: resolver.resolve('runtime/usePrismicPreview')
+			from: resolver.resolve('runtime/usePrismicPreview'),
 		})
 
 		// Add preview route
@@ -154,14 +176,15 @@ export default defineNuxtModule<PrismicModuleOptions>({
 			if (maybeUserPreviewPage) {
 				logger.info(`Using user-defined preview page at \`${maybeUserPreviewPage.replace(join(nuxt.options.srcDir), '~').replace(nuxt.options.rootDir, '~~').replace(/\\/g, '/')
 				}\`, available at \`${moduleOptions.preview}\``)
-			} else {
+			}
+			else {
 				logger.info(`Using default preview page, available at \`${moduleOptions.preview}\``)
 
 				extendPages((pages) => {
 					pages.unshift({
 						name: 'prismic-preview',
 						path: moduleOptions.preview as string, // Checked before
-						file: resolver.resolve('runtime/preview.vue')
+						file: resolver.resolve('runtime/PrismicPreview.vue'),
 					})
 				})
 			}
@@ -170,5 +193,41 @@ export default defineNuxtModule<PrismicModuleOptions>({
 				logger.warn('`toolbar` option is disabled but `preview` is enabled. Previews won\'t work unless you manually load the toolbar.')
 			}
 		}
-	}
+
+		// Integrate with @nuxt/eslint
+		// @ts-expect-error 3rd party hook
+		nuxt.hook('eslint:config:addons', (addons: {
+			name: string
+			getConfigs: () => Promise<{ configs: string[] }>
+		}[]) => {
+			addons.push({
+				name: '@nuxtjs/prismic',
+				async getConfigs() {
+					const configPath = resolver.resolve(nuxt.options.rootDir, 'slicemachine.config.json')
+
+					const configs: string[] = []
+
+					try {
+						if (existsSync(configPath)) {
+							const config = JSON.parse(await readFile(configPath, 'utf-8'))
+
+							if (config && 'slices' in config && Array.isArray(config.slices)) {
+								configs.push(JSON.stringify({
+									files: config.slices.map((slice: string) => `${slice.replace('./', '')}/**/index.vue`),
+									rules: {
+										'vue/multi-word-component-names': 'off',
+									},
+								}))
+							}
+						}
+					}
+					catch (error) {
+						// noop
+					}
+
+					return { configs }
+				},
+			})
+		})
+	},
 })

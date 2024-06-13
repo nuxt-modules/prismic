@@ -19,15 +19,31 @@ const { status, start, stop, config } = await useSlicemachine(props.rpc)
 				Slicemachine
 			</h2>
 			<section class="flex gap-2 mt-4 px-4">
-				<SlicemachineStatusTip :running="status.running" class="flex-1" />
+				<SlicemachineStatusTip
+					:running="status.running"
+					class="flex-1"
+				/>
 				<NButton @click="status.running ? stop() : start()">
 					{{ status.running ? 'Stop' : 'Start' }} Slicemachine
 				</NButton>
 			</section>
 
-			<NSectionBlock text="Configuration" icon="carbon:settings" :open="false" header-class="hover:op100">
-				<NCodeBlock v-if="config" :lines="false" :code="JSON.stringify(config, null, 2)" lang="json" />
-				<p v-else class="op-1/2">
+			<NSectionBlock
+				text="Configuration"
+				icon="carbon:settings"
+				:open="false"
+				header-class="hover:op100"
+			>
+				<NCodeBlock
+					v-if="config"
+					:lines="false"
+					:code="JSON.stringify(config, null, 2)"
+					lang="json"
+				/>
+				<p
+					v-else
+					class="op-1/2"
+				>
 					Slicemachine configuration file not found! Please create one at the root of your project.
 				</p>
 			</NSectionBlock>

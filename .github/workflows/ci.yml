@@ -3,106 +3,82 @@ name: ci
 on: push
 
 jobs:
-  prepare:
-    name: Prepare (${{ matrix.os}}, Node ${{ matrix.node }})
-    runs-on: ${{ matrix.os }}
-    strategy:
-      matrix:
-        os: [ubuntu-latest]
-        node: [16, 18, 20.7]
-
+  lint:
+    runs-on: ubuntu-latest
     steps:
-      - name: Set up Node
-        uses: actions/setup-node@v3
-        with:
-          node-version: ${{ matrix.node }}
+      - uses: actions/checkout@v4
 
-      - name: Checkout
-        uses: actions/checkout@master
-
-      - name: Cache node_modules and .nuxt
-        id: cache
-        uses: actions/cache@v3
+      - name: Set node
+        uses: actions/setup-node@v4
         with:
-          path: |
-            node_modules
-            playground/.nuxt
-          key: ${{ matrix.os }}-node-v${{ matrix.node }}-deps-${{ hashFiles(format('{0}{1}', github.workspace, '/package-lock.json')) }}
+          node-version: lts/*
+
+      - name: Install pnpm
+        uses: pnpm/action-setup@v4
 
       - name: Install dependencies
-        if: steps.cache.outputs.cache-hit != 'true'
-        run: npm ci
-
-  suite:
-    needs: prepare
-    name: Suite (${{ matrix.os}}, Node ${{ matrix.node }})
-    runs-on: ${{ matrix.os }}
-    strategy:
-      fail-fast: false
-      matrix:
-        os: [ubuntu-latest]
-        node: [16, 18, 20.7]
-
-    steps:
-      - name: Set up Node
-        uses: actions/setup-node@v3
-        with:
-          node-version: ${{ matrix.node }}
-
-      - name: Checkout
-        uses: actions/checkout@master
-
-      - name: Retrieve node_modules and .nuxt
-        uses: actions/cache@v3
-        with:
-          path: |
-            node_modules
-            playground/.nuxt
-          key: ${{ matrix.os }}-node-v${{ matrix.node }}-deps-${{ hashFiles(format('{0}{1}', github.workspace, '/package-lock.json')) }}
+        run: pnpm install
 
       - name: Lint
-        run: npm run lint
+        run: pnpm lint
 
-      - name: Unit
-        run: npm run unit
+  typecheck:
+    runs-on: ubuntu-latest
+    name: typecheck (node ${{ matrix.node }}, typescript ${{ matrix.typescript }})
 
-      - name: Build
-        run: npm run build
-
-      - name: Coverage
-        if: matrix.os == 'ubuntu-latest' && matrix.node == 20.7
-        uses: codecov/codecov-action@v3
-
-  types:
-    needs: prepare
-    name: Types (${{ matrix.os}}, Node ${{ matrix.node }}, TS ${{ matrix.typescript }})
-    runs-on: ${{ matrix.os }}
     strategy:
-      fail-fast: false
       matrix:
-        os: [ubuntu-latest]
-        node: [18]
-        typescript: ["5.0", "5.1"]
+        node: [lts/*]
+        # Based on https://majors.nullvoxpopuli.com/q?minors=on&packages=typescript
+        typescript: ["5.4"]
+      fail-fast: false
 
     steps:
-      - name: Set up Node
-        uses: actions/setup-node@v3
+      - uses: actions/checkout@v4
+
+      - name: Set node ${{ matrix.node }}
+        uses: actions/setup-node@v4
         with:
           node-version: ${{ matrix.node }}
 
-      - name: Checkout
-        uses: actions/checkout@master
+      - name: Install pnpm
+        uses: pnpm/action-setup@v4
 
-      - name: Retrieve node_modules and .nuxt
-        uses: actions/cache@v3
+      - name: Install dependencies
+        run: pnpm install
+
+      - name: Set typescript ${{ matrix.typescript }}
+        run: pnpm add --workspace-root --save-dev typescript@${{ matrix.typescript }} && npx tsc --version
+
+      - name: Typecheck
+        run: pnpm typecheck
+
+  test:
+    runs-on: ${{ matrix.os }}
+    name: test (os ${{ matrix.os }}, node ${{ matrix.node }})
+
+    strategy:
+      matrix:
+        os: [ubuntu-latest, windows-latest, macos-latest]
+        node: [18, 20, lts/*]
+      fail-fast: false
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set node ${{ matrix.node }}
+        uses: actions/setup-node@v4
         with:
-          path: |
-            node_modules
-            playground/.nuxt
-          key: ${{ matrix.os }}-node-v${{ matrix.node }}-deps-${{ hashFiles(format('{0}{1}', github.workspace, '/package-lock.json')) }}
+          node-version: ${{ matrix.node }}
 
-      - name: Overwrite TypeScript
-        run: npm install --no-save typescript@${{ matrix.typescript }} && npx tsc --version
+      - name: Install pnpm
+        uses: pnpm/action-setup@v4
 
-      - name: Types
-        run: npm run types
+      - name: Install dependencies
+        run: pnpm install
+
+      - name: Unit
+        run: pnpm unit
+
+      - name: Build
+        run: pnpm build

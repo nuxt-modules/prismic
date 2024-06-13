@@ -13,7 +13,7 @@ export const usePrismicPreview = (defaultURL = '/'): void => {
 	onMounted(async () => {
 		const redirectURL = await client.resolvePreviewURL({
 			linkResolver,
-			defaultURL
+			defaultURL,
 		})
 
 		push(redirectURL)
