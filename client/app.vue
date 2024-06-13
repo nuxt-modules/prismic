@@ -1,10 +1,10 @@
 <template>
-  <NuxtLayout>
-    <NuxtPage
-      v-if="rpcClient"
-      :rpc="rpcClient"
-    />
-  </NuxtLayout>
+	<NuxtLayout>
+		<NuxtPage
+			v-if="rpcClient"
+			:rpc="rpcClient"
+		/>
+	</NuxtLayout>
 </template>
 
 <script setup lang="ts">

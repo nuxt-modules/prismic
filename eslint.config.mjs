@@ -23,6 +23,7 @@ export default createConfigForNuxt({
 			rules: {
 				'@stylistic/no-tabs': ['error', { allowIndentationTabs: true }],
 				'@stylistic/indent': ['error', 'tab'],
+				'vue/html-indent': ['error', 'tab'],
 			},
 		},
 		{

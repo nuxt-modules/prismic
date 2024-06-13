@@ -1,14 +1,14 @@
 {
 	"name": "@nuxtjs/prismic.docs",
 	"private": true,
-  "type": "module",
+	"type": "module",
 	"scripts": {
-    "build": "nuxt build",
-    "dev": "nuxt dev",
-    "generate": "nuxt generate",
-    "preview": "nuxt preview",
-    "postinstall": "nuxt prepare"
-  },
+		"build": "nuxt build",
+		"dev": "nuxt dev",
+		"generate": "nuxt generate",
+		"preview": "nuxt preview",
+		"postinstall": "nuxt prepare"
+	},
 	"devDependencies": {
 		"@nuxt-themes/docus": "^1.15.0",
 		"@nuxtjs/plausible": "^1.0.0",
