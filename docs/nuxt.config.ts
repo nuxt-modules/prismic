@@ -9,6 +9,10 @@ export default defineNuxtConfig({
 		'@nuxt/devtools',
 	],
 
+	generate: {
+		routes: ['/'],
+	},
+
 	components: [
 		{
 			prefix: '',

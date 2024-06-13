@@ -1,7 +1,6 @@
 {
 	"name": "@nuxtjs/prismic.docs",
 	"private": true,
-	"type": "module",
 	"scripts": {
 		"build": "nuxt build",
 		"dev": "nuxt dev",
