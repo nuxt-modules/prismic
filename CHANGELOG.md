@@ -2,6 +2,33 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [3.3.0](https://github.com/nuxt-modules/prismic/compare/v3.2.1...v3.3.0) (2024-06-13)
+
+
+### Features
+
+* ease Nuxt 4 update by removing `app/` prefix from Prismic files ([e0669de](https://github.com/nuxt-modules/prismic/commit/e0669de6601381185cd8c2ec15763ca178780425))
+* integrate with `@nuxtjs/eslint`, resolves [#213](https://github.com/nuxt-modules/prismic/issues/213) ([3089cc4](https://github.com/nuxt-modules/prismic/commit/3089cc4c109243d2d52be09e13866b21c1ccee18))
+
+
+### Chore
+
+* refresh project structure and fully migrate to pnpm ([1833e8e](https://github.com/nuxt-modules/prismic/commit/1833e8e8d934e02bea77d1d67ca246d4282462a4))
+
+
+### Refactor
+
+* `tsconfig.json` ([494b54a](https://github.com/nuxt-modules/prismic/commit/494b54a41bd1e57517eebd60b873f9dd9badbc64))
+* migrate to `memfs` ([3edf88b](https://github.com/nuxt-modules/prismic/commit/3edf88be7c12b904b465c642b1980013437fd4d6))
+* use pnpm workspaces ([0e7c98e](https://github.com/nuxt-modules/prismic/commit/0e7c98e406e4a2928e51fcf94d7fae052e1d8a3c))
+
+
+### Documentation
+
+* fix doc generation ([e418cff](https://github.com/nuxt-modules/prismic/commit/e418cffd806d78ebbadbcf019c46d4f2d30e5446))
+* refresh docs ([a9dae6b](https://github.com/nuxt-modules/prismic/commit/a9dae6b4ceecbe1b8ce119ac649825f07f862c59))
+* update readme badges ([db3cac6](https://github.com/nuxt-modules/prismic/commit/db3cac62cc57c64c8e3e41541008a66ed518c4af))
+
 ### [3.2.1](https://github.com/nuxt-modules/prismic/compare/v3.2.0...v3.2.1) (2024-04-09)
 
 
