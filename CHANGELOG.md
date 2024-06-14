@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [3.3.1](https://github.com/nuxt-modules/prismic/compare/v3.3.0...v3.3.1) (2024-06-14)
+
+
+### Bug Fixes
+
+* incorrect key read on `slicemachine.config.json` ([1594324](https://github.com/nuxt-modules/prismic/commit/1594324ec4e21dbf4b1b517e763a69555b24c3c1))
+
 ## [3.3.0](https://github.com/nuxt-modules/prismic/compare/v3.2.1...v3.3.0) (2024-06-13)
 
 
