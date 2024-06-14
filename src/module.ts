@@ -211,9 +211,9 @@ export default defineNuxtModule<PrismicModuleOptions>({
 						if (existsSync(configPath)) {
 							const config = JSON.parse(await readFile(configPath, 'utf-8'))
 
-							if (config && 'slices' in config && Array.isArray(config.slices)) {
+							if (config && 'libraries' in config && Array.isArray(config.libraries)) {
 								configs.push(JSON.stringify({
-									files: config.slices.map((slice: string) => `${slice.replace('./', '')}/**/index.vue`),
+									files: config.libraries.map((library: string) => `${library.replace('./', '')}/**/index.vue`),
 									rules: {
 										'vue/multi-word-component-names': 'off',
 									},
