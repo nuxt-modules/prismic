@@ -21,7 +21,7 @@ import { logger, fileExists } from './lib'
 import type { PrismicModuleOptions } from './types'
 
 // Options export
-export type { PrismicModuleOptions } from './types'
+export type { PrismicModuleOptions, PrismicModuleOptions as ModuleOptions } from './types'
 
 declare module '@nuxt/schema' {
 	interface PublicRuntimeConfig {
