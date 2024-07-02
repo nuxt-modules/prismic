@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [3.3.2](https://github.com/nuxt-modules/prismic/compare/v3.3.1...v3.3.2) (2024-07-02)
+
+
+### Bug Fixes
+
+* also export options as `ModuleOptions`, resolves [#215](https://github.com/nuxt-modules/prismic/issues/215) ([169fc8f](https://github.com/nuxt-modules/prismic/commit/169fc8f5b46c79334aeeb200e7d68c3b6041d0f4))
+
 ### [3.3.1](https://github.com/nuxt-modules/prismic/compare/v3.3.0...v3.3.1) (2024-06-14)
 
 
