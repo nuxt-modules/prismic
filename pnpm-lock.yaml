@@ -15,8 +15,8 @@ importers:
         specifier: ^3.12.4
         version: 3.12.4(magicast@0.3.4)(rollup@3.29.4)
       '@prismicio/client':
-        specifier: ^7.7.3
-        version: 7.7.3
+        specifier: ^7.7.4
+        version: 7.7.4
       '@prismicio/vue':
         specifier: ^4.2.2
         version: 4.2.2(vue@3.4.33(typescript@5.5.4))
@@ -1338,8 +1338,8 @@ packages:
   '@polka/url@1.0.0-next.25':
     resolution: {integrity: sha512-j7P6Rgr3mmtdkeDGTe0E/aYyWEWVtc5yFXtHCRHs28/jptDEWfaVOc5T7cblqy1XKPPfCxJc/8DwQ5YgLOZOVQ==}
 
-  '@prismicio/client@7.7.3':
-    resolution: {integrity: sha512-Da/ZjRoGSsmaXoMsXnB9ILdg8kmCbtimaKPBIImyByeIZHQr///LcvlY9O4DuOiTXtC2HguIrFX1NtMyhYoHag==}
+  '@prismicio/client@7.7.4':
+    resolution: {integrity: sha512-ofry7lU/QUClID7c3Nmq8kmF8gJ7H/VL5OSW/6zZTOzFiD68BYdL2BI29V58SkuLv3NHm3BY4NY9pMCoTE1nAg==}
     engines: {node: '>=14.15.0'}
 
   '@prismicio/vue@4.2.2':
@@ -7626,7 +7626,7 @@ snapshots:
 
   '@polka/url@1.0.0-next.25': {}
 
-  '@prismicio/client@7.7.3':
+  '@prismicio/client@7.7.4':
     dependencies:
       hast: 1.0.0
       hast-util-select: 6.0.2
@@ -7646,7 +7646,7 @@ snapshots:
 
   '@prismicio/vue@4.2.2(vue@3.4.33(typescript@5.5.4))':
     dependencies:
-      '@prismicio/client': 7.7.3
+      '@prismicio/client': 7.7.4
       isomorphic-unfetch: 3.1.0
       vue: 3.4.33(typescript@5.5.4)
       vue-router: 4.4.0(vue@3.4.33(typescript@5.5.4))
