@@ -221,7 +221,7 @@ export default defineNuxtModule<PrismicModuleOptions>({
 							}
 						}
 					}
-					catch (error) {
+					catch {
 						// noop
 					}
 
