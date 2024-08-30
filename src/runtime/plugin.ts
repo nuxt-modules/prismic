@@ -14,7 +14,7 @@ import richTextSerializer from '#build/prismic/proxy/richTextSerializer'
 
 export default defineNuxtPlugin(async (nuxtApp) => {
 	const options: PrismicModuleOptions = useRuntimeConfig().public.prismic
-	const client = typeof _client === 'function' ? await _client() : _client
+	const client = typeof _client === 'function' ? await nuxtApp.runWithContext(() => _client()) : _client
 
 	const endpoint = options.environment || options.endpoint || (client as Client | undefined)?.endpoint || ''
 
