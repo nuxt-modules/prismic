@@ -6,14 +6,16 @@ import NuxtLink from '#app/components/nuxt-link'
 import { defineNuxtPlugin, useCookie, useRequestEvent, onNuxtReady, refreshNuxtData, useHead, useRuntimeConfig, useRouter } from '#imports'
 
 // @ts-expect-error vfs cannot be resolved here
-import client from '#build/prismic/proxy/client'
+import _client from '#build/prismic/proxy/client'
 // @ts-expect-error vfs cannot be resolved here
 import linkResolver from '#build/prismic/proxy/linkResolver'
 // @ts-expect-error vfs cannot be resolved here
 import richTextSerializer from '#build/prismic/proxy/richTextSerializer'
 
-export default defineNuxtPlugin((nuxtApp) => {
+export default defineNuxtPlugin(async (nuxtApp) => {
 	const options: PrismicModuleOptions = useRuntimeConfig().public.prismic
+	const client = typeof _client === 'function' ? await _client() : _client
+
 	const endpoint = options.environment || options.endpoint || (client as Client | undefined)?.endpoint || ''
 
 	const prismicPlugin = createPrismic({
