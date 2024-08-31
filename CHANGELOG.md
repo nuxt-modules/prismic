@@ -2,6 +2,20 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [3.4.0](https://github.com/nuxt-modules/prismic/compare/v3.3.2...v3.4.0) (2024-08-31)
+
+
+### Features
+
+* allow factory function for customClient ([#219](https://github.com/nuxt-modules/prismic/issues/219)) ([bd7d02d](https://github.com/nuxt-modules/prismic/commit/bd7d02d86813b2ec5502cbe1cbdba2ed8839878c))
+
+
+### Chore
+
+* **deps:** maintain dependencies ([e244648](https://github.com/nuxt-modules/prismic/commit/e244648a43a60480ab2a4cc904739cbfb1962f05))
+* **deps:** maintain dependencies ([191e2d4](https://github.com/nuxt-modules/prismic/commit/191e2d4ec2b9c50b3f9da75ba7e7746da834f04f))
+* **deps:** update @prismicio/client ([4c95bfc](https://github.com/nuxt-modules/prismic/commit/4c95bfca4bb955e46d49b303e338badd1de9cdc5))
+
 ### [3.3.2](https://github.com/nuxt-modules/prismic/compare/v3.3.1...v3.3.2) (2024-07-02)
 
 
