@@ -2,6 +2,18 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [3.4.1](https://github.com/nuxt-modules/prismic/compare/v3.4.0...v3.4.1) (2024-09-16)
+
+
+### Bug Fixes
+
+* types for runtime/plugin.ts not being created correctly ([#220](https://github.com/nuxt-modules/prismic/issues/220)) ([28ddc1a](https://github.com/nuxt-modules/prismic/commit/28ddc1a88157454a528ea68ac5e720c97db829d7))
+
+
+### Chore
+
+* **deps:** maintain dependencies ([b1c1b9a](https://github.com/nuxt-modules/prismic/commit/b1c1b9a483fcbbab6999ee464123eddbdc035f57))
+
 ## [3.4.0](https://github.com/nuxt-modules/prismic/compare/v3.3.2...v3.4.0) (2024-08-31)
 
 
