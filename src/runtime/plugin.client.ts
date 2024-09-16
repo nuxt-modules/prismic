@@ -1,5 +1,6 @@
 import type { PrismicModuleOptions } from '../types'
-import { defineNuxtPlugin, refreshNuxtData, useRuntimeConfig } from '#imports'
+import { defineNuxtPlugin } from '#app'
+import { refreshNuxtData, useRuntimeConfig } from '#imports'
 
 export default defineNuxtPlugin((_nuxtApp) => {
 	const options: PrismicModuleOptions = useRuntimeConfig().public.prismic
