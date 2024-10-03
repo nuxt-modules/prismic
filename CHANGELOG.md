@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [3.4.3](https://github.com/nuxt-modules/prismic/compare/v3.4.2...v3.4.3) (2024-10-03)
+
+
+### Bug Fixes
+
+* use plugin client ([52fcdf1](https://github.com/nuxt-modules/prismic/commit/52fcdf1a304b27e29dba9d9bd277782c0ac9f11d))
+
 ### [3.4.2](https://github.com/nuxt-modules/prismic/compare/v3.4.1...v3.4.2) (2024-10-03)
 
 
