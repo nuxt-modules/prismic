@@ -1,4 +1,4 @@
-import { isRepositoryEndpoint, getRepositoryName, type Client } from '@prismicio/client'
+import type { Client } from '@prismicio/client'
 import { createPrismic } from '@prismicio/vue'
 
 import type { PrismicModuleOptions } from '../types'
@@ -15,14 +15,15 @@ import richTextSerializer from '#build/prismic/proxy/richTextSerializer'
 
 export default defineNuxtPlugin(async (nuxtApp) => {
 	const options: PrismicModuleOptions = useRuntimeConfig().public.prismic
-	const client = typeof _client === 'function' ? await nuxtApp.runWithContext(() => _client()) : _client
+	const client: Client | undefined = typeof _client === 'function' ? await nuxtApp.runWithContext(() => _client()) : _client
 
-	const endpoint = options.environment || options.endpoint || (client as Client | undefined)?.endpoint || ''
+	const endpoint = options.environment || options.endpoint || client?.documentAPIEndpoint || ''
 
 	const prismicPlugin = createPrismic({
 		...options,
 		endpoint,
-		client,
+		// TypeScript expects either an endpoint of a client, not both
+		client: client as undefined,
 		linkResolver,
 		richTextSerializer,
 		injectComponents: false, // Handled at module level
@@ -75,16 +76,12 @@ export default defineNuxtPlugin(async (nuxtApp) => {
 		}
 	}
 
-	if (options.toolbar) {
+	if (options.toolbar && client?.repositoryName) {
 		// Add toolbar
-		const repositoryName = isRepositoryEndpoint(endpoint)
-			? getRepositoryName(endpoint)
-			: endpoint
-
 		useHead({
 			script: [{
 				key: 'prismic-preview',
-				src: `https://static.cdn.prismic.io/prismic.min.js?repo=${repositoryName}&new=true`,
+				src: `https://static.cdn.prismic.io/prismic.min.js?repo=${client.repositoryName}&new=true`,
 				async: true,
 				defer: true,
 				crossorigin: 'anonymous',
