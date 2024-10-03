@@ -76,12 +76,12 @@ export default defineNuxtPlugin(async (nuxtApp) => {
 		}
 	}
 
-	if (options.toolbar && client?.repositoryName) {
+	if (options.toolbar && prismicPlugin.client?.repositoryName) {
 		// Add toolbar
 		useHead({
 			script: [{
 				key: 'prismic-preview',
-				src: `https://static.cdn.prismic.io/prismic.min.js?repo=${client.repositoryName}&new=true`,
+				src: `https://static.cdn.prismic.io/prismic.min.js?repo=${prismicPlugin.client.repositoryName}&new=true`,
 				async: true,
 				defer: true,
 				crossorigin: 'anonymous',
