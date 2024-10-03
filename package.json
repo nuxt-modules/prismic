@@ -52,10 +52,10 @@
 		"test": "npm run typecheck && npm run lint && npm run unit && npm run build"
 	},
 	"dependencies": {
-		"@nuxt/devtools-kit": "^1.4.2",
+		"@nuxt/devtools-kit": "^1.5.2",
 		"@nuxt/kit": "^3.13.2",
-		"@prismicio/client": "^7.8.1",
-		"@prismicio/vue": "^4.2.3",
+		"@prismicio/client": "^7.11.0",
+		"@prismicio/vue": "^4.3.0",
 		"birpc": "0.2.17",
 		"consola": "^3.2.3",
 		"defu": "^6.1.4",
@@ -65,19 +65,19 @@
 	},
 	"devDependencies": {
 		"@iconify-json/carbon": "^1.2.1",
-		"@iconify-json/logos": "^1.2.0",
+		"@iconify-json/logos": "^1.2.2",
 		"@nuxt/devtools-ui-kit": "^1.4.2",
 		"@nuxt/eslint-config": "^0.5.7",
 		"@nuxt/module-builder": "^0.8.4",
 		"@nuxt/schema": "^3.13.2",
-		"@unocss/preset-icons": "^0.62.4",
-		"@vitest/coverage-v8": "^2.1.1",
-		"eslint": "^9.10.0",
-		"memfs": "^4.11.1",
+		"@unocss/preset-icons": "^0.63.2",
+		"@vitest/coverage-v8": "^2.1.2",
+		"eslint": "^9.11.1",
+		"memfs": "^4.12.0",
 		"nuxt": "^3.13.2",
 		"standard-version": "^9.5.0",
 		"typescript": "^5.6.2",
-		"vitest": "^2.1.1"
+		"vitest": "^2.1.2"
 	},
 	"engines": {
 		"node": ">=16.10.0"
