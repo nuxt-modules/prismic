@@ -5,11 +5,6 @@ import { startSubprocess } from '@nuxt/devtools-kit'
 
 // https://v3.nuxtjs.org/docs/directory-structure/nuxt.config
 export default defineNuxtConfig({
-	future: {
-		compatibilityVersion: 4,
-	},
-	devtools: { enabled: true },
-	typescript: { strict: true },
 	modules: [
 		'../src/module',
 		/**
@@ -47,6 +42,7 @@ export default defineNuxtConfig({
 			},
 		}),
 	],
+	devtools: { enabled: true },
 	runtimeConfig: {
 		public: {
 			prismic: {
@@ -54,6 +50,10 @@ export default defineNuxtConfig({
 			},
 		},
 	},
+	future: {
+		compatibilityVersion: 4,
+	},
+	typescript: { strict: true },
 	prismic: {
 		// endpoint: '200629-sms-hoy',
 		clientConfig: {

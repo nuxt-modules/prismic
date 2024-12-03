@@ -9,10 +9,6 @@ export default defineNuxtConfig({
 		'@nuxt/devtools',
 	],
 
-	generate: {
-		routes: ['/'],
-	},
-
 	components: [
 		{
 			prefix: '',
@@ -20,6 +16,10 @@ export default defineNuxtConfig({
 			global: true,
 		},
 	],
+
+	generate: {
+		routes: ['/'],
+	},
 
 	plausible: {
 		domain: 'prismic.nuxtjs.org',
