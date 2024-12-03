@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [3.4.4](https://github.com/nuxt-modules/prismic/compare/v3.4.3...v3.4.4) (2024-12-03)
+
+
+### Bug Fixes
+
+* disable Prismic module gracefully on custom client resolution error ([#224](https://github.com/nuxt-modules/prismic/issues/224)) ([359dcee](https://github.com/nuxt-modules/prismic/commit/359dceec3bf44f929310748a5245c86e5185fb53))
+
 ### [3.4.3](https://github.com/nuxt-modules/prismic/compare/v3.4.2...v3.4.3) (2024-10-03)
 
 
