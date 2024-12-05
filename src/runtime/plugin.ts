@@ -2,7 +2,6 @@ import { createClient, type Client } from '@prismicio/client'
 import { createPrismic } from '@prismicio/vue'
 
 import type { PrismicModuleOptions } from '../types'
-import { logger } from './logger'
 import { defineNuxtPlugin } from '#app'
 import NuxtLink from '#app/components/nuxt-link'
 import { useCookie, useRequestEvent, onNuxtReady, refreshNuxtData, useHead, useRuntimeConfig, useRouter } from '#imports'
@@ -22,7 +21,7 @@ export default defineNuxtPlugin(async (nuxtApp) => {
 			client = await nuxtApp.runWithContext(() => _client())
 		}
 		catch (error) {
-			logger.error('An error happened while resolving your Prismic custom client, disabling Prismic module gracefully...', error)
+			console.error('[@nuxtjs/prismic] An error happened while resolving your Prismic custom client, disabling Prismic module gracefully...', error)
 
 			// The Vue plugin still requires a client to work, we're providing an obviously broken one.
 			client = createClient(

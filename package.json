@@ -52,7 +52,7 @@
 		"test": "npm run typecheck && npm run lint && npm run unit && npm run build"
 	},
 	"dependencies": {
-		"@nuxt/devtools-kit": "^1.6.1",
+		"@nuxt/devtools-kit": "^1.6.3",
 		"@nuxt/kit": "^3.14.1592",
 		"@prismicio/client": "^7.12.0",
 		"@prismicio/vue": "^4.3.0",
@@ -65,19 +65,19 @@
 	},
 	"devDependencies": {
 		"@iconify-json/carbon": "^1.2.4",
-		"@iconify-json/logos": "^1.2.2",
-		"@nuxt/devtools-ui-kit": "^1.6.1",
+		"@iconify-json/logos": "^1.2.3",
+		"@nuxt/devtools-ui-kit": "^1.6.3",
 		"@nuxt/eslint-config": "^0.7.2",
 		"@nuxt/module-builder": "^0.8.4",
 		"@nuxt/schema": "^3.14.1592",
-		"@unocss/preset-icons": "^0.65.0",
+		"@unocss/preset-icons": "^0.65.1",
 		"@vitest/coverage-v8": "^2.1.7",
 		"eslint": "^9.16.0",
 		"memfs": "^4.14.1",
 		"nuxt": "^3.14.1592",
 		"standard-version": "^9.5.0",
 		"typescript": "^5.7.2",
-		"vitest": "^2.1.7"
+		"vitest": "^2.1.8"
 	},
 	"engines": {
 		"node": ">=16.10.0"
