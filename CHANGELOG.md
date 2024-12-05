@@ -2,6 +2,18 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [3.4.5](https://github.com/nuxt-modules/prismic/compare/v3.4.4...v3.4.5) (2024-12-05)
+
+
+### Bug Fixes
+
+* compile logger correctly ([ff535fb](https://github.com/nuxt-modules/prismic/commit/ff535fb1110a123fccde2e6088e355ca0c0eb7b6))
+
+
+### Chore
+
+* **deps:** fix lock file ([d996855](https://github.com/nuxt-modules/prismic/commit/d996855b565e5fe1dc79906ece3aba91d676c468))
+
 ### [3.4.4](https://github.com/nuxt-modules/prismic/compare/v3.4.3...v3.4.4) (2024-12-03)
 
 
