@@ -2,7 +2,7 @@ import { createClient, type Client } from '@prismicio/client'
 import { createPrismic } from '@prismicio/vue'
 
 import type { PrismicModuleOptions } from '../types'
-import { logger } from '../lib/logger'
+import { logger } from './logger'
 import { defineNuxtPlugin } from '#app'
 import NuxtLink from '#app/components/nuxt-link'
 import { useCookie, useRequestEvent, onNuxtReady, refreshNuxtData, useHead, useRuntimeConfig, useRouter } from '#imports'
