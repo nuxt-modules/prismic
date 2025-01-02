@@ -2,6 +2,14 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [3.4.7](https://github.com/nuxt-modules/prismic/compare/v3.4.6...v3.4.7) (2025-01-02)
+
+
+### Chore
+
+* cleanup playground ([6c55467](https://github.com/nuxt-modules/prismic/commit/6c554671e5490f71cb1edffb70b52159d75dad3e))
+* **deps:** maintain dependencies ([154a5cb](https://github.com/nuxt-modules/prismic/commit/154a5cb8a87ed02bbc5a40cd606dbf98aa371dd0))
+
 ### [3.4.6](https://github.com/nuxt-modules/prismic/compare/v3.4.5...v3.4.6) (2024-12-05)
 
 
