@@ -42,7 +42,9 @@ export default defineNuxtConfig({
 			},
 		}),
 	],
+
 	devtools: { enabled: true },
+
 	runtimeConfig: {
 		public: {
 			prismic: {
@@ -50,10 +52,15 @@ export default defineNuxtConfig({
 			},
 		},
 	},
+
 	future: {
 		compatibilityVersion: 4,
 	},
+
+	compatibilityDate: '2025-01-02',
+
 	typescript: { strict: true },
+
 	prismic: {
 		// endpoint: '200629-sms-hoy',
 		clientConfig: {

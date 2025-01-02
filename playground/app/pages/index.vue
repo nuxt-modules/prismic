@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { usePrismic, useAsyncData, ref } from '#imports'
+import { usePrismic, useAsyncData } from '#imports'
 
 const prismic = usePrismic()
 
