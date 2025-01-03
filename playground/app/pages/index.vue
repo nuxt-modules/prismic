@@ -9,17 +9,5 @@ const { data: doc } = await useAsyncData('doc', () => prismic.client.getSingle('
 <template>
 	<div>
 		{{ doc?.id }} - {{ doc?.type }} - {{ doc?.last_publication_date }}
-		<span
-			:class="null"
-			:data-foo="null"
-		>null</span>
-		<span
-			:class="undefined"
-			:data-foo="undefined"
-		>undefined</span>
-		<span
-			:class="false"
-			:data-foo="false"
-		>false</span>
 	</div>
 </template>
