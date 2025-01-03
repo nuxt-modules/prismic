@@ -62,5 +62,6 @@ export const mockedNuxtKit = async (mockOptions?: { nuxt4?: boolean }) => {
 
 			return pages
 		}),
+		useLogger: vi.fn(() => ({ info: vi.fn(), warn: vi.fn() })),
 	}
 }

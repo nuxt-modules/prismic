@@ -18,14 +18,11 @@ importers:
         specifier: ^7.13.1
         version: 7.13.1
       '@prismicio/vue':
-        specifier: ^4.3.1
-        version: 4.3.1(vue@3.5.13(typescript@5.7.2))
+        specifier: ^5.0.0-alpha
+        version: 5.0.0-alpha.0(vue@3.5.13(typescript@5.7.2))
       birpc:
         specifier: 0.2.19
         version: 0.2.19
-      consola:
-        specifier: ^3.3.3
-        version: 3.3.3
       defu:
         specifier: ^6.1.4
         version: 6.1.4
@@ -1544,8 +1541,8 @@ packages:
     resolution: {integrity: sha512-E+XdBYFXldTNENkkQpnuLKAliWSMTYwyoSlzNsQU+TtCXrasxFFYe/IESeTnI5VYYKAgT5wNSnHufempW+AXlw==}
     engines: {node: '>=14.15.0'}
 
-  '@prismicio/vue@4.3.1':
-    resolution: {integrity: sha512-AmDdO+sqrBt+ut9rQoWaFCYyjdEL6Yn2atJrWcwc4ba7j/YRgWYVv2elOaR1xX3nPmBRWPT0aUUkqlLpeEMcGA==}
+  '@prismicio/vue@5.0.0-alpha.0':
+    resolution: {integrity: sha512-KJg9TPfUPik9g6V+5+6R2m40QK90BLT5h6MY+fbF0gLZl83pTkb94AtJ1qpLazgq+WgR/6yjBpnRQsGO5F2Hig==}
     engines: {node: '>=16.10.0'}
     peerDependencies:
       vue: ^3.0.0
@@ -3419,6 +3416,9 @@ packages:
       jiti:
         optional: true
 
+  esm-env@1.2.1:
+    resolution: {integrity: sha512-U9JedYYjCnadUlXk7e1Kr+aENQhtUaoaV9+gZm1T8LC/YBAPJx3NSPIAurFOC0U5vrdSevnUJS2/wUVxGwPhng==}
+
   espree@10.3.0:
     resolution: {integrity: sha512-0QYC8b24HWY8zjRnDTL6RiHfDbAWn63qb4LMj1Z4b076A4une81+z03Kg7l7mn/48PUTqoLptSXez8oknU8Clg==}
     engines: {node: ^18.18.0 || ^20.9.0 || >=21.1.0}
@@ -4103,9 +4103,6 @@ packages:
 
   isexe@2.0.0:
     resolution: {integrity: sha512-RHxMLp9lnKHGHRng9QFhRCMbYAcVpn69smSGcq3f36xjgVVWThj4qqLbTLlq7Ssj8B+fIQ1EuCEGI2lKsyQeIw==}
-
-  isomorphic-unfetch@3.1.0:
-    resolution: {integrity: sha512-geDJjpoZ8N0kWexiwkX8F9NkTsXhetLPVbZFQ+JTW239QNOwvB0gniuR1Wc6f0AMTn7/mFGyXvHTifrCp/GH8Q==}
 
   istanbul-lib-coverage@3.2.2:
     resolution: {integrity: sha512-O8dpsF+r0WV/8MNRKfnmrtCWhuKjxrq2w+jpzBL5UZKTi2LeVWnWOmWRxFlesJONmc+wLAGvKQZEOanko0LFTg==}
@@ -6017,9 +6014,6 @@ packages:
 
   unenv@1.10.0:
     resolution: {integrity: sha512-wY5bskBQFL9n3Eca5XnhH6KbUo/tfvkwm9OpcdCvLaeA7piBNbavbOKJySEwQ1V0RH6HvNlSAFRTpvTqgKRQXQ==}
-
-  unfetch@4.2.0:
-    resolution: {integrity: sha512-F9p7yYCn6cIW9El1zi0HI6vqpeIvBsr3dSuRO6Xuppb1u5rXpCPmMvLSyECLhybr9isec8Ohl0hPekMVrEinDA==}
 
   unhead@1.11.13:
     resolution: {integrity: sha512-I7yyvqRfpPPzXuCG7HKZkgAWJDbzXDDEVyib4C/78HREqhNGHVSyo4TqX1h1xB5cx7WYc21HHDRT2/8YkqOy2w==}
@@ -8378,14 +8372,12 @@ snapshots:
     dependencies:
       imgix-url-builder: 0.0.5
 
-  '@prismicio/vue@4.3.1(vue@3.5.13(typescript@5.7.2))':
+  '@prismicio/vue@5.0.0-alpha.0(vue@3.5.13(typescript@5.7.2))':
     dependencies:
       '@prismicio/client': 7.13.1
-      isomorphic-unfetch: 3.1.0
+      esm-env: 1.2.1
       vue: 3.5.13(typescript@5.7.2)
       vue-router: 4.5.0(vue@3.5.13(typescript@5.7.2))
-    transitivePeerDependencies:
-      - encoding
 
   '@redocly/ajv@8.11.2':
     dependencies:
@@ -10816,6 +10808,8 @@ snapshots:
     transitivePeerDependencies:
       - supports-color
 
+  esm-env@1.2.1: {}
+
   espree@10.3.0:
     dependencies:
       acorn: 8.14.0
@@ -11563,13 +11557,6 @@ snapshots:
   isarray@1.0.0: {}
 
   isexe@2.0.0: {}
-
-  isomorphic-unfetch@3.1.0:
-    dependencies:
-      node-fetch: 2.7.0
-      unfetch: 4.2.0
-    transitivePeerDependencies:
-      - encoding
 
   istanbul-lib-coverage@3.2.2: {}
 
@@ -14129,8 +14116,6 @@ snapshots:
       mime: 3.0.0
       node-fetch-native: 1.6.4
       pathe: 1.1.2
-
-  unfetch@4.2.0: {}
 
   unhead@1.11.13:
     dependencies:

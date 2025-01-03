@@ -154,7 +154,7 @@ export default defineNuxtModule<PrismicModuleOptions>({
 		const prismicVueAutoImports = Object
 			.keys(prismicVue)
 			.filter(key => key.startsWith('use'))
-			.concat('getSliceComponentProps', 'defineSliceZoneComponents')
+			.concat('getSliceComponentProps', 'defineSliceZoneComponents', 'getRichTextComponentProps')
 			.map((key) => {
 				return {
 					name: key,
