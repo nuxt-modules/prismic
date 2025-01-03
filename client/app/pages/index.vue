@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import type { RPCClientType } from '../../src/devtools/types'
+import type { RPCClientType } from '../../../src/devtools/types'
 
 const props = defineProps<{
 	rpc: RPCClientType

@@ -11,6 +11,9 @@ export default defineNuxtConfig({
 	devServer: {
 		port: 3300,
 	},
+	future: {
+		compatibilityVersion: 4,
+	},
 	nitro: {
 		output: {
 			publicDir: resolve(__dirname, '../dist/client'),

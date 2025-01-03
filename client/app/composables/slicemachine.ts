@@ -1,4 +1,4 @@
-import type { RPCClientType } from '../../src/devtools/types'
+import type { RPCClientType } from '../../../src/devtools/types'
 
 export const useSliceMachineStatus = () => useState(
 	'prismic-slice-machine-running',
