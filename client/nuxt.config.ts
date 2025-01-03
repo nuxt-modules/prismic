@@ -9,7 +9,7 @@ export default defineNuxtConfig({
 		baseURL: '/__prismic-client',
 	},
 	devServer: {
-		port: 3300,
+		port: 5173,
 	},
 	future: {
 		compatibilityVersion: 4,

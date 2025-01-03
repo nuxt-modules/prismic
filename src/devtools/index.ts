@@ -15,7 +15,7 @@ import {
 } from './types'
 
 const DEVTOOLS_UI_ROUTE = '/__prismic-client'
-const DEVTOOLS_UI_LOCAL_PORT = 3300
+const DEVTOOLS_UI_LOCAL_PORT = 5173
 
 let subProcess: null | ReturnType<typeof startSubprocess> = null
 
@@ -53,6 +53,7 @@ export const setupDevToolsUI = (nuxt: Nuxt, resolver: Resolver) => {
 				target: `http://localhost:${DEVTOOLS_UI_LOCAL_PORT}${DEVTOOLS_UI_ROUTE}`,
 				changeOrigin: true,
 				followRedirects: true,
+				ws: true,
 				rewrite: path => path.replace(DEVTOOLS_UI_ROUTE, ''),
 			}
 		})
@@ -93,7 +94,7 @@ export const setupDevToolsUI = (nuxt: Nuxt, resolver: Resolver) => {
 					}, {
 						id: 'slicemachine',
 						name: 'SliceMachine',
-						icon: 'cib:prismic',
+						icon: 'i-simple-icons-prismic',
 					}, nuxt)
 
 					rpc.broadcast.updateStatus(SliceMachineStatus.STARTED)
@@ -115,7 +116,7 @@ export const setupDevToolsUI = (nuxt: Nuxt, resolver: Resolver) => {
 			// title to display in the tab
 			title: 'Prismic',
 			// any icon from Iconify, or a URL to an image
-			icon: 'logos:prismic-icon',
+			icon: 'i-simple-icons-prismic',
 			// iframe view
 			view: {
 				type: 'iframe',
