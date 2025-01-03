@@ -16,7 +16,7 @@ import richTextSerializer from '#build/prismic/proxy/richTextSerializer'
 export default defineNuxtPlugin({
 	name: 'prismic:setup',
 	parallel: true,
-	async setup(nuxtApp)  {
+	async setup(nuxtApp) {
 		const options: PrismicModuleOptions = useRuntimeConfig().public.prismic
 		let client: Client | undefined
 		if (typeof _client === 'function') {
@@ -25,7 +25,7 @@ export default defineNuxtPlugin({
 			}
 			catch (error) {
 				console.error('[@nuxtjs/prismic] An error happened while resolving your Prismic custom client, disabling Prismic module gracefully...', error)
-	
+
 				// The Vue plugin still requires a client to work, we're providing an obviously broken one.
 				client = createClient(
 					'error-resolving-custom-client',
@@ -36,9 +36,9 @@ export default defineNuxtPlugin({
 		else {
 			client = _client
 		}
-	
+
 		const endpoint = options.environment || options.endpoint || client?.documentAPIEndpoint || ''
-	
+
 		const prismicPlugin = createPrismic({
 			...options,
 			endpoint,
@@ -53,12 +53,12 @@ export default defineNuxtPlugin({
 				...options.components,
 			},
 		})
-	
+
 		nuxtApp.vueApp.use(prismicPlugin)
-	
+
 		if (options.preview) {
 			const previewCookie = useCookie('io.prismic.preview').value
-	
+
 			// Update client with req when running server side
 			if (import.meta.server) {
 				const req = useRequestEvent()?.node.req
@@ -66,11 +66,11 @@ export default defineNuxtPlugin({
 					prismicPlugin.client.enableAutoPreviewsFromReq(req)
 				}
 			}
-	
+
 			if (previewCookie) {
 				try {
 					const session = typeof previewCookie === 'string' ? JSON.parse(decodeURIComponent(previewCookie)) : previewCookie
-	
+
 					if (Object.keys(session).some(key =>
 						key in session
 						&& typeof session[key] === 'object'
@@ -95,7 +95,7 @@ export default defineNuxtPlugin({
 				}
 			}
 		}
-	
+
 		if (options.toolbar && prismicPlugin.client?.repositoryName) {
 			// Add toolbar
 			useHead({
@@ -112,9 +112,9 @@ export default defineNuxtPlugin({
 			// TODO: We might want to let user disable this behavior because it might have unexpected side effects
 			useCookie('io.prismic.preview').value = null
 		}
-	
+
 		return {
 			provide: { prismic: prismicPlugin },
 		}
-	}
+	},
 })
