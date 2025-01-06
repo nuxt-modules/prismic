@@ -2,6 +2,24 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [4.0.0-rc.0](https://github.com/nuxt-modules/prismic/compare/v3.4.7...v4.0.0-rc.0) (2025-01-06)
+
+
+### ⚠ BREAKING CHANGES
+
+* set setup plugin as parallel (#226)
+
+### Features
+
+* improved devtools tab ([c1d6d51](https://github.com/nuxt-modules/prismic/commit/c1d6d51a5b46389adfe2488721c7937a8e6b8943))
+* set setup plugin as parallel ([#226](https://github.com/nuxt-modules/prismic/issues/226)) ([871b19f](https://github.com/nuxt-modules/prismic/commit/871b19f5c53e4a123cf75b4707e40fbb924659ee))
+
+
+### Chore
+
+* **deps:** remove `consola` dependency ([df2ef44](https://github.com/nuxt-modules/prismic/commit/df2ef441f4126f21a9224e7f163eee89e3267fea))
+* update example and playground ([54d217c](https://github.com/nuxt-modules/prismic/commit/54d217c55ea4e9fd67ccef725af53b49290cf893))
+
 ### [3.4.7](https://github.com/nuxt-modules/prismic/compare/v3.4.6...v3.4.7) (2025-01-02)
 
 
