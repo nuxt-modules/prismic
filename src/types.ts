@@ -82,7 +82,7 @@ export type PrismicModuleOptions = Omit<
 	preview?: string | false
 
 	/**
-	 * Whether or not to inject Prismic toolbar script.
+	 * Whether to inject Prismic toolbar script.
 	 *
 	 * @remarks
 	 * The toolbar script is required for previews to work.
@@ -92,7 +92,7 @@ export type PrismicModuleOptions = Omit<
 	toolbar?: boolean
 
 	/**
-	 * Whether or not to enable the devtools UI.
+	 * Whether to enable Prismic Nuxt DevTools integration.
 	 *
 	 * @defaultValue `true`
 	 */
