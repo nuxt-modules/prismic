@@ -49,6 +49,12 @@ export default defineNuxtModule<PrismicModuleOptions>({
 			richTextSerializer: '~/app/prismic/richTextSerializer',
 		}
 
+		let prismicComponentsFiles = {
+			linkRel: '~/app/prismic/linkRel',
+			richTextComponents: '~/app/prismic/richTextComponents',
+			sliceZoneDefaultComponent: '~/app/prismic/sliceZoneDefaultComponent',
+		}
+
 		// Nuxt 4 sets `app` as its `srcDir`, so we're just using the `prismic` folder there.
 		if (
 			nuxt.options?.future?.compatibilityVersion === 4
@@ -59,6 +65,11 @@ export default defineNuxtModule<PrismicModuleOptions>({
 				linkResolver: '~/prismic/linkResolver',
 				richTextSerializer: '~/prismic/richTextSerializer',
 			}
+			prismicComponentsFiles = {
+				linkRel: '~/prismic/linkRel',
+				richTextComponents: '~/prismic/richTextComponents',
+				sliceZoneDefaultComponent: '~/prismic/sliceZoneDefaultComponent',
+			}
 		}
 
 		return {
@@ -67,11 +78,7 @@ export default defineNuxtModule<PrismicModuleOptions>({
 			clientConfig: {},
 			...prismicFiles,
 			injectComponents: true,
-			components: {
-				linkRel: '~/prismic/linkRel',
-				richTextComponents: '~/prismic/richTextComponents',
-				sliceZoneDefaultComponent: '~/prismic/sliceZoneDefaultComponent',
-			},
+			components: prismicComponentsFiles,
 			preview: '/preview',
 			toolbar: true,
 			devtools: true,

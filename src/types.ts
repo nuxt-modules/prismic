@@ -9,7 +9,7 @@ import type { PrismicPluginOptions, SliceComponentProps, TODOSliceComponent } fr
  */
 export type PrismicModuleOptions = Omit<
 	PrismicPluginOptions,
-	'endpoint' | 'client' | 'linkResolver' | 'htmlSerializer' | 'richTextSerializer' | 'components'
+	'endpoint' | 'client' | 'linkResolver' | 'richTextSerializer' | 'components'
 > & {
 	/**
 	 * A Prismic repository endpoint to init the module's `@prismicio/client`

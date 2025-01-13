@@ -87,15 +87,15 @@ it('proxies user files from default location', () => {
 		  ],
 		  [
 		    "prismic/proxy/linkRel.ts",
-		    "export default undefined",
+		    "export { default } from '~/app/prismic/linkRel'",
 		  ],
 		  [
 		    "prismic/proxy/richTextComponents.ts",
-		    "export default undefined",
+		    "export { default } from '~/app/prismic/richTextComponents'",
 		  ],
 		  [
 		    "prismic/proxy/sliceZoneDefaultComponent.ts",
-		    "export default undefined",
+		    "export { default } from '~/app/prismic/sliceZoneDefaultComponent'",
 		  ],
 		]
 	`)
@@ -131,15 +131,15 @@ it('proxies user files from default location (Nuxt 4)', () => {
 		  ],
 		  [
 		    "prismic/proxy/linkRel.ts",
-		    "export default undefined",
+		    "export { default } from '~/app/prismic/linkRel'",
 		  ],
 		  [
 		    "prismic/proxy/richTextComponents.ts",
-		    "export default undefined",
+		    "export { default } from '~/app/prismic/richTextComponents'",
 		  ],
 		  [
 		    "prismic/proxy/sliceZoneDefaultComponent.ts",
-		    "export default undefined",
+		    "export { default } from '~/app/prismic/sliceZoneDefaultComponent'",
 		  ],
 		]
 	`)
@@ -150,9 +150,9 @@ it('proxies user files from provided location', () => {
 		'/tmp/nuxt/custom/client.ts': '',
 		'/tmp/nuxt/custom/linkResolver.ts': '',
 		'/tmp/nuxt/custom/richTextSerializer.ts': '',
-		'/tmp/nuxt/custom/prismic/linkRel.ts': '',
-		'/tmp/nuxt/custom/prismic/richTextComponents.ts': '',
-		'/tmp/nuxt/custom/prismic/sliceZoneDefaultComponent.vue': '',
+		'/tmp/nuxt/custom/linkRel.ts': '',
+		'/tmp/nuxt/custom/richTextComponents.ts': '',
+		'/tmp/nuxt/custom/sliceZoneDefaultComponent.vue': '',
 	})
 
 	mockedPrismicModule({
@@ -185,15 +185,15 @@ it('proxies user files from provided location', () => {
 		  ],
 		  [
 		    "prismic/proxy/linkRel.ts",
-		    "export default undefined",
+		    "export { default } from '~/custom/linkRel'",
 		  ],
 		  [
 		    "prismic/proxy/richTextComponents.ts",
-		    "export default undefined",
+		    "export { default } from '~/custom/richTextComponents'",
 		  ],
 		  [
 		    "prismic/proxy/sliceZoneDefaultComponent.ts",
-		    "export default undefined",
+		    "export { default } from '~/custom/sliceZoneDefaultComponent'",
 		  ],
 		]
 	`)
