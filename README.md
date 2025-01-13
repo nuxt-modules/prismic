@@ -36,7 +36,7 @@ Easily connect your Nuxt.js application to your content hosted on [Prismic][pris
 Install the module to your Nuxt application with one command:
 
 ```bash
-npx nuxi module add prismic
+npx nuxi@latest module add prismic
 ```
 
 Then, configure your Prismic API endpoint:
