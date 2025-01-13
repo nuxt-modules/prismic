@@ -12,6 +12,12 @@ import _client from '#build/prismic/proxy/client'
 import linkResolver from '#build/prismic/proxy/linkResolver'
 // @ts-expect-error vfs cannot be resolved here
 import richTextSerializer from '#build/prismic/proxy/richTextSerializer'
+// @ts-expect-error vfs cannot be resolved here
+import linkRel from '#build/prismic/proxy/linkRel'
+// @ts-expect-error vfs cannot be resolved here
+import richTextComponents from '#build/prismic/proxy/richTextComponents'
+// @ts-expect-error vfs cannot be resolved here
+import sliceZoneDefaultComponent from '#build/prismic/proxy/sliceZoneDefaultComponent'
 
 export default defineNuxtPlugin({
 	name: 'prismic:setup',
@@ -51,6 +57,9 @@ export default defineNuxtPlugin({
 				linkInternalComponent: NuxtLink,
 				linkExternalComponent: NuxtLink,
 				...options.components,
+				linkRel,
+				richTextComponents,
+				sliceZoneDefaultComponent,
 			},
 		})
 

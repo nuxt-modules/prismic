@@ -67,7 +67,11 @@ export default defineNuxtModule<PrismicModuleOptions>({
 			clientConfig: {},
 			...prismicFiles,
 			injectComponents: true,
-			components: {},
+			components: {
+				linkRel: '~/prismic/linkRel',
+				richTextComponents: '~/prismic/richTextComponents',
+				sliceZoneDefaultComponent: '~/prismic/sliceZoneDefaultComponent',
+			},
 			preview: '/preview',
 			toolbar: true,
 			devtools: true,
@@ -88,7 +92,7 @@ export default defineNuxtModule<PrismicModuleOptions>({
 
 		// Add runtime user code
 		const proxyUserFileWithUndefinedFallback
-			= (filename: string, path: string, extensions = ['js', 'mjs', 'ts']): boolean => {
+			= (filename: string, path: string, extensions = ['js', 'mjs', 'ts', 'vue']): boolean => {
 				const resolvedFilename = `prismic/proxy/${filename}.ts`
 				const resolvedPath = path.replace(/^(~~|@@)/, nuxt.options.rootDir).replace(/^(~|@)/, nuxt.options.srcDir)
 				const maybeUserFile = fileExists(resolvedPath, extensions)
@@ -122,6 +126,11 @@ export default defineNuxtModule<PrismicModuleOptions>({
 		}
 		proxyUserFileWithUndefinedFallback('linkResolver', moduleOptions.linkResolver!)
 		proxyUserFileWithUndefinedFallback('richTextSerializer', moduleOptions.richTextSerializer!)
+
+		// Components
+		proxyUserFileWithUndefinedFallback('linkRel', moduleOptions.components!.linkRel!)
+		proxyUserFileWithUndefinedFallback('richTextComponents', moduleOptions.components!.richTextComponents!)
+		proxyUserFileWithUndefinedFallback('sliceZoneDefaultComponent', moduleOptions.components!.sliceZoneDefaultComponent!)
 
 		nuxt.options.build.transpile.push(resolver.resolve('runtime'), '@nuxtjs/prismic', '@prismicio/vue')
 		nuxt.options.vite.optimizeDeps ||= {}

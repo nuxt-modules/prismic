@@ -1,4 +1,5 @@
-import type { PrismicPluginOptions } from '@prismicio/vue'
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
+import type { PrismicPluginOptions, SliceComponentProps, TODOSliceComponent } from '@prismicio/vue'
 
 /**
  * `@nuxtjs/prismic` module options.
@@ -6,7 +7,10 @@ import type { PrismicPluginOptions } from '@prismicio/vue'
  * @see Module documentation: {@link https://prismic.nuxtjs.org}
  * @see Prismic documentation: {@link https://prismic.io/docs/nuxt-3-setup}
  */
-export type PrismicModuleOptions = Omit<PrismicPluginOptions, 'endpoint' | 'client' | 'linkResolver' | 'htmlSerializer' | 'richTextSerializer'> & {
+export type PrismicModuleOptions = Omit<
+	PrismicPluginOptions,
+	'endpoint' | 'client' | 'linkResolver' | 'htmlSerializer' | 'richTextSerializer' | 'components'
+> & {
 	/**
 	 * A Prismic repository endpoint to init the module's `@prismicio/client`
 	 * instance used to fetch content from a Prismic repository with.
@@ -93,4 +97,39 @@ export type PrismicModuleOptions = Omit<PrismicPluginOptions, 'endpoint' | 'clie
 	 * @defaultValue `true`
 	 */
 	devtools?: boolean
+
+	/**
+	 * Options used by Prismic Vue components.
+	 */
+	components?: Omit<
+		Required<PrismicPluginOptions>['components'],
+		'richTextComponents' | 'linkRel' | 'sliceZoneDefaultComponent' | 'linkInternalComponent' | 'linkExternalComponent'
+	> & {
+		/**
+		 * An optional path to a file exporting the `rel` attribute to apply on links.
+		 * It can export a function to use the link's metadata to determine the `rel` value.
+		 *
+		 * @defaultValue `"noreferrer"` for external links.
+		 */
+		linkRel?: string
+
+		/**
+		 * An optional path to a file exporting a map of Rich Text block types to Vue Components.
+		 * It is used to render Rich Text or title fields.
+		 *
+		 * @see Templating Rich Text and title fields from Prismic {@link https://prismic.io/docs/rich-text}
+		 */
+		richTextComponents?: string
+
+		/**
+		 * An optional path to a file exporting a component or a functional component rendered
+		 * if a component mapping from the `components` prop cannot be found.
+		 *
+		 * @remarks
+		 * Components will be rendered using the {@link SliceComponentProps} interface.
+		 *
+		 * @defaultValue `null` when `process.env.NODE_ENV === "production"` else {@link TODOSliceComponent}
+		 */
+		sliceZoneDefaultComponent?: string
+	}
 }

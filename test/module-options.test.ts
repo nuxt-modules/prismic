@@ -38,7 +38,11 @@ it('exposes options in runtime config', () => {
 		{
 		  "client": "~/app/prismic/client",
 		  "clientConfig": {},
-		  "components": {},
+		  "components": {
+		    "linkRel": "~/prismic/linkRel",
+		    "richTextComponents": "~/prismic/richTextComponents",
+		    "sliceZoneDefaultComponent": "~/prismic/sliceZoneDefaultComponent",
+		  },
 		  "devtools": true,
 		  "endpoint": "qwerty",
 		  "environment": "",
