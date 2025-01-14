@@ -2,6 +2,31 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [4.0.0-rc.1](https://github.com/nuxt-modules/prismic/compare/v4.0.0-rc.0...v4.0.0-rc.1) (2025-01-14)
+
+
+### Features
+
+* provide auto imports for `linkRel`, `richTextComponents`, and `sliceZoneDefaultComponent` ([5b754e4](https://github.com/nuxt-modules/prismic/commit/5b754e4afc51ad6bf8221d8d99be71a152bd9209))
+
+
+### Bug Fixes
+
+* auto imports for `linkRel`, `richTextComponents`, and `sliceZoneDefaultComponent` in nuxt 4 ([bbec245](https://github.com/nuxt-modules/prismic/commit/bbec2458c711dcb2817d72ed13845e37afe693c8))
+
+
+### Chore
+
+* **deps:** maintain dependencies ([f3255d4](https://github.com/nuxt-modules/prismic/commit/f3255d46258c9957ac45de45e343749b17ad3899))
+
+
+### Documentation
+
+* fix doc ([4e8eecf](https://github.com/nuxt-modules/prismic/commit/4e8eecfe8fcef4b679ee0123326c57927e3860fe))
+* fix doc ([4b8a344](https://github.com/nuxt-modules/prismic/commit/4b8a3442f45bc92330ebe733f017b0ef025719c1))
+* simplify doc ([5baadd5](https://github.com/nuxt-modules/prismic/commit/5baadd54c697993f730b28b9410231964b473e7d))
+* tsdocs ([42d4392](https://github.com/nuxt-modules/prismic/commit/42d43926d97f58afadd9a7f4477644bff94780f5))
+
 ## [4.0.0-rc.0](https://github.com/nuxt-modules/prismic/compare/v3.4.7...v4.0.0-rc.0) (2025-01-06)
 
 
