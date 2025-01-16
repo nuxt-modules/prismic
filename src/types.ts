@@ -66,6 +66,8 @@ export type PrismicModuleOptions = Omit<
 	 * An optional path to a file exporting an HTML serializer to customize
 	 * the way rich text fields are rendered.
 	 *
+	 * @deprecated Use `components.richTextComponents` instead.
+	 *
 	 * @see HTML serializer documentation {@link https://prismic.io/docs/rich-text}
 	 */
 	richTextSerializer?: string

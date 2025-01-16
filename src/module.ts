@@ -99,14 +99,17 @@ export default defineNuxtModule<PrismicModuleOptions>({
 
 		// Add runtime user code
 		const proxyUserFileWithUndefinedFallback
-			= (filename: string, path: string, extensions = ['js', 'mjs', 'ts', 'vue']): boolean => {
+			= (filename: string, path: string, deprecated?: boolean | string): boolean => {
 				const resolvedFilename = `prismic/proxy/${filename}.ts`
 				const resolvedPath = path.replace(/^(~~|@@)/, nuxt.options.rootDir).replace(/^(~|@)/, nuxt.options.srcDir)
-				const maybeUserFile = fileExists(resolvedPath, extensions)
+				const maybeUserFile = fileExists(resolvedPath, ['js', 'mjs', 'ts', 'vue'])
 
 				if (maybeUserFile) {
 				// If user file exists, proxy it with vfs
 					logger.info(`Using user-defined \`${filename}\` at \`${maybeUserFile.replace(nuxt.options.srcDir, '~').replace(nuxt.options.rootDir, '~~').replace(/\\/g, '/')}\``)
+					if (deprecated) {
+						logger.warn(`\`${filename}\` is deprecated and will be removed in a future version.${typeof deprecated === 'string' ? `${deprecated}` : ''}`)
+					}
 
 					addTemplate({
 						filename: resolvedFilename,
@@ -132,7 +135,7 @@ export default defineNuxtModule<PrismicModuleOptions>({
 			return
 		}
 		proxyUserFileWithUndefinedFallback('linkResolver', moduleOptions.linkResolver!)
-		proxyUserFileWithUndefinedFallback('richTextSerializer', moduleOptions.richTextSerializer!)
+		proxyUserFileWithUndefinedFallback('richTextSerializer', moduleOptions.richTextSerializer!, 'Use `components.richTextComponents` instead.')
 
 		// Components
 		proxyUserFileWithUndefinedFallback('linkRel', moduleOptions.components!.linkRel!)
