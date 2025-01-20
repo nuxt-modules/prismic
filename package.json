@@ -1,6 +1,6 @@
 {
 	"name": "@nuxtjs/prismic",
-	"version": "3.4.8",
+	"version": "4.0.0-rc.1",
 	"description": "Easily connect your Nuxt application to your content hosted on Prismic",
 	"keywords": [
 		"nuxt",
@@ -40,7 +40,7 @@
 		"dev:build": "nuxt build playground",
 		"dev:preview": "nuxt preview playground",
 		"dev:generate": "nuxt generate playground",
-		"prepare": "nuxt prepare playground && npm run build",
+		"prepare": "nuxt prepare playground",
 		"release": "npm run test && standard-version && git push --follow-tags && npm run build && npm publish",
 		"release:dry": "standard-version --dry-run",
 		"release:rc": "npm run test && standard-version --release-as major --prerelease rc && git push --follow-tags && npm run build && npm publish --tag rc",
@@ -53,31 +53,31 @@
 	},
 	"dependencies": {
 		"@nuxt/devtools-kit": "^1.7.0",
-		"@nuxt/kit": "^3.15.0",
-		"@prismicio/client": "^7.13.1",
-		"@prismicio/vue": "^4.3.1",
-		"birpc": "0.2.19",
-		"consola": "^3.3.3",
+		"@nuxt/kit": "^3.15.2",
+		"@prismicio/client": "^7.15.1",
+		"@prismicio/vue": "^5.0.0",
+		"birpc": "2.0.19",
 		"defu": "^6.1.4",
-		"pathe": "^1.1.2",
+		"pathe": "^2.0.2",
 		"sirv": "^3.0.0",
 		"terminate": "^2.8.0"
 	},
 	"devDependencies": {
 		"@iconify-json/carbon": "^1.2.5",
 		"@iconify-json/logos": "^1.2.4",
+		"@iconify-json/simple-icons": "^1.2.21",
 		"@nuxt/devtools-ui-kit": "^1.7.0",
-		"@nuxt/eslint-config": "^0.7.4",
+		"@nuxt/eslint-config": "^0.7.5",
 		"@nuxt/module-builder": "^0.8.4",
-		"@nuxt/schema": "^3.15.0",
-		"@unocss/preset-icons": "^0.65.3",
-		"@vitest/coverage-v8": "^2.1.8",
-		"eslint": "^9.17.0",
-		"memfs": "^4.15.3",
-		"nuxt": "^3.15.0",
+		"@nuxt/schema": "^3.15.2",
+		"@unocss/preset-icons": "^65.4.2",
+		"@vitest/coverage-v8": "^3.0.2",
+		"eslint": "^9.18.0",
+		"memfs": "^4.17.0",
+		"nuxt": "^3.15.2",
 		"standard-version": "^9.5.0",
-		"typescript": "^5.7.2",
-		"vitest": "^2.1.8"
+		"typescript": "^5.7.3",
+		"vitest": "^3.0.2"
 	},
 	"engines": {
 		"node": ">=16.10.0"

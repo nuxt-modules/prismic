@@ -74,92 +74,8 @@ it('auto-imports', () => {
 	expect(vi.mocked(addImports).mock.calls.flat(2).map(options => [options.name, options.as])).toMatchInlineSnapshot(`
 		[
 		  [
-		    "useAllPrismicDocumentsByEveryTag",
-		    "useAllPrismicDocumentsByEveryTag",
-		  ],
-		  [
-		    "useAllPrismicDocumentsByIDs",
-		    "useAllPrismicDocumentsByIDs",
-		  ],
-		  [
-		    "useAllPrismicDocumentsBySomeTags",
-		    "useAllPrismicDocumentsBySomeTags",
-		  ],
-		  [
-		    "useAllPrismicDocumentsByTag",
-		    "useAllPrismicDocumentsByTag",
-		  ],
-		  [
-		    "useAllPrismicDocumentsByType",
-		    "useAllPrismicDocumentsByType",
-		  ],
-		  [
-		    "useAllPrismicDocumentsByUIDs",
-		    "useAllPrismicDocumentsByUIDs",
-		  ],
-		  [
-		    "useFirstPrismicDocument",
-		    "useFirstPrismicDocument",
-		  ],
-		  [
 		    "usePrismic",
 		    "usePrismic",
-		  ],
-		  [
-		    "usePrismicDocumentByID",
-		    "usePrismicDocumentByID",
-		  ],
-		  [
-		    "usePrismicDocumentByUID",
-		    "usePrismicDocumentByUID",
-		  ],
-		  [
-		    "usePrismicDocuments",
-		    "usePrismicDocuments",
-		  ],
-		  [
-		    "usePrismicDocumentsByEveryTag",
-		    "usePrismicDocumentsByEveryTag",
-		  ],
-		  [
-		    "usePrismicDocumentsByIDs",
-		    "usePrismicDocumentsByIDs",
-		  ],
-		  [
-		    "usePrismicDocumentsBySomeTags",
-		    "usePrismicDocumentsBySomeTags",
-		  ],
-		  [
-		    "usePrismicDocumentsByTag",
-		    "usePrismicDocumentsByTag",
-		  ],
-		  [
-		    "usePrismicDocumentsByType",
-		    "usePrismicDocumentsByType",
-		  ],
-		  [
-		    "usePrismicDocumentsByUIDs",
-		    "usePrismicDocumentsByUIDs",
-		  ],
-		  [
-		    "usePrismicImage",
-		    "usePrismicImage",
-		  ],
-		  [
-		    "usePrismicLink",
-		    "usePrismicLink",
-		  ],
-		  [
-		    "usePrismicRichText",
-		    "usePrismicRichText",
-		  ],
-		  [
-		    "usePrismicText",
-		    "usePrismicText",
-		  ],
-		  [
-		    "useSinglePrismicDocument",
-		    "useSinglePrismicDocument",
 		  ],
 		  [
 		    "getSliceComponentProps",
@@ -168,6 +84,10 @@ it('auto-imports', () => {
 		  [
 		    "defineSliceZoneComponents",
 		    "defineSliceZoneComponents",
+		  ],
+		  [
+		    "getRichTextComponentProps",
+		    "getRichTextComponentProps",
 		  ],
 		  [
 		    "usePrismicPreview",

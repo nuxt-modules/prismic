@@ -25,7 +25,7 @@ afterEach(() => {
 it('proxies nothing if user files are not available', () => {
 	mockedPrismicModule({ endpoint: 'qwerty' })
 
-	expect(addTemplate).toHaveBeenCalledTimes(3)
+	expect(addTemplate).toHaveBeenCalledTimes(6)
 	// eslint-disable-next-line @typescript-eslint/no-explicit-any
 	expect(vi.mocked(addTemplate).mock.calls.flat().map((options: any) => [options.filename, options.getContents()])).toMatchInlineSnapshot(`
 		[
@@ -39,6 +39,18 @@ it('proxies nothing if user files are not available', () => {
 		  ],
 		  [
 		    "prismic/proxy/richTextSerializer.ts",
+		    "export default undefined",
+		  ],
+		  [
+		    "prismic/proxy/linkRel.ts",
+		    "export default undefined",
+		  ],
+		  [
+		    "prismic/proxy/richTextComponents.ts",
+		    "export default undefined",
+		  ],
+		  [
+		    "prismic/proxy/sliceZoneDefaultComponent.ts",
 		    "export default undefined",
 		  ],
 		]
@@ -50,11 +62,14 @@ it('proxies user files from default location', () => {
 		'/tmp/nuxt/app/prismic/client.ts': '',
 		'/tmp/nuxt/app/prismic/linkResolver.ts': '',
 		'/tmp/nuxt/app/prismic/richTextSerializer.ts': '',
+		'/tmp/nuxt/app/prismic/linkRel.ts': '',
+		'/tmp/nuxt/app/prismic/richTextComponents.ts': '',
+		'/tmp/nuxt/app/prismic/sliceZoneDefaultComponent.vue': '',
 	})
 
 	mockedPrismicModule({ endpoint: 'qwerty' })
 
-	expect(addTemplate).toHaveBeenCalledTimes(3)
+	expect(addTemplate).toHaveBeenCalledTimes(6)
 	// eslint-disable-next-line @typescript-eslint/no-explicit-any
 	expect(vi.mocked(addTemplate).mock.calls.flat().map((options: any) => [options.filename, options.getContents()])).toMatchInlineSnapshot(`
 		[
@@ -69,6 +84,18 @@ it('proxies user files from default location', () => {
 		  [
 		    "prismic/proxy/richTextSerializer.ts",
 		    "export { default } from '~/prismic/richTextSerializer'",
+		  ],
+		  [
+		    "prismic/proxy/linkRel.ts",
+		    "export { default } from '~/prismic/linkRel'",
+		  ],
+		  [
+		    "prismic/proxy/richTextComponents.ts",
+		    "export { default } from '~/prismic/richTextComponents'",
+		  ],
+		  [
+		    "prismic/proxy/sliceZoneDefaultComponent.ts",
+		    "export { default } from '~/prismic/sliceZoneDefaultComponent'",
 		  ],
 		]
 	`)
@@ -79,11 +106,14 @@ it('proxies user files from default location (Nuxt 4)', () => {
 		'/tmp/nuxt/app/prismic/client.ts': '',
 		'/tmp/nuxt/app/prismic/linkResolver.ts': '',
 		'/tmp/nuxt/app/prismic/richTextSerializer.ts': '',
+		'/tmp/nuxt/app/prismic/linkRel.ts': '',
+		'/tmp/nuxt/app/prismic/richTextComponents.ts': '',
+		'/tmp/nuxt/app/prismic/sliceZoneDefaultComponent.vue': '',
 	})
 
 	mockedPrismicModule({ endpoint: 'qwerty' })
 
-	expect(addTemplate).toHaveBeenCalledTimes(3)
+	expect(addTemplate).toHaveBeenCalledTimes(6)
 	// eslint-disable-next-line @typescript-eslint/no-explicit-any
 	expect(vi.mocked(addTemplate).mock.calls.flat().map((options: any) => [options.filename, options.getContents()])).toMatchInlineSnapshot(`
 		[
@@ -99,6 +129,18 @@ it('proxies user files from default location (Nuxt 4)', () => {
 		    "prismic/proxy/richTextSerializer.ts",
 		    "export { default } from '~/prismic/richTextSerializer'",
 		  ],
+		  [
+		    "prismic/proxy/linkRel.ts",
+		    "export { default } from '~/prismic/linkRel'",
+		  ],
+		  [
+		    "prismic/proxy/richTextComponents.ts",
+		    "export { default } from '~/prismic/richTextComponents'",
+		  ],
+		  [
+		    "prismic/proxy/sliceZoneDefaultComponent.ts",
+		    "export { default } from '~/prismic/sliceZoneDefaultComponent'",
+		  ],
 		]
 	`)
 })
@@ -108,6 +150,9 @@ it('proxies user files from provided location', () => {
 		'/tmp/nuxt/app/custom/client.ts': '',
 		'/tmp/nuxt/app/custom/linkResolver.ts': '',
 		'/tmp/nuxt/app/custom/richTextSerializer.ts': '',
+		'/tmp/nuxt/app/custom/linkRel.ts': '',
+		'/tmp/nuxt/app/custom/richTextComponents.ts': '',
+		'/tmp/nuxt/app/custom/sliceZoneDefaultComponent.vue': '',
 	})
 
 	mockedPrismicModule({
@@ -115,9 +160,14 @@ it('proxies user files from provided location', () => {
 		client: '~/custom/client',
 		linkResolver: '~/custom/linkResolver',
 		richTextSerializer: '~/custom/richTextSerializer',
+		components: {
+			linkRel: '~/custom/linkRel',
+			richTextComponents: '~/custom/richTextComponents',
+			sliceZoneDefaultComponent: '~/custom/sliceZoneDefaultComponent',
+		},
 	})
 
-	expect(addTemplate).toHaveBeenCalledTimes(3)
+	expect(addTemplate).toHaveBeenCalledTimes(6)
 	// eslint-disable-next-line @typescript-eslint/no-explicit-any
 	expect(vi.mocked(addTemplate).mock.calls.flat().map((options: any) => [options.filename, options.getContents()])).toMatchInlineSnapshot(`
 		[
@@ -132,6 +182,18 @@ it('proxies user files from provided location', () => {
 		  [
 		    "prismic/proxy/richTextSerializer.ts",
 		    "export { default } from '~/custom/richTextSerializer'",
+		  ],
+		  [
+		    "prismic/proxy/linkRel.ts",
+		    "export { default } from '~/custom/linkRel'",
+		  ],
+		  [
+		    "prismic/proxy/richTextComponents.ts",
+		    "export { default } from '~/custom/richTextComponents'",
+		  ],
+		  [
+		    "prismic/proxy/sliceZoneDefaultComponent.ts",
+		    "export { default } from '~/custom/sliceZoneDefaultComponent'",
 		  ],
 		]
 	`)

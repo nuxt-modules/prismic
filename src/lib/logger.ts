@@ -1,3 +1,3 @@
-import { consola } from 'consola'
+import { useLogger } from '@nuxt/kit'
 
-export const logger = consola.withTag('nuxt:prismic')
+export const logger = useLogger('nuxt:prismic') as ReturnType<typeof useLogger>

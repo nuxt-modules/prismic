@@ -36,7 +36,7 @@ Easily connect your Nuxt.js application to your content hosted on [Prismic][pris
 Install the module to your Nuxt application with one command:
 
 ```bash
-npx nuxi module add prismic
+npx nuxi@latest module add prismic
 ```
 
 Then, configure your Prismic API endpoint:
@@ -74,7 +74,7 @@ Whether you're helping us fix bugs, improve the docs, or spread the word, we'd l
 
 [prismic]: https://prismic.io
 
-<!-- TODO: Replace link with a more useful one if available -->
+<!-- Replace link with a more useful one if available -->
 
 [playground]: https://stackblitz.com/github/nuxt-modules/prismic/tree/master/examples/minimal?file=pages%2Findex.vue
 [nuxt-docs]: https://prismic.nuxtjs.org
@@ -82,7 +82,7 @@ Whether you're helping us fix bugs, improve the docs, or spread the word, we'd l
 [changelog]: ./CHANGELOG.md
 [contributing]: ./CONTRIBUTING.md
 
-<!-- TODO: Replace link with a more useful one if available -->
+<!-- Replace link with a more useful one if available -->
 
 [forum-question]: https://community.prismic.io
 [repo-bug-report]: https://github.com/nuxt-modules/prismic/issues/new?assignees=&labels=bug&template=bug_report.md&title=

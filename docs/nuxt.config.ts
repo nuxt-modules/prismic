@@ -21,6 +21,8 @@ export default defineNuxtConfig({
 		routes: ['/'],
 	},
 
+	compatibilityDate: '2025-01-13',
+
 	plausible: {
 		domain: 'prismic.nuxtjs.org',
 	},

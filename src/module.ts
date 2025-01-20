@@ -49,6 +49,12 @@ export default defineNuxtModule<PrismicModuleOptions>({
 			richTextSerializer: '~/app/prismic/richTextSerializer',
 		}
 
+		let prismicComponentsFiles = {
+			linkRel: '~/app/prismic/linkRel',
+			richTextComponents: '~/app/prismic/richTextComponents',
+			sliceZoneDefaultComponent: '~/app/prismic/sliceZoneDefaultComponent',
+		}
+
 		// Nuxt 4 sets `app` as its `srcDir`, so we're just using the `prismic` folder there.
 		if (
 			nuxt.options?.future?.compatibilityVersion === 4
@@ -59,6 +65,11 @@ export default defineNuxtModule<PrismicModuleOptions>({
 				linkResolver: '~/prismic/linkResolver',
 				richTextSerializer: '~/prismic/richTextSerializer',
 			}
+			prismicComponentsFiles = {
+				linkRel: '~/prismic/linkRel',
+				richTextComponents: '~/prismic/richTextComponents',
+				sliceZoneDefaultComponent: '~/prismic/sliceZoneDefaultComponent',
+			}
 		}
 
 		return {
@@ -67,7 +78,7 @@ export default defineNuxtModule<PrismicModuleOptions>({
 			clientConfig: {},
 			...prismicFiles,
 			injectComponents: true,
-			components: {},
+			components: prismicComponentsFiles,
 			preview: '/preview',
 			toolbar: true,
 			devtools: true,
@@ -88,14 +99,17 @@ export default defineNuxtModule<PrismicModuleOptions>({
 
 		// Add runtime user code
 		const proxyUserFileWithUndefinedFallback
-			= (filename: string, path: string, extensions = ['js', 'mjs', 'ts']): boolean => {
+			= (filename: string, path: string, deprecated?: boolean | string): boolean => {
 				const resolvedFilename = `prismic/proxy/${filename}.ts`
 				const resolvedPath = path.replace(/^(~~|@@)/, nuxt.options.rootDir).replace(/^(~|@)/, nuxt.options.srcDir)
-				const maybeUserFile = fileExists(resolvedPath, extensions)
+				const maybeUserFile = fileExists(resolvedPath, ['js', 'mjs', 'ts', 'vue'])
 
 				if (maybeUserFile) {
 				// If user file exists, proxy it with vfs
 					logger.info(`Using user-defined \`${filename}\` at \`${maybeUserFile.replace(nuxt.options.srcDir, '~').replace(nuxt.options.rootDir, '~~').replace(/\\/g, '/')}\``)
+					if (deprecated) {
+						logger.warn(`\`${filename}\` is deprecated and will be removed in a future version.${typeof deprecated === 'string' ? `${deprecated}` : ''}`)
+					}
 
 					addTemplate({
 						filename: resolvedFilename,
@@ -121,7 +135,12 @@ export default defineNuxtModule<PrismicModuleOptions>({
 			return
 		}
 		proxyUserFileWithUndefinedFallback('linkResolver', moduleOptions.linkResolver!)
-		proxyUserFileWithUndefinedFallback('richTextSerializer', moduleOptions.richTextSerializer!)
+		proxyUserFileWithUndefinedFallback('richTextSerializer', moduleOptions.richTextSerializer!, 'Use `components.richTextComponents` instead.')
+
+		// Components
+		proxyUserFileWithUndefinedFallback('linkRel', moduleOptions.components!.linkRel!)
+		proxyUserFileWithUndefinedFallback('richTextComponents', moduleOptions.components!.richTextComponents!)
+		proxyUserFileWithUndefinedFallback('sliceZoneDefaultComponent', moduleOptions.components!.sliceZoneDefaultComponent!)
 
 		nuxt.options.build.transpile.push(resolver.resolve('runtime'), '@nuxtjs/prismic', '@prismicio/vue')
 		nuxt.options.vite.optimizeDeps ||= {}
@@ -154,7 +173,7 @@ export default defineNuxtModule<PrismicModuleOptions>({
 		const prismicVueAutoImports = Object
 			.keys(prismicVue)
 			.filter(key => key.startsWith('use'))
-			.concat('getSliceComponentProps', 'defineSliceZoneComponents')
+			.concat('getSliceComponentProps', 'defineSliceZoneComponents', 'getRichTextComponentProps')
 			.map((key) => {
 				return {
 					name: key,

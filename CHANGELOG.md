@@ -2,6 +2,48 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [4.0.0-rc.1](https://github.com/nuxt-modules/prismic/compare/v4.0.0-rc.0...v4.0.0-rc.1) (2025-01-14)
+
+
+### Features
+
+* provide auto imports for `linkRel`, `richTextComponents`, and `sliceZoneDefaultComponent` ([5b754e4](https://github.com/nuxt-modules/prismic/commit/5b754e4afc51ad6bf8221d8d99be71a152bd9209))
+
+
+### Bug Fixes
+
+* auto imports for `linkRel`, `richTextComponents`, and `sliceZoneDefaultComponent` in nuxt 4 ([bbec245](https://github.com/nuxt-modules/prismic/commit/bbec2458c711dcb2817d72ed13845e37afe693c8))
+
+
+### Chore
+
+* **deps:** maintain dependencies ([f3255d4](https://github.com/nuxt-modules/prismic/commit/f3255d46258c9957ac45de45e343749b17ad3899))
+
+
+### Documentation
+
+* fix doc ([4e8eecf](https://github.com/nuxt-modules/prismic/commit/4e8eecfe8fcef4b679ee0123326c57927e3860fe))
+* fix doc ([4b8a344](https://github.com/nuxt-modules/prismic/commit/4b8a3442f45bc92330ebe733f017b0ef025719c1))
+* simplify doc ([5baadd5](https://github.com/nuxt-modules/prismic/commit/5baadd54c697993f730b28b9410231964b473e7d))
+* tsdocs ([42d4392](https://github.com/nuxt-modules/prismic/commit/42d43926d97f58afadd9a7f4477644bff94780f5))
+
+## [4.0.0-rc.0](https://github.com/nuxt-modules/prismic/compare/v3.4.7...v4.0.0-rc.0) (2025-01-06)
+
+
+### ⚠ BREAKING CHANGES
+
+* set setup plugin as parallel (#226)
+
+### Features
+
+* improved devtools tab ([c1d6d51](https://github.com/nuxt-modules/prismic/commit/c1d6d51a5b46389adfe2488721c7937a8e6b8943))
+* set setup plugin as parallel ([#226](https://github.com/nuxt-modules/prismic/issues/226)) ([871b19f](https://github.com/nuxt-modules/prismic/commit/871b19f5c53e4a123cf75b4707e40fbb924659ee))
+
+
+### Chore
+
+* **deps:** remove `consola` dependency ([df2ef44](https://github.com/nuxt-modules/prismic/commit/df2ef441f4126f21a9224e7f163eee89e3267fea))
+* update example and playground ([54d217c](https://github.com/nuxt-modules/prismic/commit/54d217c55ea4e9fd67ccef725af53b49290cf893))
 ### [3.4.8](https://github.com/nuxt-modules/prismic/compare/v3.4.7...v3.4.8) (2025-01-06)
 
 ### [3.4.7](https://github.com/nuxt-modules/prismic/compare/v3.4.6...v3.4.7) (2025-01-02)

@@ -16,7 +16,7 @@ import {
 	type RPCClientType,
 	type ISlicemachineClientFunctions,
 	type ISlicemachineServerFunctions,
-} from '../src/devtools/types'
+} from '../../src/devtools/types'
 
 const sliceMachineStatus = useSliceMachineStatus()
 
