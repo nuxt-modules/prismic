@@ -44,6 +44,7 @@ All notable changes to this project will be documented in this file. See [standa
 
 * **deps:** remove `consola` dependency ([df2ef44](https://github.com/nuxt-modules/prismic/commit/df2ef441f4126f21a9224e7f163eee89e3267fea))
 * update example and playground ([54d217c](https://github.com/nuxt-modules/prismic/commit/54d217c55ea4e9fd67ccef725af53b49290cf893))
+### [3.4.8](https://github.com/nuxt-modules/prismic/compare/v3.4.7...v3.4.8) (2025-01-06)
 
 ### [3.4.7](https://github.com/nuxt-modules/prismic/compare/v3.4.6...v3.4.7) (2025-01-02)
 
