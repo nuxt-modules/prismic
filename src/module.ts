@@ -108,7 +108,7 @@ export default defineNuxtModule<PrismicModuleOptions>({
 				// If user file exists, proxy it with vfs
 					logger.info(`Using user-defined \`${filename}\` at \`${maybeUserFile.replace(nuxt.options.srcDir, '~').replace(nuxt.options.rootDir, '~~').replace(/\\/g, '/')}\``)
 					if (deprecated) {
-						logger.warn(`\`${filename}\` is deprecated and will be removed in a future version.${typeof deprecated === 'string' ? `${deprecated}` : ''}`)
+						logger.warn(`\`${filename}\` is deprecated and will be removed in a future version.${typeof deprecated === 'string' ? ` ${deprecated}` : ''}`)
 					}
 
 					addTemplate({
