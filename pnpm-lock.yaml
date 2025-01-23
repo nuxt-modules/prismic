@@ -18,8 +18,8 @@ importers:
         specifier: ^7.15.1
         version: 7.15.1
       '@prismicio/vue':
-        specifier: ^5.0.0
-        version: 5.0.0(vue@3.5.13(typescript@5.7.3))
+        specifier: ^5.0.1
+        version: 5.0.1(vue@3.5.13(typescript@5.7.3))
       birpc:
         specifier: 2.0.19
         version: 2.0.19
@@ -1553,8 +1553,8 @@ packages:
     resolution: {integrity: sha512-GjOMRxoXm4zux9NolcCQJITwhj5nsWZz+bewO7zA2g1wdAM8rgAPlr0T0+bC/CcXnhznBF/gdfpGOXiHsjJ1WQ==}
     engines: {node: '>=14.15.0'}
 
-  '@prismicio/vue@5.0.0':
-    resolution: {integrity: sha512-wkw4hfuOh40k2CO6kGGZRfKGY1VUSfSIRXpWyL2/CGu5qR/5OzuCgZgQ4AlmlyhYY/MthQkJbN7Cgm42bSzO2Q==}
+  '@prismicio/vue@5.0.1':
+    resolution: {integrity: sha512-0Deg3ktyJuovRR6E6twk1eek8z1+ug88gDDTEejZdZCFa/jLO7wLJXvjyAXTg24kYQrWQ6zMZD6OuElRBzGoaA==}
     engines: {node: '>=16.10.0'}
     peerDependencies:
       vue: ^3.0.0
@@ -8460,7 +8460,7 @@ snapshots:
     dependencies:
       imgix-url-builder: 0.0.5
 
-  '@prismicio/vue@5.0.0(vue@3.5.13(typescript@5.7.3))':
+  '@prismicio/vue@5.0.1(vue@3.5.13(typescript@5.7.3))':
     dependencies:
       '@prismicio/client': 7.15.1
       esm-env: 1.2.2
@@ -15158,7 +15158,7 @@ snapshots:
       browserslist: 4.24.2
       chrome-trace-event: 1.0.4
       enhanced-resolve: 5.17.1
-      es-module-lexer: 1.5.4
+      es-module-lexer: 1.6.0
       eslint-scope: 5.1.1
       events: 3.3.0
       glob-to-regexp: 0.4.1
