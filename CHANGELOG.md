@@ -2,6 +2,18 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [4.0.1](https://github.com/nuxt-modules/prismic/compare/v4.0.0...v4.0.1) (2025-01-23)
+
+
+### Documentation
+
+* warning message ([9b1cb71](https://github.com/nuxt-modules/prismic/commit/9b1cb71da2233cf18c8ea0b5be7ab8dad1229998))
+
+
+### Chore
+
+* **deps:** bump `@prismicio/vue` ([25dde60](https://github.com/nuxt-modules/prismic/commit/25dde6005167821d75b342cdb16df0cc0d65e9a0))
+
 ## [4.0.0](https://github.com/nuxt-modules/prismic/compare/v3.4.8...v4.0.0) (2025-01-20)
 
 
