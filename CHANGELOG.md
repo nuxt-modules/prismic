@@ -2,6 +2,18 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [4.1.0](https://github.com/nuxt-modules/prismic/compare/v4.0.1...v4.1.0) (2025-03-03)
+
+
+### Features
+
+* auto-import table-related components ([fce43e0](https://github.com/nuxt-modules/prismic/commit/fce43e0dfe44c9185429f96e53f31561e2e6f845))
+
+
+### Chore
+
+* **deps:** maintain dependencies ([374ee7c](https://github.com/nuxt-modules/prismic/commit/374ee7c832978c22d20be919486e341a1c1b8195))
+
 ### [4.0.1](https://github.com/nuxt-modules/prismic/compare/v4.0.0...v4.0.1) (2025-01-23)
 
 
