@@ -24,7 +24,7 @@ afterEach(() => {
 it('auto-imports components', () => {
 	mockedPrismicModule({ endpoint: 'qwerty' })
 
-	expect(addComponent).toHaveBeenCalledTimes(6)
+	expect(addComponent).toHaveBeenCalledTimes(7)
 	expect(vi.mocked(addComponent).mock.calls.flat().map(options => [options.name, options.export, options.filePath])).toMatchInlineSnapshot(`
 		[
 		  [
@@ -50,6 +50,11 @@ it('auto-imports components', () => {
 		  [
 		    "PrismicRichText",
 		    "PrismicRichText",
+		    "@prismicio/vue",
+		  ],
+		  [
+		    "PrismicTable",
+		    "PrismicTable",
 		    "@prismicio/vue",
 		  ],
 		  [
@@ -88,6 +93,10 @@ it('auto-imports', () => {
 		  [
 		    "getRichTextComponentProps",
 		    "getRichTextComponentProps",
+		  ],
+		  [
+		    "getTableComponentProps",
+		    "getTableComponentProps",
 		  ],
 		  [
 		    "usePrismicPreview",

@@ -159,6 +159,7 @@ export default defineNuxtModule<PrismicModuleOptions>({
 				'PrismicLink',
 				'PrismicText',
 				'PrismicRichText',
+				'PrismicTable',
 				'SliceZone',
 			].forEach((component) => {
 				addComponent({
@@ -173,7 +174,12 @@ export default defineNuxtModule<PrismicModuleOptions>({
 		const prismicVueAutoImports = Object
 			.keys(prismicVue)
 			.filter(key => key.startsWith('use'))
-			.concat('getSliceComponentProps', 'defineSliceZoneComponents', 'getRichTextComponentProps')
+			.concat(
+				'getSliceComponentProps',
+				'defineSliceZoneComponents',
+				'getRichTextComponentProps',
+				'getTableComponentProps',
+			)
 			.map((key) => {
 				return {
 					name: key,
