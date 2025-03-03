@@ -2,3 +2,6 @@ packages:
   - docs
   - client
   - playground
+onlyBuiltDependencies:
+  - esbuild
+  - vue-demi
