@@ -1,7 +1,7 @@
 <script setup lang="ts">
 const tree = ref([
-	{ title: 'Get Started', redirect: 'https://prismic.io/docs/nuxt-3-setup', icon: 'heroicons-outline:lightning-bolt' },
-	{ title: 'Module Reference', redirect: 'https://prismic.io/docs/technical-reference/nuxtjs-prismic/v4', icon: 'heroicons-outline:book-open' },
+	{ title: 'Get Started', redirect: 'https://prismic.io/docs/nuxt', icon: 'heroicons-outline:lightning-bolt' },
+	{ title: 'Module Reference', redirect: 'https://prismic.io/docs/technical-reference/nuxtjs-prismic', icon: 'heroicons-outline:book-open' },
 ])
 </script>
 
