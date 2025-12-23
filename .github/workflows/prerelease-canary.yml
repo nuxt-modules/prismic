@@ -1,0 +1,40 @@
+name: prerelease-canary
+
+permissions:
+  contents: read
+  id-token: write
+
+on:
+  push:
+    branches:
+      - master
+
+jobs:
+  publish:
+    if: github.repository_owner == 'nuxt-modules'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v6
+      - uses: actions/setup-node@v6
+        with:
+          node-version: 24
+          registry-url: "https://registry.npmjs.org"
+      - name: "Deprecate previous canary"
+        run: |
+          PACKAGE_NAME=$(jq -r ".name" package.json)
+          PREVIOUS_VERSION=$(npm view "$PACKAGE_NAME" dist-tags.canary 2>/dev/null)
+          if [ -n "$PREVIOUS_VERSION" ]; then
+            npm deprecate "$PACKAGE_NAME@$PREVIOUS_VERSION" "Replaced by newer canary version"
+          fi
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+      - run: npm ci
+      - name: "Generate new version"
+        run: |
+          SHORT_SHA=$(git rev-parse --short HEAD)
+          CURRENT_VERSION=$(jq -r '.version' package.json)
+          VERSION="${CURRENT_VERSION}-canary.${SHORT_SHA}"
+          npm version $VERSION --no-git-tag-version
+      - run: npm publish --provenance --tag canary
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}

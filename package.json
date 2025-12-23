@@ -20,36 +20,36 @@
 	"exports": {
 		".": {
 			"types": "./dist/types.d.ts",
-			"import": "./dist/module.mjs",
-			"require": "./dist/module.cjs"
+			"import": "./dist/module.mjs"
 		},
 		"./runtime/*": "./dist/runtime/*",
 		"./package.json": "./package.json"
 	},
-	"main": "dist/module.cjs",
-	"types": "dist/types.d.ts",
+	"main": "./dist/module.mjs",
+	"typesVersions": {
+    "*": {
+      ".": [
+        "./dist/types.d.mts"
+      ]
+    }
+  },
 	"files": [
-		"dist",
-		"src"
+		"./dist",
+		"./src"
 	],
 	"scripts": {
-		"build": "npm run build:module && npm run build:client",
-		"build:client": "nuxt generate client",
-		"build:module": "nuxt-module-build build",
+		"build": "nuxt-module-build build && nuxt generate client",
 		"dev": "nuxt dev playground",
 		"dev:build": "nuxt build playground",
 		"dev:preview": "nuxt preview playground",
 		"dev:generate": "nuxt generate playground",
-		"prepare": "nuxt prepare playground",
-		"release": "npm run test && standard-version && git push --follow-tags && npm run build && npm publish",
-		"release:dry": "standard-version --dry-run",
-		"release:rc": "npm run test && standard-version --release-as major --prerelease rc && git push --follow-tags && npm run build && npm publish --tag rc",
-		"release:rc:dry": "standard-version --release-as major --prerelease rc --dry-run",
-		"lint": "eslint .",
-		"typecheck": "tsc --noEmit",
+		"format": "prettier --write .",
+		"prepare": "nuxt prepare playground && npm run build",
+		"lint": "oxlint --deny-warnings",
+		"types": "vue-tsc --noEmit",
 		"unit": "vitest run --coverage",
 		"unit:watch": "vitest watch",
-		"test": "npm run typecheck && npm run lint && npm run unit && npm run build"
+		"test": "npm run lint && npm run types && npm run unit && npm run build"
 	},
 	"dependencies": {
 		"@nuxt/devtools-kit": "^3.1.1",
@@ -75,12 +75,11 @@
 		"eslint": "^9.39.2",
 		"memfs": "^4.51.1",
 		"nuxt": "^4.2.2",
-		"standard-version": "^9.5.0",
 		"typescript": "^5.9.3",
 		"vitest": "^4.0.16"
 	},
 	"engines": {
-		"node": ">=16.10.0"
+		"node": ">=20.0.0"
 	},
 	"publishConfig": {
 		"access": "public"

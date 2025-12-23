@@ -1,0 +1,31 @@
+name: prerelease-pr-cleanup
+
+permissions:
+  contents: read
+  id-token: write
+
+on:
+  pull_request:
+    types: [closed]
+
+jobs:
+  cleanup:
+    if: github.repository_owner == 'nuxt-modules'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v6
+      - uses: actions/setup-node@v6
+        with:
+          node-version: 24
+          registry-url: "https://registry.npmjs.org"
+      - name: "Deprecate PR prerelease"
+        run: |
+          PACKAGE_NAME=$(jq -r ".name" package.json)
+          TAG="pr-${{ github.event.number }}"
+          VERSION=$(npm view "$PACKAGE_NAME" dist-tags."$TAG" 2>/dev/null || echo "")
+          if [ -n "$VERSION" ]; then
+            npm deprecate "$PACKAGE_NAME@$VERSION" "PR ${{ github.event.number }} was closed"
+            npm dist-tag rm "$PACKAGE_NAME" "$TAG"
+          fi
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
