@@ -3,6 +3,7 @@ import { readFile } from 'node:fs/promises'
 
 import { extendServerRpc, onDevToolsInitialized, startSubprocess } from '@nuxt/devtools-kit'
 import type { Resolver } from '@nuxt/kit'
+import { extendViteConfig } from '@nuxt/kit'
 import type { Nuxt } from 'nuxt/schema'
 import { resolve } from 'pathe'
 import terminate from 'terminate'
@@ -46,7 +47,7 @@ export const setupDevToolsUI = (nuxt: Nuxt, resolver: Resolver) => {
 	}
 	else {
 		// In local development, start a separate Nuxt Server and proxy to serve the client
-		nuxt.hook('vite:extendConfig', (config) => {
+		extendViteConfig((config) => {
 			config.server = config.server || {}
 			config.server.proxy = config.server.proxy || {}
 			config.server.proxy[DEVTOOLS_UI_ROUTE] = {

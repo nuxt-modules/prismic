@@ -26,7 +26,7 @@ it.skip('injects toolbar from repository name', () => {
 	const { nuxt } = mockedPrismicModule({ endpoint: 'qwerty' })
 
 	// eslint-disable-next-line @typescript-eslint/no-explicit-any
-	expect(nuxt.options.app.head.script?.find(scripts => (scripts as any).hid === 'prismic-preview')).toMatchInlineSnapshot(`
+	expect(nuxt.options.app.head.script?.find((scripts: any) => scripts.hid === 'prismic-preview')).toMatchInlineSnapshot(`
 		{
 		  "async": true,
 		  "defer": true,
@@ -41,7 +41,7 @@ it.skip('injects toolbar from repository endpoint', () => {
 	const { nuxt } = mockedPrismicModule({ endpoint: 'https://qwerty.cdn.prismic.io/api/v2' })
 
 	// eslint-disable-next-line @typescript-eslint/no-explicit-any
-	expect(nuxt.options.app.head.script?.find(scripts => (scripts as any).hid === 'prismic-preview')).toMatchInlineSnapshot(`
+	expect(nuxt.options.app.head.script?.find((scripts: any) => scripts.hid === 'prismic-preview')).toMatchInlineSnapshot(`
 		{
 		  "async": true,
 		  "defer": true,
@@ -55,5 +55,5 @@ it('doesn\'t inject toolbar when `toolbar` is `false`', () => {
 	const { nuxt } = mockedPrismicModule({ endpoint: 'qwerty', toolbar: false })
 
 	// eslint-disable-next-line @typescript-eslint/no-explicit-any
-	expect(nuxt.options.app.head.script?.find(scripts => (scripts as any).hid === 'prismic-preview')).toBeUndefined()
+	expect(nuxt.options.app.head.script?.find((scripts: any) => scripts.hid === 'prismic-preview')).toBeUndefined()
 })

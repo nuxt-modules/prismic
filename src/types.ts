@@ -1,5 +1,5 @@
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
-import type { PrismicPluginOptions, SliceComponentProps, TODOSliceComponent } from '@prismicio/vue'
+import type { PrismicPluginConfig, SliceComponentProps, TODOSliceComponent } from '@prismicio/vue'
 
 /**
  * `@nuxtjs/prismic` module options.
@@ -8,7 +8,7 @@ import type { PrismicPluginOptions, SliceComponentProps, TODOSliceComponent } fr
  * @see Prismic documentation: {@link https://prismic.io/docs/nuxt-3-setup}
  */
 export type PrismicModuleOptions = Omit<
-	PrismicPluginOptions,
+	PrismicPluginConfig,
 	'endpoint' | 'client' | 'linkResolver' | 'richTextSerializer' | 'components'
 > & {
 	/**
@@ -104,7 +104,7 @@ export type PrismicModuleOptions = Omit<
 	 * Options used by Prismic Vue components.
 	 */
 	components?: Omit<
-		Required<PrismicPluginOptions>['components'],
+		Required<PrismicPluginConfig>['components'],
 		'richTextComponents' | 'linkRel' | 'sliceZoneDefaultComponent' | 'linkInternalComponent' | 'linkExternalComponent'
 	> & {
 		/**

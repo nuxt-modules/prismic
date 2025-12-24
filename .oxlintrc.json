@@ -1,0 +1,31 @@
+{
+	"plugins": ["unicorn", "vue", "typescript", "oxc", "jsdoc"],
+	"rules": {
+		"no-console": ["warn", { "allow": ["info", "warn", "error"] }],
+		"no-debugger": "warn",
+		"prefer-const": "error",
+		"padding-line-between-statements": [
+			"error",
+			{ "blankLine": "always", "prev": "*", "next": "return" }
+		],
+		"no-unused-vars": [
+			"error",
+			{
+				"argsIgnorePattern": "^_",
+				"varsIgnorePattern": "^_"
+			}
+		],
+		"typescript/explicit-module-boundary-types": "error",
+		"typescript/consistent-type-imports": "error",
+		"typescript/no-explicit-any": "error",
+		"typescript/ban-ts-comment": "error",
+		"jsdoc/check-tag-names": [
+			"warn",
+			{
+				"definedTags": ["typeParam", "remarks", "defaultValue", "experimental"]
+			}
+		],
+		"vue/multi-word-component-names": "off",
+		"vue/no-v-text-v-html-on-component": "off"
+	}
+}

@@ -36,6 +36,6 @@ You can use this minimal reproduction starter if you want to:
 
 ### Steps to reproduce
 
-### What is Expected?
+### What is expected?
 
 ### What is actually happening?

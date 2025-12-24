@@ -1,27 +1,39 @@
-<!--- Provide a general summary of your changes in the title above -->
+<!-- Please use a Conventional Commit in your PR title -->
+<!-- https://conventionalcommits.org -->
+<!-- e.g. "feat: support new field type" -->
 
-## Types of changes
+Resolves: <!-- GitHub issue (e.g. #123, DT-123) -->
 
-<!--- What types of changes does your code introduce? Put an `x` in all the boxes that apply: -->
+### Description
 
-- [ ] Chore (a non-breaking change which is related to package maintenance)
-- [ ] Bug fix (a non-breaking change which fixes an issue)
-- [ ] New feature (a non-breaking change which adds functionality)
-- [ ] Breaking change (fix or feature that would cause existing functionality to change)
+<!-- Describe your changes in detail. -->
+<!-- Why is this change required? -->
+<!-- What problem does it solve? -->
 
-## Description
+### Checklist
 
-<!--- Describe your changes in detail -->
-<!--- Why is this change required? What problem does it solve? -->
-<!--- If it resolves an open issue, please link to the issue here. For example "Resolves: #137" -->
+<!-- Put an `x` in all the boxes that apply. -->
+<!-- Don't hesitate to ask for help! -->
 
-## Checklist:
+- [ ] If my changes require tests, I added them.
+- [ ] If my changes affect backward compatibility, it has been discussed.
+- [ ] If my changes require an update to the CONTRIBUTING.md guide, I updated it.
 
-<!--- Put an `x` in all the boxes that apply. -->
-<!--- If you're unsure about any of these, don't hesitate to ask. We're here to help! -->
+### Preview
 
-- [ ] My change requires an update to the official documentation.
-- [ ] All [TSDoc](https://tsdoc.org) comments are up-to-date and new ones have been added where necessary.
-- [ ] All new and existing tests are passing.
+<!-- If your changes are visual, screenshots or videos are welcome! -->
 
-<!--- A cute animal (or car) picture is welcome to close your PR! -->
+### How to QA [^1]
+
+<!-- When relevant, describe how to QA your changes. -->
+
+<!-- Your favorite emoji is welcome to close your PR! -->
+
+<!-- A note for reviewers: -->
+
+[^1]:
+	Please use these labels when submitting a review:
+	:question: #ask:&ensp;Ask a question.
+	:bulb: #idea:&ensp;Suggest an idea.
+	:warning: #issue:&ensp;Strongly suggest a change.
+	:tada: #nice:&ensp;Share a compliment.

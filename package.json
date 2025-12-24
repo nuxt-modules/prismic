@@ -19,71 +19,73 @@
 	"type": "module",
 	"exports": {
 		".": {
-			"types": "./dist/types.d.ts",
-			"import": "./dist/module.mjs",
-			"require": "./dist/module.cjs"
+			"types": "./dist/types.d.mts",
+			"import": "./dist/module.mjs"
 		},
 		"./runtime/*": "./dist/runtime/*",
 		"./package.json": "./package.json"
 	},
-	"main": "dist/module.cjs",
-	"types": "dist/types.d.ts",
+	"main": "./dist/module.mjs",
+	"typesVersions": {
+    "*": {
+      ".": [
+        "./dist/types.d.mts"
+      ]
+    }
+  },
 	"files": [
-		"dist",
-		"src"
+		"./dist",
+		"./src"
 	],
 	"scripts": {
-		"build": "npm run build:module && npm run build:client",
-		"build:client": "nuxt generate client",
-		"build:module": "nuxt-module-build build",
+		"build": "nuxt-module-build build",
 		"dev": "nuxt dev playground",
 		"dev:build": "nuxt build playground",
 		"dev:preview": "nuxt preview playground",
 		"dev:generate": "nuxt generate playground",
-		"prepare": "nuxt prepare playground",
-		"release": "npm run test && standard-version && git push --follow-tags && npm run build && npm publish",
-		"release:dry": "standard-version --dry-run",
-		"release:rc": "npm run test && standard-version --release-as major --prerelease rc && git push --follow-tags && npm run build && npm publish --tag rc",
-		"release:rc:dry": "standard-version --release-as major --prerelease rc --dry-run",
-		"lint": "eslint .",
-		"typecheck": "tsc --noEmit",
+		"format": "prettier --write .",
+		"prepare": "nuxt-module-build prepare && npm run build",
+		"lint": "oxlint --deny-warnings",
+		"types": "vue-tsc --noEmit",
 		"unit": "vitest run --coverage",
 		"unit:watch": "vitest watch",
-		"test": "npm run typecheck && npm run lint && npm run unit && npm run build"
+		"test": "npm run lint && npm run types && npm run unit && npm run build"
 	},
 	"dependencies": {
-		"@nuxt/devtools-kit": "^1.7.0",
-		"@nuxt/kit": "^3.15.4",
-		"@prismicio/client": "^7.16.1",
-		"@prismicio/vue": "^5.1.0",
-		"birpc": "2.2.0",
+		"@nuxt/devtools-kit": "^3.1.1",
+		"@nuxt/kit": "^4.2.2",
+		"@prismicio/client": "^7.21.1",
+		"@prismicio/vue": "pr-89",
+		"birpc": "4.0.0",
 		"defu": "^6.1.4",
 		"pathe": "^2.0.3",
-		"sirv": "^3.0.1",
+		"sirv": "^3.0.2",
 		"terminate": "^2.8.0"
 	},
 	"devDependencies": {
-		"@iconify-json/carbon": "^1.2.8",
-		"@iconify-json/logos": "^1.2.4",
-		"@iconify-json/simple-icons": "^1.2.27",
-		"@nuxt/devtools-ui-kit": "^1.7.0",
-		"@nuxt/eslint-config": "^1.1.0",
-		"@nuxt/module-builder": "^0.8.4",
-		"@nuxt/schema": "^3.15.4",
-		"@unocss/preset-icons": "^65.5.0",
-		"@vitest/coverage-v8": "^3.0.7",
-		"eslint": "^9.21.0",
-		"memfs": "^4.17.0",
-		"nuxt": "^3.15.4",
-		"standard-version": "^9.5.0",
-		"typescript": "^5.8.2",
-		"vitest": "^3.0.7"
+		"@iconify-json/carbon": "^1.2.15",
+		"@iconify-json/logos": "^1.2.10",
+		"@iconify-json/simple-icons": "^1.2.63",
+		"@nuxt/devtools-ui-kit": "^3.1.1",
+		"@nuxt/module-builder": "^1.0.2",
+		"@nuxt/schema": "^4.2.2",
+		"@trivago/prettier-plugin-sort-imports": "^6.0.0",
+		"@unocss/preset-icons": "^66.5.10",
+		"@vitest/coverage-v8": "^4.0.16",
+		"memfs": "^4.51.1",
+		"nuxt": "^4.2.2",
+		"oxlint": "1.35.0",
+		"prettier": "^3.7.4",
+		"prettier-plugin-jsdoc": "^1.8.0",
+		"typescript": "^5.9.3",
+		"vitest": "^4.0.16",
+		"vue-tsc": "^3.2.1"
 	},
 	"engines": {
-		"node": ">=16.10.0"
+		"node": ">=20.0.0"
 	},
 	"publishConfig": {
 		"access": "public"
 	},
-	"packageManager": "pnpm@10.5.2"
+	"packageManager": "pnpm@10.26.1"
 }
