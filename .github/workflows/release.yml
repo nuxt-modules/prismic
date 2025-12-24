@@ -21,6 +21,8 @@ jobs:
           release-type: node
       - uses: actions/checkout@v6
         if: ${{ steps.release.outputs.release_created }}
+      - uses: pnpm/action-setup@v4
+        if: ${{ steps.release.outputs.release_created }}
       - uses: actions/setup-node@v6
         if: ${{ steps.release.outputs.release_created }}
         with:
