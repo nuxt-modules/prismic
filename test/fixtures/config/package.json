@@ -1,5 +1,5 @@
 {
 	"private": true,
-	"name": "@nuxtjs/prismic.playground",
+	"name": "config",
 	"type": "module"
 }

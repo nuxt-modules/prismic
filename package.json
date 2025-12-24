@@ -27,12 +27,12 @@
 	},
 	"main": "./dist/module.mjs",
 	"typesVersions": {
-    "*": {
-      ".": [
-        "./dist/types.d.mts"
-      ]
-    }
-  },
+		"*": {
+			".": [
+				"./dist/types.d.mts"
+			]
+		}
+	},
 	"files": [
 		"./dist",
 		"./src"
@@ -52,27 +52,18 @@
 		"test": "npm run lint && npm run types && npm run unit && npm run build"
 	},
 	"dependencies": {
-		"@nuxt/devtools-kit": "^3.1.1",
 		"@nuxt/kit": "^4.2.2",
 		"@prismicio/client": "^7.21.1",
 		"@prismicio/vue": "pr-89",
-		"birpc": "4.0.0",
-		"defu": "^6.1.4",
-		"pathe": "^2.0.3",
-		"sirv": "^3.0.2",
-		"terminate": "^2.8.0"
+		"defu": "^6.1.4"
 	},
 	"devDependencies": {
-		"@iconify-json/carbon": "^1.2.15",
-		"@iconify-json/logos": "^1.2.10",
-		"@iconify-json/simple-icons": "^1.2.63",
-		"@nuxt/devtools-ui-kit": "^3.1.1",
 		"@nuxt/module-builder": "^1.0.2",
 		"@nuxt/schema": "^4.2.2",
+		"@nuxt/test-utils": "^3.21.0",
 		"@trivago/prettier-plugin-sort-imports": "^6.0.0",
-		"@unocss/preset-icons": "^66.5.10",
+		"@types/node": "^25.0.3",
 		"@vitest/coverage-v8": "^4.0.16",
-		"memfs": "^4.51.1",
 		"nuxt": "^4.2.2",
 		"oxlint": "1.35.0",
 		"prettier": "^3.7.4",
@@ -87,5 +78,5 @@
 	"publishConfig": {
 		"access": "public"
 	},
-	"packageManager": "pnpm@10.26.1"
+	"packageManager": "pnpm@10.26.2"
 }

@@ -1,13 +1,13 @@
 <script setup lang="ts">
-import { usePrismic, useAsyncData } from '#imports'
+import { useAsyncData, usePrismic } from "#imports"
 
 const prismic = usePrismic()
 
-const { data: doc } = await useAsyncData('doc', () => prismic.client.getSingle('kitchen_sink'))
+const { data: doc } = await useAsyncData("doc", () =>
+	prismic.client.getSingle("kitchen_sink"),
+)
 </script>
 
 <template>
-	<div>
-		{{ doc?.id }} - {{ doc?.type }} - {{ doc?.last_publication_date }}
-	</div>
+	<div>{{ doc?.id }} - {{ doc?.type }} - {{ doc?.last_publication_date }}</div>
 </template>

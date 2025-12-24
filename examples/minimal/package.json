@@ -9,7 +9,7 @@
 		"postinstall": "nuxt prepare"
 	},
 	"devDependencies": {
-		"@nuxtjs/prismic": "^3.4.7",
-		"nuxt": "^3.15.0"
+		"@nuxtjs/prismic": "^4.1.0",
+		"nuxt": "^4.2.2"
 	}
 }

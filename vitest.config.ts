@@ -1,11 +1,16 @@
-import { defineConfig } from 'vitest/config'
+import { defineConfig } from "vitest/config"
 
 export default defineConfig({
 	test: {
-		coverage: {
-			reporter: ['lcovonly', 'text'],
-			include: ['src'],
+		typecheck: {
+			enabled: true,
+			checker: "vue-tsc",
 		},
-		setupFiles: ['./test/__setup__.ts'],
+		coverage: {
+			provider: "v8",
+			reporter: ["lcovonly", "text"],
+			include: ["src"],
+			exclude: ["src/**/*.vue"],
+		},
 	},
 })
