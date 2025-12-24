@@ -62,5 +62,5 @@ jobs:
           node-version: 24
           cache: pnpm
       - run: pnpm install
-      - run: npm install --no-save typescript@${{ matrix.typescript }} && npx tsc --version
+      - run: pnpm add typescript@${{ matrix.typescript }} && npx tsc --version
       - run: npm run types
