@@ -12,26 +12,14 @@ Replace all on all files (README.md, CONTRIBUTING.md, bug_report.md, package.jso
 
 [![npm version][npm-version-src]][npm-version-href]
 [![npm downloads][npm-downloads-src]][npm-downloads-href]
-[![Github Actions CI][github-actions-ci-src]][github-actions-ci-href]
-[![Codecov][codecov-src]][codecov-href]
-[![Conventional Commits][conventional-commits-src]][conventional-commits-href]
-[![License][license-src]][license-href]
 
-Easily connect your Nuxt.js application to your content hosted on [Prismic][prismic].
+Easily connect your [Nuxt][nuxt] application to your content hosted on [Prismic][prismic].
 
-- [✨ &nbsp;Release Notes][changelog]
-- [🏀 Online Playground][playground]
-- [📖 &nbsp;Module Documentation][nuxt-docs]
-- [📚 &nbsp;Prismic Documentation][prismic-docs]
+- 🚀 &nbsp;Add Prismic to your Nuxt app in seconds.
+- 🍡 &nbsp;Fetch and present Prismic content with components and composables.
+- 🏀 &nbsp;[Try it now on the online playground][playground].
 
-## Features
-
-<!-- Highlight some of the features your module provide here -->
-- 🚀 &nbsp;Add Prismic to your Nuxt app in seconds;
-- 🎣 &nbsp;Access Prismic SDK through composition and options API;
-- 🖼 &nbsp;Prismic previews supported.
-
-## Quick Setup
+## Install
 
 Install the module to your Nuxt application with one command:
 
@@ -54,6 +42,10 @@ export default defineNuxtConfig({
 
 That's it! You can now use Prismic in your Nuxt app ✨
 
+## Documentation
+
+To discover what's new on this package check out [the changelog][changelog]. For full documentation, visit the [official Prismic documentation][prismic-docs].
+
 ## Contributing
 
 Whether you're helping us fix bugs, improve the docs, or spread the word, we'd love to have you as part of the Prismic developer community!
@@ -66,6 +58,8 @@ Whether you're helping us fix bugs, improve the docs, or spread the word, we'd l
 
 **Submitting code changes**: For small fixes, feel free to [open a pull request][repo-pull-requests] with a description of your changes. For large changes, please first [open an issue][repo-feature-request] so we can discuss if and how the changes should be implemented.
 
+For more clarity on this project and its structure you can also check out the detailed [CONTRIBUTING.md][contributing] document.
+
 ## License
 
 [MIT License](./LICENSE)
@@ -76,11 +70,11 @@ Whether you're helping us fix bugs, improve the docs, or spread the word, we'd l
 
 <!-- Replace link with a more useful one if available -->
 
-[playground]: https://stackblitz.com/github/nuxt-modules/prismic/tree/master/examples/minimal?file=pages%2Findex.vue
-[nuxt-docs]: https://prismic.nuxtjs.org
-[prismic-docs]: https://prismic.io/docs/technical-reference/prismicio-vue?version=v4
+[prismic-docs]: https://prismic.io/docs/nuxt
+[nuxt-docs]: https://nuxt.com
 [changelog]: ./CHANGELOG.md
 [contributing]: ./CONTRIBUTING.md
+[playground]: https://stackblitz.com/github/nuxt-modules/prismic/tree/master/examples/minimal?file=pages%2Findex.vue
 
 <!-- Replace link with a more useful one if available -->
 
@@ -95,11 +89,3 @@ Whether you're helping us fix bugs, improve the docs, or spread the word, we'd l
 [npm-version-href]: https://npmjs.com/package/@nuxtjs/prismic
 [npm-downloads-src]: https://img.shields.io/npm/dm/@nuxtjs/prismic.svg?style=flat&colorA=020420&colorB=00DC82
 [npm-downloads-href]: https://npmjs.com/package/@nuxtjs/prismic
-[github-actions-ci-src]: https://img.shields.io/github/actions/workflow/status/nuxt-modules/prismic/ci.yml.svg?style=flat&colorA=020420&colorB=00DC82
-[github-actions-ci-href]: https://github.com/nuxt-modules/prismic/actions?query=workflow%3Aci
-[codecov-src]: https://img.shields.io/codecov/c/github/nuxt-modules/prismic.svg?style=flat&colorA=020420&colorB=00DC82
-[codecov-href]: https://codecov.io/gh/nuxt-modules/prismic
-[conventional-commits-src]: https://img.shields.io/badge/Conventional%20Commits-1.0.0-yellow.svg?style=flat&colorA=020420&colorB=00DC82
-[conventional-commits-href]: https://conventionalcommits.org
-[license-src]: https://img.shields.io/npm/l/@nuxtjs/prismic.svg?style=flat&colorA=020420&colorB=00DC82
-[license-href]: https://npmjs.com/package/@nuxtjs/prismic

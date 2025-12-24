@@ -19,7 +19,7 @@
 	"type": "module",
 	"exports": {
 		".": {
-			"types": "./dist/types.d.ts",
+			"types": "./dist/types.d.mts",
 			"import": "./dist/module.mjs"
 		},
 		"./runtime/*": "./dist/runtime/*",
@@ -38,13 +38,13 @@
 		"./src"
 	],
 	"scripts": {
-		"build": "nuxt-module-build build && nuxt generate client",
+		"build": "nuxt-module-build build",
 		"dev": "nuxt dev playground",
 		"dev:build": "nuxt build playground",
 		"dev:preview": "nuxt preview playground",
 		"dev:generate": "nuxt generate playground",
 		"format": "prettier --write .",
-		"prepare": "nuxt prepare playground && npm run build",
+		"prepare": "nuxt-module-build prepare && npm run build",
 		"lint": "oxlint --deny-warnings",
 		"types": "vue-tsc --noEmit",
 		"unit": "vitest run --coverage",
@@ -67,16 +67,19 @@
 		"@iconify-json/logos": "^1.2.10",
 		"@iconify-json/simple-icons": "^1.2.63",
 		"@nuxt/devtools-ui-kit": "^3.1.1",
-		"@nuxt/eslint-config": "^1.12.1",
 		"@nuxt/module-builder": "^1.0.2",
 		"@nuxt/schema": "^4.2.2",
+		"@trivago/prettier-plugin-sort-imports": "^6.0.0",
 		"@unocss/preset-icons": "^66.5.10",
 		"@vitest/coverage-v8": "^4.0.16",
-		"eslint": "^9.39.2",
 		"memfs": "^4.51.1",
 		"nuxt": "^4.2.2",
+		"oxlint": "1.35.0",
+		"prettier": "^3.7.4",
+		"prettier-plugin-jsdoc": "^1.8.0",
 		"typescript": "^5.9.3",
-		"vitest": "^4.0.16"
+		"vitest": "^4.0.16",
+		"vue-tsc": "^3.2.1"
 	},
 	"engines": {
 		"node": ">=20.0.0"
