@@ -28,7 +28,7 @@ jobs:
         with:
           node-version: 24
           registry-url: "https://registry.npmjs.org"
-      - run: npm ci
+      - run: pnpm install
         if: ${{ steps.release.outputs.release_created }}
       - run: npm publish --provenance
         if: ${{ steps.release.outputs.release_created }}

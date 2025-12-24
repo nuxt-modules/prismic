@@ -28,7 +28,7 @@ jobs:
           fi
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
-      - run: npm ci
+      - run: pnpm install
       - name: "Generate new version"
         run: |
           SHORT_SHA=$(git rev-parse --short HEAD)
