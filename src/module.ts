@@ -141,7 +141,7 @@ export default defineNuxtModule<PrismicModuleOptions>({
 
 		if (nuxt3flavor) {
 			return {
-				endpoint: "u",
+				endpoint: "",
 				environment: "",
 				clientConfig: {},
 				client: "~/app/prismic/client",

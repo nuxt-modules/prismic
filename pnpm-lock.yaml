@@ -13,7 +13,7 @@ importers:
         version: 4.2.2(magicast@0.5.1)
       '@prismicio/vue':
         specifier: pr-89
-        version: 5.3.0-pr.89.b55bfe4(@prismicio/client@7.21.1)(vue@3.5.26(typescript@5.9.3))
+        version: 5.3.0-pr.89.35a9f76(@prismicio/client@7.21.1)(vue@3.5.26(typescript@5.9.3))
       defu:
         specifier: ^6.1.4
         version: 6.1.4
@@ -1563,8 +1563,8 @@ packages:
     resolution: {integrity: sha512-2VnOsz0DTUuZ6zNEPa42t3D/ykxtq5eORjpXF5+okkH/atfMU4tzuZnI55p8CWB/5mLXz5ajNFkZqlMlciJATA==}
     engines: {node: '>=14.15.0'}
 
-  '@prismicio/vue@5.3.0-pr.89.b55bfe4':
-    resolution: {integrity: sha512-HNisE6ORHauDsEkkPUw1EvW1izfr4xm03930cF+rs64X7rG8Drl4d2b5IiHBuVNUfqmSs7cK+hXXRaK4gO0MFw==}
+  '@prismicio/vue@5.3.0-pr.89.35a9f76':
+    resolution: {integrity: sha512-Q0i4RFfcNNAETCpQZgBLwBwNdoyxw4k0Nyvd2C8t1qrA2XqaVYNKOUqwUuFc53cZz3W08MDzAhC6gp7fccdL2A==}
     engines: {node: '>=20'}
     peerDependencies:
       '@prismicio/client': ^7
@@ -6314,7 +6314,7 @@ snapshots:
     dependencies:
       imgix-url-builder: 0.0.6
 
-  '@prismicio/vue@5.3.0-pr.89.b55bfe4(@prismicio/client@7.21.1)(vue@3.5.26(typescript@5.9.3))':
+  '@prismicio/vue@5.3.0-pr.89.35a9f76(@prismicio/client@7.21.1)(vue@3.5.26(typescript@5.9.3))':
     dependencies:
       '@prismicio/client': 7.21.1
       esm-env: 1.2.2
