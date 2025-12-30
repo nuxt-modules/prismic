@@ -54,7 +54,8 @@
 	"dependencies": {
 		"@nuxt/kit": "^4.2.2",
 		"@prismicio/vue": "pr-89",
-		"defu": "^6.1.4"
+		"defu": "^6.1.4",
+		"nypm": "^0.6.2"
 	},
 	"devDependencies": {
 		"@nuxt/module-builder": "^1.0.2",

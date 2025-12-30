@@ -16,6 +16,9 @@ import {
 import type { ClientConfig } from "@prismicio/client"
 import { defu } from "defu"
 
+import { name, version } from '../package.json'
+import { addDependency } from "nypm"
+
 /**
  * Prismic Nuxt module options.
  *
@@ -130,9 +133,19 @@ declare module "@nuxt/schema" {
 
 export default defineNuxtModule<PrismicModuleOptions>({
 	meta: {
-		name: "@nuxtjs/prismic",
+		name,
+		version,
 		configKey: "prismic",
 		compatibility: { nuxt: ">=3.7.0" },
+	},
+	async onInstall() {
+		await addDependency("@prismicio/client")
+	},
+	async onUpgrade(_options: unknown, _nuxt: unknown, previousVersion: string) {
+		const previousMajor = parseInt(previousVersion.split(".")[0]!)
+		if (previousMajor < 4) {
+			await addDependency("@prismicio/client")
+		}
 	},
 	defaults: (nuxt) => {
 		const nuxt3flavor =
