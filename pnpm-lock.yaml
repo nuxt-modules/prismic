@@ -20,6 +20,9 @@ importers:
       nypm:
         specifier: ^0.6.2
         version: 0.6.2
+      pkg-types:
+        specifier: ^2.3.0
+        version: 2.3.0
     devDependencies:
       '@nuxt/module-builder':
         specifier: ^1.0.2

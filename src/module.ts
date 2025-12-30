@@ -18,6 +18,7 @@ import { defu } from "defu"
 
 import { name, version } from '../package.json'
 import { addDependency } from "nypm"
+import { readPackage } from "pkg-types"
 
 /**
  * Prismic Nuxt module options.
@@ -131,6 +132,25 @@ declare module "@nuxt/schema" {
 	}
 }
 
+const logger = useLogger("nuxt:prismic")
+
+async function addPrismicClient() {
+	try {
+		const pkg = await readPackage()
+
+		if (
+			!pkg.dependencies?.["@prismicio/client"] &&
+			!pkg.devDependencies?.["@prismicio/client"]
+		) {
+			await addDependency("@prismicio/client")
+			logger.info("Added `@prismicio/client` required peer dependency")
+
+		}
+	} catch {
+		// noop
+	}
+}
+
 export default defineNuxtModule<PrismicModuleOptions>({
 	meta: {
 		name,
@@ -138,13 +158,13 @@ export default defineNuxtModule<PrismicModuleOptions>({
 		configKey: "prismic",
 		compatibility: { nuxt: ">=3.7.0" },
 	},
-	async onInstall() {
-		await addDependency("@prismicio/client")
+	onInstall() {
+		return addPrismicClient()
 	},
-	async onUpgrade(_options: unknown, _nuxt: unknown, previousVersion: string) {
+	onUpgrade(_options: unknown, _nuxt: unknown, previousVersion: string) {
 		const previousMajor = parseInt(previousVersion.split(".")[0]!)
 		if (previousMajor < 4) {
-			await addDependency("@prismicio/client")
+			return addPrismicClient()
 		}
 	},
 	defaults: (nuxt) => {
@@ -182,7 +202,6 @@ export default defineNuxtModule<PrismicModuleOptions>({
 	},
 	setup(options, nuxt) {
 		const resolver = createResolver(import.meta.url)
-		const logger = useLogger("nuxt:prismic")
 
 		const moduleOptions: PrismicModuleOptions = defu(
 			nuxt.options.runtimeConfig.public?.prismic,
