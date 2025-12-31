@@ -5,15 +5,11 @@ export default defineNuxtPlugin({
 	name: "prismic:plugin:client",
 	parallel: true,
 	setup() {
-		hotReloadPrismicPreview()
-
-		function hotReloadPrismicPreview() {
-			if (useRuntimeConfig().public.prismic?.preview) {
-				window.addEventListener("prismicPreviewUpdate", (event) => {
-					event.preventDefault()
-					refreshNuxtData()
-				})
-			}
+		if (useRuntimeConfig().public.prismic?.preview) {
+			window.addEventListener("prismicPreviewUpdate", (event) => {
+				event.preventDefault()
+				refreshNuxtData()
+			})
 		}
 	},
 })

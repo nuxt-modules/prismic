@@ -4,11 +4,11 @@ import { onMounted } from "vue"
 
 /** Resolves Prismic previews on the preview entry page (`/preview`) */
 export const usePrismicPreview = (defaultURL = "/"): void => {
-	const { client, componentsConfig } = usePrismic()
+	const { client, linkResolver } = usePrismic()
 	const { push } = useRouter()
 	onMounted(async () => {
 		const redirectURL = await client.resolvePreviewURL({
-			linkResolver: componentsConfig.linkResolver,
+			linkResolver,
 			defaultURL,
 		})
 

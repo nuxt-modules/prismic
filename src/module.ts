@@ -77,6 +77,14 @@ export type PrismicModuleOptions = {
 	client?: string
 
 	/**
+	 * The path to a file exporting a default link resolver used to resolve links
+	 * when route resolvers cannot be used.
+	 *
+	 * @see {@link https://prismic.io/docs/routes}
+	 */
+	linkResolver?: string
+
+	/**
 	 * Desired path of the preview page used by Prismic to enter preview session.
 	 *
 	 * @remarks
@@ -97,15 +105,7 @@ export type PrismicModuleOptions = {
 	toolbar?: boolean
 
 	/** Options used by Prismic Vue components. */
-	componentsConfig?: {
-		/**
-		 * The path to a file exporting a default link resolver function used to
-		 * resolve links.
-		 *
-		 * @see {@link https://prismic.io/docs/routes}
-		 */
-		linkResolver?: string
-
+	components?: {
 		/**
 		 * The path to a file exporting default components or shorthand definitions
 		 * for rich text and table components.
@@ -113,7 +113,7 @@ export type PrismicModuleOptions = {
 		 * @see {@link https://prismic.io/docs/fields/rich-text}
 		 * @see {@link https://prismic.io/docs/fields/table}
 		 */
-		defaultComponents?: string
+		richTextComponents?: string
 	}
 }
 
@@ -167,7 +167,7 @@ export default defineNuxtModule<PrismicModuleOptions>({
 			return addPrismicClient()
 		}
 	},
-	defaults: (nuxt) => {
+	defaults: (nuxt): Required<PrismicModuleOptions> => {
 		const nuxt3flavor =
 			getNuxtVersion(nuxt).startsWith("3") &&
 			!nuxt.options?.future?.compatibilityVersion
@@ -178,11 +178,11 @@ export default defineNuxtModule<PrismicModuleOptions>({
 				environment: "",
 				clientConfig: {},
 				client: "~/app/prismic/client",
+				linkResolver: "~/app/prismic/linkResolver",
 				preview: "/preview",
 				toolbar: true,
-				componentsConfig: {
-					linkResolver: "~/app/prismic/linkResolver",
-					defaultComponents: "~/app/prismic/defaultComponents",
+				components: {
+					richTextComponents: "~/app/prismic/richTextComponents ",
 				},
 			}
 		}
@@ -191,12 +191,12 @@ export default defineNuxtModule<PrismicModuleOptions>({
 			endpoint: "",
 			environment: "",
 			client: "~/prismic/client",
+			linkResolver: "~/prismic/linkResolver",
 			clientConfig: {},
 			preview: "/preview",
 			toolbar: true,
-			componentsConfig: {
-				linkResolver: "~/prismic/linkResolver",
-				defaultComponents: "~/prismic/defaultComponents",
+			components: {
+				richTextComponents: "~/prismic/richTextComponents",
 			},
 		}
 	},
@@ -289,11 +289,11 @@ export default defineNuxtModule<PrismicModuleOptions>({
 			}
 			proxyUserFileWithUndefinedFallback(
 				"linkResolver",
-				moduleOptions.componentsConfig!.linkResolver!,
+				moduleOptions.linkResolver!,
 			)
 			proxyUserFileWithUndefinedFallback(
-				"defaultComponents",
-				moduleOptions.componentsConfig!.defaultComponents!,
+				"richTextComponents",
+				moduleOptions.components!.richTextComponents!,
 			)
 
 			return true

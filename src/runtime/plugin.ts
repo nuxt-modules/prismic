@@ -2,7 +2,7 @@ import { defineNuxtPlugin } from "#app"
 import NuxtLink from "#app/components/nuxt-link"
 import _client from "#build/prismic/proxy/client"
 // @ts-expect-error - Proxy file
-import defaultComponents from "#build/prismic/proxy/defaultComponents"
+import richTextComponents from "#build/prismic/proxy/richTextComponents"
 // @ts-expect-error - Proxy file
 import linkResolver from "#build/prismic/proxy/linkResolver"
 import {
@@ -14,7 +14,7 @@ import {
 	useRouter,
 	useRuntimeConfig,
 } from "#imports"
-import { Client, createClient } from "@prismicio/client"
+import { Client, createClient, cookie, getToolbarSrc } from "@prismicio/client"
 import { createPrismic } from "@prismicio/vue"
 
 export default defineNuxtPlugin({
@@ -109,7 +109,7 @@ export default defineNuxtPlugin({
 					script: [
 						{
 							key: "prismic-preview",
-							src: `https://static.cdn.prismic.io/prismic.min.js?repo=${client.repositoryName}&new=true`,
+							src: getToolbarSrc(client.repositoryName),
 							async: true,
 							defer: true,
 							crossorigin: "anonymous",
@@ -118,17 +118,17 @@ export default defineNuxtPlugin({
 				})
 			} else {
 				// TODO: We might want to let user disable this behavior because it might have unexpected side effects
-				useCookie("io.prismic.preview").value = null
+				useCookie(cookie.preview).value = null
 			}
 		}
 
 		const prismicPlugin = createPrismic({
 			client,
-			componentsConfig: {
-				linkResolver,
+			linkResolver,
+			components: {
 				linkInternalComponent: NuxtLink,
 				linkExternalComponent: NuxtLink,
-				defaultComponents,
+				richTextComponents,
 			},
 		})
 
