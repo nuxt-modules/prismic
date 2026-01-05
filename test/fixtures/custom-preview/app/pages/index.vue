@@ -1,6 +1,4 @@
-<script setup lang="ts">
-import { useAsyncData, usePrismic } from "#imports"
-
+<script setup>
 const { client } = usePrismic()
 
 const { data: doc } = await useAsyncData("index", () =>

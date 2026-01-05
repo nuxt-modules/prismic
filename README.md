@@ -30,14 +30,14 @@ npx nuxi@latest module add prismic
 Then, configure your Prismic API endpoint:
 
 ```javascript
-import { defineNuxtConfig } from 'nuxt'
+import { defineNuxtConfig } from "nuxt"
 
 export default defineNuxtConfig({
-	modules: ['@nuxtjs/prismic'],
+	modules: ["@nuxtjs/prismic"],
 	prismic: {
-		endpoint: 'my-repository'
+		endpoint: "my-repository",
 	},
-});
+})
 ```
 
 That's it! You can now use Prismic in your Nuxt app ✨

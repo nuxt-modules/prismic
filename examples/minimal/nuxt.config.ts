@@ -1,11 +1,12 @@
-// https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
-	modules: ['@nuxtjs/prismic'],
-	devtools: { enabled: true },
-	future: {
-		compatibilityVersion: 4,
-	},
+	modules: ["@nuxtjs/prismic"],
+
+	compatibilityDate: "2025-12-24",
+
 	prismic: {
-		endpoint: '200629-sms-hoy',
+		endpoint: "nuxtjs-prismic",
+		clientConfig: {
+			routes: [{ type: "kitchen_sink", path: "/kitchen-sink" }],
+		},
 	},
 })

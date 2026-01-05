@@ -1,15 +1,15 @@
-import type { PrismicModuleOptions } from '../types'
-import { defineNuxtPlugin } from '#app'
-import { refreshNuxtData, useRuntimeConfig } from '#imports'
+import { defineNuxtPlugin } from "#app"
+import { refreshNuxtData, useRuntimeConfig } from "#imports"
 
-export default defineNuxtPlugin((_nuxtApp) => {
-	const options: PrismicModuleOptions = useRuntimeConfig().public.prismic
-
-	// Hot reload preview updates
-	if (options.preview) {
-		window.addEventListener('prismicPreviewUpdate', (event) => {
-			event.preventDefault()
-			refreshNuxtData()
-		})
-	}
+export default defineNuxtPlugin({
+	name: "prismic:plugin:client",
+	parallel: true,
+	setup() {
+		if (useRuntimeConfig().public.prismic?.preview) {
+			window.addEventListener("prismicPreviewUpdate", (event) => {
+				event.preventDefault()
+				refreshNuxtData()
+			})
+		}
+	},
 })

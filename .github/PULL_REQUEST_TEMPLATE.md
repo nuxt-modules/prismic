@@ -32,8 +32,8 @@ Resolves: <!-- GitHub issue (e.g. #123, DT-123) -->
 <!-- A note for reviewers: -->
 
 [^1]:
-	Please use these labels when submitting a review:
-	:question: #ask:&ensp;Ask a question.
-	:bulb: #idea:&ensp;Suggest an idea.
-	:warning: #issue:&ensp;Strongly suggest a change.
-	:tada: #nice:&ensp;Share a compliment.
+    Please use these labels when submitting a review:
+    :question: #ask:&ensp;Ask a question.
+    :bulb: #idea:&ensp;Suggest an idea.
+    :warning: #issue:&ensp;Strongly suggest a change.
+    :tada: #nice:&ensp;Share a compliment.
