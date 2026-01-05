@@ -2,7 +2,7 @@
 import { usePrismicPreview, useSeoMeta } from "#imports"
 
 useSeoMeta({ title: "Prismic Preview - Loading" })
-// usePrismicPreview()
+usePrismicPreview()
 </script>
 
 <template>
