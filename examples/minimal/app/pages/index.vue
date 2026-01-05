@@ -1,8 +1,8 @@
 <script setup lang="ts">
-const prismic = usePrismic()
+const { client } = usePrismic()
 
-const { data: doc } = await useAsyncData("doc", () =>
-	prismic.client.getSingle("kitchen_sink"),
+const { data: doc } = await useAsyncData("index", () =>
+	client.getSingle("kitchen_sink"),
 )
 </script>
 

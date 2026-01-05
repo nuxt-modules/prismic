@@ -4,6 +4,9 @@ export default defineNuxtConfig({
 	modules: [prismic],
 
 	prismic: {
-		endpoint: `test-fixture`,
+		endpoint: `proxy-not-found`,
+		clientConfig: {
+			routes: [{ type: "kitchen_sink", path: "/kitchen-sink" }],
+		},
 	},
 })

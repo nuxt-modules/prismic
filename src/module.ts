@@ -15,10 +15,10 @@ import {
 } from "@nuxt/kit"
 import type { ClientConfig } from "@prismicio/client"
 import { defu } from "defu"
-
-import { name, version } from '../package.json'
 import { addDependency } from "nypm"
 import { readPackage } from "pkg-types"
+
+import { name, version } from "../package.json"
 
 /**
  * Prismic Nuxt module options.
@@ -144,7 +144,6 @@ async function addPrismicClient() {
 		) {
 			await addDependency("@prismicio/client")
 			logger.info("Added `@prismicio/client` required peer dependency")
-
 		}
 	} catch {
 		// noop

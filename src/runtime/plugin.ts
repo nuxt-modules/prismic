@@ -2,9 +2,9 @@ import { defineNuxtPlugin } from "#app"
 import NuxtLink from "#app/components/nuxt-link"
 import _client from "#build/prismic/proxy/client"
 // @ts-expect-error - Proxy file
-import richTextComponents from "#build/prismic/proxy/richTextComponents"
-// @ts-expect-error - Proxy file
 import linkResolver from "#build/prismic/proxy/linkResolver"
+// @ts-expect-error - Proxy file
+import richTextComponents from "#build/prismic/proxy/richTextComponents"
 import {
 	onNuxtReady,
 	refreshNuxtData,
@@ -14,7 +14,7 @@ import {
 	useRouter,
 	useRuntimeConfig,
 } from "#imports"
-import { Client, createClient, cookie, getToolbarSrc } from "@prismicio/client"
+import { Client, cookie, createClient, getToolbarSrc } from "@prismicio/client"
 import { createPrismic } from "@prismicio/vue"
 
 export default defineNuxtPlugin({
