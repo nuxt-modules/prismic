@@ -53,7 +53,7 @@
 	},
 	"dependencies": {
 		"@nuxt/kit": "^4.2.2",
-		"@prismicio/vue": "pr-89",
+		"@prismicio/vue": "^6.0.0",
 		"defu": "^6.1.4",
 		"nypm": "^0.6.2",
 		"pkg-types": "^2.3.0"
@@ -62,17 +62,17 @@
 		"@nuxt/module-builder": "^1.0.2",
 		"@nuxt/schema": "^4.2.2",
 		"@nuxt/test-utils": "^3.21.0",
-		"@prismicio/client": "^7.21.1",
+		"@prismicio/client": "^7.21.2",
 		"@trivago/prettier-plugin-sort-imports": "^6.0.0",
 		"@types/node": "^25.0.3",
 		"@vitest/coverage-v8": "^4.0.16",
 		"nuxt": "^4.2.2",
-		"oxlint": "1.36.0",
+		"oxlint": "1.37.0",
 		"prettier": "^3.7.4",
 		"prettier-plugin-jsdoc": "^1.8.0",
 		"typescript": "^5.9.3",
 		"vitest": "^4.0.16",
-		"vue-tsc": "^3.2.1"
+		"vue-tsc": "^3.2.2"
 	},
 	"peerDependencies": {
 		"@prismicio/client": "^7"

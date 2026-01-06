@@ -8,8 +8,11 @@
 		"preview": "nuxt preview",
 		"postinstall": "nuxt prepare"
 	},
+	"dependencies": {
+		"@prismicio/client": "^7.21.2"
+	},
 	"devDependencies": {
-		"@nuxtjs/prismic": "^4.1.0",
+		"@nuxtjs/prismic": "^5.0.0",
 		"nuxt": "^4.2.2"
 	}
 }
