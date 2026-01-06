@@ -2,6 +2,17 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [5.0.0](https://github.com/nuxt-modules/prismic/compare/v4.1.0...v5.0.0) (2026-01-06)
+
+
+### ⚠ BREAKING CHANGES
+
+* simplify module ([#235](https://github.com/nuxt-modules/prismic/issues/235))
+
+### Code Refactoring
+
+* simplify module ([#235](https://github.com/nuxt-modules/prismic/issues/235)) ([edbdc91](https://github.com/nuxt-modules/prismic/commit/edbdc915e590196e5b6bb1f9bdc74fd9258f037d))
+
 ## [4.1.0](https://github.com/nuxt-modules/prismic/compare/v4.0.1...v4.1.0) (2025-03-03)
 
 
