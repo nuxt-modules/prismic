@@ -12,8 +12,8 @@ importers:
         specifier: ^4.2.2
         version: 4.2.2(magicast@0.5.1)
       '@prismicio/vue':
-        specifier: ^6.0.0
-        version: 6.0.0(@prismicio/client@7.21.2)(vue@3.5.26(typescript@5.9.3))
+        specifier: pr-90
+        version: 6.0.0-pr.90.1c31b0e(@prismicio/client@7.21.2)(vue@3.5.26(typescript@5.9.3))
       defu:
         specifier: ^6.1.4
         version: 6.1.4
@@ -1565,8 +1565,12 @@ packages:
     resolution: {integrity: sha512-SKzNDNfMdRu9JbCDQx1q60FrcbHitdDq0KhBZCIUzK5zTINP5zMJEy++pn6evbPvvdSR5Ka2C0LaA8li7pULTQ==}
     engines: {node: '>=14.15.0'}
 
-  '@prismicio/vue@6.0.0':
-    resolution: {integrity: sha512-s/U0DfUW8uJ+euALR0JXvyhQAX93SrgB/twIUaa/5YL8UqTh9jg7xz1gDn26+9rv5J+iyIIgWaWdUtIokxAO+A==}
+  '@prismicio/simulator@0.1.4':
+    resolution: {integrity: sha512-aBDwGghM8LqXOvdbJWJScBTpY8wuVl3CyCWFqiFwqC8l5SPrQtD2CwEVX0UCB0azPlisb7l7al5Wcg2nxQ6xrQ==}
+    engines: {node: '>=14.15.0'}
+
+  '@prismicio/vue@6.0.0-pr.90.1c31b0e':
+    resolution: {integrity: sha512-7pDSuisidbQmWUPn5Eh7P3h35cFPNqlZofKOhxdwIFeVPM3gS3kDCk/hmaGWBRJTPzLO0w4bxO2qhQtPQJ9iiw==}
     engines: {node: '>=20'}
     peerDependencies:
       '@prismicio/client': ^7
@@ -1945,6 +1949,9 @@ packages:
 
   '@types/resolve@1.20.2':
     resolution: {integrity: sha512-60BCwRFOZCQhDncwQdxxeOEEkbc5dIMccYLwbxsS4TUNeVECQ/pBJ0j09mrHOl/JJvpRPGwO9SvE4nR2Nb/a4Q==}
+
+  '@types/statuses@2.0.6':
+    resolution: {integrity: sha512-xMAgYwceFhRA2zY+XbEA7mxYbA093wdiW8Vu6gZPGWy9cmOyU9XesH1tNcEWsKFd5Vzrqx5T3D38PWx1FIIXkA==}
 
   '@types/unist@3.0.3':
     resolution: {integrity: sha512-ko/gIFJRv177XgZsZcBwnqJN5x/Gien8qNOn0D5bQU/zAzVf9Zt3BlcUiLqhV9y4ARk0GbT3tnUiPNgnTXzc/Q==}
@@ -6306,9 +6313,16 @@ snapshots:
     dependencies:
       imgix-url-builder: 0.0.6
 
-  '@prismicio/vue@6.0.0(@prismicio/client@7.21.2)(vue@3.5.26(typescript@5.9.3))':
+  '@prismicio/simulator@0.1.4':
     dependencies:
       '@prismicio/client': 7.21.2
+      '@types/statuses': 2.0.6
+      statuses: 2.0.2
+
+  '@prismicio/vue@6.0.0-pr.90.1c31b0e(@prismicio/client@7.21.2)(vue@3.5.26(typescript@5.9.3))':
+    dependencies:
+      '@prismicio/client': 7.21.2
+      '@prismicio/simulator': 0.1.4
       esm-env: 1.2.2
       vue: 3.5.26(typescript@5.9.3)
 
@@ -6579,6 +6593,8 @@ snapshots:
   '@types/parse-path@7.0.3': {}
 
   '@types/resolve@1.20.2': {}
+
+  '@types/statuses@2.0.6': {}
 
   '@types/unist@3.0.3': {}
 
