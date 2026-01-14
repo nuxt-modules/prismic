@@ -312,6 +312,7 @@ export default defineNuxtModule<PrismicModuleOptions>({
 				"PrismicRichText",
 				"PrismicTable",
 				"SliceZone",
+				"SliceSimulator",
 			].forEach((entry) => {
 				addComponent({
 					name: entry,
