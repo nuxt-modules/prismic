@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [5.1.0](https://github.com/nuxt-modules/prismic/compare/v5.0.0...v5.1.0) (2026-01-14)
+
+
+### Features
+
+* add `<SliceSimulator>` component ([#237](https://github.com/nuxt-modules/prismic/issues/237)) ([fa444d0](https://github.com/nuxt-modules/prismic/commit/fa444d0c28346b66942962e3ff280c1af3795ae0))
+
 ## [5.0.0](https://github.com/nuxt-modules/prismic/compare/v4.1.0...v5.0.0) (2026-01-06)
 
 
