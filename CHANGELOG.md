@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [5.1.1](https://github.com/nuxt-modules/prismic/compare/v5.1.0...v5.1.1) (2026-01-20)
+
+
+### Bug Fixes
+
+* **deps:** update `@prismicio/vue` ([1dd771e](https://github.com/nuxt-modules/prismic/commit/1dd771e1e3c0668d6069ec6d908764f03434da45))
+
 ## [5.1.0](https://github.com/nuxt-modules/prismic/compare/v5.0.0...v5.1.0) (2026-01-14)
 
 
