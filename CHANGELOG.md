@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [5.2.0](https://github.com/nuxt-modules/prismic/compare/v5.1.1...v5.2.0) (2026-01-23)
+
+
+### Features
+
+* experimental `imports` option ([ca9aca6](https://github.com/nuxt-modules/prismic/commit/ca9aca6588cfe59d0e89489fc84453c4356fead8))
+
 ## [5.1.1](https://github.com/nuxt-modules/prismic/compare/v5.1.0...v5.1.1) (2026-01-20)
 
 
