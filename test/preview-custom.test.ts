@@ -6,7 +6,9 @@ import { $fetch, setup } from "@nuxt/test-utils/e2e"
 
 describe("custom preview page and path", async () => {
 	await setup({
-		rootDir: fileURLToPath(new URL("./fixtures/custom-preview", import.meta.url)),
+		rootDir: fileURLToPath(
+			new URL("./fixtures/custom-preview", import.meta.url),
+		),
 	})
 
 	it("serves the default preview page at configured path", async () => {

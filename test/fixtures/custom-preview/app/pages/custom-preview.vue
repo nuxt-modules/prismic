@@ -1,5 +1,5 @@
 <script setup>
-	usePrismicPreview();
+usePrismicPreview()
 </script>
 
 <template>

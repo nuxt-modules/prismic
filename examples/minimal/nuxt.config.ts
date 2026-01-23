@@ -8,5 +8,6 @@ export default defineNuxtConfig({
 		clientConfig: {
 			routes: [{ type: "kitchen_sink", path: "/kitchen-sink" }],
 		},
+		imports: "all",
 	},
 })

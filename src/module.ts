@@ -104,6 +104,21 @@ export type PrismicModuleOptions = {
 	 */
 	toolbar?: boolean
 
+	/**
+	 * Controls which auto-imports are added by the module.
+	 *
+	 * - `"all"` will add all imports.
+	 * - `["vue"]` will add `@nuxtjs/prismic` and `@prismicio/vue` imports.
+	 * - `["javascript"]` will add `@prismicio/client` imports.
+	 * - `["content"]` will add the `Content` type import.
+	 * - `false` will not add any import.
+	 *
+	 * @defaultValue `["vue"]`
+	 *
+	 * @experimental
+	 */
+	imports?: false | "all" | ("vue" | "javascript" | "content")[]
+
 	/** Options used by Prismic Vue components. */
 	components?: {
 		/**
@@ -180,6 +195,7 @@ export default defineNuxtModule<PrismicModuleOptions>({
 				linkResolver: "~/app/prismic/linkResolver",
 				preview: "/preview",
 				toolbar: true,
+				imports: ["vue"],
 				components: {
 					richTextComponents: "~/app/prismic/richTextComponents ",
 				},
@@ -194,6 +210,7 @@ export default defineNuxtModule<PrismicModuleOptions>({
 			clientConfig: {},
 			preview: "/preview",
 			toolbar: true,
+			imports: ["vue"],
 			components: {
 				richTextComponents: "~/prismic/richTextComponents",
 			},
@@ -304,38 +321,82 @@ export default defineNuxtModule<PrismicModuleOptions>({
 		}
 
 		function addAutoImports() {
-			// Components
-			;[
-				"PrismicImage",
-				"PrismicLink",
-				"PrismicText",
-				"PrismicRichText",
-				"PrismicTable",
-				"SliceZone",
-				"SliceSimulator",
-			].forEach((entry) => {
-				addComponent({
-					name: entry,
-					export: entry,
-					filePath: "@prismicio/vue",
-				})
-			})
+			if (!moduleOptions.imports) return
 
-			// Composables and utils
-			addImports(
-				[
-					"usePrismic",
-					"getSliceComponentProps",
-					"defineSliceZoneComponents",
-					"getRichTextComponentProps",
-					"getTableComponentProps",
-				].map((entry) => ({ name: entry, as: entry, from: "@prismicio/vue" })),
-			)
-			addImports({
-				name: "usePrismicPreview",
-				as: "usePrismicPreview",
-				from: resolver.resolve("runtime/usePrismicPreview"),
-			})
+			if (
+				moduleOptions.imports === "all" ||
+				moduleOptions.imports.includes("vue")
+			) {
+				;[
+					"PrismicImage",
+					"PrismicLink",
+					"PrismicText",
+					"PrismicRichText",
+					"PrismicTable",
+					"SliceZone",
+					"SliceSimulator",
+				].forEach((entry) => {
+					addComponent({
+						name: entry,
+						export: entry,
+						filePath: "@prismicio/vue",
+					})
+				})
+
+				addImports(
+					[
+						"usePrismic",
+						"getSliceComponentProps",
+						"defineSliceZoneComponents",
+						"getRichTextComponentProps",
+						"getTableComponentProps",
+					].map((entry) => ({
+						name: entry,
+						as: entry,
+						from: "@prismicio/vue",
+					})),
+				)
+				addImports({
+					name: "usePrismicPreview",
+					as: "usePrismicPreview",
+					from: resolver.resolve("runtime/usePrismicPreview"),
+				})
+			}
+
+			if (
+				moduleOptions.imports === "all" ||
+				moduleOptions.imports.includes("javascript")
+			) {
+				addImports(
+					[
+						"asDate",
+						"asLink",
+						"asLinkAttrs",
+						"asText",
+						"asHTML",
+						"asImageSrc",
+						"asImageWidthSrcSet",
+						"asImagePixelDensitySrcSet",
+						"isFilled",
+					].map((entry) => ({
+						name: entry,
+						as: entry,
+						from: "@prismicio/client",
+					})),
+				)
+			}
+
+			if (
+				moduleOptions.imports === "all" ||
+				moduleOptions.imports.includes("content")
+			) {
+				addImports({
+					name: "Content",
+					from: "@prismicio/client",
+					typeFrom: "@prismicio/client",
+					type: true,
+				})
+			}
 		}
 
 		function addPreviewRoute() {

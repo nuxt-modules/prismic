@@ -4,9 +4,10 @@ export default defineNuxtConfig({
 	compatibilityDate: "2026-01-05",
 
 	prismic: {
-		endpoint: 'nuxtjs-prismic',
+		endpoint: "nuxtjs-prismic",
 		clientConfig: {
 			routes: [{ type: "kitchen_sink", path: "/kitchen-sink" }],
 		},
+		imports: "all",
 	},
 })

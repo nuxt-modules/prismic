@@ -11,8 +11,8 @@ describe("disabled preview", async () => {
 			prismic: {
 				preview: false,
 				toolbar: false,
-			}
-		}
+			},
+		},
 	})
 
 	it("does not serve the preview page", async () => {

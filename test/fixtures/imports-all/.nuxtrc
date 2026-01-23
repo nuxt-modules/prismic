@@ -1,0 +1,2 @@
+imports.autoImport=true
+setups.@nuxtjs/prismic="5.1.0"

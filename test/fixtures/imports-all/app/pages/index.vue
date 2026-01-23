@@ -1,11 +1,8 @@
-<script setup lang="ts">
-import { useAsyncData, usePrismic } from "#imports"
-
+<script setup>
 const { client } = usePrismic()
 
-const { data: doc } = await useAsyncData<Content.KitchenSinkDocument>(
-	"index",
-	() => client.getSingle("kitchen_sink"),
+const { data: doc } = await useAsyncData("index", () =>
+	client.getSingle("kitchen_sink"),
 )
 </script>
 
@@ -19,5 +16,7 @@ const { data: doc } = await useAsyncData<Content.KitchenSinkDocument>(
 		<div id="relationship">
 			<PrismicLink :field="doc.data.relationship">relationship</PrismicLink>
 		</div>
+		<div id="as-text">{{ asText(doc.data.title) }}</div>
+		<div id="as-link">{{ asLink(doc.data.link) }}</div>
 	</div>
 </template>
