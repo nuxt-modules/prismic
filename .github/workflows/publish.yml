@@ -27,13 +27,16 @@ jobs:
           release-type: node
       - uses: actions/checkout@v6
         if: steps.release.outputs.release_created == 'true'
+      - uses: pnpm/action-setup@v4
+        if: steps.release.outputs.release_created == 'true'
       - uses: actions/setup-node@v6
         if: steps.release.outputs.release_created == 'true'
         with:
           node-version: 24
+          cache: pnpm
           registry-url: "https://registry.npmjs.org"
       - if: steps.release.outputs.release_created == 'true'
-        run: npm ci
+        run: pnpm install
       - name: "Publish release"
         if: steps.release.outputs.release_created == 'true'
         run: npm publish --provenance
@@ -51,9 +54,11 @@ jobs:
       MODE: production
     steps:
       - uses: actions/checkout@v6
+      - uses: pnpm/action-setup@v4
       - uses: actions/setup-node@v6
         with:
           node-version: 24
+          cache: pnpm
           registry-url: "https://registry.npmjs.org"
 
       # Canary
@@ -74,7 +79,7 @@ jobs:
         run: |
           SHORT_SHA=$(git rev-parse --short HEAD)
           CURRENT_VERSION=$(jq -r '.version' package.json)
-          npm ci
+          pnpm install
           npm version "${CURRENT_VERSION}-canary.${SHORT_SHA}" --no-git-tag-version
           npm publish --provenance --tag canary
         env:
@@ -99,7 +104,7 @@ jobs:
         run: |
           SHORT_SHA=$(git rev-parse --short HEAD)
           CURRENT_VERSION=$(jq -r '.version' package.json)
-          npm ci
+          pnpm install
           npm version "${CURRENT_VERSION}-pr.${{ github.event.number }}.${SHORT_SHA}" --no-git-tag-version
           npm publish --provenance --tag pr-${{ github.event.number }}
         env:
