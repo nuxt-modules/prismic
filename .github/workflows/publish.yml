@@ -1,0 +1,120 @@
+name: publish
+
+on:
+  push:
+    branches: [master]
+  pull_request:
+    types: [opened, synchronize, reopened, closed]
+
+jobs:
+  release:
+    if: github.event_name == 'push' && github.repository_owner == 'prismicio'
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+      issues: write
+      pull-requests: write
+      id-token: write
+    env:
+      MODE: production
+    outputs:
+      release_created: ${{ steps.release.outputs.release_created }}
+    steps:
+      - uses: googleapis/release-please-action@v4
+        id: release
+        continue-on-error: true
+        with:
+          release-type: node
+      - uses: actions/checkout@v6
+        if: steps.release.outputs.release_created == 'true'
+      - uses: actions/setup-node@v6
+        if: steps.release.outputs.release_created == 'true'
+        with:
+          node-version: 24
+          registry-url: "https://registry.npmjs.org"
+      - if: steps.release.outputs.release_created == 'true'
+        run: npm ci
+      - name: "Publish release"
+        if: steps.release.outputs.release_created == 'true'
+        run: npm publish --provenance
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+
+  prerelease:
+    if: "!cancelled() && github.repository_owner == 'prismicio'"
+    needs: [release]
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      id-token: write
+    env:
+      MODE: production
+    steps:
+      - uses: actions/checkout@v6
+      - uses: actions/setup-node@v6
+        with:
+          node-version: 24
+          registry-url: "https://registry.npmjs.org"
+
+      # Canary
+      - name: "Deprecate previous canary"
+        if: github.event_name == 'push' && needs.release.outputs.release_created != 'true'
+        continue-on-error: true
+        run: |
+          PACKAGE_NAME=$(jq -r ".name" package.json)
+          PREVIOUS_VERSION=$(npm view "$PACKAGE_NAME" dist-tags.canary 2>/dev/null || true)
+          if [ -n "$PREVIOUS_VERSION" ]; then
+            npm deprecate "$PACKAGE_NAME@$PREVIOUS_VERSION" "Replaced by newer canary version"
+          fi
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+
+      - name: "Publish canary"
+        if: github.event_name == 'push' && needs.release.outputs.release_created != 'true'
+        run: |
+          SHORT_SHA=$(git rev-parse --short HEAD)
+          CURRENT_VERSION=$(jq -r '.version' package.json)
+          npm ci
+          npm version "${CURRENT_VERSION}-canary.${SHORT_SHA}" --no-git-tag-version
+          npm publish --provenance --tag canary
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+
+      # Pull request
+      - name: "Deprecate previous PR prerelease"
+        if: github.event_name == 'pull_request' && github.event.action != 'closed'
+        continue-on-error: true
+        run: |
+          PACKAGE_NAME=$(jq -r ".name" package.json)
+          TAG="pr-${{ github.event.number }}"
+          PREVIOUS_VERSION=$(npm view "$PACKAGE_NAME" dist-tags."$TAG" 2>/dev/null || true)
+          if [ -n "$PREVIOUS_VERSION" ]; then
+            npm deprecate "$PACKAGE_NAME@$PREVIOUS_VERSION" "Replaced by newer prerelease version"
+          fi
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+
+      - name: "Publish PR prerelease"
+        if: github.event_name == 'pull_request' && github.event.action != 'closed'
+        run: |
+          SHORT_SHA=$(git rev-parse --short HEAD)
+          CURRENT_VERSION=$(jq -r '.version' package.json)
+          npm ci
+          npm version "${CURRENT_VERSION}-pr.${{ github.event.number }}.${SHORT_SHA}" --no-git-tag-version
+          npm publish --provenance --tag pr-${{ github.event.number }}
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+
+      - name: "Clean up PR prerelease"
+        if: github.event_name == 'pull_request' && github.event.action == 'closed'
+        continue-on-error: true
+        run: |
+          PACKAGE_NAME=$(jq -r ".name" package.json)
+          TAG="pr-${{ github.event.number }}"
+          VERSION=$(npm view "$PACKAGE_NAME" dist-tags."$TAG" 2>/dev/null || echo "")
+          if [ -n "$VERSION" ]; then
+            npm deprecate "$PACKAGE_NAME@$VERSION" "PR ${{ github.event.number }} was closed"
+            npm dist-tag rm "$PACKAGE_NAME" "$TAG"
+          fi
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}

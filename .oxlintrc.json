@@ -4,10 +4,6 @@
 		"no-console": ["warn", { "allow": ["info", "warn", "error"] }],
 		"no-debugger": "warn",
 		"prefer-const": "error",
-		"padding-line-between-statements": [
-			"error",
-			{ "blankLine": "always", "prev": "*", "next": "return" }
-		],
 		"no-unused-vars": [
 			"error",
 			{
@@ -24,8 +20,6 @@
 			{
 				"definedTags": ["typeParam", "remarks", "defaultValue", "experimental"]
 			}
-		],
-		"vue/multi-word-component-names": "off",
-		"vue/no-v-text-v-html-on-component": "off"
+		]
 	}
 }
