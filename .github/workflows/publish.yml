@@ -8,7 +8,7 @@ on:
 
 jobs:
   release:
-    if: github.event_name == 'push' && github.repository_owner == 'prismicio'
+    if: github.event_name == 'push' && github.repository_owner == 'nuxt-modules'
     runs-on: ubuntu-latest
     permissions:
       contents: write
@@ -41,7 +41,7 @@ jobs:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
 
   prerelease:
-    if: "!cancelled() && github.repository_owner == 'prismicio'"
+    if: "!cancelled() && github.repository_owner == 'nuxt-modules'"
     needs: [release]
     runs-on: ubuntu-latest
     permissions:
