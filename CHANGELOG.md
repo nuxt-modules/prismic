@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [5.2.1](https://github.com/nuxt-modules/prismic/compare/v5.2.0...v5.2.1) (2026-04-09)
+
+
+### Bug Fixes
+
+* **deps:** maintain dependencies ([1ac26e4](https://github.com/nuxt-modules/prismic/commit/1ac26e456866a0b1029374f47c931c3275597048))
+
 ## [5.2.0](https://github.com/nuxt-modules/prismic/compare/v5.1.1...v5.2.0) (2026-01-23)
 
 
