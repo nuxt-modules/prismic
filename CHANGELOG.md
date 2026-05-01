@@ -2,6 +2,14 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [5.3.0](https://github.com/nuxt-modules/prismic/compare/v5.2.1...v5.3.0) (2026-05-01)
+
+
+### Features
+
+* automatically infer module options from prismic config ([d380eb6](https://github.com/nuxt-modules/prismic/commit/d380eb6bbb79ae80b4c26bd81d495d7c7349bbcd))
+* watch `prismic.config.json` ([776ac17](https://github.com/nuxt-modules/prismic/commit/776ac17caa4cc35554ab45ca64489a688b5698b2))
+
 ## [5.2.1](https://github.com/nuxt-modules/prismic/compare/v5.2.0...v5.2.1) (2026-04-09)
 
 
