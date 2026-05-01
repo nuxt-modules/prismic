@@ -12,6 +12,7 @@ const { data: doc } = await useAsyncData<Content.KitchenSinkDocument>(
 <template>
 	<div v-if="doc">
 		<div id="repository-name">{{ client.repositoryName }}</div>
+		<div id="routes">{{ client.routes }}</div>
 		<div id="text"><PrismicText :field="doc.data.title" /></div>
 		<div id="rich-text"><PrismicRichText :field="doc.data.body" /></div>
 		<div id="image"><PrismicImage :field="doc.data.image" /></div>

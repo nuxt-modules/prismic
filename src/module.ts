@@ -108,9 +108,9 @@ export type PrismicModuleOptions = {
 	 * Controls which auto-imports are added by the module.
 	 *
 	 * - `"all"` will add all imports.
-	 * - `["vue"]` will add `@nuxtjs/prismic` and `@prismicio/vue` imports.
-	 * - `["javascript"]` will add `@prismicio/client` imports.
-	 * - `["content"]` will add the `Content` type import.
+	 * - `"vue"` will add `@nuxtjs/prismic` and `@prismicio/vue` imports.
+	 * - `"javascript"` will add `@prismicio/client` imports.
+	 * - `"content"` will add the `Content` type import.
 	 * - `false` will not add any import.
 	 *
 	 * @defaultValue `["vue"]`
@@ -225,24 +225,7 @@ export default defineNuxtModule<PrismicModuleOptions>({
 			options,
 		)
 
-		const prismicConfig = readPrismicConfig(
-			nuxt.options.rootDir,
-		)
-
-		const configKeys: string[] = []
-		if (!moduleOptions.endpoint && prismicConfig.repositoryName) {
-			moduleOptions.endpoint = prismicConfig.repositoryName
-			configKeys.push("repository name")
-		}
-		if (!moduleOptions.clientConfig?.routes && prismicConfig.routes) {
-			moduleOptions.clientConfig!.routes = prismicConfig.routes
-			configKeys.push("routes")
-		}
-
-		if (configKeys.length > 0) {
-			logger.info(`Loaded ${configKeys.join(" and ")} from \`${PRISMIC_CONFIG_FILENAME}\``)
-		}
-
+		loadPrismicConfig()
 		exposeRuntimeConfig()
 		transpileDependencies()
 		const ok = proxyUserFiles()
@@ -251,6 +234,33 @@ export default defineNuxtModule<PrismicModuleOptions>({
 		addAutoImports()
 		addPreviewRoute()
 		extendESLintConfig()
+
+		function loadPrismicConfig() {
+			const prismicConfigPath = join(nuxt.options.rootDir, PRISMIC_CONFIG_FILENAME)
+			const prismicConfig = readPrismicConfig(prismicConfigPath)
+
+			const configKeys: string[] = []
+			if (!moduleOptions.endpoint && prismicConfig.repositoryName) {
+				moduleOptions.endpoint = prismicConfig.repositoryName
+				configKeys.push("repository name")
+			}
+			if (!moduleOptions.clientConfig?.routes && prismicConfig.routes) {
+				moduleOptions.clientConfig!.routes = prismicConfig.routes
+				configKeys.push("routes")
+			}
+
+			if (configKeys.length > 0) {
+				nuxt.options.watch.push(prismicConfigPath)
+				nuxt.hook("builder:watch", async (_, path) => {
+					if (path.replace(/\\/g, "/") === prismicConfigPath.replace(/\\/g, "/")) {
+						logger.info(`${PRISMIC_CONFIG_FILENAME} updated`)
+						await nuxt.callHook("restart")
+					}
+				})
+
+				logger.info(`Loaded ${configKeys.join(" and ")} from \`${PRISMIC_CONFIG_FILENAME}\``)
+			}
+		}
 
 		function exposeRuntimeConfig() {
 			nuxt.options.runtimeConfig.public ||=
@@ -536,10 +546,8 @@ type PrismicConfig = {
 }
 
 function readPrismicConfig(
-	rootDir: string,
+	configPath: string,
 ): PrismicConfig {
-	const configPath = join(rootDir, PRISMIC_CONFIG_FILENAME)
-
 	if (!existsSync(configPath)) {
 		return {}
 	}
