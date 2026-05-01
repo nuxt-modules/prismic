@@ -221,7 +221,7 @@ export default defineNuxtModule<PrismicModuleOptions>({
 		const resolver = createResolver(import.meta.url)
 
 		const moduleOptions: PrismicModuleOptions = defu(
-			nuxt.options.runtimeConfig.public?.prismic,
+			nuxt.options.runtimeConfig.public?.prismic as PrismicModuleOptions,
 			options,
 		)
 
@@ -255,7 +255,7 @@ export default defineNuxtModule<PrismicModuleOptions>({
 		function exposeRuntimeConfig() {
 			nuxt.options.runtimeConfig.public ||=
 				{} as typeof nuxt.options.runtimeConfig.public
-			nuxt.options.runtimeConfig.public.prismic = moduleOptions
+			(nuxt.options.runtimeConfig.public.prismic as PrismicModuleOptions) = moduleOptions
 		}
 
 		function transpileDependencies() {
