@@ -1,0 +1,9 @@
+{
+	"repositoryName": "my-repo",
+	"routes": [
+		{
+			"type": "kitchen_sink",
+			"path": "/kitchen-sink"
+		}
+	]
+}

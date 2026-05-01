@@ -1,4 +1,4 @@
-import { existsSync } from "node:fs"
+import { existsSync, readFileSync } from "node:fs"
 import { readFile } from "node:fs/promises"
 import { join } from "node:path"
 
@@ -13,7 +13,7 @@ import {
 	getNuxtVersion,
 	useLogger,
 } from "@nuxt/kit"
-import type { ClientConfig } from "@prismicio/client"
+import type { ClientConfig, Route } from "@prismicio/client"
 import { defu } from "defu"
 import { addDependency } from "nypm"
 import { readPackage } from "pkg-types"
@@ -148,6 +148,7 @@ declare module "@nuxt/schema" {
 }
 
 const logger = useLogger("nuxt:prismic")
+const PRISMIC_CONFIG_FILENAME = "prismic.config.json"
 
 async function addPrismicClient() {
 	try {
@@ -223,6 +224,24 @@ export default defineNuxtModule<PrismicModuleOptions>({
 			nuxt.options.runtimeConfig.public?.prismic,
 			options,
 		)
+
+		const prismicConfig = readPrismicConfig(
+			nuxt.options.rootDir,
+		)
+
+		const configKeys: string[] = []
+		if (!moduleOptions.endpoint && prismicConfig.repositoryName) {
+			moduleOptions.endpoint = prismicConfig.repositoryName
+			configKeys.push("repository name")
+		}
+		if (!moduleOptions.clientConfig?.routes && prismicConfig.routes) {
+			moduleOptions.clientConfig!.routes = prismicConfig.routes
+			configKeys.push("routes")
+		}
+
+		if (configKeys.length > 0) {
+			logger.info(`Loaded ${configKeys.join(" and ")} from \`${PRISMIC_CONFIG_FILENAME}\``)
+		}
 
 		exposeRuntimeConfig()
 		transpileDependencies()
@@ -509,4 +528,41 @@ function fileExists(path?: string, extensions = ["js", "ts"]): string | null {
 	)
 
 	return extension ? `${path}.${extension}` : null
+}
+
+type PrismicConfig = {
+	repositoryName?: string
+	routes?: Route[]
+}
+
+function readPrismicConfig(
+	rootDir: string,
+): PrismicConfig {
+	const configPath = join(rootDir, PRISMIC_CONFIG_FILENAME)
+
+	if (!existsSync(configPath)) {
+		return {}
+	}
+
+	try {
+		const contents = readFileSync(configPath, "utf-8")
+		const rawConfig = JSON.parse(contents) as unknown
+
+		if (!rawConfig || typeof rawConfig !== "object" || Array.isArray(rawConfig)) {
+			return {}
+		}
+
+		const config: PrismicConfig = {}
+		if ("repositoryName" in rawConfig && typeof rawConfig.repositoryName === "string") {
+			config.repositoryName = rawConfig.repositoryName
+		}
+
+		if ("routes" in rawConfig && Array.isArray(rawConfig.routes)) {
+			config.routes = rawConfig.routes
+		}
+
+		return config
+	} catch {
+		return {}
+	}
 }

@@ -27,18 +27,7 @@ Install the module to your Nuxt application with one command:
 npx nuxi@latest module add prismic
 ```
 
-Then, configure your Prismic API endpoint:
-
-```javascript
-import { defineNuxtConfig } from "nuxt"
-
-export default defineNuxtConfig({
-	modules: ["@nuxtjs/prismic"],
-	prismic: {
-		endpoint: "my-repository",
-	},
-})
-```
+The module automatically loads your repository name and `routes` from `prismic.config.json`, so for most projects all you need to do is register the module (done by the `module add` command). If needed, you can still override those values and configure the Nuxt module further in `nuxt.config.ts` or Nuxt's `runtimeConfig`.
 
 That's it! You can now use Prismic in your Nuxt app ✨
 

@@ -1,0 +1,9 @@
+{
+	"repositoryName": "config-file-repository",
+	"routes": [
+		{
+			"type": "page",
+			"path": "/:uid"
+		}
+	]
+}
