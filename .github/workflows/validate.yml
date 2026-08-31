@@ -62,5 +62,5 @@ jobs:
           node-version: 26
           cache: pnpm
       - run: pnpm install
-      - run: pnpm add typescript@${{ matrix.typescript }} && npx tsc --version
+      - run: pnpm add --workspace-root typescript@${{ matrix.typescript }} && npx tsc --version
       - run: npm run types
