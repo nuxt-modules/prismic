@@ -1,9 +1,9 @@
 <script setup>
-const { client } = usePrismic()
+const { client } = usePrismic();
 
 const { data: doc } = await useAsyncData("index", () =>
 	client.getSingle("kitchen_sink"),
-)
+);
 </script>
 
 <template>

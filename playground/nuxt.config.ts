@@ -5,5 +5,5 @@ export default defineNuxtConfig({
 
 	prismic: {
 		imports: "all",
-	}
-})
+	},
+});

@@ -1,6 +1,6 @@
 <script setup>
-const { client } = usePrismic()
-const routes = useRuntimeConfig().public.prismic.clientConfig?.routes ?? []
+const { client } = usePrismic();
+const routes = useRuntimeConfig().public.prismic.clientConfig?.routes ?? [];
 </script>
 
 <template>

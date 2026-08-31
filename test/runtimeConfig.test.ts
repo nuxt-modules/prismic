@@ -1,8 +1,8 @@
-import { describe, expect, it } from "vitest"
+import { describe, expect, it } from "vitest";
 
-import { fileURLToPath } from "node:url"
+import { fileURLToPath } from "node:url";
 
-import { $fetch, setup } from "@nuxt/test-utils/e2e"
+import { $fetch, setup } from "@nuxt/test-utils/e2e";
 
 describe("runtimeConfig", async () => {
 	await setup({
@@ -10,10 +10,10 @@ describe("runtimeConfig", async () => {
 		env: {
 			NUXT_PUBLIC_PRISMIC_ENDPOINT: "runtime-config",
 		},
-	})
+	});
 
 	it("overrides repository name from runtime config", async () => {
-		const html = await $fetch("/")
-		expect(html).toContain(`<div id="repository-name">runtime-config</div>`)
-	})
-})
+		const html = await $fetch("/");
+		expect(html).toContain(`<div id="repository-name">runtime-config</div>`);
+	});
+});

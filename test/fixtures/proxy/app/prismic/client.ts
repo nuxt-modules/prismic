@@ -1,3 +1,3 @@
-import { createClient } from "@prismicio/client"
+import { createClient } from "@prismicio/client";
 
-export default createClient("nuxtjs-prismic")
+export default createClient("nuxtjs-prismic");

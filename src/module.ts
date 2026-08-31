@@ -1,6 +1,6 @@
-import { existsSync, readFileSync } from "node:fs"
-import { readFile } from "node:fs/promises"
-import { join } from "node:path"
+import { existsSync, readFileSync } from "node:fs";
+import { readFile } from "node:fs/promises";
+import { join } from "node:path";
 
 import {
 	addComponent,
@@ -12,13 +12,13 @@ import {
 	extendPages,
 	getNuxtVersion,
 	useLogger,
-} from "@nuxt/kit"
-import type { ClientConfig, Route } from "@prismicio/client"
-import { defu } from "defu"
-import { addDependency } from "nypm"
-import { readPackage } from "pkg-types"
+} from "@nuxt/kit";
+import type { ClientConfig, Route } from "@prismicio/client";
+import { defu } from "defu";
+import { addDependency } from "nypm";
+import { readPackage } from "pkg-types";
 
-import { name, version } from "../package.json"
+import { name, version } from "../package.json";
 
 /**
  * Prismic Nuxt module options.
@@ -44,7 +44,7 @@ export type PrismicModuleOptions = {
 	 *
 	 * @see {@link https://prismic.io/docs/technical-reference/prismicio-client}
 	 */
-	endpoint?: string
+	endpoint?: string;
 
 	/**
 	 * The Prismic environment in use by Slice Machine configured through
@@ -54,7 +54,7 @@ export type PrismicModuleOptions = {
 	 *
 	 * @internal
 	 */
-	environment?: string
+	environment?: string;
 
 	/**
 	 * Configuration options that determines how content will be queries from the
@@ -62,7 +62,7 @@ export type PrismicModuleOptions = {
 	 *
 	 * @see {@link https://prismic.io/docs/technical-reference/prismicio-client}
 	 */
-	clientConfig?: ClientConfig
+	clientConfig?: ClientConfig;
 
 	/**
 	 * An optional path to a file exporting a Prismic client instance used to
@@ -74,7 +74,7 @@ export type PrismicModuleOptions = {
 	 *
 	 * @see {@link https://prismic.io/docs/technical-reference/prismicio-client}
 	 */
-	client?: string
+	client?: string;
 
 	/**
 	 * The path to a file exporting a default link resolver used to resolve links
@@ -82,7 +82,7 @@ export type PrismicModuleOptions = {
 	 *
 	 * @see {@link https://prismic.io/docs/routes}
 	 */
-	linkResolver?: string
+	linkResolver?: string;
 
 	/**
 	 * Desired path of the preview page used by Prismic to enter preview session.
@@ -92,7 +92,7 @@ export type PrismicModuleOptions = {
 	 *
 	 * @defaultValue `"/preview"`
 	 */
-	preview?: string | false
+	preview?: string | false;
 
 	/**
 	 * Whether to inject Prismic toolbar script.
@@ -102,7 +102,7 @@ export type PrismicModuleOptions = {
 	 *
 	 * @defaultValue `true`
 	 */
-	toolbar?: boolean
+	toolbar?: boolean;
 
 	/**
 	 * Controls which auto-imports are added by the module.
@@ -117,7 +117,7 @@ export type PrismicModuleOptions = {
 	 *
 	 * @experimental
 	 */
-	imports?: false | "all" | ("vue" | "javascript" | "content")[]
+	imports?: false | "all" | ("vue" | "javascript" | "content")[];
 
 	/** Options used by Prismic Vue components. */
 	components?: {
@@ -128,9 +128,9 @@ export type PrismicModuleOptions = {
 		 * @see {@link https://prismic.io/docs/fields/rich-text}
 		 * @see {@link https://prismic.io/docs/fields/table}
 		 */
-		richTextComponents?: string
-	}
-}
+		richTextComponents?: string;
+	};
+};
 
 /**
  * Prismic Nuxt module options.
@@ -138,28 +138,28 @@ export type PrismicModuleOptions = {
  * @see {@link https://prismic.io/docs/nuxt}
  * @see {@link https://prismic.io/docs/technical-reference/nuxtjs-prismic}
  */
-export type ModuleOptions = PrismicModuleOptions
+export type ModuleOptions = PrismicModuleOptions;
 
 declare module "@nuxt/schema" {
 	interface PublicRuntimeConfig {
 		/** The Prismic Nuxt module options. */
-		prismic: PrismicModuleOptions
+		prismic: PrismicModuleOptions;
 	}
 }
 
-const logger = useLogger("nuxt:prismic")
-const PRISMIC_CONFIG_FILENAME = "prismic.config.json"
+const logger = useLogger("nuxt:prismic");
+const PRISMIC_CONFIG_FILENAME = "prismic.config.json";
 
 async function addPrismicClient() {
 	try {
-		const pkg = await readPackage()
+		const pkg = await readPackage();
 
 		if (
 			!pkg.dependencies?.["@prismicio/client"] &&
 			!pkg.devDependencies?.["@prismicio/client"]
 		) {
-			await addDependency("@prismicio/client")
-			logger.info("Added `@prismicio/client` required peer dependency")
+			await addDependency("@prismicio/client");
+			logger.info("Added `@prismicio/client` required peer dependency");
 		}
 	} catch {
 		// noop
@@ -174,18 +174,18 @@ export default defineNuxtModule<PrismicModuleOptions>({
 		compatibility: { nuxt: ">=3.7.0" },
 	},
 	onInstall() {
-		return addPrismicClient()
+		return addPrismicClient();
 	},
 	onUpgrade(_options: unknown, _nuxt: unknown, previousVersion: string) {
-		const previousMajor = parseInt(previousVersion.split(".")[0]!)
+		const previousMajor = parseInt(previousVersion.split(".")[0]!);
 		if (previousMajor < 4) {
-			return addPrismicClient()
+			return addPrismicClient();
 		}
 	},
 	defaults: (nuxt): Required<PrismicModuleOptions> => {
 		const nuxt3flavor =
 			getNuxtVersion(nuxt).startsWith("3") &&
-			!nuxt.options?.future?.compatibilityVersion
+			!nuxt.options?.future?.compatibilityVersion;
 
 		if (nuxt3flavor) {
 			return {
@@ -200,7 +200,7 @@ export default defineNuxtModule<PrismicModuleOptions>({
 				components: {
 					richTextComponents: "~/app/prismic/richTextComponents ",
 				},
-			}
+			};
 		}
 
 		return {
@@ -215,57 +215,65 @@ export default defineNuxtModule<PrismicModuleOptions>({
 			components: {
 				richTextComponents: "~/prismic/richTextComponents",
 			},
-		}
+		};
 	},
 	setup(options, nuxt) {
-		const resolver = createResolver(import.meta.url)
+		const resolver = createResolver(import.meta.url);
 
 		const moduleOptions: PrismicModuleOptions = defu(
 			nuxt.options.runtimeConfig.public?.prismic as PrismicModuleOptions,
 			options,
-		)
+		);
 
-		loadPrismicConfig()
-		exposeRuntimeConfig()
-		transpileDependencies()
-		const ok = proxyUserFiles()
-		if (!ok) return
-		addRuntimePlugins()
-		addAutoImports()
-		addPreviewRoute()
-		extendESLintConfig()
+		loadPrismicConfig();
+		exposeRuntimeConfig();
+		transpileDependencies();
+		const ok = proxyUserFiles();
+		if (!ok) return;
+		addRuntimePlugins();
+		addAutoImports();
+		addPreviewRoute();
+		extendESLintConfig();
 
 		function loadPrismicConfig() {
-			const prismicConfigPath = join(nuxt.options.rootDir, PRISMIC_CONFIG_FILENAME)
-			const prismicConfig = readPrismicConfig(prismicConfigPath)
+			const prismicConfigPath = join(
+				nuxt.options.rootDir,
+				PRISMIC_CONFIG_FILENAME,
+			);
+			const prismicConfig = readPrismicConfig(prismicConfigPath);
 
-			const configKeys: string[] = []
+			const configKeys: string[] = [];
 			if (!moduleOptions.endpoint && prismicConfig.repositoryName) {
-				moduleOptions.endpoint = prismicConfig.repositoryName
-				configKeys.push("repository name")
+				moduleOptions.endpoint = prismicConfig.repositoryName;
+				configKeys.push("repository name");
 			}
 			if (!moduleOptions.clientConfig?.routes && prismicConfig.routes) {
-				moduleOptions.clientConfig!.routes = prismicConfig.routes
-				configKeys.push("routes")
+				moduleOptions.clientConfig!.routes = prismicConfig.routes;
+				configKeys.push("routes");
 			}
 
 			if (configKeys.length > 0) {
-				nuxt.options.watch.push(prismicConfigPath)
+				nuxt.options.watch.push(prismicConfigPath);
 				nuxt.hook("builder:watch", async (_, path) => {
-					if (path.replace(/\\/g, "/") === prismicConfigPath.replace(/\\/g, "/")) {
-						logger.info(`${PRISMIC_CONFIG_FILENAME} updated`)
-						await nuxt.callHook("restart")
+					if (
+						path.replace(/\\/g, "/") === prismicConfigPath.replace(/\\/g, "/")
+					) {
+						logger.info(`${PRISMIC_CONFIG_FILENAME} updated`);
+						await nuxt.callHook("restart");
 					}
-				})
+				});
 
-				logger.info(`Loaded ${configKeys.join(" and ")} from \`${PRISMIC_CONFIG_FILENAME}\``)
+				logger.info(
+					`Loaded ${configKeys.join(" and ")} from \`${PRISMIC_CONFIG_FILENAME}\``,
+				);
 			}
 		}
 
 		function exposeRuntimeConfig() {
 			nuxt.options.runtimeConfig.public ||=
-				{} as typeof nuxt.options.runtimeConfig.public
-			(nuxt.options.runtimeConfig.public.prismic as PrismicModuleOptions) = moduleOptions
+				{} as typeof nuxt.options.runtimeConfig.public;
+			(nuxt.options.runtimeConfig.public.prismic as PrismicModuleOptions) =
+				moduleOptions;
 		}
 
 		function transpileDependencies() {
@@ -273,10 +281,10 @@ export default defineNuxtModule<PrismicModuleOptions>({
 				resolver.resolve("runtime"),
 				"@nuxtjs/prismic",
 				"@prismicio/vue",
-			)
-			nuxt.options.vite.optimizeDeps ||= {}
-			nuxt.options.vite.optimizeDeps.exclude ||= []
-			nuxt.options.vite.optimizeDeps.exclude.push("@prismicio/vue")
+			);
+			nuxt.options.vite.optimizeDeps ||= {};
+			nuxt.options.vite.optimizeDeps.exclude ||= [];
+			nuxt.options.vite.optimizeDeps.exclude.push("@prismicio/vue");
 		}
 
 		function proxyUserFiles() {
@@ -284,44 +292,44 @@ export default defineNuxtModule<PrismicModuleOptions>({
 				filename: string,
 				path: string,
 			): boolean => {
-				const resolvedFilename = `prismic/proxy/${filename}.ts`
+				const resolvedFilename = `prismic/proxy/${filename}.ts`;
 				const resolvedPath = path
 					.replace(/^(~~|@@)/, nuxt.options.rootDir)
-					.replace(/^(~|@)/, nuxt.options.srcDir)
+					.replace(/^(~|@)/, nuxt.options.srcDir);
 				const maybeUserFile = fileExists(resolvedPath, [
 					"js",
 					"mjs",
 					"ts",
 					"vue",
-				])
+				]);
 
 				if (maybeUserFile) {
 					// If user file exists, proxy it with vfs
 					logger.info(
 						`Using user-defined \`${filename}\` at \`${maybeUserFile.replace(nuxt.options.srcDir, "~").replace(nuxt.options.rootDir, "~~").replace(/\\/g, "/")}\``,
-					)
+					);
 
 					addTemplate({
 						filename: resolvedFilename,
 						getContents: () => `export { default } from '${path}'`,
-					})
+					});
 
-					return true
+					return true;
 				} else {
 					// Else provide `undefined` fallback
 					addTemplate({
 						filename: resolvedFilename,
 						getContents: () => "export default undefined",
-					})
+					});
 
-					return false
+					return false;
 				}
-			}
+			};
 
 			const proxiedUserClient = proxyUserFileWithUndefinedFallback(
 				"client",
 				moduleOptions.client!,
-			)
+			);
 			if (
 				!moduleOptions.endpoint &&
 				!proxiedUserClient &&
@@ -329,34 +337,34 @@ export default defineNuxtModule<PrismicModuleOptions>({
 			) {
 				logger.warn(
 					`\`endpoint\` option is missing and \`${moduleOptions.client}\` was not found. At least one of them is required for the module to run. Disabling module...`,
-				)
-				return false
+				);
+				return false;
 			}
 			proxyUserFileWithUndefinedFallback(
 				"linkResolver",
 				moduleOptions.linkResolver!,
-			)
+			);
 			proxyUserFileWithUndefinedFallback(
 				"richTextComponents",
 				moduleOptions.components!.richTextComponents!,
-			)
+			);
 
-			return true
+			return true;
 		}
 
 		function addRuntimePlugins() {
-			addPlugin(resolver.resolve("runtime/plugin"))
-			addPlugin(resolver.resolve("runtime/plugin.client"))
+			addPlugin(resolver.resolve("runtime/plugin"));
+			addPlugin(resolver.resolve("runtime/plugin.client"));
 		}
 
 		function addAutoImports() {
-			if (!moduleOptions.imports) return
+			if (!moduleOptions.imports) return;
 
 			if (
 				moduleOptions.imports === "all" ||
 				moduleOptions.imports.includes("vue")
 			) {
-				;[
+				[
 					"PrismicImage",
 					"PrismicLink",
 					"PrismicText",
@@ -369,8 +377,8 @@ export default defineNuxtModule<PrismicModuleOptions>({
 						name: entry,
 						export: entry,
 						filePath: "@prismicio/vue",
-					})
-				})
+					});
+				});
 
 				addImports(
 					[
@@ -384,12 +392,12 @@ export default defineNuxtModule<PrismicModuleOptions>({
 						as: entry,
 						from: "@prismicio/vue",
 					})),
-				)
+				);
 				addImports({
 					name: "usePrismicPreview",
 					as: "usePrismicPreview",
 					from: resolver.resolve("runtime/usePrismicPreview"),
-				})
+				});
 			}
 
 			if (
@@ -412,7 +420,7 @@ export default defineNuxtModule<PrismicModuleOptions>({
 						as: entry,
 						from: "@prismicio/client",
 					})),
-				)
+				);
 			}
 
 			if (
@@ -424,7 +432,7 @@ export default defineNuxtModule<PrismicModuleOptions>({
 					from: "@prismicio/client",
 					typeFrom: "@prismicio/client",
 					type: true,
-				})
+				});
 			}
 		}
 
@@ -437,7 +445,7 @@ export default defineNuxtModule<PrismicModuleOptions>({
 						moduleOptions.preview,
 					),
 					["js", "ts", "vue"],
-				)
+				);
 
 				if (maybeUserPreviewPage) {
 					logger.info(
@@ -448,25 +456,25 @@ export default defineNuxtModule<PrismicModuleOptions>({
 								/\\/g,
 								"/",
 							)}\`, available at \`${moduleOptions.preview}\``,
-					)
+					);
 				} else {
 					logger.info(
 						`Using default preview page, available at \`${moduleOptions.preview}\``,
-					)
+					);
 
 					extendPages((pages) => {
 						pages.unshift({
 							name: "prismic-preview",
 							path: moduleOptions.preview as string, // Checked before
 							file: resolver.resolve("runtime/PrismicPreview.vue"),
-						})
-					})
+						});
+					});
 				}
 
 				if (!moduleOptions.toolbar) {
 					logger.warn(
 						"`toolbar` option is disabled but `preview` is enabled. Previews won't work unless you manually load the toolbar.",
-					)
+					);
 				}
 			}
 		}
@@ -477,8 +485,8 @@ export default defineNuxtModule<PrismicModuleOptions>({
 				"eslint:config:addons",
 				(
 					addons: {
-						name: string
-						getConfigs: () => Promise<{ configs: string[] }>
+						name: string;
+						getConfigs: () => Promise<{ configs: string[] }>;
 					}[],
 				) => {
 					addons.push({
@@ -487,13 +495,15 @@ export default defineNuxtModule<PrismicModuleOptions>({
 							const configPath = resolver.resolve(
 								nuxt.options.rootDir,
 								"slicemachine.config.json",
-							)
+							);
 
-							const configs: string[] = []
+							const configs: string[] = [];
 
 							try {
 								if (existsSync(configPath)) {
-									const config = JSON.parse(await readFile(configPath, "utf-8"))
+									const config = JSON.parse(
+										await readFile(configPath, "utf-8"),
+									);
 
 									if (
 										config &&
@@ -510,67 +520,72 @@ export default defineNuxtModule<PrismicModuleOptions>({
 													"vue/multi-word-component-names": "off",
 												},
 											}),
-										)
+										);
 									}
 								}
 							} catch {
 								// noop
 							}
 
-							return { configs }
+							return { configs };
 						},
-					})
+					});
 				},
-			)
+			);
 		}
 	},
-})
+});
 
 function fileExists(path?: string, extensions = ["js", "ts"]): string | null {
 	if (!path) {
-		return null
+		return null;
 	} else if (existsSync(path)) {
-		return path
+		return path;
 	}
 
 	const extension = extensions.find((extension) =>
 		existsSync(`${path}.${extension}`),
-	)
+	);
 
-	return extension ? `${path}.${extension}` : null
+	return extension ? `${path}.${extension}` : null;
 }
 
 type PrismicConfig = {
-	repositoryName?: string
-	routes?: Route[]
-}
+	repositoryName?: string;
+	routes?: Route[];
+};
 
-function readPrismicConfig(
-	configPath: string,
-): PrismicConfig {
+function readPrismicConfig(configPath: string): PrismicConfig {
 	if (!existsSync(configPath)) {
-		return {}
+		return {};
 	}
 
 	try {
-		const contents = readFileSync(configPath, "utf-8")
-		const rawConfig = JSON.parse(contents) as unknown
+		const contents = readFileSync(configPath, "utf-8");
+		const rawConfig = JSON.parse(contents) as unknown;
 
-		if (!rawConfig || typeof rawConfig !== "object" || Array.isArray(rawConfig)) {
-			return {}
+		if (
+			!rawConfig ||
+			typeof rawConfig !== "object" ||
+			Array.isArray(rawConfig)
+		) {
+			return {};
 		}
 
-		const config: PrismicConfig = {}
-		if ("repositoryName" in rawConfig && typeof rawConfig.repositoryName === "string") {
-			config.repositoryName = rawConfig.repositoryName
+		const config: PrismicConfig = {};
+		if (
+			"repositoryName" in rawConfig &&
+			typeof rawConfig.repositoryName === "string"
+		) {
+			config.repositoryName = rawConfig.repositoryName;
 		}
 
 		if ("routes" in rawConfig && Array.isArray(rawConfig.routes)) {
-			config.routes = rawConfig.routes
+			config.routes = rawConfig.routes;
 		}
 
-		return config
+		return config;
 	} catch {
-		return {}
+		return {};
 	}
 }

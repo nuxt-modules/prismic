@@ -1,3 +1,3 @@
 export default function linkResolver(): string {
-	return "/link-resolver"
+	return "/link-resolver";
 }

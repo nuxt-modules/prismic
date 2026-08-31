@@ -1,5 +1,5 @@
-import prismic from "../../../src/module"
+import prismic from "../../../src/module";
 
 export default defineNuxtConfig({
 	modules: [prismic],
-})
+});

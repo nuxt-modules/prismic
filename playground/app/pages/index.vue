@@ -1,12 +1,12 @@
 <script setup lang="ts">
-import { useAsyncData, usePrismic } from "#imports"
+import { useAsyncData, usePrismic } from "#imports";
 
-const { client } = usePrismic()
+const { client } = usePrismic();
 
 const { data: doc } = await useAsyncData<Content.KitchenSinkDocument>(
 	"index",
 	() => client.getSingle("kitchen_sink"),
-)
+);
 </script>
 
 <template>

@@ -1,8 +1,8 @@
 <script setup>
-import { usePrismicPreview, useSeoMeta } from "#imports"
+import { usePrismicPreview, useSeoMeta } from "#imports";
 
-useSeoMeta({ title: "Prismic Preview - Loading" })
-usePrismicPreview()
+useSeoMeta({ title: "Prismic Preview - Loading" });
+usePrismicPreview();
 </script>
 
 <template>

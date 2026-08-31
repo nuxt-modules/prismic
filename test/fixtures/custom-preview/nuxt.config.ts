@@ -1,4 +1,4 @@
-import prismic from "../../../src/module"
+import prismic from "../../../src/module";
 
 export default defineNuxtConfig({
 	modules: [prismic],
@@ -10,4 +10,4 @@ export default defineNuxtConfig({
 			routes: [{ type: "kitchen_sink", path: "/kitchen-sink" }],
 		},
 	},
-})
+});

@@ -1,8 +1,8 @@
-import { describe, expect, it } from "vitest"
+import { describe, expect, it } from "vitest";
 
-import { fileURLToPath } from "node:url"
+import { fileURLToPath } from "node:url";
 
-import { $fetch, setup } from "@nuxt/test-utils/e2e"
+import { $fetch, setup } from "@nuxt/test-utils/e2e";
 
 describe("environment", async () => {
 	await setup({
@@ -11,12 +11,12 @@ describe("environment", async () => {
 			NUXT_PUBLIC_PRISMIC_ENDPOINT: "runtime-config",
 			NUXT_PUBLIC_PRISMIC_ENVIRONMENT: "runtime-config-environment",
 		},
-	})
+	});
 
 	it("overrides repository name from environment", async () => {
-		const html = await $fetch("/")
+		const html = await $fetch("/");
 		expect(html).toContain(
 			`<div id="repository-name">runtime-config-environment</div>`,
-		)
-	})
-})
+		);
+	});
+});

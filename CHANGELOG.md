@@ -4,468 +4,401 @@ All notable changes to this project will be documented in this file. See [standa
 
 ## [5.3.0](https://github.com/nuxt-modules/prismic/compare/v5.2.1...v5.3.0) (2026-05-01)
 
-
 ### Features
 
-* automatically infer module options from prismic config ([d380eb6](https://github.com/nuxt-modules/prismic/commit/d380eb6bbb79ae80b4c26bd81d495d7c7349bbcd))
-* watch `prismic.config.json` ([776ac17](https://github.com/nuxt-modules/prismic/commit/776ac17caa4cc35554ab45ca64489a688b5698b2))
+- automatically infer module options from prismic config ([d380eb6](https://github.com/nuxt-modules/prismic/commit/d380eb6bbb79ae80b4c26bd81d495d7c7349bbcd))
+- watch `prismic.config.json` ([776ac17](https://github.com/nuxt-modules/prismic/commit/776ac17caa4cc35554ab45ca64489a688b5698b2))
 
 ## [5.2.1](https://github.com/nuxt-modules/prismic/compare/v5.2.0...v5.2.1) (2026-04-09)
 
-
 ### Bug Fixes
 
-* **deps:** maintain dependencies ([1ac26e4](https://github.com/nuxt-modules/prismic/commit/1ac26e456866a0b1029374f47c931c3275597048))
+- **deps:** maintain dependencies ([1ac26e4](https://github.com/nuxt-modules/prismic/commit/1ac26e456866a0b1029374f47c931c3275597048))
 
 ## [5.2.0](https://github.com/nuxt-modules/prismic/compare/v5.1.1...v5.2.0) (2026-01-23)
 
-
 ### Features
 
-* experimental `imports` option ([ca9aca6](https://github.com/nuxt-modules/prismic/commit/ca9aca6588cfe59d0e89489fc84453c4356fead8))
+- experimental `imports` option ([ca9aca6](https://github.com/nuxt-modules/prismic/commit/ca9aca6588cfe59d0e89489fc84453c4356fead8))
 
 ## [5.1.1](https://github.com/nuxt-modules/prismic/compare/v5.1.0...v5.1.1) (2026-01-20)
 
-
 ### Bug Fixes
 
-* **deps:** update `@prismicio/vue` ([1dd771e](https://github.com/nuxt-modules/prismic/commit/1dd771e1e3c0668d6069ec6d908764f03434da45))
+- **deps:** update `@prismicio/vue` ([1dd771e](https://github.com/nuxt-modules/prismic/commit/1dd771e1e3c0668d6069ec6d908764f03434da45))
 
 ## [5.1.0](https://github.com/nuxt-modules/prismic/compare/v5.0.0...v5.1.0) (2026-01-14)
 
-
 ### Features
 
-* add `<SliceSimulator>` component ([#237](https://github.com/nuxt-modules/prismic/issues/237)) ([fa444d0](https://github.com/nuxt-modules/prismic/commit/fa444d0c28346b66942962e3ff280c1af3795ae0))
+- add `<SliceSimulator>` component ([#237](https://github.com/nuxt-modules/prismic/issues/237)) ([fa444d0](https://github.com/nuxt-modules/prismic/commit/fa444d0c28346b66942962e3ff280c1af3795ae0))
 
 ## [5.0.0](https://github.com/nuxt-modules/prismic/compare/v4.1.0...v5.0.0) (2026-01-06)
 
-
 ### ⚠ BREAKING CHANGES
 
-* simplify module ([#235](https://github.com/nuxt-modules/prismic/issues/235))
+- simplify module ([#235](https://github.com/nuxt-modules/prismic/issues/235))
 
 ### Code Refactoring
 
-* simplify module ([#235](https://github.com/nuxt-modules/prismic/issues/235)) ([edbdc91](https://github.com/nuxt-modules/prismic/commit/edbdc915e590196e5b6bb1f9bdc74fd9258f037d))
+- simplify module ([#235](https://github.com/nuxt-modules/prismic/issues/235)) ([edbdc91](https://github.com/nuxt-modules/prismic/commit/edbdc915e590196e5b6bb1f9bdc74fd9258f037d))
 
 ## [4.1.0](https://github.com/nuxt-modules/prismic/compare/v4.0.1...v4.1.0) (2025-03-03)
 
-
 ### Features
 
-* auto-import table-related components ([fce43e0](https://github.com/nuxt-modules/prismic/commit/fce43e0dfe44c9185429f96e53f31561e2e6f845))
-
+- auto-import table-related components ([fce43e0](https://github.com/nuxt-modules/prismic/commit/fce43e0dfe44c9185429f96e53f31561e2e6f845))
 
 ### Chore
 
-* **deps:** maintain dependencies ([374ee7c](https://github.com/nuxt-modules/prismic/commit/374ee7c832978c22d20be919486e341a1c1b8195))
+- **deps:** maintain dependencies ([374ee7c](https://github.com/nuxt-modules/prismic/commit/374ee7c832978c22d20be919486e341a1c1b8195))
 
 ### [4.0.1](https://github.com/nuxt-modules/prismic/compare/v4.0.0...v4.0.1) (2025-01-23)
 
-
 ### Documentation
 
-* warning message ([9b1cb71](https://github.com/nuxt-modules/prismic/commit/9b1cb71da2233cf18c8ea0b5be7ab8dad1229998))
-
+- warning message ([9b1cb71](https://github.com/nuxt-modules/prismic/commit/9b1cb71da2233cf18c8ea0b5be7ab8dad1229998))
 
 ### Chore
 
-* **deps:** bump `@prismicio/vue` ([25dde60](https://github.com/nuxt-modules/prismic/commit/25dde6005167821d75b342cdb16df0cc0d65e9a0))
+- **deps:** bump `@prismicio/vue` ([25dde60](https://github.com/nuxt-modules/prismic/commit/25dde6005167821d75b342cdb16df0cc0d65e9a0))
 
 ## [4.0.0](https://github.com/nuxt-modules/prismic/compare/v3.4.8...v4.0.0) (2025-01-20)
 
-
 ### ⚠ BREAKING CHANGES
 
-* v4 (#229)
+- v4 (#229)
 
 ### Features
 
-* v4 ([#229](https://github.com/nuxt-modules/prismic/issues/229)) ([4965e0b](https://github.com/nuxt-modules/prismic/commit/4965e0bae5e99f566a34b3d4bdea49aac6ce3ccc))
+- v4 ([#229](https://github.com/nuxt-modules/prismic/issues/229)) ([4965e0b](https://github.com/nuxt-modules/prismic/commit/4965e0bae5e99f566a34b3d4bdea49aac6ce3ccc))
 
 ## [4.0.0-rc.1](https://github.com/nuxt-modules/prismic/compare/v4.0.0-rc.0...v4.0.0-rc.1) (2025-01-14)
 
-
 ### Features
 
-* provide auto imports for `linkRel`, `richTextComponents`, and `sliceZoneDefaultComponent` ([5b754e4](https://github.com/nuxt-modules/prismic/commit/5b754e4afc51ad6bf8221d8d99be71a152bd9209))
-
+- provide auto imports for `linkRel`, `richTextComponents`, and `sliceZoneDefaultComponent` ([5b754e4](https://github.com/nuxt-modules/prismic/commit/5b754e4afc51ad6bf8221d8d99be71a152bd9209))
 
 ### Bug Fixes
 
-* auto imports for `linkRel`, `richTextComponents`, and `sliceZoneDefaultComponent` in nuxt 4 ([bbec245](https://github.com/nuxt-modules/prismic/commit/bbec2458c711dcb2817d72ed13845e37afe693c8))
-
+- auto imports for `linkRel`, `richTextComponents`, and `sliceZoneDefaultComponent` in nuxt 4 ([bbec245](https://github.com/nuxt-modules/prismic/commit/bbec2458c711dcb2817d72ed13845e37afe693c8))
 
 ### Chore
 
-* **deps:** maintain dependencies ([f3255d4](https://github.com/nuxt-modules/prismic/commit/f3255d46258c9957ac45de45e343749b17ad3899))
-
+- **deps:** maintain dependencies ([f3255d4](https://github.com/nuxt-modules/prismic/commit/f3255d46258c9957ac45de45e343749b17ad3899))
 
 ### Documentation
 
-* fix doc ([4e8eecf](https://github.com/nuxt-modules/prismic/commit/4e8eecfe8fcef4b679ee0123326c57927e3860fe))
-* fix doc ([4b8a344](https://github.com/nuxt-modules/prismic/commit/4b8a3442f45bc92330ebe733f017b0ef025719c1))
-* simplify doc ([5baadd5](https://github.com/nuxt-modules/prismic/commit/5baadd54c697993f730b28b9410231964b473e7d))
-* tsdocs ([42d4392](https://github.com/nuxt-modules/prismic/commit/42d43926d97f58afadd9a7f4477644bff94780f5))
+- fix doc ([4e8eecf](https://github.com/nuxt-modules/prismic/commit/4e8eecfe8fcef4b679ee0123326c57927e3860fe))
+- fix doc ([4b8a344](https://github.com/nuxt-modules/prismic/commit/4b8a3442f45bc92330ebe733f017b0ef025719c1))
+- simplify doc ([5baadd5](https://github.com/nuxt-modules/prismic/commit/5baadd54c697993f730b28b9410231964b473e7d))
+- tsdocs ([42d4392](https://github.com/nuxt-modules/prismic/commit/42d43926d97f58afadd9a7f4477644bff94780f5))
 
 ## [4.0.0-rc.0](https://github.com/nuxt-modules/prismic/compare/v3.4.7...v4.0.0-rc.0) (2025-01-06)
 
-
 ### ⚠ BREAKING CHANGES
 
-* set setup plugin as parallel (#226)
+- set setup plugin as parallel (#226)
 
 ### Features
 
-* improved devtools tab ([c1d6d51](https://github.com/nuxt-modules/prismic/commit/c1d6d51a5b46389adfe2488721c7937a8e6b8943))
-* set setup plugin as parallel ([#226](https://github.com/nuxt-modules/prismic/issues/226)) ([871b19f](https://github.com/nuxt-modules/prismic/commit/871b19f5c53e4a123cf75b4707e40fbb924659ee))
-
+- improved devtools tab ([c1d6d51](https://github.com/nuxt-modules/prismic/commit/c1d6d51a5b46389adfe2488721c7937a8e6b8943))
+- set setup plugin as parallel ([#226](https://github.com/nuxt-modules/prismic/issues/226)) ([871b19f](https://github.com/nuxt-modules/prismic/commit/871b19f5c53e4a123cf75b4707e40fbb924659ee))
 
 ### Chore
 
-* **deps:** remove `consola` dependency ([df2ef44](https://github.com/nuxt-modules/prismic/commit/df2ef441f4126f21a9224e7f163eee89e3267fea))
-* update example and playground ([54d217c](https://github.com/nuxt-modules/prismic/commit/54d217c55ea4e9fd67ccef725af53b49290cf893))
+- **deps:** remove `consola` dependency ([df2ef44](https://github.com/nuxt-modules/prismic/commit/df2ef441f4126f21a9224e7f163eee89e3267fea))
+- update example and playground ([54d217c](https://github.com/nuxt-modules/prismic/commit/54d217c55ea4e9fd67ccef725af53b49290cf893))
+
 ### [3.4.8](https://github.com/nuxt-modules/prismic/compare/v3.4.7...v3.4.8) (2025-01-06)
 
 ### [3.4.7](https://github.com/nuxt-modules/prismic/compare/v3.4.6...v3.4.7) (2025-01-02)
 
-
 ### Chore
 
-* cleanup playground ([6c55467](https://github.com/nuxt-modules/prismic/commit/6c554671e5490f71cb1edffb70b52159d75dad3e))
-* **deps:** maintain dependencies ([154a5cb](https://github.com/nuxt-modules/prismic/commit/154a5cb8a87ed02bbc5a40cd606dbf98aa371dd0))
+- cleanup playground ([6c55467](https://github.com/nuxt-modules/prismic/commit/6c554671e5490f71cb1edffb70b52159d75dad3e))
+- **deps:** maintain dependencies ([154a5cb](https://github.com/nuxt-modules/prismic/commit/154a5cb8a87ed02bbc5a40cd606dbf98aa371dd0))
 
 ### [3.4.6](https://github.com/nuxt-modules/prismic/compare/v3.4.5...v3.4.6) (2024-12-05)
 
-
 ### Bug Fixes
 
-* **deps:** remove consola dependency in runtime dir ([983a4dd](https://github.com/nuxt-modules/prismic/commit/983a4dd4f890dcda19dc014914794e3080d534c8))
+- **deps:** remove consola dependency in runtime dir ([983a4dd](https://github.com/nuxt-modules/prismic/commit/983a4dd4f890dcda19dc014914794e3080d534c8))
 
 ### [3.4.5](https://github.com/nuxt-modules/prismic/compare/v3.4.4...v3.4.5) (2024-12-05)
 
-
 ### Bug Fixes
 
-* compile logger correctly ([ff535fb](https://github.com/nuxt-modules/prismic/commit/ff535fb1110a123fccde2e6088e355ca0c0eb7b6))
-
+- compile logger correctly ([ff535fb](https://github.com/nuxt-modules/prismic/commit/ff535fb1110a123fccde2e6088e355ca0c0eb7b6))
 
 ### Chore
 
-* **deps:** fix lock file ([d996855](https://github.com/nuxt-modules/prismic/commit/d996855b565e5fe1dc79906ece3aba91d676c468))
+- **deps:** fix lock file ([d996855](https://github.com/nuxt-modules/prismic/commit/d996855b565e5fe1dc79906ece3aba91d676c468))
 
 ### [3.4.4](https://github.com/nuxt-modules/prismic/compare/v3.4.3...v3.4.4) (2024-12-03)
 
-
 ### Bug Fixes
 
-* disable Prismic module gracefully on custom client resolution error ([#224](https://github.com/nuxt-modules/prismic/issues/224)) ([359dcee](https://github.com/nuxt-modules/prismic/commit/359dceec3bf44f929310748a5245c86e5185fb53))
+- disable Prismic module gracefully on custom client resolution error ([#224](https://github.com/nuxt-modules/prismic/issues/224)) ([359dcee](https://github.com/nuxt-modules/prismic/commit/359dceec3bf44f929310748a5245c86e5185fb53))
 
 ### [3.4.3](https://github.com/nuxt-modules/prismic/compare/v3.4.2...v3.4.3) (2024-10-03)
 
-
 ### Bug Fixes
 
-* use plugin client ([52fcdf1](https://github.com/nuxt-modules/prismic/commit/52fcdf1a304b27e29dba9d9bd277782c0ac9f11d))
+- use plugin client ([52fcdf1](https://github.com/nuxt-modules/prismic/commit/52fcdf1a304b27e29dba9d9bd277782c0ac9f11d))
 
 ### [3.4.2](https://github.com/nuxt-modules/prismic/compare/v3.4.1...v3.4.2) (2024-10-03)
 
-
 ### Bug Fixes
 
-* use stable `client.repositoryName` ([f186e9d](https://github.com/nuxt-modules/prismic/commit/f186e9d3637bb13f0ce89ad9cd16941c07eed4ad))
-
+- use stable `client.repositoryName` ([f186e9d](https://github.com/nuxt-modules/prismic/commit/f186e9d3637bb13f0ce89ad9cd16941c07eed4ad))
 
 ### Chore
 
-* **deps:** maintain dependencies ([ffd09b4](https://github.com/nuxt-modules/prismic/commit/ffd09b4d00ad52566e64d25a702a1abb57e6278d))
+- **deps:** maintain dependencies ([ffd09b4](https://github.com/nuxt-modules/prismic/commit/ffd09b4d00ad52566e64d25a702a1abb57e6278d))
 
 ### [3.4.1](https://github.com/nuxt-modules/prismic/compare/v3.4.0...v3.4.1) (2024-09-16)
 
-
 ### Bug Fixes
 
-* types for runtime/plugin.ts not being created correctly ([#220](https://github.com/nuxt-modules/prismic/issues/220)) ([28ddc1a](https://github.com/nuxt-modules/prismic/commit/28ddc1a88157454a528ea68ac5e720c97db829d7))
-
+- types for runtime/plugin.ts not being created correctly ([#220](https://github.com/nuxt-modules/prismic/issues/220)) ([28ddc1a](https://github.com/nuxt-modules/prismic/commit/28ddc1a88157454a528ea68ac5e720c97db829d7))
 
 ### Chore
 
-* **deps:** maintain dependencies ([b1c1b9a](https://github.com/nuxt-modules/prismic/commit/b1c1b9a483fcbbab6999ee464123eddbdc035f57))
+- **deps:** maintain dependencies ([b1c1b9a](https://github.com/nuxt-modules/prismic/commit/b1c1b9a483fcbbab6999ee464123eddbdc035f57))
 
 ## [3.4.0](https://github.com/nuxt-modules/prismic/compare/v3.3.2...v3.4.0) (2024-08-31)
 
-
 ### Features
 
-* allow factory function for customClient ([#219](https://github.com/nuxt-modules/prismic/issues/219)) ([bd7d02d](https://github.com/nuxt-modules/prismic/commit/bd7d02d86813b2ec5502cbe1cbdba2ed8839878c))
-
+- allow factory function for customClient ([#219](https://github.com/nuxt-modules/prismic/issues/219)) ([bd7d02d](https://github.com/nuxt-modules/prismic/commit/bd7d02d86813b2ec5502cbe1cbdba2ed8839878c))
 
 ### Chore
 
-* **deps:** maintain dependencies ([e244648](https://github.com/nuxt-modules/prismic/commit/e244648a43a60480ab2a4cc904739cbfb1962f05))
-* **deps:** maintain dependencies ([191e2d4](https://github.com/nuxt-modules/prismic/commit/191e2d4ec2b9c50b3f9da75ba7e7746da834f04f))
-* **deps:** update @prismicio/client ([4c95bfc](https://github.com/nuxt-modules/prismic/commit/4c95bfca4bb955e46d49b303e338badd1de9cdc5))
+- **deps:** maintain dependencies ([e244648](https://github.com/nuxt-modules/prismic/commit/e244648a43a60480ab2a4cc904739cbfb1962f05))
+- **deps:** maintain dependencies ([191e2d4](https://github.com/nuxt-modules/prismic/commit/191e2d4ec2b9c50b3f9da75ba7e7746da834f04f))
+- **deps:** update @prismicio/client ([4c95bfc](https://github.com/nuxt-modules/prismic/commit/4c95bfca4bb955e46d49b303e338badd1de9cdc5))
 
 ### [3.3.2](https://github.com/nuxt-modules/prismic/compare/v3.3.1...v3.3.2) (2024-07-02)
 
-
 ### Bug Fixes
 
-* also export options as `ModuleOptions`, resolves [#215](https://github.com/nuxt-modules/prismic/issues/215) ([169fc8f](https://github.com/nuxt-modules/prismic/commit/169fc8f5b46c79334aeeb200e7d68c3b6041d0f4))
+- also export options as `ModuleOptions`, resolves [#215](https://github.com/nuxt-modules/prismic/issues/215) ([169fc8f](https://github.com/nuxt-modules/prismic/commit/169fc8f5b46c79334aeeb200e7d68c3b6041d0f4))
 
 ### [3.3.1](https://github.com/nuxt-modules/prismic/compare/v3.3.0...v3.3.1) (2024-06-14)
 
-
 ### Bug Fixes
 
-* incorrect key read on `slicemachine.config.json` ([1594324](https://github.com/nuxt-modules/prismic/commit/1594324ec4e21dbf4b1b517e763a69555b24c3c1))
+- incorrect key read on `slicemachine.config.json` ([1594324](https://github.com/nuxt-modules/prismic/commit/1594324ec4e21dbf4b1b517e763a69555b24c3c1))
 
 ## [3.3.0](https://github.com/nuxt-modules/prismic/compare/v3.2.1...v3.3.0) (2024-06-13)
 
-
 ### Features
 
-* ease Nuxt 4 update by removing `app/` prefix from Prismic files ([e0669de](https://github.com/nuxt-modules/prismic/commit/e0669de6601381185cd8c2ec15763ca178780425))
-* integrate with `@nuxtjs/eslint`, resolves [#213](https://github.com/nuxt-modules/prismic/issues/213) ([3089cc4](https://github.com/nuxt-modules/prismic/commit/3089cc4c109243d2d52be09e13866b21c1ccee18))
-
+- ease Nuxt 4 update by removing `app/` prefix from Prismic files ([e0669de](https://github.com/nuxt-modules/prismic/commit/e0669de6601381185cd8c2ec15763ca178780425))
+- integrate with `@nuxtjs/eslint`, resolves [#213](https://github.com/nuxt-modules/prismic/issues/213) ([3089cc4](https://github.com/nuxt-modules/prismic/commit/3089cc4c109243d2d52be09e13866b21c1ccee18))
 
 ### Chore
 
-* refresh project structure and fully migrate to pnpm ([1833e8e](https://github.com/nuxt-modules/prismic/commit/1833e8e8d934e02bea77d1d67ca246d4282462a4))
-
+- refresh project structure and fully migrate to pnpm ([1833e8e](https://github.com/nuxt-modules/prismic/commit/1833e8e8d934e02bea77d1d67ca246d4282462a4))
 
 ### Refactor
 
-* `tsconfig.json` ([494b54a](https://github.com/nuxt-modules/prismic/commit/494b54a41bd1e57517eebd60b873f9dd9badbc64))
-* migrate to `memfs` ([3edf88b](https://github.com/nuxt-modules/prismic/commit/3edf88be7c12b904b465c642b1980013437fd4d6))
-* use pnpm workspaces ([0e7c98e](https://github.com/nuxt-modules/prismic/commit/0e7c98e406e4a2928e51fcf94d7fae052e1d8a3c))
-
+- `tsconfig.json` ([494b54a](https://github.com/nuxt-modules/prismic/commit/494b54a41bd1e57517eebd60b873f9dd9badbc64))
+- migrate to `memfs` ([3edf88b](https://github.com/nuxt-modules/prismic/commit/3edf88be7c12b904b465c642b1980013437fd4d6))
+- use pnpm workspaces ([0e7c98e](https://github.com/nuxt-modules/prismic/commit/0e7c98e406e4a2928e51fcf94d7fae052e1d8a3c))
 
 ### Documentation
 
-* fix doc generation ([e418cff](https://github.com/nuxt-modules/prismic/commit/e418cffd806d78ebbadbcf019c46d4f2d30e5446))
-* refresh docs ([a9dae6b](https://github.com/nuxt-modules/prismic/commit/a9dae6b4ceecbe1b8ce119ac649825f07f862c59))
-* update readme badges ([db3cac6](https://github.com/nuxt-modules/prismic/commit/db3cac62cc57c64c8e3e41541008a66ed518c4af))
+- fix doc generation ([e418cff](https://github.com/nuxt-modules/prismic/commit/e418cffd806d78ebbadbcf019c46d4f2d30e5446))
+- refresh docs ([a9dae6b](https://github.com/nuxt-modules/prismic/commit/a9dae6b4ceecbe1b8ce119ac649825f07f862c59))
+- update readme badges ([db3cac6](https://github.com/nuxt-modules/prismic/commit/db3cac62cc57c64c8e3e41541008a66ed518c4af))
 
 ### [3.2.1](https://github.com/nuxt-modules/prismic/compare/v3.2.0...v3.2.1) (2024-04-09)
 
-
 ### Bug Fixes
 
-* slice machine configuration not loading in production (cjs), fixes: [#212](https://github.com/nuxt-modules/prismic/issues/212) ([a704db2](https://github.com/nuxt-modules/prismic/commit/a704db25d244c20c6240ef293db8c0509d51fafc))
-
+- slice machine configuration not loading in production (cjs), fixes: [#212](https://github.com/nuxt-modules/prismic/issues/212) ([a704db2](https://github.com/nuxt-modules/prismic/commit/a704db25d244c20c6240ef293db8c0509d51fafc))
 
 ### Documentation
 
-* use new `nuxi module add` command in installation ([#211](https://github.com/nuxt-modules/prismic/issues/211)) ([67c4991](https://github.com/nuxt-modules/prismic/commit/67c4991bf4399c4f812a5a02eb35452be0e6b7fe))
-
+- use new `nuxi module add` command in installation ([#211](https://github.com/nuxt-modules/prismic/issues/211)) ([67c4991](https://github.com/nuxt-modules/prismic/commit/67c4991bf4399c4f812a5a02eb35452be0e6b7fe))
 
 ### Chore
 
-* **deps:** maintain lock file ([817ad6a](https://github.com/nuxt-modules/prismic/commit/817ad6aea4a9b04eac4c7e4814feca2824411a7d))
+- **deps:** maintain lock file ([817ad6a](https://github.com/nuxt-modules/prismic/commit/817ad6aea4a9b04eac4c7e4814feca2824411a7d))
 
 ## [3.2.0](https://github.com/nuxt-modules/prismic/compare/v3.1.1...v3.2.0) (2024-04-08)
 
-
 ### Features
 
-* devtool integration for slicemachine ([#210](https://github.com/nuxt-modules/prismic/issues/210)) ([a04d52c](https://github.com/nuxt-modules/prismic/commit/a04d52ca9b1600ce7f7ac43aa8586405c9ec0942))
+- devtool integration for slicemachine ([#210](https://github.com/nuxt-modules/prismic/issues/210)) ([a04d52c](https://github.com/nuxt-modules/prismic/commit/a04d52ca9b1600ce7f7ac43aa8586405c9ec0942))
 
 ### [3.1.1](https://github.com/nuxt-modules/prismic/compare/v3.1.0...v3.1.1) (2024-03-26)
 
-
 ### Bug Fixes
 
-* COEP error ([#209](https://github.com/nuxt-modules/prismic/issues/209)) ([0f2729a](https://github.com/nuxt-modules/prismic/commit/0f2729a33a56b8b80dc001234e37b529763c3deb))
-* opt in to `import.meta.*` properties ([#208](https://github.com/nuxt-modules/prismic/issues/208)) ([fee3cbe](https://github.com/nuxt-modules/prismic/commit/fee3cbe3e9ac30bb1ae2eba55e922c5de3e85ebb))
-
+- COEP error ([#209](https://github.com/nuxt-modules/prismic/issues/209)) ([0f2729a](https://github.com/nuxt-modules/prismic/commit/0f2729a33a56b8b80dc001234e37b529763c3deb))
+- opt in to `import.meta.*` properties ([#208](https://github.com/nuxt-modules/prismic/issues/208)) ([fee3cbe](https://github.com/nuxt-modules/prismic/commit/fee3cbe3e9ac30bb1ae2eba55e922c5de3e85ebb))
 
 ### Documentation
 
-* link to official doc ([57d9ebb](https://github.com/nuxt-modules/prismic/commit/57d9ebb1958e02219af2959bca2707fbee5674fe))
-* update install step, fixes: [#206](https://github.com/nuxt-modules/prismic/issues/206) ([7ec855b](https://github.com/nuxt-modules/prismic/commit/7ec855b0d2399b7ad81014029a57182fe03e0050))
-
+- link to official doc ([57d9ebb](https://github.com/nuxt-modules/prismic/commit/57d9ebb1958e02219af2959bca2707fbee5674fe))
+- update install step, fixes: [#206](https://github.com/nuxt-modules/prismic/issues/206) ([7ec855b](https://github.com/nuxt-modules/prismic/commit/7ec855b0d2399b7ad81014029a57182fe03e0050))
 
 ### Chore
 
-* **deps:** maintain dependencies ([698bdde](https://github.com/nuxt-modules/prismic/commit/698bddeccb133e4fc47ee99ebcbcecbb620962c5))
-* **deps:** maintain lockfile ([2505462](https://github.com/nuxt-modules/prismic/commit/2505462cc35624e21eb48816d48027642dd89a91))
-* update minimal example ([4ce471f](https://github.com/nuxt-modules/prismic/commit/4ce471f6dceadc1f38729234e296dc3429a231eb))
+- **deps:** maintain dependencies ([698bdde](https://github.com/nuxt-modules/prismic/commit/698bddeccb133e4fc47ee99ebcbcecbb620962c5))
+- **deps:** maintain lockfile ([2505462](https://github.com/nuxt-modules/prismic/commit/2505462cc35624e21eb48816d48027642dd89a91))
+- update minimal example ([4ce471f](https://github.com/nuxt-modules/prismic/commit/4ce471f6dceadc1f38729234e296dc3429a231eb))
 
 ## [3.1.0](https://github.com/nuxt-modules/prismic/compare/v3.0.3...v3.1.0) (2023-10-24)
 
-
 ### Features
 
-* allow `endpoint` to be optional, fixes [#199](https://github.com/nuxt-modules/prismic/issues/199) ([0eb67c1](https://github.com/nuxt-modules/prismic/commit/0eb67c178825f286f48edf2bcf3a6e90d828c903))
-* support environments ([#202](https://github.com/nuxt-modules/prismic/issues/202)) ([ec6dcc9](https://github.com/nuxt-modules/prismic/commit/ec6dcc9e22b338b8f54f0e98b1a0a07eac850935))
-
+- allow `endpoint` to be optional, fixes [#199](https://github.com/nuxt-modules/prismic/issues/199) ([0eb67c1](https://github.com/nuxt-modules/prismic/commit/0eb67c178825f286f48edf2bcf3a6e90d828c903))
+- support environments ([#202](https://github.com/nuxt-modules/prismic/issues/202)) ([ec6dcc9](https://github.com/nuxt-modules/prismic/commit/ec6dcc9e22b338b8f54f0e98b1a0a07eac850935))
 
 ### Chore
 
-* **deps:** maintain dependencies ([91c95c8](https://github.com/nuxt-modules/prismic/commit/91c95c8f3e87b4bfc9b147cc14fabf1dcbbf3d29))
-* **deps:** update minimal example ([0e00bfc](https://github.com/nuxt-modules/prismic/commit/0e00bfc734469b9e218f5613969f03fa808c966b))
+- **deps:** maintain dependencies ([91c95c8](https://github.com/nuxt-modules/prismic/commit/91c95c8f3e87b4bfc9b147cc14fabf1dcbbf3d29))
+- **deps:** update minimal example ([0e00bfc](https://github.com/nuxt-modules/prismic/commit/0e00bfc734469b9e218f5613969f03fa808c966b))
 
 ### [3.0.3](https://github.com/nuxt-modules/prismic/compare/v3.0.2...v3.0.3) (2023-09-26)
 
-
 ### Chore
 
-* **deps:** maintain dependencies ([f293530](https://github.com/nuxt-modules/prismic/commit/f293530aafdb1cc6c839e80d79325a166b5f72cb))
+- **deps:** maintain dependencies ([f293530](https://github.com/nuxt-modules/prismic/commit/f293530aafdb1cc6c839e80d79325a166b5f72cb))
 
 ### [3.0.2](https://github.com/nuxt-modules/prismic/compare/v3.0.1...v3.0.2) (2023-09-18)
 
-
 ### Bug Fixes
 
-* refresh Nuxt data during preview on page change properly ([30bb9f8](https://github.com/nuxt-modules/prismic/commit/30bb9f83beddf449d305882d94d07aeae46617d0))
-
+- refresh Nuxt data during preview on page change properly ([30bb9f8](https://github.com/nuxt-modules/prismic/commit/30bb9f83beddf449d305882d94d07aeae46617d0))
 
 ### Chore
 
-* **deps:** maintain dependencies ([e7a6a2b](https://github.com/nuxt-modules/prismic/commit/e7a6a2b3b87742c6506a79da91a7f486e5b73dee))
+- **deps:** maintain dependencies ([e7a6a2b](https://github.com/nuxt-modules/prismic/commit/e7a6a2b3b87742c6506a79da91a7f486e5b73dee))
 
 ### [3.0.1](https://github.com/nuxt-modules/prismic/compare/v3.0.0...v3.0.1) (2023-06-21)
 
-
 ### Bug Fixes
 
-* cleanup stale preview cookie from toolbar when disabled ([3f3c9f2](https://github.com/nuxt-modules/prismic/commit/3f3c9f20f66aaa6d0d2b5fdab99626546a523f34))
-
+- cleanup stale preview cookie from toolbar when disabled ([3f3c9f2](https://github.com/nuxt-modules/prismic/commit/3f3c9f20f66aaa6d0d2b5fdab99626546a523f34))
 
 ### Documentation
 
-* minimal reproduction starter ([a397b81](https://github.com/nuxt-modules/prismic/commit/a397b8162e16e95fd0dc4a75b5c735b5775774d6))
-* nuxt 2 doc link ([217f4f1](https://github.com/nuxt-modules/prismic/commit/217f4f15e304b5f8a61ece34f4476736bd38ae0a))
-* remove starter readme ([87f73fb](https://github.com/nuxt-modules/prismic/commit/87f73fb6409d464cbe4c1ec1fe393408cbfbc4c1))
-* update 0.index.md ([fa72cfb](https://github.com/nuxt-modules/prismic/commit/fa72cfb8d51fa7914a26d89e41150ccf40d8c9d7))
-* update readme ([6f2affb](https://github.com/nuxt-modules/prismic/commit/6f2affb20304d04062cbebc3f3b1ecb13c981d3d))
+- minimal reproduction starter ([a397b81](https://github.com/nuxt-modules/prismic/commit/a397b8162e16e95fd0dc4a75b5c735b5775774d6))
+- nuxt 2 doc link ([217f4f1](https://github.com/nuxt-modules/prismic/commit/217f4f15e304b5f8a61ece34f4476736bd38ae0a))
+- remove starter readme ([87f73fb](https://github.com/nuxt-modules/prismic/commit/87f73fb6409d464cbe4c1ec1fe393408cbfbc4c1))
+- update 0.index.md ([fa72cfb](https://github.com/nuxt-modules/prismic/commit/fa72cfb8d51fa7914a26d89e41150ccf40d8c9d7))
+- update readme ([6f2affb](https://github.com/nuxt-modules/prismic/commit/6f2affb20304d04062cbebc3f3b1ecb13c981d3d))
 
 ## [3.0.0](https://github.com/nuxt-modules/prismic/compare/v3.0.0-rc.9...v3.0.0) (2023-06-06)
 
-
 ### Documentation
 
-* Nuxt 2 doc ([2612001](https://github.com/nuxt-modules/prismic/commit/2612001697b597eeaade823b33d86ef6875f60c3))
-* update doc ([238ae4d](https://github.com/nuxt-modules/prismic/commit/238ae4ddfb116b333dd238c00365914cd3459246))
+- Nuxt 2 doc ([2612001](https://github.com/nuxt-modules/prismic/commit/2612001697b597eeaade823b33d86ef6875f60c3))
+- update doc ([238ae4d](https://github.com/nuxt-modules/prismic/commit/238ae4ddfb116b333dd238c00365914cd3459246))
 
 ## [3.0.0-rc.9](https://github.com/nuxt-modules/prismic/compare/v3.0.0-rc.8...v3.0.0-rc.9) (2023-06-05)
 
-
 ### Bug Fixes
 
-* **vite:** exclude `@prismicio/vue` from pre-bundling ([b95dca2](https://github.com/nuxt-modules/prismic/commit/b95dca2bab294a81f5673ecd008bf27057d76d49))
-
+- **vite:** exclude `@prismicio/vue` from pre-bundling ([b95dca2](https://github.com/nuxt-modules/prismic/commit/b95dca2bab294a81f5673ecd008bf27057d76d49))
 
 ### Documentation
 
-* fix changelog ([aa5b0fa](https://github.com/nuxt-modules/prismic/commit/aa5b0fa0bde555a05126ac0b5aad9baef3df437d))
+- fix changelog ([aa5b0fa](https://github.com/nuxt-modules/prismic/commit/aa5b0fa0bde555a05126ac0b5aad9baef3df437d))
 
 ## [3.0.0-rc.8](https://github.com/nuxt-modules/prismic/compare/v3.0.0-rc.7...v3.0.0-rc.8) (2023-06-02)
 
-
 ### ⚠ BREAKING CHANGES
 
-* update `@prismicio/vue` (#194)
+- update `@prismicio/vue` (#194)
 
 ### Features
 
-* update `@prismicio/vue` ([#194](https://github.com/nuxt-modules/prismic/issues/194)) ([55996a4](https://github.com/nuxt-modules/prismic/commit/55996a49b4d0ecfbeb258f56c5aa467242b7a5f2))
-
+- update `@prismicio/vue` ([#194](https://github.com/nuxt-modules/prismic/issues/194)) ([55996a4](https://github.com/nuxt-modules/prismic/commit/55996a49b4d0ecfbeb258f56c5aa467242b7a5f2))
 
 ### Chore
 
-* GitHub org change ([d56bc86](https://github.com/nuxt-modules/prismic/commit/d56bc867040d6abd752e807be68c822297d0b3c3))
-
+- GitHub org change ([d56bc86](https://github.com/nuxt-modules/prismic/commit/d56bc867040d6abd752e807be68c822297d0b3c3))
 
 ### Documentation
 
-* remove warning ([9d91b66](https://github.com/nuxt-modules/prismic/commit/9d91b66f4d45847309884b7526e3f58a8b7ba53c))
+- remove warning ([9d91b66](https://github.com/nuxt-modules/prismic/commit/9d91b66f4d45847309884b7526e3f58a8b7ba53c))
 
 ## [3.0.0-rc.7](https://github.com/nuxt-modules/prismic/compare/v3.0.0-rc.6...v3.0.0-rc.7) (2023-05-16)
 
-
 ### Bug Fixes
 
-* **plugins:** await Nuxt ready state before previewing data ([cf31e04](https://github.com/nuxt-modules/prismic/commit/cf31e04081cbc303698ce910868911f35695e30e))
+- **plugins:** await Nuxt ready state before previewing data ([cf31e04](https://github.com/nuxt-modules/prismic/commit/cf31e04081cbc303698ce910868911f35695e30e))
 
 ## [3.0.0-rc.6](https://github.com/nuxt-modules/prismic/compare/v3.0.0-rc.5...v3.0.0-rc.6) (2023-05-15)
 
-
 ### Bug Fixes
 
-* don't use alias to inject config to preserve runtime reactivity, resolves [#192](https://github.com/nuxt-modules/prismic/issues/192) ([6846c07](https://github.com/nuxt-modules/prismic/commit/6846c07a4395845111c3c8809a1414b6543a877d))
+- don't use alias to inject config to preserve runtime reactivity, resolves [#192](https://github.com/nuxt-modules/prismic/issues/192) ([6846c07](https://github.com/nuxt-modules/prismic/commit/6846c07a4395845111c3c8809a1414b6543a877d))
 
 ## [3.0.0-rc.5](https://github.com/nuxt-modules/prismic/compare/v3.0.0-rc.4...v3.0.0-rc.5) (2023-05-05)
 
-
 ### Features
 
-* add full support of nuxt public runtime config ([a73f575](https://github.com/nuxt-modules/prismic/commit/a73f57577a3b69a1ec3fc6398020f638f90d60de))
-
+- add full support of nuxt public runtime config ([a73f575](https://github.com/nuxt-modules/prismic/commit/a73f57577a3b69a1ec3fc6398020f638f90d60de))
 
 ### Refactor
 
-* **playground:** use public runtime config in playground app ([304f656](https://github.com/nuxt-modules/prismic/commit/304f656018fcea02fb4274f5145c9bfe6c297a87))
-
+- **playground:** use public runtime config in playground app ([304f656](https://github.com/nuxt-modules/prismic/commit/304f656018fcea02fb4274f5145c9bfe6c297a87))
 
 ### Chore
 
-* **deps:** maintain dependencies ([9413ef1](https://github.com/nuxt-modules/prismic/commit/9413ef1407c151fc530c575e3e5ed4a7836bfc5d))
-* update to consola v3 ([bb61327](https://github.com/nuxt-modules/prismic/commit/bb61327100e9b1814fdc80fb1796c6321cc36079))
+- **deps:** maintain dependencies ([9413ef1](https://github.com/nuxt-modules/prismic/commit/9413ef1407c151fc530c575e3e5ed4a7836bfc5d))
+- update to consola v3 ([bb61327](https://github.com/nuxt-modules/prismic/commit/bb61327100e9b1814fdc80fb1796c6321cc36079))
 
 ## [3.0.0-rc.4](https://github.com/nuxt-modules/prismic/compare/v3.0.0-rc.3...v3.0.0-rc.4) (2023-03-30)
 
-
 ### Bug Fixes
 
-* explicitely import utilities in module runtime ([9e9af4b](https://github.com/nuxt-modules/prismic/commit/9e9af4b67f5572724e214fa3cb28eb95fed24789))
+- explicitely import utilities in module runtime ([9e9af4b](https://github.com/nuxt-modules/prismic/commit/9e9af4b67f5572724e214fa3cb28eb95fed24789))
 
 ## [3.0.0-rc.3](https://github.com/nuxt-modules/prismic/compare/v3.0.0-rc.2...v3.0.0-rc.3) (2023-03-28)
 
-
 ### Features
 
-* allow configuring module at runtime using environment variables ([3328125](https://github.com/nuxt-modules/prismic/commit/33281256034a2038e840869dffb2836a4a2797c1))
-* inject Vue plugin into Nuxt app ([c12457e](https://github.com/nuxt-modules/prismic/commit/c12457ef9e6076c83612019f444de7547c830267))
-
+- allow configuring module at runtime using environment variables ([3328125](https://github.com/nuxt-modules/prismic/commit/33281256034a2038e840869dffb2836a4a2797c1))
+- inject Vue plugin into Nuxt app ([c12457e](https://github.com/nuxt-modules/prismic/commit/c12457ef9e6076c83612019f444de7547c830267))
 
 ### Documentation
 
-* add link resolver warning ([cd6e497](https://github.com/nuxt-modules/prismic/commit/cd6e497a13e5a4f8313d26f9d7cfcbabcc340cb8))
-
+- add link resolver warning ([cd6e497](https://github.com/nuxt-modules/prismic/commit/cd6e497a13e5a4f8313d26f9d7cfcbabcc340cb8))
 
 ### Refactor
 
-* inject toolbar script from plugin ([cbab6c8](https://github.com/nuxt-modules/prismic/commit/cbab6c89473e6eff9c19746e791a0f4d520c625a))
-
+- inject toolbar script from plugin ([cbab6c8](https://github.com/nuxt-modules/prismic/commit/cbab6c89473e6eff9c19746e791a0f4d520c625a))
 
 ### Chore
 
-* **deps:** add missing package ([dcab0b8](https://github.com/nuxt-modules/prismic/commit/dcab0b8e7e4feb8328b9d3402e892d8ed5744ea2))
-* **deps:** maintain dependencies ([1d289e3](https://github.com/nuxt-modules/prismic/commit/1d289e3d128a58b71c16b505b70d36b8c08c4135))
-* **deps:** maintain dependencies ([e54cae3](https://github.com/nuxt-modules/prismic/commit/e54cae359b33becf3b5ed145a7099c6350f731e0))
+- **deps:** add missing package ([dcab0b8](https://github.com/nuxt-modules/prismic/commit/dcab0b8e7e4feb8328b9d3402e892d8ed5744ea2))
+- **deps:** maintain dependencies ([1d289e3](https://github.com/nuxt-modules/prismic/commit/1d289e3d128a58b71c16b505b70d36b8c08c4135))
+- **deps:** maintain dependencies ([e54cae3](https://github.com/nuxt-modules/prismic/commit/e54cae359b33becf3b5ed145a7099c6350f731e0))
 
 ## [3.0.0-rc.2](https://github.com/nuxt-modules/prismic/compare/v3.0.0-rc.1...v3.0.0-rc.2) (2022-11-17)
 
-
 ### Chore
 
-* **deps:** update to Nuxt 3 ([884d067](https://github.com/nuxt-modules/prismic/commit/884d067cc41f00a414eef24474d9d9e7168745df))
+- **deps:** update to Nuxt 3 ([884d067](https://github.com/nuxt-modules/prismic/commit/884d067cc41f00a414eef24474d9d9e7168745df))
 
 ## [3.0.0-rc.1](https://github.com/nuxt-modules/prismic/compare/v3.0.0-rc.0...v3.0.0-rc.1) (2022-09-05)
 
-
 ### Documentation
 
-* fix meta ([a7ec956](https://github.com/nuxt-modules/prismic/commit/a7ec956a2aff17f4aa1b86fa10ec1a5102a19c46))
-
+- fix meta ([a7ec956](https://github.com/nuxt-modules/prismic/commit/a7ec956a2aff17f4aa1b86fa10ec1a5102a19c46))
 
 ### Chore
 
-* enable prerelease support ([233eb3a](https://github.com/nuxt-modules/prismic/commit/233eb3a5ae5bf8cd37ec0001be3abf6c9439bd6f))
-* GitHub org change ([70dbd28](https://github.com/nuxt-modules/prismic/commit/70dbd28257f9bf4518000f4c610383adad4070a4))
+- enable prerelease support ([233eb3a](https://github.com/nuxt-modules/prismic/commit/233eb3a5ae5bf8cd37ec0001be3abf6c9439bd6f))
+- GitHub org change ([70dbd28](https://github.com/nuxt-modules/prismic/commit/70dbd28257f9bf4518000f4c610383adad4070a4))
 
 ## [3.0.0-rc.0](https://github.com/nuxt-modules/prismic/compare/v3.0.0-alpha.10...v3.0.0-rc.0) (2022-07-18)
 

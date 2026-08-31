@@ -1,6 +1,11 @@
 packages:
   - client
   - playground
+allowBuilds:
+  "@parcel/watcher": true
+  esbuild: true
+minimumReleaseAgeExclude:
+  - "@prismicio/vue@6.1.4"
 onlyBuiltDependencies:
   - esbuild
   - vue-demi
