@@ -55,6 +55,7 @@ For more clarity on this project and its structure you can also check out the de
 
 <!-- Links -->
 
+[nuxt]: https://nuxt.com
 [prismic]: https://prismic.io
 
 <!-- Replace link with a more useful one if available -->
