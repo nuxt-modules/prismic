@@ -27,9 +27,13 @@ Install the module to your Nuxt application with one command:
 npx nuxi@latest module add prismic
 ```
 
-The module automatically loads your repository name and `routes` from `prismic.config.json`, so for most projects all you need to do is register the module (done by the `module add` command). If needed, you can still override those values and configure the Nuxt module further in `nuxt.config.ts` or Nuxt's `runtimeConfig`.
+The module automatically loads your repository name and `routes` from `prismic.config.json`, so for most projects, all you need to do is register the module (done by the `module add` command). If needed, you can still override those values and configure the Nuxt module further in `nuxt.config.ts` or Nuxt's `runtimeConfig`.
 
-That's it! You can now use Prismic in your Nuxt app ✨
+Using an AI agent? Teach it how to use `@nuxtjs/prismic` by installing the Prismic skill:
+
+```bash
+npx skills add --global --yes prismicio/skills
+```
 
 ## Documentation
 
