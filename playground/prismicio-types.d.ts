@@ -20,32 +20,30 @@ type PickContentRelationshipFieldData<
 > =
 	// Content relationship fields
 	{
-		[TSubRelationship in Extract<
-			TRelationship["fields"][number],
-			prismic.CustomTypeModelFetchContentRelationshipLevel1
-		> as TSubRelationship["id"]]: ContentRelationshipFieldWithData<
-			TSubRelationship["customtypes"],
-			TLang
-		>;
+		[
+			TSubRelationship in Extract<
+				TRelationship["fields"][number],
+				prismic.CustomTypeModelFetchContentRelationshipLevel1
+			> as TSubRelationship["id"]
+		]: ContentRelationshipFieldWithData<TSubRelationship["customtypes"], TLang>;
 	} & {
 		// Group
-		[TGroup in Extract<
-			TRelationship["fields"][number],
-			| prismic.CustomTypeModelFetchGroupLevel1
-			| prismic.CustomTypeModelFetchGroupLevel2
-		> as TGroup["id"]]: TData[TGroup["id"]] extends prismic.GroupField<
-			infer TGroupData
-		>
+		[
+			TGroup in Extract<
+				TRelationship["fields"][number],
+				| prismic.CustomTypeModelFetchGroupLevel1
+				| prismic.CustomTypeModelFetchGroupLevel2
+			> as TGroup["id"]
+		]: TData[TGroup["id"]] extends prismic.GroupField<infer TGroupData>
 			? prismic.GroupField<
 					PickContentRelationshipFieldData<TGroup, TGroupData, TLang>
 				>
 			: never;
 	} & {
 		// Other fields
-		[TFieldKey in Extract<
-			TRelationship["fields"][number],
-			string
-		>]: TFieldKey extends keyof TData ? TData[TFieldKey] : never;
+		[
+			TFieldKey in Extract<TRelationship["fields"][number], string>
+		]: TFieldKey extends keyof TData ? TData[TFieldKey] : never;
 	};
 
 type ContentRelationshipFieldWithData<
@@ -54,10 +52,9 @@ type ContentRelationshipFieldWithData<
 		| readonly (prismic.CustomTypeModelFetchCustomTypeLevel2 | string)[],
 	TLang extends string = string,
 > = {
-	[ID in Exclude<
-		TCustomType[number],
-		string
-	>["id"]]: prismic.ContentRelationshipField<
+	[
+		ID in Exclude<TCustomType[number], string>["id"]
+	]: prismic.ContentRelationshipField<
 		ID,
 		TLang,
 		PickContentRelationshipFieldData<
