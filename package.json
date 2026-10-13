@@ -52,25 +52,25 @@
 		"test": "npm run lint && npm run types && npm run unit && npm run build"
 	},
 	"dependencies": {
-		"@nuxt/kit": "^4.5.2",
-		"@prismicio/vue": "^6.1.4",
+		"@nuxt/kit": "^4.6.1",
+		"@prismicio/vue": "^6.1.5",
 		"defu": "^6.1.7",
-		"nypm": "^0.6.9",
-		"pkg-types": "^2.3.1"
+		"nypm": "^0.6.10",
+		"pkg-types": "^2.3.3"
 	},
 	"devDependencies": {
 		"@nuxt/module-builder": "^1.0.3",
-		"@nuxt/schema": "^4.5.2",
-		"@nuxt/test-utils": "^3.23.0",
-		"@prismicio/client": "^7.22.0",
-		"@types/node": "^26.4.0",
-		"@vitest/coverage-v8": "^4.1.11",
-		"nuxt": "^4.5.2",
-		"oxfmt": "^0.65.0",
-		"oxlint": "^1.80.0",
+		"@nuxt/schema": "^4.6.1",
+		"@nuxt/test-utils": "^4.3.3",
+		"@prismicio/client": "^7.22.3",
+		"@types/node": "^26.6.5",
+		"@vitest/coverage-v8": "^5.0.3",
+		"nuxt": "^4.6.1",
+		"oxfmt": "^0.72.0",
+		"oxlint": "^1.87.0",
 		"typescript": "^6.0.3",
-		"vitest": "^4.1.11",
-		"vue-tsc": "^3.3.11"
+		"vitest": "^5.0.3",
+		"vue-tsc": "^3.3.12"
 	},
 	"peerDependencies": {
 		"@prismicio/client": "^7.21.8"
@@ -81,5 +81,5 @@
 	"publishConfig": {
 		"access": "public"
 	},
-	"packageManager": "pnpm@11.24.0"
+	"packageManager": "pnpm@12.11.2"
 }
