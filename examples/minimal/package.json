@@ -9,10 +9,10 @@
 		"postinstall": "nuxt prepare"
 	},
 	"dependencies": {
-		"@prismicio/client": "^7.21.2"
+		"@prismicio/client": "^7.22.3"
 	},
 	"devDependencies": {
-		"@nuxtjs/prismic": "^5.1.1",
-		"nuxt": "^4.2.2"
+		"@nuxtjs/prismic": "^5.3.1",
+		"nuxt": "^4.6.1"
 	}
 }

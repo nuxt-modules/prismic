@@ -1,6 +1,18 @@
 {
 	"$schema": "./node_modules/oxfmt/configuration_schema.json",
-	"semi": false,
-	"sortImports": true,
-	"jsdoc": true
+	"printWidth": 80,
+	"sortImports": {
+		"customGroups": [
+			{ "groupName": "vitest", "elementNamePattern": ["vitest", "vitest/**"] }
+		],
+		"groups": [
+			"vitest",
+			"builtin",
+			["external", "internal", "subpath"],
+			["parent", "sibling", "index"],
+			"unknown"
+		]
+	},
+	"sortPackageJson": false,
+	"ignorePatterns": ["CHANGELOG.md"]
 }
