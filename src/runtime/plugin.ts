@@ -57,8 +57,6 @@ export default defineNuxtPlugin({
 
 		function handlePreview() {
 			if (options.preview) {
-				const previewCookie = useCookie("io.prismic.preview").value;
-
 				// Update client with req when running server side
 				if (import.meta.server) {
 					const req = useRequestEvent()?.node.req;
@@ -67,37 +65,18 @@ export default defineNuxtPlugin({
 					}
 				}
 
-				if (previewCookie) {
-					try {
-						const session =
-							typeof previewCookie === "string"
-								? JSON.parse(decodeURIComponent(previewCookie))
-								: previewCookie;
-
-						if (
-							Object.keys(session).some(
-								(key) =>
-									key in session &&
-									typeof session[key] === "object" &&
-									session[key] !== null &&
-									"preview" in session[key] &&
-									session[key].preview,
-							)
-						) {
-							let afterEachCalled = false;
-							onNuxtReady(() => {
-								if (!afterEachCalled) {
-									refreshNuxtData();
-								}
-							});
-							useRouter().afterEach(() => {
-								afterEachCalled = true;
-								refreshNuxtData();
-							});
+				// Toolbar v5 deletes preview cookies without a session, so a cookie means a preview.
+				if (useCookie(cookie.preview).value) {
+					let afterEachCalled = false;
+					onNuxtReady(() => {
+						if (!afterEachCalled) {
+							refreshNuxtData();
 						}
-					} catch (error) {
-						console.warn("Failed to parse Prismic preview cookie", error);
-					}
+					});
+					useRouter().afterEach(() => {
+						afterEachCalled = true;
+						refreshNuxtData();
+					});
 				}
 			}
 		}

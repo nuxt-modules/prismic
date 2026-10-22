@@ -42,10 +42,15 @@ describe("default preview page and path", async () => {
 		const previewURL = url(
 			`/base/preview?token=${encodeURIComponent(token)}&session=abc~xyz`,
 		);
+		// Prerendered pages fetch the draft in the browser.
+		const draftRequest = page.waitForRequest(
+			(request) => new URL(request.url()).searchParams.get("ref") === token,
+		);
 		await page.goto(previewURL);
 		await page.waitForURL(url("/base/"));
 
 		expect(loads).toEqual([previewURL, url("/base/")]);
+		await draftRequest;
 		const cookies = await page.waitForFunction(
 			() => (window as { toolbarCookies?: string }).toolbarCookies,
 		);
