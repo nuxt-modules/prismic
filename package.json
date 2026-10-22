@@ -62,18 +62,19 @@
 		"@nuxt/module-builder": "^1.0.3",
 		"@nuxt/schema": "^4.6.1",
 		"@nuxt/test-utils": "^4.3.3",
-		"@prismicio/client": "^7.22.3",
+		"@prismicio/client": "7.22.3-pr.477.9eb2102",
 		"@types/node": "^26.6.5",
 		"@vitest/coverage-v8": "^5.0.3",
 		"nuxt": "^4.6.1",
 		"oxfmt": "^0.72.0",
 		"oxlint": "^1.87.0",
+		"playwright-core": "^1.64.1",
 		"typescript": "^6.0.3",
 		"vitest": "^5.0.3",
 		"vue-tsc": "^3.3.12"
 	},
 	"peerDependencies": {
-		"@prismicio/client": "^7.21.8"
+		"@prismicio/client": "^7.23.0"
 	},
 	"engines": {
 		"node": ">=20.0.0"
