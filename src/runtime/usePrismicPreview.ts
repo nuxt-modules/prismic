@@ -22,7 +22,7 @@ export const usePrismicPreview = (defaultURL = "/"): void => {
 
 		// Toolbar v5 only starts on page load, with a session cookie. The preview cookie lets that
 		// page render the draft right away.
-		setCookie("io.prismic.previewSession", session);
+		setCookie(cookie.previewSession, session);
 		const token = params.get("token");
 		if (token) setCookie(cookie.preview, token);
 		location.replace(router.resolve(redirectURL).href);

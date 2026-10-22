@@ -88,8 +88,7 @@ export default defineNuxtPlugin({
 					script: [
 						{
 							key: "prismic-preview",
-							// TODO: Remove `&v=5` once `getToolbarSrc()` from @prismicio/client adds it.
-							src: `${getToolbarSrc(client.repositoryName)}&v=5`,
+							src: getToolbarSrc(client.repositoryName, { version: 5 }),
 							async: true,
 							defer: true,
 							crossorigin: "anonymous",
@@ -99,7 +98,7 @@ export default defineNuxtPlugin({
 			} else {
 				// TODO: We might want to let user disable this behavior because it might have unexpected side effects
 				useCookie(cookie.preview).value = null;
-				useCookie("io.prismic.previewSession").value = null;
+				useCookie(cookie.previewSession).value = null;
 			}
 		}
 

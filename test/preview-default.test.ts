@@ -19,7 +19,7 @@ describe("default preview page and path", async () => {
 	it("injects the Prismic toolbar v5 script", async () => {
 		const html = await $fetch("/base/");
 		expect(html).toContain(
-			"https://static.cdn.prismic.io/prismic.js?new=true&repo=nuxtjs-prismic&v=5",
+			"https://static.cdn.prismic.io/prismic.js?repo=nuxtjs-prismic&v=5",
 		);
 	});
 
