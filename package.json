@@ -62,7 +62,7 @@
 		"@nuxt/module-builder": "^1.0.3",
 		"@nuxt/schema": "^4.6.1",
 		"@nuxt/test-utils": "^4.3.3",
-		"@prismicio/client": "7.22.3-pr.477.9eb2102",
+		"@prismicio/client": "7.22.3-pr.477.5e5ad22",
 		"@types/node": "^26.6.5",
 		"@vitest/coverage-v8": "^5.0.3",
 		"nuxt": "^4.6.1",
