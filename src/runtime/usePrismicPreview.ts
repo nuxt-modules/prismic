@@ -21,13 +21,23 @@ export const usePrismicPreview = (defaultURL = "/"): void => {
 		}
 
 		// Toolbar v5 only starts on page load, with a session cookie. The preview cookie lets that
-		// page render the draft right away.
+		// page render the draft right away. Share links carry the page to open in `path`.
 		setCookie(cookie.previewSession, session);
 		const token = params.get("token");
 		if (token) setCookie(cookie.preview, token);
-		location.replace(router.resolve(redirectURL).href);
+		location.replace(
+			getSafePath(params.get("path")) ?? router.resolve(redirectURL).href,
+		);
 	});
 };
+
+/** Returns `path` if it stays on this origin. It comes from `location`, so it has the base URL. */
+function getSafePath(path: string | null) {
+	if (!path?.startsWith("/") || path[1] === "/" || path[1] === "\\") return;
+
+	const origin = "https://placeholder.invalid";
+	if (new URL(path, origin).origin === origin) return path;
+}
 
 // Writes cookies like the toolbar: the client sends the raw value as the ref, so URL characters
 // stay unescaped, and cross-site iframes like the editor's need `SameSite=None`.

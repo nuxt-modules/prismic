@@ -19,8 +19,9 @@ describe("default preview page and path", async () => {
 	it("injects the Prismic toolbar v5 script", async () => {
 		const html = await $fetch("/base/");
 		expect(html).toContain(
-			"https://static.cdn.prismic.io/prismic.js?repo=nuxtjs-prismic&v=5",
+			'src="https://static.cdn.prismic.io/prismic.js?repo=nuxtjs-prismic&v=5"',
 		);
+		expect(html).toContain('data-preview-url="/base/preview"');
 	});
 
 	it("starts the toolbar with the preview session", async () => {
@@ -40,16 +41,16 @@ describe("default preview page and path", async () => {
 
 		const token = "https://nuxtjs-prismic.prismic.io/previews/abc:def?a=b";
 		const previewURL = url(
-			`/base/preview?token=${encodeURIComponent(token)}&session=abc~xyz`,
+			`/base/preview?token=${encodeURIComponent(token)}&session=abc~xyz&path=${encodeURIComponent("/base/?shared#top")}`,
 		);
 		// Prerendered pages fetch the draft in the browser.
 		const draftRequest = page.waitForRequest(
 			(request) => new URL(request.url()).searchParams.get("ref") === token,
 		);
 		await page.goto(previewURL);
-		await page.waitForURL(url("/base/"));
+		await page.waitForURL(url("/base/?shared#top"));
 
-		expect(loads).toEqual([previewURL, url("/base/")]);
+		expect(loads).toEqual([previewURL, url("/base/?shared")]);
 		await draftRequest;
 		const cookies = await page.waitForFunction(
 			() => (window as { toolbarCookies?: string }).toolbarCookies,
@@ -58,5 +59,26 @@ describe("default preview page and path", async () => {
 			`io.prismic.preview=${token}`,
 			"io.prismic.previewSession=abc~xyz",
 		]);
+	});
+
+	it("ignores unsafe paths", async () => {
+		for (const path of [
+			"//example.com",
+			"/\\example.com",
+			"https://example.com",
+			"//placeholder.invalid/",
+			"/\t/example.com",
+		]) {
+			const page = await createPage();
+			await page.route("https://static.cdn.prismic.io/**", (route) =>
+				route.abort(),
+			);
+			await page.goto(
+				url(
+					`/base/preview?token=ref&session=abc&path=${encodeURIComponent(path)}`,
+				),
+			);
+			await page.waitForURL(url("/base/"));
+		}
 	});
 });
