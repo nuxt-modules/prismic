@@ -33,9 +33,9 @@ export const usePrismicPreview = (defaultURL = "/"): void => {
 
 /**
  * Returns `path` if it stays on the current origin, like `/blog?page=2#top`. It comes from
- * `location`, so it already includes the base URL.
+ * `location`, so it already includes `app.baseURL`.
  */
-function getSafePath(path: string | null): string | undefined {
+function getSafePath(path: string | null | undefined): string | undefined {
 	if (
 		!path?.startsWith("/") ||
 		path.startsWith("//") ||
@@ -45,7 +45,12 @@ function getSafePath(path: string | null): string | undefined {
 	}
 
 	const origin = "https://placeholder.invalid";
-	const url = new URL(path, origin);
+	let url: URL;
+	try {
+		url = new URL(path, origin);
+	} catch {
+		return;
+	}
 	const safePath = url.href.slice(origin.length);
 	// Normalizing can create `//`, like with `/.//example.com`.
 	if (url.origin === origin && !safePath.startsWith("//")) {
