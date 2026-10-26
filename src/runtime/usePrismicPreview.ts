@@ -31,12 +31,24 @@ export const usePrismicPreview = (defaultURL = "/"): void => {
 	});
 };
 
-/** Returns `path` if it stays on this origin. It comes from `location`, so it has the base URL. */
-function getSafePath(path: string | null) {
-	if (!path?.startsWith("/") || path[1] === "/" || path[1] === "\\") return;
+/**
+ * Returns `path` if it stays on the current origin, like `/blog?page=2#top`. It comes from
+ * `location`, so it already includes the base URL.
+ */
+function getSafePath(path: string | null): string | undefined {
+	if (
+		!path?.startsWith("/") ||
+		path.startsWith("//") ||
+		path.startsWith("/\\")
+	) {
+		return;
+	}
 
 	const origin = "https://placeholder.invalid";
-	if (new URL(path, origin).origin === origin) return path;
+	const url = new URL(path, origin);
+	if (url.origin === origin) {
+		return url.href.slice(origin.length);
+	}
 }
 
 // Writes cookies like the toolbar: the client sends the raw value as the ref, so URL characters
