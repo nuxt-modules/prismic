@@ -46,8 +46,10 @@ function getSafePath(path: string | null): string | undefined {
 
 	const origin = "https://placeholder.invalid";
 	const url = new URL(path, origin);
-	if (url.origin === origin) {
-		return url.href.slice(origin.length);
+	const safePath = url.href.slice(origin.length);
+	// Normalizing can create `//`, like with `/.//example.com`.
+	if (url.origin === origin && !safePath.startsWith("//")) {
+		return safePath;
 	}
 }
 

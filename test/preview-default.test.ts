@@ -68,6 +68,7 @@ describe("default preview page and path", async () => {
 			"https://example.com",
 			"//placeholder.invalid/",
 			"/\t/example.com",
+			"/.//example.com",
 		]) {
 			const page = await createPage();
 			await page.route("https://static.cdn.prismic.io/**", (route) =>
