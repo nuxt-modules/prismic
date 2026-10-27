@@ -20,6 +20,5 @@ describe("custom preview page and path", async () => {
 	it("injects the Prismic toolbar script", async () => {
 		const html = await $fetch("/");
 		expect(html).toContain("static.cdn.prismic.io/prismic.js");
-		expect(html).toContain('data-preview-url="/custom-preview"');
 	});
 });

@@ -21,7 +21,6 @@ describe("default preview page and path", async () => {
 		expect(html).toContain(
 			'src="https://static.cdn.prismic.io/prismic.js?repo=nuxtjs-prismic&v=5"',
 		);
-		expect(html).toContain('data-preview-url="/base/preview"');
 	});
 
 	it("starts the toolbar with the preview session", async () => {

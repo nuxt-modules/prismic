@@ -89,10 +89,6 @@ export default defineNuxtPlugin({
 						{
 							key: "prismic-preview",
 							src: getToolbarSrc(client.repositoryName, { version: 5 }),
-							// Toolbar v5 builds share links with the preview route.
-							"data-preview-url": options.preview
-								? useRouter().resolve(options.preview).href
-								: undefined,
 							async: true,
 							defer: true,
 							crossorigin: "anonymous",
