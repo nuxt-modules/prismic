@@ -1,12 +1,19 @@
 // @ts-expect-error - Proxy file
-import { usePrismic, useRouter } from "#imports";
+import { useCookie, usePrismic, useRouter } from "#imports";
 import { cookie } from "@prismicio/client";
-import { onMounted } from "vue";
+import { nextTick, onMounted } from "vue";
 
 /** Resolves Prismic previews on the preview entry page (`/preview`) */
 export const usePrismicPreview = (defaultURL = "/"): void => {
 	const { client, linkResolver } = usePrismic();
 	const router = useRouter();
+	// Like the toolbar's cookies: cross-site iframes, like the editor's, need `SameSite=None`.
+	const cookieOptions =
+		import.meta.client && window.self !== window.top && window.isSecureContext
+			? ({ sameSite: "none", secure: true } as const)
+			: ({ sameSite: "lax" } as const);
+	const previewCookie = useCookie(cookie.preview, cookieOptions);
+	const sessionCookie = useCookie(cookie.previewSession, cookieOptions);
 	onMounted(async () => {
 		const params = new URLSearchParams(location.search);
 		const session = params.get("session");
@@ -22,9 +29,11 @@ export const usePrismicPreview = (defaultURL = "/"): void => {
 
 		// Toolbar v5 only starts on page load, with a session cookie. The preview cookie lets that
 		// page render the draft right away. Share links carry the page to open in `path`.
-		setCookie(cookie.previewSession, session);
+		sessionCookie.value = session;
 		const token = params.get("token");
-		if (token) setCookie(cookie.preview, token);
+		if (token) previewCookie.value = token;
+		// `useCookie` writes on the next tick.
+		await nextTick();
 		location.replace(
 			getSafePath(params.get("path")) ?? router.resolve(redirectURL).href,
 		);
@@ -56,18 +65,4 @@ function getSafePath(path: string | null | undefined): string | undefined {
 	if (url.origin === origin && !safePath.startsWith("//")) {
 		return safePath;
 	}
-}
-
-// Writes cookies like the toolbar: the client sends the raw value as the ref, so URL characters
-// stay unescaped, and cross-site iframes like the editor's need `SameSite=None`.
-function setCookie(name: string, value: string) {
-	const encoded = encodeURIComponent(value).replace(
-		/%(2[346BF]|3[AC-F]|40|5[BDE]|60|7[BCD])/g,
-		decodeURIComponent,
-	);
-	const sameSite =
-		window.self !== window.top && window.isSecureContext
-			? "None; Secure"
-			: "Lax";
-	document.cookie = `${name}=${encoded}; Path=/; SameSite=${sameSite}`;
 }
