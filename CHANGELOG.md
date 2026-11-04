@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [5.4.0](https://github.com/nuxt-modules/prismic/compare/v5.3.1...v5.4.0) (2026-11-04)
+
+
+### Features
+
+* support Prismic toolbar v5 previews ([#247](https://github.com/nuxt-modules/prismic/issues/247)) ([303bfda](https://github.com/nuxt-modules/prismic/commit/303bfda7b2bb528088c240619e2cf452d432356f))
+
 ## [5.3.1](https://github.com/nuxt-modules/prismic/compare/v5.3.0...v5.3.1) (2026-08-31)
 
 
