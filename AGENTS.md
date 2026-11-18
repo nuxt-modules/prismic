@@ -1,0 +1,11 @@
+- Make the smallest change that does the task. No refactors, speculative changes, or new abstractions.
+- Prefer a good default to a new option, and a native API to a custom helper.
+- Keep logic at its call site. Move it to a shared module only when a second caller needs it.
+- Don't add runtime dependencies. If you think one is needed, ask a human.
+- Avoid comments. Add one only when the code can't explain a non-obvious why. Never describe what the code does, what changed, or how it used to work.
+- Test against a real Prismic repository with `@nuxt/test-utils/e2e`, not a mocked backend. The test fixtures read the public `nuxtjs-prismic` repository.
+- Assert what a user would see, not the calls made to get there. A refactor should pass without editing tests.
+- Write unit tests only for edge cases end-to-end tests can't reach.
+- PRs are squash-merged and Release Please builds the changelog from the PR title. Use a Conventional Commits PR title.
+- In the PR description, explain why the change is needed: the goal or context the code can't show. Don't summarize the diff; reviewers can read it.
+- Don't edit `version` or `CHANGELOG.md`. Release Please owns them.
